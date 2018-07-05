@@ -19,6 +19,19 @@ Route::get('/s_signup_or_login', function () {
     return view('auth/stylist_register_or_login');
 });
 
+//ユーザー用
+Route::get('signup', 'Auth\RegisterController@showUserRegistrationForm')->name('signup.get');
+Route::post('signup', 'Auth\RegisterController@user_register')->name('signup.post');
+//スタイリスト用
+Route::get('signup', 'Auth\RegisterController@showStylistRegistrationForm')->name('signup.get');
+Route::post('signup', 'Auth\RegisterController@stylist_register')->name('signup.post');
+
+
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+
+
 
 // Route::get('/', function () {
 //     return view('welcome');
