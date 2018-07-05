@@ -16,6 +16,10 @@ class CreateStylistsTable extends Migration
         Schema::create('stylists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('stylist_name');
+            $table->string('age');
+            $table->string('gender');
+            $table->string('background');
+            $table->string('style');
             $table->string('password');
             $table->rememberToken();
             $table->timestamp('created_at')->nullable();
