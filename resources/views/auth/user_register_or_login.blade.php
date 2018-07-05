@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 <div class="row">
     <div class="col-xs-12">
         <nav class="navbar navbar-default">
@@ -35,4 +36,5 @@
        
     </div>
 </div>
+
 @endsection
