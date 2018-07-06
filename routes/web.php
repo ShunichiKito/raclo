@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('/navbar', function () {
+   print 'aaaaaaaaa';
+    return view('layouts/app');
+});
+
 Route::get('/', function () {
     return view('auth/user_register_or_login');
 })->name('u_signup_or_login');

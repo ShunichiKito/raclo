@@ -15,13 +15,11 @@
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
     <body>
-       
-
-        @yield('cover')
-
-        <div class="container">
-            @include('commons.error_messages')
-            @yield('content')
+         @include('commons.user_navbar')
+         @yield('cover')-->
+        <div class="container">-->
+         @include('commons.error_messages')-->
+         @yield('content')-->
         </div>
 
         @include('commons.footer')

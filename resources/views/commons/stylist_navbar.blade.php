@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('cover')
+
 
 <header>
 <nav class="navbar navbar-default">
@@ -17,11 +16,11 @@
     <!-- menu items -->
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Stylists</a></li>
-        <li><a href="#">Online Stylists</a></li>
+        <li class="active"><a href="#">Requests</a></li>
+        <li><a href="#">Workspace</a></li>
         
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class='glyphicon glyphicon-cog'></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Change Password</a></li>
             <li><a href="#">Price</a></li>
@@ -36,5 +35,3 @@
   </div><!-- /.container-fluid -->
 </nav>
 </header>
-
-@endsection
