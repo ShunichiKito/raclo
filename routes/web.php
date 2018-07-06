@@ -20,16 +20,45 @@ Route::get('/s_signup_or_login', function () {
 })->name('s_signup_or_login');
 
 //ユーザー用
-Route::get('signup', 'Auth\RegisterController@showUserRegistrationForm')->name('signup.get');
-Route::post('signup', 'Auth\RegisterController@user_register')->name('signup.post');
+Route::post('signup', 'Auth\RegisterController@user_register')->name('user_signup.post');
 //スタイリスト用
-Route::get('signup', 'Auth\RegisterController@showStylistRegistrationForm')->name('signup.get');
-Route::post('signup', 'Auth\RegisterController@stylist_register')->name('signup.post');
+Route::post('signup', 'Auth\RegisterController@stylist_register')->name('stylist_signup.post');
 
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login')->name('login.post');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+// Auth::routes();
+Route::group(['prefix' => 'user'], function() { 
+    // Authentication Routes...
+            // $this->get('login', 'User\AuthController@showLoginForm');
+    $this->post('login', 'User\AuthController@login');
+    $this->get('logout', 'User\AuthController@logout');
+
+    // Registration Routes...
+            // $this->get('register', 'User\AuthController@showRegistrationForm');
+    $this->post('register', 'User\AuthController@register');
+
+    // Password Reset Routes...
+    $this->get('password/reset/{token?}', 'User\PasswordController@showResetForm');
+    $this->post('password/email', 'User\PasswordController@sendResetLinkEmail');
+    $this->post('password/reset', 'User\PasswordController@reset');
+});
+
+
+Route::group(['prefix' => 'stylist'], function() { 
+    // Authentication Routes...
+            // $this->get('login', 'Stylist\AuthController@showLoginForm');
+    $this->post('login', 'Stylist\AuthController@login');
+    $this->get('logout', 'Stylist\AuthController@logout');
+
+    // Registration Routes...
+            // $this->get('register', 'Stylist\AuthController@showRegistrationForm');
+    $this->post('register', 'Stylist\AuthController@register');
+
+    // Password Reset Routes...
+    $this->get('password/reset/{token?}', 'Stylist\PasswordController@showResetForm');
+    $this->post('password/email', 'Stylist\PasswordController@sendResetLinkEmail');
+    $this->post('password/reset', 'Stylist\PasswordController@reset');
+});
+
 
 
 
@@ -60,3 +89,7 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 // Route::get('ranking/want', 'RankingController@want')->name('ranking.want');
 
 // Route::get('ranking/have', 'RankingController@have')->name('ranking.have');
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');

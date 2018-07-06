@@ -14,7 +14,6 @@ class CreateStylistPasswordResetsTable extends Migration
     public function up()
     {
         Schema::create('stylist_password_resets', function (Blueprint $table) {
-            $table->increments('id');
             $table->string('stylist_name')->index();
             $table->string('token');
             $table->timestamp('created_at')->nullable();

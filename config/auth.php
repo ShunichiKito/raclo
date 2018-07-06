@@ -36,13 +36,16 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        // 'admins' => [
+        //     'driver' => 'session',
+        //     'provider' => 'admins',
+        // ],
+        'stylists' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'stylists',
         ],
-
-        'api' => [
-            'driver' => 'token',
+        'users' => [
+            'driver' => 'session',
             'provider' => 'users',
         ],
     ],
@@ -69,6 +72,15 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'stylists' => [
+            'driver' => 'eloquent',
+            'model' => App\Stylist::class,
+        ],
+        // 'admins' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Admin::class,
+        // ],
+        
 
         // 'users' => [
         //     'driver' => 'database',
@@ -94,9 +106,27 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
+            'table' => 'user_password_resets',
             'expire' => 60,
         ],
+        'stylists' => [
+            'provider' => 'stylists',
+            'table' => 'stylist_password_resets',
+            'expire' => 60,
+        ],
+        // 'admins' => [
+        //     'provider' => 'admins',
+        //     'table' => 'admin_password_resets',
+        //     'expire' => 60,
+        // ],
+        
+        
+        // 'user_accounts' => [
+        //     'provider' => 'user_accounts',
+        //     'email' => 'user_accounts.emails.password',
+        //     'table' => 'user_account_password_resets',
+        //     'expire' => 60,
+        // ],
     ],
 
 ];
