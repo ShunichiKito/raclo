@@ -13,11 +13,11 @@
 
 Route::get('/', function () {
     return view('auth/user_register_or_login');
-});
+})->name('u_signup_or_login');
 
 Route::get('/s_signup_or_login', function () {
     return view('auth/stylist_register_or_login');
-});
+})->name('s_signup_or_login');
 
 //ユーザー用
 Route::get('signup', 'Auth\RegisterController@showUserRegistrationForm')->name('signup.get');

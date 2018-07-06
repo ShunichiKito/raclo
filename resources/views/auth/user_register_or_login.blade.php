@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
+
 <div class="row">
     <div class="col-xs-12">
         <nav class="navbar navbar-default">
@@ -28,7 +28,7 @@
 				</div>
 				<button type="submit" class="btn btn-default"><a href="{{ route('login') }}">Login</a></button>
 				<!--//route is missing for stylist signup-->
-			    <button type="submit" class="btn btn-danger"><a href="{{ route('/s_signup_or_login') }}">For Stylists</a></button>
+			    <button type="submit" class="btn btn-danger"><a href="{{ route('s_signup_or_login') }}">For Stylists</a></button>
 			</form>
 		</div>
 	</div>
