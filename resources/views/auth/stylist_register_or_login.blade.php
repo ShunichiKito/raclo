@@ -23,7 +23,7 @@
 			        <form class="navbar-form navbar-right" role="login">
         				<div class="form-group">
         					<input type="text" label="name" class="form-control" placeholder="User name">
-        				</div>
+                        </div>
         				<div class="form-group">
         					<input type="text" label="password" class="form-control" placeholder="Password">
         				</div>
@@ -34,7 +34,6 @@
         		</div>
         	</div>
         </nav>
-               
     </div>
 </div>
 
@@ -72,10 +71,6 @@
                         <br>(ex:American Casual....)
                         {!! Form::text('style', old('style'), ['class' => 'form-control']) !!}
                     </div>
-                    
-                    
-                    
-                    
 
                     <div class="form-group">
                         {!! Form::label('password', 'Password') !!}
