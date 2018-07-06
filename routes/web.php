@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/navbar', function () {
-   print 'aaaaaaaaa';
-    return view('layouts/app');
+Route::get('/s_navbar', function () {
+    return view('commons/stylist_navbar');
+});
+Route::get('/u_navbar', function () {
+    return view('commons/user_navbar');
 });
 
 Route::get('/', function () {
