@@ -19,11 +19,11 @@ Route::get('/s_signup_or_login', function () {
     return view('auth/stylist_register_or_login');
 })->name('s_signup_or_login');
 
-
+//テスト用
 Route::get('/s_closet', function () {
     return view('stylists/s_home');
 })->name('s_closet');
-
+//インフォのテスト用
 Route::get('/s_menu', function () {
     return view('stylists/s_info');
 })->name('s_menu');
