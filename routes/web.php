@@ -31,6 +31,11 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
+// yuina test
+Route::get('u_home', function () {
+    return view('users/u_home');
+});
+
 
 
 // Route::get('/', function () {

@@ -1,0 +1,15 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="row">
+        <div class="col-lg-12">
+            <!--<div style="position: relative;">-->
+                <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_home.css') }}">
+                <!--<img src="cabinet-575361_1280.png" class="center" alt="" height=500 width=500>-->
+                <link a href="stylists.s_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100></link>
+                <link a href="/"><img src="star-158502_640.png" class="right" alt="" height=100 width=100></link>
+                <!--<div style="position: absolute; top: 30px; left: 100px;">-->
+                    
+        </div>
+    </div>
+@endsection
