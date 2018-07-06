@@ -19,6 +19,15 @@ Route::get('/s_signup_or_login', function () {
     return view('auth/stylist_register_or_login');
 })->name('s_signup_or_login');
 
+
+Route::get('/s_closet', function () {
+    return view('stylists/s_home');
+})->name('s_closet');
+
+Route::get('/s_menu', function () {
+    return view('stylists/s_info');
+})->name('s_menu');
+
 //ユーザー用
 Route::get('signup', 'Auth\RegisterController@showUserRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@user_register')->name('signup.post');
