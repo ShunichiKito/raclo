@@ -19,6 +19,15 @@ Route::get('/s_signup_or_login', function () {
     return view('auth/stylist_register_or_login');
 })->name('s_signup_or_login');
 
+//テスト用
+Route::get('/s_closet', function () {
+    return view('stylists/s_home');
+})->name('s_closet');
+//インフォのテスト用
+Route::get('/s_menu', function () {
+    return view('stylists/s_info');
+})->name('s_menu');
+
 //ユーザー用
 Route::get('signup', 'Auth\RegisterController@showUserRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@user_register')->name('signup.post');
@@ -30,6 +39,11 @@ Route::post('signup', 'Auth\RegisterController@stylist_register')->name('signup.
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+
+// yuina test
+Route::get('u_home', function () {
+    return view('users/u_home');
+});
 
 
 
