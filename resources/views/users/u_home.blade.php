@@ -9,6 +9,8 @@
                
                 <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100"></a>
                 <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt="" height=100 width=100"></a>
+                
+                
                 <!--<div style="position: absolute; top: 30px; left: 100px;">-->
         </div>
     </div>
