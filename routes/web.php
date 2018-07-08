@@ -20,21 +20,21 @@ Route::get('/s_signup_or_login', function () {
 })->name('s_signup_or_login');
 
 //ユーザー用
-Route::post('signup', 'Auth\RegisterController@user_register')->name('user_signup.post');
+Route::post('signup', 'Auth\RegisterController@user_register')->name('u_signup.post');
 //スタイリスト用
-Route::post('signup', 'Auth\RegisterController@stylist_register')->name('stylist_signup.post');
+Route::post('signup', 'Auth\RegisterController@stylist_register')->name('s_signup.post');
 
 
 // Auth::routes();
 Route::group(['prefix' => 'user'], function() { 
     // Authentication Routes...
             // $this->get('login', 'User\AuthController@showLoginForm');
-    $this->post('login', 'User\AuthController@login');
+    $this->post('login', 'User\AuthController@login')->name('u_login.post');
     $this->get('logout', 'User\AuthController@logout');
 
     // Registration Routes...
             // $this->get('register', 'User\AuthController@showRegistrationForm');
-    $this->post('register', 'User\AuthController@register');
+    $this->post('register', 'User\AuthController@register')->name('u_signup.post');
 
     // Password Reset Routes...
     $this->get('password/reset/{token?}', 'User\PasswordController@showResetForm');
@@ -46,12 +46,12 @@ Route::group(['prefix' => 'user'], function() {
 Route::group(['prefix' => 'stylist'], function() { 
     // Authentication Routes...
             // $this->get('login', 'Stylist\AuthController@showLoginForm');
-    $this->post('login', 'Stylist\AuthController@login');
+    $this->post('login', 'Stylist\AuthController@login')->name('s_login.post');
     $this->get('logout', 'Stylist\AuthController@logout');
 
     // Registration Routes...
             // $this->get('register', 'Stylist\AuthController@showRegistrationForm');
-    $this->post('register', 'Stylist\AuthController@register');
+    $this->post('register', 'Stylist\AuthController@register')->name('s_signup.post');
 
     // Password Reset Routes...
     $this->get('password/reset/{token?}', 'Stylist\PasswordController@showResetForm');
@@ -73,7 +73,7 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
 // // ログイン認証
 // Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login')->name('login.post');
+// Route::post('login', 'Auth\LoginController@login')->name('login.post');
 // Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 // Route::group(['middleware' => ['auth']], function () {

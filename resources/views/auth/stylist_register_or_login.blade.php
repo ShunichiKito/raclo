@@ -27,7 +27,7 @@
         				<div class="form-group">
         					<input type="text" label="password" class="form-control" placeholder="Password">
         				</div>
-        				<button type="submit" class="btn btn-default"><a href="{{ route('login') }}">Login</a></button>
+        				<button type="submit" class="btn btn-default"><a href="{{ route('u_login.post') }}">Login</a></button>
         				<!--//route is missing for stylist signup-->
         			    <button type="submit" class="btn btn-danger"><a href="{{ route('u_signup_or_login') }}">For Users</a></button>
         			</form>
@@ -44,7 +44,7 @@
             <p>Your private information will be protected and you can edit it anytime</p>
             </div>
             <div class="panel-body">
-                {!! Form::open(['route' => 'signup.post']) !!}
+                {!! Form::open(['route' => 's_signup.post']) !!}
                     <div class="form-group">
                         {!! Form::label('stylist_name', 'User name') !!}
                         {!! Form::text('stylist_name', old('name'), ['class' => 'form-control']) !!}
