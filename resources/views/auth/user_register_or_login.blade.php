@@ -37,7 +37,7 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
+    <div class="col-xs-offset-7 col-xs-5">
         <div class="panel panel-default">
             <div class="panel-heading">
             <h1>Sign Up</h1>
