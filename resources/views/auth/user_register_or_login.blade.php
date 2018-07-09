@@ -2,8 +2,6 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-md-12">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
