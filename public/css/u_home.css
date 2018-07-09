@@ -29,3 +29,12 @@
     margin-left: 100px;
     margin-top: 80px;
 }
+
+.closet-items {
+    position: absolute;
+    width: 355px;
+    height: 650px;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-left: 150px;
+}

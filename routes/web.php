@@ -74,3 +74,6 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 // Route::get('ranking/want', 'RankingController@want')->name('ranking.want');
 
 // Route::get('ranking/have', 'RankingController@have')->name('ranking.have');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
