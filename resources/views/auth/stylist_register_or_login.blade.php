@@ -45,8 +45,7 @@
             <p>Your private information will be protected and you can edit it anytime</p>
             </div>
             <div class="panel-body">
-                <form class="form-horizontal" method="POST" action="{{ route('signup.post') }}">
-                    {{ csrf_field() }}
+                {!! Form::open(['route' => 'register']) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'User name') !!}
                         {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
@@ -54,12 +53,12 @@
                     
                     <div class="form-group">
                        {!! Form::label('age', 'Age') !!} <br>
-                       {!! Form::select('age', ['～20', '21～30', '31～40','41～50','51～'], 'select age' ) !!}
+                       {{Form::select('age', ['～20', '21～30', '31～40','41～50','51～'], 'select age' )}}
                     </div>
                     
                      <div class="form-group">
                        {!! Form::label('gender', 'Gender') !!} <br>
-                       {!! Form::select('gender', ['Male','Female','Other','Rather not say']) !!}
+                       {{Form::select('gender', ['Male','Female','Other','Rather not say'])}}
                     </div>
                     
                     <div class="form-group">
@@ -89,7 +88,7 @@
                     <div class="text-right">
                         {!! Form::submit('Sign Up', ['class' => 'btn btn-success']) !!}
                     </div>
-                </form>
+                {!! Form::close() !!} 
             </div>
         </div>
     </div>

@@ -17,7 +17,7 @@ class AddColumnsToUsers extends Migration
         Schema::table('users', function($table) {
             $table->string('background')->nullable();
             $table->string('style')->nullable();
-            $table->unsignedInteger('user_type')->default('1');
+            $table->unsignedInteger('user_type');
     });
     }
 

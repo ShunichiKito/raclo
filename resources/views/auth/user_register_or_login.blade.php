@@ -44,8 +44,7 @@
             <p>Your private information will be protected and you can edit it anytime</p>
             </div>
             <div class="panel-body">
-                 <form class="form-horizontal" method="POST" action="{{ route('signup.post') }}">
-                     {{ csrf_field() }}
+                {!! Form::open(['route' => 'register']) !!}
                     <div class="form-group">
                         {!! Form::label('name', 'User name') !!}
                         {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
@@ -75,7 +74,7 @@
                     <div class="text-right">
                         {!! Form::submit('Sign Up', ['class' => 'btn btn-success']) !!}
                     </div>
-                </form>
+                {!! Form::close() !!} 
             </div>
         </div>
     </div>
