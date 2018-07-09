@@ -6,8 +6,8 @@
 <div class="row">
     <div class="col-xs-12">
         <nav class="navbar navbar-default">
-        	<div class="container-fluid">
-        		<div class="navbar-header">
+	        <div class="container-fluid">
+		        <div class="navbar-header">
         			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
         				<span class="sr-only">Toggle navigation</span>
         				<span class="icon-bar"></span>
@@ -20,39 +20,42 @@
         		</div>
         		
         		<div class="collapse navbar-collapse" id="navbarEexample3">
-        			<form class="navbar-form navbar-right" role="login">
+        			<form class="navbar-form navbar-right" method="POST" action="{{ route('login.post') }}">
+        			    {{ csrf_field() }}
         				<div class="form-group">
-        					<input type="text" label="name" class="form-control" placeholder="User ID">
+        					<input id="name" type="name" class="form-control" name="name" value="{{ old('name') }}" placeholder="User Name" required autofocus>
         				</div>
         				<div class="form-group">
-        					<input type="text" label="password" class="form-control" placeholder="Password">
+        				    <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
         				</div>
-        				<button type="submit" class="btn btn-default"><a href="{{ route('login') }}">Login</a></button>
+        				<button type="submit" class="btn btn-default">Login</button>
         				<!--//route is missing for stylist signup-->
-        			    <button type="submit" class="btn btn-danger"><a href="{{ route('u_signup_or_login') }}">For Users</a></button>
+        			    <a class="btn btn-danger" href="{{ route('u_signup_or_login') }}">For Users</a>
         			</form>
         		</div>
         	</div>
-    	</nav>
+        </nav>
     </div>
 </div>
+
 <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
+    <div class="col-xs-offset-7 col-xs-5">
         <div class="panel panel-default">
             <div class="panel-heading">
             <h1>Sign Up</h1>
-            <p>Your private information will be protected and you can edit it anytime</p>
+            <p>Your private information will be protected and can be edit it anytime</p>
             </div>
             <div class="panel-body">
                 {!! Form::open(['route' => 'signup.post']) !!}
+                    
                     <div class="form-group">
-                        {!! Form::label('stylist_name', 'User name') !!}
-                        {!! Form::text('stylist_name', old('name'), ['class' => 'form-control']) !!}
+                        {!! Form::label('name', 'User name') !!}
+                        {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
                     </div>
                     
-                     <div class="form-group">
+                    <div class="form-group">
                        {!! Form::label('age', 'Age') !!} <br>
-                       {{Form::select('age', ['～20', '21～30', '31～40','41～50','51～'])}}
+                       {{Form::select('age', ['～20', '21～30', '31～40','41～50','51～'], 'select age' )}}
                     </div>
                     
                      <div class="form-group">
@@ -80,6 +83,9 @@
                         {!! Form::label('password_confirmation', 'Password（confirm）') !!}
                         {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                     </div>
+                    <div class="form-group">
+                        {!! Form::hidden('user_type', '2') !!}
+                    </div>   
 
                     <div class="text-right">
                         {!! Form::submit('Sign Up', ['class' => 'btn btn-success']) !!}

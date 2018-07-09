@@ -11,8 +11,12 @@
 |
 */
 
+<<<<<<< HEAD
 
 
+=======
+//初期画面
+>>>>>>> d20c7c38efa2083ac93dce384aa5c7de08abbb8b
 Route::get('/', function () {
     return view('auth/user_register_or_login');
 })->name('u_signup_or_login');
@@ -21,33 +25,15 @@ Route::get('/s_signup_or_login', function () {
     return view('auth/stylist_register_or_login');
 })->name('s_signup_or_login');
 
-//ユーザー用
-Route::get('signup', 'Auth\RegisterController@showUserRegistrationForm')->name('signup.get');
-Route::post('signup', 'Auth\RegisterController@user_register')->name('signup.post');
-//スタイリスト用
-Route::get('signup', 'Auth\RegisterController@showStylistRegistrationForm')->name('signup.get');
-Route::post('signup', 'Auth\RegisterController@stylist_register')->name('signup.post');
-
-
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login')->name('login.post');
-Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
-
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/', 'WelcomeController@index');
 
 // // ユーザ登録
-// Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
 // // ログイン認証
-// Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
-// Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+
 
 // Route::group(['middleware' => ['auth']], function () {
 //     Route::resource('items', 'ItemsController', ['only' => ['create', 'show']]);
@@ -62,3 +48,24 @@ Route::post('login', 'Auth\LoginController@login')->name('login.post');
 // Route::get('ranking/want', 'RankingController@want')->name('ranking.want');
 
 // Route::get('ranking/have', 'RankingController@have')->name('ranking.have');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+//Auth::routes();　これは下記のルートと同じ
+// Authentication Routes...
+// $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+// $this->post('login', 'Auth\LoginController@login');
+// $this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+// $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// $this->post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+$this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+$this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
