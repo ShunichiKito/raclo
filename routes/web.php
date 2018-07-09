@@ -43,7 +43,9 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 // yuina test
 Route::get('u_home', function () {
     return view('users/u_home');
-});
+})->name('u_home');
+
+
 
 
 
