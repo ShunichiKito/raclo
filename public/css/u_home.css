@@ -1,0 +1,31 @@
+
+.row {
+    background-image: url("/cabinet-575361_1280.png");
+    background-size: cover;
+    width: 700px;
+    height: 750px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.left {
+    float: left;
+    margin-left: 5px;
+    margin-right: 60px;
+    margin-top: 80px;
+}
+
+.right {
+    float: right;
+    /*right: 300;*/
+    /*bottom: 400;*/
+    margin-right: 10px;
+    margin-left: 100px;
+    margin-top: 80px;
+}
