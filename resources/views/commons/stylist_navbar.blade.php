@@ -32,7 +32,7 @@
     <!-- menu items -->
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Requests</a></li>
+        <li><a href="#">Requests</a></li>
         <li><a href="#">Workspace</a></li>
         
         <li class="dropdown">
