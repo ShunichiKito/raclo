@@ -6,8 +6,8 @@
 <div class="row">
     <div class="col-xs-12">
         <nav class="navbar navbar-default">
-        	<div class="container-fluid">
-        		<div class="navbar-header">
+	        <div class="container-fluid">
+		        <div class="navbar-header">
         			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
         				<span class="sr-only">Toggle navigation</span>
         				<span class="icon-bar"></span>
@@ -34,15 +34,16 @@
         			</form>
         		</div>
         	</div>
-    	</nav>
+        </nav>
     </div>
 </div>
+
 <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
+    <div class="col-xs-offset-7 col-xs-5">
         <div class="panel panel-default">
             <div class="panel-heading">
             <h1>Sign Up</h1>
-            <p>Your private information will be protected and you can edit it anytime</p>
+            <p>Your private information will be protected and can be edit it anytime</p>
             </div>
             <div class="panel-body">
                 {!! Form::open(['route' => 'signup.post']) !!}
