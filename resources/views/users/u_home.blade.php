@@ -12,16 +12,12 @@
                 
                 
                 <!--<div style="position: absolute; top: 30px; left: 100px;">-->
-<<<<<<< HEAD
                 <div class="closet-items">
                     <!--item変数を追加してから以下を実行する-->
                     {{-- @if (Auth::check()) --}}
                        {{-- @include('users.items', ['items' => $item]) --}}
                     {{-- @endif --}}
                 </div>
-                    
-=======
->>>>>>> 66ab1d9fafe7dd02451301a11832ab279839ca5d
         </div>
     </div>
 @endsection
