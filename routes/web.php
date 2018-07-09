@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('/s_navbar', function () {
+    return view('commons/stylist_navbar');
+});
+Route::get('/u_navbar', function () {
+    return view('commons/user_navbar');
+});
+
 Route::get('/', function () {
     return view('auth/user_register_or_login');
 })->name('u_signup_or_login');
