@@ -15,6 +15,9 @@
                     @endif
 
                     You are logged in!
+                    @if (Auth::check())
+                        login siteru
+                    @endif    
                 </div>
             </div>
         </div>

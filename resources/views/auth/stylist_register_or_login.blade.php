@@ -30,7 +30,7 @@
         				</div>
         				<button type="submit" class="btn btn-default">Login</button>
         				<!--//route is missing for stylist signup-->
-        			    <button type="submit" class="btn btn-danger"><a href="{{ route('u_signup_or_login') }}">For Users</a></button>
+        			    <a class="btn btn-danger" href="{{ route('u_signup_or_login') }}">For Users</a>
         			</form>
         		</div>
         	</div>
@@ -45,7 +45,8 @@
             <p>Your private information will be protected and you can edit it anytime</p>
             </div>
             <div class="panel-body">
-                {!! Form::open(['route' => 'register']) !!}
+                {!! Form::open(['route' => 'signup.post']) !!}
+                    
                     <div class="form-group">
                         {!! Form::label('name', 'User name') !!}
                         {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
