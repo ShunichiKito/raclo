@@ -26,6 +26,7 @@ class ItemsController extends Controller
             
             return view('u_home', $data);
         }
+
         
     //   public function store(Request $request)
     // {

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class U_Item extends Model
 {
-    protected $fillable = ['id', 'user_name'];
+    protected $fillable = ['id', 'user_name', 'file_path'];
     
     public function user()
     {

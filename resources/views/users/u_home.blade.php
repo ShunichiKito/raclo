@@ -15,7 +15,7 @@
                 <div class="closet-items">
                     <!--item変数を追加してから以下を実行する-->
                     {{-- @if (Auth::check()) --}}
-                       {{-- @include('users.items', ['items' => $item]) --}}
+                       {{-- @include('users.items', ['items' => $items]) --}}
                     {{-- @endif --}}
                 </div>
         </div>
