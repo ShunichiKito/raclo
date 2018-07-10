@@ -11,12 +11,6 @@
 |
 */
 
-<<<<<<< HEAD
-
-
-=======
-//初期画面
->>>>>>> d20c7c38efa2083ac93dce384aa5c7de08abbb8b
 Route::get('/', function () {
     return view('auth/user_register_or_login');
 })->name('u_signup_or_login');
