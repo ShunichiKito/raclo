@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('auth/user_register_or_login');
 })->name('u_signup_or_login');
@@ -18,6 +19,10 @@ Route::get('/', function () {
 Route::get('/s_signup_or_login', function () {
     return view('auth/stylist_register_or_login');
 })->name('s_signup_or_login');
+
+Route::get('/u_home', function () {
+    return view('users/u_home');
+})->name('u_home');
 
 
 // // ユーザ登録
