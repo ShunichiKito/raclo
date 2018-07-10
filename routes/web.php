@@ -35,6 +35,16 @@ Route::get('/u_edit', function () {
     return view('users/u_edit');
 })->name('u_edit');
 
+Route::get('/s_edit', function () {
+    return view('stylists/s_edit');
+})->name('s_edit');
+
+Route::get('/s_home', function () {
+    return view('stylists/s_home');
+})->name('s_home');
+
+
+
 
 // // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
