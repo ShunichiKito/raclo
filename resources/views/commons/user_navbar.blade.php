@@ -23,7 +23,7 @@
             <li><a href="#">Price</a></li>
             <li><a href="#">Notification</a></li>
             <li><a href="#">Privacy and Security</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </li>
       </ul>
