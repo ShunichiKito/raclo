@@ -17,6 +17,7 @@
                     You are logged in!
                     @if (Auth::check())
                         login siteru
+                        <a href="/logout">logout</a>
                     @endif    
                 </div>
             </div>

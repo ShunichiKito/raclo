@@ -15,7 +15,7 @@ class CreateUItemsTable extends Migration
     {
         Schema::create('u_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('user_name');
             $table->string('file_path');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
