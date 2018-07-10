@@ -2,7 +2,7 @@
 
 @section('content')
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
        <!--hamburger button which shows narrow width -->
@@ -37,7 +37,7 @@
 
 <div class="row">
     <div class="col-xs-offset-7 col-xs-5">
-        <div class="panel panel-default">
+        <div class="panel panel-danger">
             <div class="panel-heading">
             <h1>Sign Up</h1>
             <p>Your private information will be protected and you can edit it anytime</p>

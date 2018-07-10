@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
-
 @section('content')
 
 <div class="row">
     <div class="col-xs-12">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-inverse">
 	        <div class="container-fluid">
 		        <div class="navbar-header">
         			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
@@ -39,7 +38,7 @@
 
 <div class="row">
     <div class="col-xs-offset-7 col-xs-5">
-        <div class="panel panel-default">
+        <div class="panel panel-danger">
             <div class="panel-heading">
             <h1>Sign Up</h1>
             <p>Your private information will be protected and can be edit it anytime</p>
