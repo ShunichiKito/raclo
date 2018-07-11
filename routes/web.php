@@ -2,6 +2,7 @@
 
 
 
+
 //ログイン,ユーザ登録初期画面
 Route::get('/', function () {
     return view('auth/user_register_or_login');
@@ -15,6 +16,7 @@ Route::get('/s_signup_or_login', function () {
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 
 //ログイン後画面
@@ -70,3 +72,4 @@ $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
