@@ -10,9 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/privacy', function () {
-    return view('users/privacy');
-})->name('privacy');
+
+//初期画面
+Route::get('/s_navbar', function () {
+    return view('commons/stylist_navbar');
+});
+Route::get('/u_navbar', function () {
+    return view('commons/user_navbar');
+});
 
 Route::get('/', function () {
     return view('auth/user_register_or_login');
@@ -38,6 +43,9 @@ Route::get('/s_home', function () {
     return view('stylists/s_home');
 })->name('s_home');
 
+Route::get('/privacy', function () {
+    return view('users/privacy');
+})->name('privacy');
 
 
 
@@ -100,5 +108,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update','privacy','price']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
-});
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
+    Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
+    
+});
+});
