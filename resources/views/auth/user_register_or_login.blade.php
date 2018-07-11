@@ -2,6 +2,8 @@
 
 @section('content')
 
+<link rel="stylesheet" href="{{ secure_asset('css/user_register_or_login.css') }}">
+
 <div class="row">
     <div class="col-xs-12">
         <nav class="navbar navbar-default">
@@ -35,10 +37,12 @@
         	</div>
     	</nav>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-offset-7 col-xs-5">
+    
+    <div class="col-xs-7">
+            {{HTML::image('img/hack_your_closet.jpg')}}
+    </div>
+    
+    <div class="col-xs-5">
         <div class="panel panel-danger">
             <div class="panel-heading">
             <h1>Sign Up</h1>
@@ -80,6 +84,5 @@
         </div>
     </div>
 </div>
-
 
 @endsection

@@ -11,7 +11,6 @@ class UsersController extends Controller
     //
     public function edit($id)
     {
-        
          $user = User::find($id);
         if (\Auth::id() == $user->id){
              if (\Auth::user()->user_type == 1){

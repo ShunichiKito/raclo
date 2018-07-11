@@ -26,7 +26,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-    //protected $redirectTo = 'Auth::user()->user_type===1'? '/users/u_home':'/stylists/s_home';
+    // protected $redirectTo = 'Auth::user()->user_type===1'? '/users/u_home':'/stylists/s_home';
     /**
      * Create a new controller instance.
      *
