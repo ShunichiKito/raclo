@@ -26,7 +26,7 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-
+    // protected $redirectTo = 'Auth::user()->user_type===1'? '/users/u_home':'/stylists/s_home';
     /**
      * Create a new controller instance.
      *
@@ -35,5 +35,10 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    
+    public function username()
+    {
+      return 'name';
     }
 }

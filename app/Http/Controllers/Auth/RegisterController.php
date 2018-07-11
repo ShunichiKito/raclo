@@ -21,6 +21,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+   
 
     /**
      * Where to redirect users after registration.
@@ -28,6 +29,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    // protected $redirectTo = "Auth::user()->user_type===1"? '/users/u_home':'/stylists/s_home';
 
     /**
      * Create a new controller instance.
@@ -48,8 +50,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -64,7 +65,11 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            'age' => $data['age'],
+            'gender' => $data['gender'],
+            'user_type' => $data['user_type'],
+            'background' => $data['background'],
+            'style' => $data['style'],
             'password' => bcrypt($data['password']),
         ]);
     }
