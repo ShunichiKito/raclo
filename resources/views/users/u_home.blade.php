@@ -1,13 +1,5 @@
 
-
 @extends('layouts.user_app')
-
-<?php
-$user = \Auth::user()->user_name;
-$items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->user_name)->distinct()->paginate(10);
-print_r($items);
-exit;
-?>
 
 @section('content')
     <div class="row">
@@ -31,4 +23,4 @@ exit;
     </div>
 @endsection
 <!--あとでpaginateと一緒に以下を実行する-->
-{!! $item->render() !!}
+{!! $items->render() !!}
