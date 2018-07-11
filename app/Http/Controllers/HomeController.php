@@ -27,23 +27,23 @@ class HomeController extends Controller
     }
 }
 
-    public function update(Request $request, $id)
-    {
-        $this->validate($request, [ 
-            'content' => 'required|max:191',
-            'status'=> 'required|max:10',
-        ]);
+    // public function update(Request $request, $id)
+    // {
+    //     $this->validate($request, [ 
+    //         'content' => 'required|max:191',
+    //         'status'=> 'required|max:10',
+    //     ]);
 
 
-        $user = User::find($id);
-         if (\Auth::check()){
+    //     $user = User::find($id);
+    //      if (\Auth::check()){
         
-        $user->content = $request->content;
-        $user->status = $request->status;
-        $user->save();
-         return redirect('/');
-         }else{
+    //     $user->content = $request->content;
+    //     $user->status = $request->status;
+    //     $user->save();
+    //      return redirect('/');
+    //      }else{
 
-             return redirect('/');
-        }
-    }
+    //          return redirect('/');
+    //     }
+    // }
