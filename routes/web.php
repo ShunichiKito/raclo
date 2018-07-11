@@ -47,9 +47,11 @@ Route::get('/u_privacy', function () {
     return view('users/u_privacy');
 })->name('u_privacy');
 
+
 Route::get('/s_privacy', function () {
     return view('stylists/s_privacy');
 })->name('s_privacy');
+
 
 Route::get('/u_price', function () {
     return view('users/u_price');
@@ -58,6 +60,7 @@ Route::get('/u_price', function () {
 Route::get('/s_price', function () {
     return view('stylists/s_price');
 })->name('s_price');
+
 
 
 
