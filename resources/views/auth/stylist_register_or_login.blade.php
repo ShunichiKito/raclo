@@ -2,6 +2,9 @@
 
 @section('content')
 
+<link rel="stylesheet" href="{{ secure_asset('css/user_register_or_login.css') }}">
+<!--user_register_or_login.cssにしてるのはCSSの設定が一緒だから！紛らわしいけど気にしないで！-->
+
 <div class="row">
     <div class="col-xs-12">
         <nav class="navbar navbar-inverse">
@@ -37,8 +40,13 @@
     </div>
 </div>
 
+
+ <div class="col-xs-7">
+            {{HTML::image('img/hackem_closet.jpg')}}
+</div>
+    
 <div class="row">
-    <div class="col-xs-offset-7 col-xs-5">
+    <div class="col-xs-5">
         <div class="panel panel-danger">
             <div class="panel-heading">
             <h1>Sign Up</h1>
