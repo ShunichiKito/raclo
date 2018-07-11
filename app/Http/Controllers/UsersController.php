@@ -51,7 +51,7 @@ class UsersController extends Controller
                 $this->validate($request, [ 
                 'age' => 'required|max:191',
                 'gender'=> 'required|max:10',
-                'background'=> 'required|max:191',
+                'background'=> 'required|max:400',
                 'style'=> 'required|max:191',
                 ]);
             
