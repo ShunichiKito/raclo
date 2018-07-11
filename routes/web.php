@@ -12,12 +12,14 @@ Route::get('/s_signup_or_login', function () {
     return view('auth/stylist_register_or_login');
 })->name('s_signup_or_login');
 
-// // ログイン認証,ユーザ登録認証
+
+
+// // ユーザ登録, ログイン処理
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 //ログイン後画面
 Route::group(['middleware' => ['auth']], function () {
@@ -34,10 +36,22 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/u_edit', function () {
         return view('users/u_edit');
     })->name('u_edit');
-
     Route::get('/s_edit', function () {
         return view('stylists/s_edit');
     })->name('s_edit');
+    Route::get('/u_privacy', function () {
+        return view('users/u_privacy');
+    })->name('u_privacy');
+    Route::get('/s_privacy', function () {
+        return view('stylists/s_privacy');
+    })->name('s_privacy');
+    Route::get('/u_price', function () {
+        return view('users/u_price');
+    })->name('u_price');
+    
+    Route::get('/s_price', function () {
+        return view('stylists/s_price');
+    })->name('s_price');
 });
 
 
