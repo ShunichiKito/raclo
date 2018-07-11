@@ -51,6 +51,9 @@ Route::get('/u_price', function () {
     return view('users/u_price');
 })->name('u_price');
 
+Route::get('/s_price', function () {
+    return view('stylists/s_price');
+})->name('s_price');
 
 
 Route::get('/u_price', function () {
