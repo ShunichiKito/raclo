@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/privacy', function () {
+    return view('users/privacy');
+})->name('privacy');
 
 Route::get('/', function () {
     return view('auth/user_register_or_login');
@@ -95,7 +97,8 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update','privacy','price']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
 });
+
