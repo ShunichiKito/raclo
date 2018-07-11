@@ -22,10 +22,21 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $user = \Auth::user()->id;
+            if (\Auth::user()->user_type == 1){ 
+            
+               return view('users/u_home');
+                    
+            } elseif(\Auth::user()->user_type == 2)  { 
+               return view('stylists/s_home');
+                   
+            } else{ 
+                return redirect('/');
+            }
     }
-}
+}    
+
 
     // public function update(Request $request, $id)
     // {
