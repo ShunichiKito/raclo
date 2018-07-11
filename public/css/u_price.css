@@ -1,0 +1,345 @@
+.cp_pricetable1 {
+	text-align: center;
+	color:#000000;
+	
+}
+
+.cp_pricetable1 .header2{
+	text-align: center;
+	color:#ffff33;
+}
+.cp_pricetable1 .block {
+	position: relative;
+	float: left;
+	width: 33%;
+	height: 100%;
+	transition: all 0.2s ease-in-out;
+	-webkit-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+}
+.cp_pricetable1 .block ul, li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+/**** blockのhover ****/
+.cp_pricetable1 .block:hover {
+	position: relative;
+	z-index: 100;
+	transition-delay: 0s;
+	-webkit-transform: translate(-2px,-2px);
+	transform: translate(-2px,-2px);
+	box-shadow: 0px 0 5px rgba(0,0,0,0.5);
+}
+
+/* --- メニュー名ブロック ---  */
+.cp_pricetable1 .block .header1 {
+	width: 100%;
+	padding: 3em;
+	color: #ffffff;
+	border-bottom: 1px solid #ffffff;
+	background:#000000;
+}
+
+/* --- 価格ブロック ---  */
+.cp_pricetable1 .block .header2 {
+	width: 100%;
+	padding: 1em;
+	border-top: 1px solid #131874;
+	background: #a9bce2;
+}
+/* --- 詳細 ---  */
+.cp_pricetable1 .block .style1,
+.cp_pricetable1 .block .style2,
+.cp_pricetable1 .block .footer1,
+.cp_pricetable1 .block .footer2 {
+	width: 100%;
+	padding: 2em;
+}
+.cp_pricetable1 .block .footer1,
+.cp_pricetable1 .block .footer2 {
+	padding: 0.5em;
+}
+.cp_pricetable1 .block .style1,
+.cp_pricetable1 .block .footer1 {
+	background-color: #e8effc;
+}
+.cp_pricetable1 .block .style2,
+.cp_pricetable1 .block .footer2 {
+	background-color: #d7e3fc;
+}
+.cp_pricetable1 .block .style1,
+.cp_pricetable1 .block .style2 {
+	border-bottom: 1px dotted #ffffff;
+}
+/*ボタンデザイン*/
+.cp_pricetable1 a.cp_btn {
+	position: relative;
+	z-index: 1;
+	display: block;
+	overflow: hidden;
+	width: 100px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0.3em 1em;
+	text-align: center;
+	text-decoration: none;
+	color: #ffffff;
+	border: 1px solid #da3c41;
+	border-radius: 4px;
+	background: #da3c41;
+}
+.cp_pricetable1 .cp_btn::after {
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: 0;
+	content: '';
+	transition: 0.3s;
+	-webkit-transform: translate(-50%,-50%) rotate(45deg);
+	transform: translate(-50%,-50%) rotate(45deg);
+	opacity: 0;
+	background: #ffffff;
+}
+.cp_pricetable1 .cp_btn:hover {
+	color: #da3c41;
+}
+.cp_pricetable1 .cp_btn:hover::after {
+	height: 250%;
+	opacity: 1;
+}
+.cp_pricetable1 .cp_btn:active::after {
+	height: 350%;
+	opacity: 1;
+}
+
+
+/*-------------------------------------------------------*/
+.cp_pricetable2 {
+	text-align: center;
+	color:#000000;
+}
+.cp_pricetable2 .block {
+	position: relative;
+	float: left;
+	width: 33%;
+	height: 100%;
+	transition: all 0.2s ease-in-out;
+	-webkit-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+}
+.cp_pricetable2 .block ul, li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+/**** blockのhover ****/
+.cp_pricetable2 .block:hover {
+	position: relative;
+	z-index: 100;
+	transition-delay: 0s;
+	-webkit-transform: translate(-2px,-2px);
+	transform: translate(-2px,-2px);
+	box-shadow: 0px 0 5px rgba(0,0,0,0.5);
+}
+
+/* --- メニュー名ブロック ---  */
+.cp_pricetable2 .block .header1 {
+	width: 100%;
+	padding: 3em;
+	color: #ffffff;
+	border-bottom: 1px solid #ffffff;
+	background: #000000;
+}
+/* --- 価格ブロック ---  */
+.cp_pricetable2 .block .header2 {
+	width: 100%;
+	padding: 1em;
+	border-top: 1px solid #131874;
+	background: #a9bce2;
+}
+/* --- 詳細 ---  */
+.cp_pricetable2 .block .style1,
+.cp_pricetable2 .block .style2,
+.cp_pricetable2 .block .footer1,
+.cp_pricetable2 .block .footer2 {
+	width: 100%;
+	padding: 2em;
+}
+.cp_pricetable2 .block .footer1,
+.cp_pricetable2 .block .footer2 {
+	padding: 0.5em;
+}
+.cp_pricetable2 .block .style1,
+.cp_pricetable2 .block .footer1 {
+	background-color: #e8effc;
+}
+.cp_pricetable2 .block .style2,
+.cp_pricetable2 .block .footer2 {
+	background-color: #d7e3fc;
+}
+.cp_pricetable2 .block .style1,
+.cp_pricetable2 .block .style2 {
+	border-bottom: 1px dotted #ffffff;
+}
+/*ボタンデザイン*/
+.cp_pricetable2 a.cp_btn {
+	position: relative;
+	z-index: 1;
+	display: block;
+	overflow: hidden;
+	width: 100px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0.3em 1em;
+	text-align: center;
+	text-decoration: none;
+	color: #ffffff;
+	border: 1px solid #da3c41;
+	border-radius: 4px;
+	background: #da3c41;
+}
+.cp_pricetable2 .cp_btn::after {
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: 0;
+	content: '';
+	transition: 0.3s;
+	-webkit-transform: translate(-50%,-50%) rotate(45deg);
+	transform: translate(-50%,-50%) rotate(45deg);
+	opacity: 0;
+	background: #ffffff;
+}
+.cp_pricetable2 .cp_btn:hover {
+	color: #da3c41;
+}
+.cp_pricetable2 .cp_btn:hover::after {
+	height: 250%;
+	opacity: 1;
+}
+.cp_pricetable2 .cp_btn:active::after {
+	height: 350%;
+	opacity: 1;
+}
+
+/*------------------------------------------------*/
+
+.cp_pricetable3 {
+	text-align: center;
+	color: #000000;
+}
+.cp_pricetable3 .block {
+	position: relative;
+	float: left;
+	width: 33%;
+	height: 100%;
+	transition: all 0.2s ease-in-out;
+	-webkit-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+}
+.cp_pricetable3 .block ul, li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+/**** blockのhover ****/
+.cp_pricetable3 .block:hover {
+	position: relative;
+	z-index: 100;
+	transition-delay: 0s;
+	-webkit-transform: translate(-2px,-2px);
+	transform: translate(-2px,-2px);
+	box-shadow: 0px 0 5px rgba(0,0,0,0.5);
+}
+
+/* --- メニュー名ブロック ---  */
+.cp_pricetable3 .block .header1 {
+	width: 100%;
+	padding: 3em;
+	color: #ffffff;
+	border-bottom: 1px solid #ffffff;
+	background: #000000;
+}
+/* --- 価格ブロック ---  */
+.cp_pricetable3 .block .header2 {
+	width: 100%;
+	padding: 1em;
+	border-top: 1px solid #131874;
+	background: #a9bce2;
+}
+/* --- 詳細 ---  */
+.cp_pricetable3 .block .style1,
+.cp_pricetable3 .block .style2,
+.cp_pricetable3 .block .footer1,
+.cp_pricetable3 .block .footer2 {
+	width: 100%;
+	padding: 2em;
+}
+.cp_pricetable3 .block .footer1,
+.cp_pricetable3.block .footer2 {
+	padding: 0.5em;
+}
+.cp_pricetable3 .block .style1,
+.cp_pricetable3 .block .footer1 {
+	background-color: #e8effc;
+}
+.cp_pricetable3 .block .style2,
+.cp_pricetable3 .block .footer2 {
+	background-color: #d7e3fc;
+}
+.cp_pricetable3 .block .style1,
+.cp_pricetable3 .block .style2 {
+	border-bottom: 1px dotted #ffffff;
+}
+
+
+
+
+
+/*ボタンデザイン*/
+.cp_pricetable3 a.cp_btn {
+	position: relative;
+	z-index: 1;
+	display: block;
+	overflow: hidden;
+	width: 100px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0.3em 1em;
+	text-align: center;
+	text-decoration: none;
+	color: #ffffff;
+	border: 1px solid #da3c41;
+	border-radius: 4px;
+	background: #da3c41;
+}
+.cp_pricetable3 .cp_btn::after {
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: 0;
+	content: '';
+	transition: 0.3s;
+	-webkit-transform: translate(-50%,-50%) rotate(45deg);
+	transform: translate(-50%,-50%) rotate(45deg);
+	opacity: 0;
+	background: #ffffff;
+}
+.cp_pricetable3 .cp_btn:hover {
+	color: #da3c41;
+}
+.cp_pricetable3 .cp_btn:hover::after {
+	height: 250%;
+	opacity: 1;
+}
+.cp_pricetable3 .cp_btn:active::after {
+	height: 350%;
+	opacity: 1;
+}
