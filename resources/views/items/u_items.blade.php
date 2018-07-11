@@ -3,10 +3,6 @@
     @if (Auth::check())
         <!--{!! Form::model($u_items, ['route' => ['items.hold', $u_items->myitems_check::all()-->
             @foreach ($items as $key => $item)
-            <?php
-print "$item->file_path";
-
-?>
                 <div class="item">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
