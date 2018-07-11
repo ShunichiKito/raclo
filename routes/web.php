@@ -47,6 +47,10 @@ Route::get('/privacy', function () {
     return view('users/privacy');
 })->name('privacy');
 
+Route::get('/u_price', function () {
+    return view('users/u_price');
+})->name('u_price');
+
 
 
 // // ユーザ登録
