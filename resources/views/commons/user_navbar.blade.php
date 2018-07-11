@@ -19,7 +19,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class='glyphicon glyphicon-cog'></span></a>
           <ul class="dropdown-menu">
-            <li>{!! link_to_route('users.edit', 'Change Profiles', ['id' => Auth::user()->id]) !!}</li>
+            <li>{!! link_to_route('users.edit', 'Change Profile', ['id' => Auth::user()->id]) !!}</li>
             <li><a href="#">Price</a></li>
             <li>{!! link_to_route('privacy', 'Privacy and Security') !!}</li>
             <li><a href="#">Notification</a></li>
