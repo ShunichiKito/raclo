@@ -22,28 +22,39 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $user = \Auth::user()->id;
+            if (\Auth::user()->user_type == 1){ 
+            
+               return view('users/u_home');
+                    
+            } elseif(\Auth::user()->user_type == 2)  { 
+               return view('stylists/s_home');
+                   
+            } else{ 
+                return redirect('/');
+            }
     }
-}
-
-    public function update(Request $request, $id)
-    {
-        $this->validate($request, [ 
-            'content' => 'required|max:191',
-            'status'=> 'required|max:10',
-        ]);
+}    
 
 
-        $user = User::find($id);
-         if (\Auth::check()){
+    // public function update(Request $request, $id)
+    // {
+    //     $this->validate($request, [ 
+    //         'content' => 'required|max:191',
+    //         'status'=> 'required|max:10',
+    //     ]);
+
+
+    //     $user = User::find($id);
+    //      if (\Auth::check()){
         
-        $user->content = $request->content;
-        $user->status = $request->status;
-        $user->save();
-         return redirect('/');
-         }else{
+    //     $user->content = $request->content;
+    //     $user->status = $request->status;
+    //     $user->save();
+    //      return redirect('/');
+    //      }else{
 
-             return redirect('/');
-        }
-    }
+    //          return redirect('/');
+    //     }
+    // }

@@ -31,6 +31,23 @@ Route::get('/u_home', function () {
     return view('users/u_home');
 })->name('u_home');
 
+Route::get('/u_edit', function () {
+    return view('users/u_edit');
+})->name('u_edit');
+
+Route::get('/s_edit', function () {
+    return view('stylists/s_edit');
+})->name('s_edit');
+
+Route::get('/s_home', function () {
+    return view('stylists/s_home');
+})->name('s_home');
+
+Route::get('/privacy', function () {
+    return view('users/privacy');
+})->name('privacy');
+
+
 
 Route::get('/u_price', function () {
     return view('users/u_price');
@@ -44,6 +61,17 @@ Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 // // ログイン認証
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+
+
+
+
+//ログイン後画面
+Route::get('/users/u_home', function () {
+    return view('users/u_home');
+});
+Route::get('/stylists/s_home', function () {
+    return view('stylists/s_home');
+});
 
 
 // Route::group(['middleware' => ['auth']], function () {
@@ -80,3 +108,19 @@ $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update','privacy','price']]);
+    Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
+    
+$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+$this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
+    Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
+    
+});
+});

@@ -1,0 +1,17 @@
+/*.header-navbar {*/
+/*    position: relative;*/
+/*    min-height: 50px;*/
+/*    border: 1px solid transparent;*/
+/*}*/
+
+img {
+    width: 100% ;
+}
+
+div.col-xs-7 {
+    padding: 0;
+}
+
+div.col-xs-5 {
+    padding: 0;
+}

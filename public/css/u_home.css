@@ -2,8 +2,8 @@
 .row {
     background-image: url("/cabinet-575361_1280.png");
     background-size: cover;
-    width: 700px;
-    height: 750px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     margin-top: 50px;
 }
