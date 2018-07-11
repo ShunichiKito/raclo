@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <!-- hamburger button which shows narrow width -->
@@ -20,10 +20,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
           <ul class="dropdown-menu">
             <!--<li><a href="#">Change Profile</a></li>-->
-            <li>{!! link_to_route('users.edit', 'プロフィール編集', ['id' => Auth::user()->id]) !!}</li>
-            <li><a href="#">Price</a></li>
+            <li>{!! link_to_route('users.edit', 'Change Profile', ['id' => Auth::user()->id]) !!}</li>
+            <li>{!! link_to_route('s_price', 'Price') !!}</li>
+            <li>{!! link_to_route('s_privacy', 'Privacy and Security') !!}</li>
             <li><a href="#">Notification</a></li>
-            <li><a href="#">Privacy and Security</a></li>
             <li><a href="/logout">Logout</a></li>
           </ul>
         </li>
