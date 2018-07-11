@@ -43,9 +43,15 @@ Route::get('/s_home', function () {
     return view('stylists/s_home');
 })->name('s_home');
 
-Route::get('/privacy', function () {
-    return view('users/privacy');
-})->name('privacy');
+Route::get('/u_privacy', function () {
+    return view('users/u_privacy');
+})->name('u_privacy');
+
+
+Route::get('/s_privacy', function () {
+    return view('stylists/s_privacy');
+})->name('s_privacy');
+
 
 Route::get('/u_price', function () {
     return view('users/u_price');
