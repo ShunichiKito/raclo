@@ -40,6 +40,7 @@ body {font-family: Arial;}
    overflow: hidden;
    border: none;
    background-color:transparent;
+   z-index: 1;
 }
 
 /* Style the buttons inside the tab */
@@ -57,11 +58,12 @@ body {font-family: Arial;}
    margin-top: 12px;
    border-radius: 4px;
     font-weight: bold;
+    z-index: 1;
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-   background-color: #CC9900		;
+   background-color: #CC9900;
 }
 
 /* Create an active/current tablink class */
