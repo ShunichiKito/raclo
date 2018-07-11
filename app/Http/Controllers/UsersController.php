@@ -37,35 +37,35 @@ class UsersController extends Controller
         $user = User::find($id);
         if (\Auth::id() == $user->id){
             if (\Auth::user()->user_type == 1){
-            $this->validate($request, [ 
-            'age' => 'required|max:191',
-            'gender'=> 'required|max:10',
-        ]);
-
-            $user->age = $request->age;
-            $user->gender = $request->gender;
-            $user->save();
-            return redirect('/u_home');
+                $this->validate($request, [ 
+                'age' => 'required|max:191',
+                'gender'=> 'required|max:10',
+                ]);
+    
+                $user->age = $request->age;
+                $user->gender = $request->gender;
+                $user->save();
+                return redirect('/u_home');
          
-         }  elseif (\Auth::user()->user_type == 2){
-            $this->validate($request, [ 
-            'age' => 'required|max:191',
-            'gender'=> 'required|max:10',
-            'background'=> 'required|max:191',
-            'style'=> 'required|max:191',
-        ]);
-        
-            $user->age = $request->age;
-            $user->gender = $request->gender;
-            $user->background = $request->background;
-            $user->style = $request->style;
-            $user->save();
-            return redirect('/s_home');
+         } elseif (\Auth::user()->user_type == 2){
+                $this->validate($request, [ 
+                'age' => 'required|max:191',
+                'gender'=> 'required|max:10',
+                'background'=> 'required|max:191',
+                'style'=> 'required|max:191',
+                ]);
+            
+                $user->age = $request->age;
+                $user->gender = $request->gender;
+                $user->background = $request->background;
+                $user->style = $request->style;
+                $user->save();
+                return redirect('/s_home');
 
          }else{
                   
-        return redirect('/');
-               }
+            return redirect('/');
+         }
                                     }
     }
     

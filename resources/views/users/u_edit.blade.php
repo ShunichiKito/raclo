@@ -1,4 +1,4 @@
-@extends('layouts.user_app')
+@extends('layouts.app')
 
 @section('content')
 @if (Auth::check())
