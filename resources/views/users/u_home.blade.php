@@ -65,7 +65,7 @@
         </body>
                 
 </html>
->>>>>>> 4aeab269b467b293e7bb47bab4cabb889815fb01
+
 @endsection
 <!--あとでpaginateと一緒に以下を実行する-->
 {!! $items->render() !!}
