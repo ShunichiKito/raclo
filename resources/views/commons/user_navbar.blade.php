@@ -10,6 +10,8 @@
       <!-- link back to the home -->
       <a class="navbar-brand" href="#">My page</a>
     </div>
+     <img src="new.jpg" class="logo" style='style="float: right;'>
+        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
     <!-- menu items -->
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -26,8 +28,6 @@
           </ul>
         </li>
       </ul>
-       <img src="new.jpg" class="logo" width=auto>
-        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
