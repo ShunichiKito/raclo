@@ -15,7 +15,6 @@
       <ul class="nav navbar-nav">
         <li><a href="/u_stylist_lists">Stylists</a></li>
         <li><a href="#">Online Stylists</a></li>
-        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class='glyphicon glyphicon-cog'></span></a>
           <ul class="dropdown-menu">
@@ -27,6 +26,8 @@
           </ul>
         </li>
       </ul>
+       <img src="new.jpg" class="logo" width=auto>
+        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

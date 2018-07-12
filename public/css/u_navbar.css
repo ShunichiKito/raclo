@@ -1,0 +1,14 @@
+.logo{
+    height: 51px;
+    margin:0;
+    float:right;
+    padding:0;
+}
+
+.container-fluid {
+    padding:0;
+}
+
+.class="collapse navbar-collapse"{
+    padding:0;
+}
