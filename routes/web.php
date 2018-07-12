@@ -66,6 +66,10 @@ Route::get('/u_stylist_lists', function () {
     return view('users/u_stylist_lists');
 })->name('u_stylist_lists');
 
+Route::get('/u_stylist_lists', function () {
+    return view('users/u_stylist_lists');
+})->name('u_stylist_lists');
+
 
 // // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
