@@ -62,11 +62,9 @@ Route::get('/s_price', function () {
 })->name('s_price');
 
 
-
-
-Route::get('/u_price', function () {
-    return view('users/u_price');
-})->name('u_price');
+Route::get('/u_stylist_lists', function () {
+    return view('users/u_stylist_lists');
+})->name('u_stylist_lists');
 
 
 // // ユーザ登録
