@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-
+use App\U_item;
 // class UsersController extends Controller
 // {
 //     public function show($id)
@@ -59,7 +59,7 @@ class UsersController extends Controller
                 $user->age = $request->age;
                 $user->gender = $request->gender;
                 $user->save();
-                return redirect('/home');
+                return redirect('/u_home');
          
          } elseif (\Auth::user()->user_type == 2){
                 $this->validate($request, [ 
@@ -74,13 +74,30 @@ class UsersController extends Controller
                 $user->background = $request->background;
                 $user->style = $request->style;
                 $user->save();
-                return redirect('/home');
+                return redirect('/s_home');
+
          }else{
                   
-            return redirect('/home');
+            return redirect('/');
          }
                                     }
     }
+    
+     public function myregister(Request $request)
+    {
+        $myitems=array();
+        $myitems = $request->item;
+        foreach($myitems as $myitem) {
+            // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
+             $createitem = U_item::where('file_path',$myitem)->first();
+             $createitem->myitems_check="on";
+             $createitem->save();
+            print_r($createitem);
+            var_dump($createitem);
+        }
+        return;
+        
+    }    
     
 }
 
