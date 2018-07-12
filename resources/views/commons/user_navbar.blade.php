@@ -13,7 +13,7 @@
     <!-- menu items -->
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="u_stylist_lists">Stylists</a></li>
+        <li><a href="/u_stylist_lists">Stylists</a></li>
         <li><a href="#">Online Stylists</a></li>
         
         <li class="dropdown">

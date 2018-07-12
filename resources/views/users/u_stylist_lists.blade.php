@@ -8,7 +8,7 @@
                        @include('items.s_icon', ['items' => $items])
                     @endif
                 </div>
-                llllllll
+                ｌｌｌｐｐｐｋｐｋｐ「
         </div>
     </div>
 @endsection    
