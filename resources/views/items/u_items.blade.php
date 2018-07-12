@@ -34,7 +34,6 @@
                     </div>
                 </div>
             @endforeach
-        <input type="submit" name="itemSubmit" value="Next" />
         </form>
     @endif    
 </div>

@@ -1,43 +1,45 @@
 @extends('layouts.user_app')
 
 @section('content')
-    <div class="row">
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <div class="raw">
         <div class="col-lg-12">
             
                 <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_home.css') }}">
                 
                
-                <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100></a>
+                <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100> </a>
                 <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt="" height=100 width=100></a>
                 
 
-                <!--<div style="position: absolute; top: 30px; left: 100px;">-->
 
-                <div class="closet-items">
-                    <!--item変数を追加してから以下を実行する-->
-                    @if (Auth::check())
-                       @include('items.u_items', ['items' => $items])
-                    @endif
-                </div>
-        </div>
-            <html>
-                <head>
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                </head>
-                <body>
-            
+        
                     <div class="tab">
                         <button class="tablinks" onclick="openCloset(event, 'Request')" id="defaultOpen">withinmyitems</button>
                         <button class="tablinks" onclick="openCloset(event, 'Coordinate')">withnewitems</button>
                     </div>
             
                     <div id="Request" class="tabcontent">
-                    <h3>ここにリクエスト用画像</h3>
-            
+                      
+                        <div class="closet-items">
+                            <!--item変数を追加してから以下を実行する-->
+                            @if (Auth::check())
+                               @include('items.u_items', ['items' => $items])
+                            @endif
+                        </div>
+                        
+
+                    <h1>ここにリクエスト用画像</h1>
+                    <input type="submit" name="itemSubmit" value="Next" class="next" >
+
                     </div>
             
                     <div id="Coordinate" class="tabcontent">
-                    <h3>ここにコーディネイト用画像</h3>
+                    <h2>ここにコーディネイト用画像</h2>
             
                     </div>
                     
@@ -60,9 +62,15 @@
                     
                     </script>
                        
-                </body>
-            </html>
-</div>
+               
+        
+             </div>
+           
+        </div>
+
+        </body>
+                
+</html>
 @endsection
 
 

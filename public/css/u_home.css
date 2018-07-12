@@ -1,18 +1,19 @@
 
-.row {
+.raw {
     background-image: url("/cabinet-575361_1280.png");
     background-size: cover;
     width: 700px;
     height: 750px;
     margin: 0 auto;
     margin-top: 50px;
+    z-index: 1;
 }
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
+/*.center {*/
+/*    display: block;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    width: 50%;*/
+/*}*/
 
 .left {
     float: left;
@@ -32,15 +33,19 @@
 
 
 
-
 body {font-family: Arial;}
 
 /* Style the tab */
 .tab {
+   position: absolute;
+    width: 600px;
+    height: 650px;
+   margin-top: 16px;
+   margin-left: 50px;
    overflow: hidden;
    border: none;
    background-color:transparent;
-   z-index: 1;
+   z-index:2;
 }
 
 /* Style the buttons inside the tab */
@@ -56,9 +61,8 @@ body {font-family: Arial;}
    transition: 0.3s;
    font-size: 17px;
    margin-top: 12px;
-   border-radius: 4px;
+   border-radius: 6px;
     font-weight: bold;
-    z-index: 1;
 }
 
 /* Change background color of buttons on hover */
@@ -73,25 +77,46 @@ body {font-family: Arial;}
 
 /* Style the tab content */
 .tabcontent {
+    position:absolute;
    display: none;
    padding: 6px 12px;
    border: none;
    border-top: none;
-   margin-left: 230px;
-   margin-right:230px;
+   margin-left: 150px;
+   margin-right:150px;
+   margin-top: 40px;
 }
 
-.tab{
-    margin-top: 32px;
-}
 
 
 .closet-items {
     position: absolute;
-    width: 355px;
+    width: 450px;
     height: 650px;
     margin: 0 auto;
-    margin-top: 60px;
-    margin-left: 150px;
+
+}
+
+
+.next {
+    position: absolute;
+    margin: 0 auto;
+    margin-left:280px;
+    margin-top: 520px;
+    
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px 30px;
+    color: #fff;
+    border-style: none;
+    background: orange;
+    box-shadow: 2px 2px 3px 1px #FF8C00
+;
+    text-shadow: 1px 1px 2px #000;
+
+    border-radius: 8px;
+}
+.next:hover {
+   background-color: #FFD700;
 }
 
