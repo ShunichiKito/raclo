@@ -41,12 +41,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
-    Route::get('/u_edit', function () {
-        return view('users/u_edit');
-    })->name('u_edit');
-    Route::get('/s_edit', function () {
-        return view('stylists/s_edit');
-    })->name('s_edit');
+    // Route::get('/u_edit', function () {
+    //     return view('users/u_edit');
+    // })->name('u_edit');
+    // Route::get('/s_edit', function () {
+    //     return view('stylists/s_edit');
+    // })->name('s_edit');
     Route::get('/u_privacy', function () {
         return view('users/u_privacy');
     })->name('u_privacy');

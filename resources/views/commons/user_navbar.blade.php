@@ -20,7 +20,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class='glyphicon glyphicon-cog'></span></a>
           <ul class="dropdown-menu">
             <li>{!! link_to_route('users.edit', 'プロフィール編集', ['id' => Auth::user()->id]) !!}</li>
-            <li>{!! link_to_route('users.edit', 'Price', ['id' => Auth::user()->id]) !!}</li>
+            <li>{!! link_to_route('u_price', 'Price', ['id' => Auth::user()->id]) !!}</li>
             <li><a href="#">Notification</a></li>
             <li>{!! link_to_route('u_privacy', 'Privacy and Security')!!}</li>
             <li><a href="/logout">Logout</a></li>

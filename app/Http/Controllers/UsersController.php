@@ -5,19 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class UsersController extends Controller
-{
-    public function show($id)
-    {
-        $user = User::find($id);
-        $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
+// class UsersController extends Controller
+// {
+//     public function show($id)
+//     {
+//         $user = User::find($id);
+//         $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
 
-        return view('users.u_home', [
-            'user' => $user,
-            'items' => $items,
-        ]);
-    }
-}
+//         return view('users.u_home', [
+//             'user' => $user,
+//             'items' => $items,
+//         ]);
+//     }
+// }
 
 
 class UsersController extends Controller
@@ -59,7 +59,7 @@ class UsersController extends Controller
                 $user->age = $request->age;
                 $user->gender = $request->gender;
                 $user->save();
-                return redirect('/u_home');
+                return redirect('users/u_home');
          
          } elseif (\Auth::user()->user_type == 2){
                 $this->validate($request, [ 
@@ -74,7 +74,7 @@ class UsersController extends Controller
                 $user->background = $request->background;
                 $user->style = $request->style;
                 $user->save();
-                return redirect('/s_home');
+                return redirect('users/s_home');
 
          }else{
                   
