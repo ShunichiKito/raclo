@@ -38,7 +38,12 @@ class HomeController extends Controller
                 return redirect('/');
             }
     }
+    
+    
+    
 }    
+    
+
 
     // public function update(Request $request, $id)
     // {
