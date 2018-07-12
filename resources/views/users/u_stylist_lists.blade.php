@@ -8,7 +8,6 @@
                        @include('items.s_icon', ['items' => $items])
                     @endif
                 </div>
-              
         </div>
     </div>
 @endsection    

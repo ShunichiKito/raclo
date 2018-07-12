@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/s_edit', function () {
     //     return view('stylists/s_edit');
     // })->name('s_edit');
-    Route::get('u_stylist_lists', 'UsersController@s_index')->name('s_index');
+    Route::get('/u_stylist_lists', 'UsersController@s_index')->name('s_index');
     Route::get('/u_privacy', function () {
         return view('users/u_privacy');
     })->name('u_privacy');
