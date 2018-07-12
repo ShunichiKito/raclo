@@ -2,26 +2,70 @@
 @extends('layouts.user_app')
 
 @section('content')
-    <div class="row">
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <div class="raw">
         <div class="col-lg-12">
             
                 <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_home.css') }}">
                 
+                <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100> </a>
+                <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt="" height=100 width=100></a>
+
+
+                    <div class="tab">
+                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
+                    </div>
+            
+                    <div id="Myitem" class="tabcontent">
+                      
+                        <div class="closet-items">
+                            <!--item変数を追加してから以下を実行する-->
+                            @if (Auth::check())
+                               @include('items.u_items', ['items' => $items])
+                            @endif
+                        </div>
+
+                    </div>
+            
+                    <div id="Newitem" class="tabcontent">
+                        <h2>ここにコーディネイト用画像</h2>
+            
+                    </div>
+                    
+                    
+                    <script>
+                    function openCloset(evt, cityName) {
+                       var i, tabcontent, tablinks;
+                       tabcontent = document.getElementsByClassName("tabcontent");
+                       for (i = 0; i < tabcontent.length; i++) {
+                           tabcontent[i].style.display = "none";
+                       }
+                       tablinks = document.getElementsByClassName("tablinks");
+                       for (i = 0; i < tablinks.length; i++) {
+                           tablinks[i].className = tablinks[i].className.replace(" active", "");
+                       }
+                       document.getElementById(cityName).style.display = "block";
+                       evt.currentTarget.className += " active";
+                    }
+                    document.getElementById("defaultOpen").click();
+                    
+                    </script>
+                       
                
-                <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100"></a>
-                <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt="" height=100 width=100"></a>
-                
-
-                <!--<div style="position: absolute; top: 30px; left: 100px;">-->
-                <div class="closet-items">
-                    <!--item変数を追加してから以下を実行する-->
-                    @if (Auth::check())
-                       @include('items.u_items', ['items' => $items])
-                    @endif
-                </div>
-
+        
+             </div>
+           
         </div>
-    </div>
+
+        </body>
+                
+</html>
+>>>>>>> 4aeab269b467b293e7bb47bab4cabb889815fb01
 @endsection
 <!--あとでpaginateと一緒に以下を実行する-->
 {!! $items->render() !!}

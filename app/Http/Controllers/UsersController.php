@@ -92,10 +92,8 @@ class UsersController extends Controller
              $createitem = U_item::where('file_path',$myitem)->first();
              $createitem->myitems_check="on";
              $createitem->save();
-            print_r($createitem);
-            var_dump($createitem);
         }
-        return;
+        return register('/u_stylist_lists');
         
     }    
     
