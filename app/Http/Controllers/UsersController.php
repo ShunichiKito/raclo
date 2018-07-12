@@ -45,7 +45,7 @@ class UsersController extends Controller
                 $user->age = $request->age;
                 $user->gender = $request->gender;
                 $user->save();
-                return redirect('/u_home');
+                return redirect('/home');
          
          } elseif (\Auth::user()->user_type == 2){
                 $this->validate($request, [ 
@@ -60,11 +60,11 @@ class UsersController extends Controller
                 $user->background = $request->background;
                 $user->style = $request->style;
                 $user->save();
-                return redirect('/s_home');
+                return redirect('/home');
 
          }else{
                   
-            return redirect('/');
+            return redirect('/home');
          }
                                     }
     }
