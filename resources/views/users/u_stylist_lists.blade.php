@@ -8,7 +8,11 @@
                        @include('items.s_icon', ['items' => $items])
                     @endif
                 </div>
+<<<<<<< HEAD
                 ｌｌｌｐｐｐｋｐｋｐ「
+=======
+              
+>>>>>>> 897a2965ae15cc89b545b3195160fed2ff31e2a3
         </div>
     </div>
 @endsection    

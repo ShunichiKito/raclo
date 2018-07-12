@@ -14,10 +14,10 @@
                                     <p id="p1"></p>
                                     <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
                                     <script>
-                                    $(function() {
+                                    $function() {
                                         $('input[name="item"]').change(function() {
                                         
-                                            //選択したValue値を変数にうつす
+                                            // 選択したValue値を変数にうつす
                                             var val = $('#val:checked').val();
                                             
                                             if (val) {
