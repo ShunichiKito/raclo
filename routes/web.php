@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     //     return view('stylists/s_edit');
     // })->name('s_edit');
     Route::get('u_stylist_lists', 'UsersController@s_index')->name('s_index');
+    Route::get('u_onlinestylist_lists', 'UsersController@s_online_index')->name('s_index');
 
     Route::get('/u_privacy', function () {
         return view('users/u_privacy');
@@ -68,6 +69,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/s_icon', function () {
         return view('items/s_icon');
     })->name('s_icon');
+    
+    Route::get('/s_online_icon', function () {
+        return view('items/s_online_icon');
+    })->name('s_online_icon');
     
 });
 
