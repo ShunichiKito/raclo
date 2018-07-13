@@ -11,7 +11,9 @@
 |
 */
 
+
 //初期画面
+
 Route::get('/', function () {
     return view('auth/user_register_or_login');
 })->name('u_signup_or_login');
@@ -41,13 +43,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
-    // Route::get('/u_edit', function () {
-    //     return view('users/u_edit');
-    // })->name('u_edit');
-    // Route::get('/s_edit', function () {
-    //     return view('stylists/s_edit');
-    // })->name('s_edit');
+
     Route::get('/u_stylist_lists', 'UsersController@s_index')->name('s_index');
+
+    Route::post('/myitems/selected', 'UsersController@myregister')->name('myitems.selected');
+    Route::post('/newitems/selected', 'UsersController@newregister')->name('newitems.selected');
+    
+    Route::get('/u_edit', function () {
+        return view('users/u_edit');
+    })->name('u_edit');
+    Route::get('/s_edit', function () {
+        return view('stylists/s_edit');
+    })->name('s_edit');
+
     Route::get('/u_privacy', function () {
         return view('users/u_privacy');
     })->name('u_privacy');
