@@ -100,6 +100,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/s_price', function () {
         return view('stylists/s_price');
     })->name('s_price');
+    Route::get('/u_stylist_lists', function () {
+        return view('users/u_stylist_lists');
+    })->name('u_stylist_lists');
+    Route::get('/s_request_lists', function () {
+        return view('stylists/s_request_lists');
+    })->name('s_request_lists');
+    
 });
 
 
