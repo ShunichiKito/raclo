@@ -33,6 +33,9 @@ use App\User
                     </div>
                 <!--</div>-->
              </div>
+            @if($item->user_name=='Shunichi Nitch Kito')
+                 <?php break; ?>
+            @endif
         @endforeach
 @endif    
 </div>
