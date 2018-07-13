@@ -14,9 +14,6 @@
 
 
 //初期画面
-
-
-
 Route::get('/', function () {
     return view('auth/user_register_or_login');
 })->name('u_signup_or_login');
@@ -24,49 +21,6 @@ Route::get('/', function () {
 Route::get('/s_signup_or_login', function () {
     return view('auth/stylist_register_or_login');
 })->name('s_signup_or_login');
-
-Route::get('/u_home', function () {
-    return view('users/u_home');
-})->name('u_home');
-
-Route::get('/u_edit', function () {
-    return view('users/u_edit');
-})->name('u_edit');
-
-Route::get('/s_edit', function () {
-    return view('stylists/s_edit');
-})->name('s_edit');
-
-Route::get('/s_home', function () {
-    return view('stylists/s_home');
-})->name('s_home');
-
-Route::get('/u_privacy', function () {
-    return view('users/u_privacy');
-})->name('u_privacy');
-
-
-Route::get('/s_privacy', function () {
-    return view('stylists/s_privacy');
-})->name('s_privacy');
-
-
-Route::get('/u_price', function () {
-    return view('users/u_price');
-})->name('u_price');
-
-Route::get('/s_price', function () {
-    return view('stylists/s_price');
-})->name('s_price');
-
-
-Route::get('/u_stylist_lists', function () {
-    return view('users/u_stylist_lists');
-})->name('u_stylist_lists');
-
-Route::get('/u_stylist_lists', function () {
-    return view('users/u_stylist_lists');
-})->name('u_stylist_lists');
 
 
 // // ユーザ登録
@@ -126,10 +80,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/s_price', function () {
         return view('stylists/s_price');
     })->name('s_price');
-
-    Route::get('/u_stylist_lists', function () {
-        return view('users/u_stylist_lists');
-    })->name('u_stylist_lists');
     Route::get('/s_request_lists', function () {
         return view('stylists/s_request_lists');
     })->name('s_request_lists');
@@ -183,17 +133,3 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update','privacy','price']]);
-    Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
-    
-$this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-$this->post('password/reset', 'Auth\ResetPasswordController@reset');
-
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
-    Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
-    
-});
-});
