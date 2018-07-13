@@ -26,14 +26,20 @@
                         <div class="closet-items">
                             <!--item変数を追加してから以下を実行する-->
                             @if (Auth::check())
-                               @include('items.u_items', ['items' => $items])
+                               @include('items.u_myitems', ['items' => $items ])
                             @endif
                         </div>
 
                     </div>
             
                     <div id="Newitem" class="tabcontent">
-                        <h2>ここにコーディネイト用画像</h2>
+                        
+                        <div class="closet-items">
+                            <!--item変数を追加してから以下を実行する-->
+                            @if (Auth::check())
+                               @include('items.u_newitems', ['items' => $items ])
+                            @endif
+                        </div>
             
                     </div>
                     
