@@ -60,6 +60,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/s_price', function () {
         return view('stylists/s_price');
     })->name('s_price');
+    
+    Route::get('/s_icon', function () {
+        return view('items/s_icon');
+    })->name('s_icon');
+    
 });
 
 
