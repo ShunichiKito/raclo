@@ -13,7 +13,6 @@
                                 {{ Form::checkbox('item[]',"$item->file_path", false) }}
                                     <!--<input type="checkbox" name="$key" value="$item" id="item" />-->
                                     <input type="checkbox" name="item" value="$item" id="item" />
-                                    
                             </div>
                         </div>
                     </div>
