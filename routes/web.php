@@ -62,7 +62,10 @@ Route::group(['middleware' => ['auth']], function () {
     // })->name('s_edit');
     Route::get('u_stylist_lists', 'UsersController@s_index')->name('s_index');
     Route::get('u_onlinestylist_lists', 'UsersController@s_online_index')->name('s_online_index');
-
+    
+    
+    Route::post('u_order', 'UsersController@u_order')->name('u_order');
+    
     Route::get('/u_privacy', function () {
         return view('users/u_privacy');
     })->name('u_privacy');
