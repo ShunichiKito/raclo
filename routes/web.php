@@ -11,12 +11,11 @@
 |
 */
 
-<<<<<<< HEAD
-//ログイン,ユーザ登録初期画面
-=======
+
 
 //初期画面
->>>>>>> ce7d553ff540b84eba0d9bc9c7f9eeb821f61028
+
+
 
 Route::get('/', function () {
     return view('auth/user_register_or_login');
@@ -127,6 +126,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/s_price', function () {
         return view('stylists/s_price');
     })->name('s_price');
+
+    Route::get('/u_stylist_lists', function () {
+        return view('users/u_stylist_lists');
+    })->name('u_stylist_lists');
+    Route::get('/s_request_lists', function () {
+        return view('stylists/s_request_lists');
+    })->name('s_request_lists');
+
     
     Route::get('/s_icon', function () {
         return view('items/s_icon');
@@ -135,6 +142,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/s_online_icon', function () {
         return view('items/s_online_icon');
     })->name('s_online_icon');
+
     
 });
 
