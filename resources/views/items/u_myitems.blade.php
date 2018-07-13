@@ -10,15 +10,8 @@
                                 <img src="{{ $item->file_path }}" alt="" class="">
                             </div>
                             <div class="panel-body">
-
-                                    <input type="checkbox" name="item" value="$item" id="item" />
-                                    <p id="p1"></p>
-                                   
-                                    
-
                                 {{ Form::checkbox('item[]',"$item->file_path", false) }}
                                     <!--<input type="checkbox" name="$key" value="$item" id="item" />-->
-
                             </div>
                         </div>
                     </div>
