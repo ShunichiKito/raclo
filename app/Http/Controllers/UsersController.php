@@ -27,20 +27,33 @@ class UsersController extends Controller
      public function s_index()
     {   
         if (\Auth::user()->user_type == 1){
-        $user = \Auth::user();
         $items=array();
 
-        $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path')->distinct()->paginate(100);
+        $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
+        
 
                return view('users/u_stylist_lists')->with('items',$items);
+              
                     
             } else{ 
                 return redirect('/');
             }
     }
     
+    public function s_online_index()
+    {   
+        if (\Auth::user()->user_type == 1){
+        $items=array();
+        $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
+        
+               return view('users/u_onlinestylist_lists')->with('items',$items);
+                    
+            } else{ 
+                return redirect('/');
+            }
+    }
     
-    
+  
     public function edit($id)
     {
         
