@@ -3,7 +3,7 @@ $user = \Auth::user()->id;
      
 if (\Auth::user()->user_type == 1){ ?>
 
-<<<<<<< HEAD
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -29,7 +29,7 @@ if (\Auth::user()->user_type == 1){ ?>
     </div>
 </div>
 @endsection
-=======
+
     @include('users.u_home')
         
 <?php } elseif(\Auth::user()->user_type == 2)  { ?>
@@ -41,4 +41,3 @@ if (\Auth::user()->user_type == 1){ ?>
              
 ?>
 <a href="/logout"> Logout </a>
->>>>>>> fd6c3fa2840481fa7956ee34922743618a6ee0d3
