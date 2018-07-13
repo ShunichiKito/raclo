@@ -1,0 +1,11 @@
+.logo{
+    height: 51px;
+    margin:0;
+    float:right;
+    padding:0;
+    border-radius: 6px;
+}
+
+.container-fluid {
+    padding:0;
+}
