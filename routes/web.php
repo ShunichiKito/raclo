@@ -83,11 +83,36 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 
 //ログイン後画面
-Route::get('/users/u_home', function () {
-    return view('users/u_home');
-});
-Route::get('/stylists/s_home', function () {
-    return view('stylists/s_home');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/users/u_home', function () {
+        return view('users/u_home');
+    });
+    Route::get('/stylists/s_home', function () {
+        return view('stylists/s_home');
+    });
+    
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
+    Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
+    
+    // Route::get('/u_edit', function () {
+    //     return view('users/u_edit');
+    // })->name('u_edit');
+    // Route::get('/s_edit', function () {
+    //     return view('stylists/s_edit');
+    // })->name('s_edit');
+    Route::get('/u_stylist_lists', 'UsersController@s_index')->name('s_index');
+    Route::get('/u_privacy', function () {
+        return view('users/u_privacy');
+    })->name('u_privacy');
+    Route::get('/s_privacy', function () {
+        return view('stylists/s_privacy');
+    })->name('s_privacy');
+    Route::get('/u_price', function () {
+        return view('users/u_price');
+    })->name('u_price');
+    Route::get('/s_price', function () {
+        return view('stylists/s_price');
+    })->name('s_price');
 });
 
 

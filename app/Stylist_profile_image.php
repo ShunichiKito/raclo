@@ -15,3 +15,7 @@ class Stylist_profile_image extends Model
 }
 
 
+
+  
+ 
+ 

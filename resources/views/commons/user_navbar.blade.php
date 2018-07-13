@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <!-- hamburger button which shows narrow width -->
@@ -13,20 +13,21 @@
     <!-- menu items -->
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li>{!! link_to_route('u_stylist_lists', 'Stylists') !!}</li>
+        <li><a href="/u_stylist_lists">Stylists</a></li>
         <li><a href="#">Online Stylists</a></li>
-        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class='glyphicon glyphicon-cog'></span></a>
           <ul class="dropdown-menu">
-            <li>{!! link_to_route('users.edit', 'プロフィール編集', ['id' => Auth::user()->id]) !!}</li>
-            <li>{!! link_to_route('u_price', 'Price', ['id' => Auth::user()->id]) !!}</li>
+            <li>{!! link_to_route('users.edit', 'Change Profile', ['id' => Auth::user()->id]) !!}</li>
+            <li>{!! link_to_route('u_price', 'Price') !!}</li>
+            <li>{!! link_to_route('u_privacy', 'Privacy and Security') !!}</li>
             <li><a href="#">Notification</a></li>
-            <li>{!! link_to_route('u_privacy', 'Privacy and Security')!!}</li>
             <li><a href="/logout">Logout</a></li>
           </ul>
         </li>
       </ul>
+       <img src="new.jpg" class="logo" width=auto>
+        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

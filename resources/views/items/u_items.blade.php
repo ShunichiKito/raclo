@@ -17,7 +17,7 @@
                                     $(function() {
                                         $('input[name="item"]').change(function() {
                                         
-                                            //選択したValue値を変数にうつす
+                                            // 選択したValue値を変数にうつす
                                             var val = $('#val:checked').val();
                                             
                                             if (val) {
