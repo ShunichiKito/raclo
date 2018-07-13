@@ -41,9 +41,8 @@ class UsersController extends Controller
     public function s_online_index()
     {   
         if (\Auth::user()->user_type == 1){
-        $user = \Auth::user();
         $items=array();
-        $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path')->where('stylist_profile_images.user_name', $user->name)->distinct()->paginate(10);
+        $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
         
                return view('users/u_onlinestylist_lists')->with('items',$items);
                     
@@ -123,7 +122,7 @@ class UsersController extends Controller
              $createitem->myitems_check="on";
              $createitem->save();
         }
-        return register('/u_stylist_lists');
+        return redirect('/u_stylist_lists');
         
     }  
     
@@ -137,7 +136,21 @@ class UsersController extends Controller
              $createitem->newitems_check="on";
              $createitem->save();
         }
-        return register('/u_stylist_lists');
+        return redirect('/u_stylist_lists');
+        
+    }
+    
+    public function u_order(Request $request)
+    {
+        $newitems=array();
+        $newitems = $request->item;
+        foreach($newitems as $newitem) {
+            // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
+             $createitem = U_item::where('file_path',$newitem)->first();
+             $createitem->newitems_check="on";
+             $createitem->save();
+        }
+        return redirect('/u_stylist_lists');
         
     }   
     
