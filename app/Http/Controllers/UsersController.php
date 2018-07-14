@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\U_item;
+use App\Order;
 // class UsersController extends Controller
 // {
 //     public function show($id)
@@ -153,6 +154,15 @@ class UsersController extends Controller
         return redirect('/u_stylist_lists');
         
     }   
+    public function u_ordercomp($user_name) {
+        
+        $order = new Order;
+        $order->user_id= \Auth::id();
+        $order->stylist_id= User::where('name',$user_name)->first()->id;
+        $order->save();
+        
+        return redirect('/home');
+    }
     
 }
 
