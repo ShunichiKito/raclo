@@ -13,7 +13,9 @@
 		<li class="header1"><strong>Monthly payment</strong></li>
 		<li class="header2">¥3,000</li>
 		<li class="style1">
-			
+			ここにはStandard会員の<br>
+			priceと説明書きが入る。<br>
+		    example
 		
 		</li>
 		<li class="footer1"><a href="#" class="cp_btn">ボタン</a></li>
