@@ -73,10 +73,9 @@ class UsersController extends Controller
              }
         }    
         
-        
     }
     
-     public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $user = User::find($id);
         if (\Auth::id() == $user->id){
@@ -110,7 +109,7 @@ class UsersController extends Controller
                   
             return redirect('/');
          }
-                                    }
+        }
     }
     
      public function myregister(Request $request)
@@ -153,6 +152,7 @@ class UsersController extends Controller
         }
         return redirect('/u_stylist_lists');
         
+
     }   
     public function u_ordercomp($user_name) {
         
@@ -211,4 +211,7 @@ class UsersController extends Controller
 // //     }
     
 // // }
+
+
+      
 
