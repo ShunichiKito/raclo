@@ -80,6 +80,10 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('s_price');
     
     
+    
+    
+    
+    
     // Route::get('/s_icon', function () {
     //     return view('items/s_icon');
     // })->name('s_icon');

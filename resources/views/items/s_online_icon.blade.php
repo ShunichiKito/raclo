@@ -33,7 +33,7 @@ use App\User
                     </div>
                 <!--</div>-->
              </div>
-            @if($item->user_name=='Shunichi Nitch Kito')
+            @if($item->user_name=='Nitch')
                  <?php break; ?>
             @endif
         @endforeach
