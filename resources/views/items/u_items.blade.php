@@ -7,7 +7,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">
-                                <img src="{{ $item->file_path }}" alt="" class="">
+                                <img src="{{ $item->file_path }}" alt="" class="" >
                             </div>
                             <div class="panel-body">
                                     <input type="checkbox" name="item" value="$item" id="item" />

@@ -29,6 +29,11 @@
                                @include('items.u_myitems', ['items' => $items ])
                             @endif
                         </div>
+                        <div class="next">        
+                            <input type="submit" name="itemSubmit" value="Next" />
+                            {!! Form::close() !!}
+                               
+                        </div>
 
                     </div>
             

@@ -1,0 +1,13 @@
+.panel-heading{
+    height: 210px;
+    width: 210px;
+}
+.panel-body{
+    height: 20px;
+    width: 220px;
+}
+
+.row{
+    position: absolute;
+    
+}

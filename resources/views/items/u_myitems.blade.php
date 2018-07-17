@@ -6,8 +6,8 @@
                 <div class="item">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading text-center">
-                                <img src="{{ $item->file_path }}" alt="" class="">
+                            <div class="panel-heading">
+                                <img src="{{ $item->file_path }}" alt="" class="" height="200px" width="200px">
                             </div>
                             <div class="panel-body">
                                 {{ Form::checkbox('item[]',"$item->file_path", false) }}
@@ -17,9 +17,7 @@
                     </div>
                 </div>
             @endforeach
-        <input type="submit" name="itemSubmit" value="Next" />
-        {!! Form::close() !!}
-    @endif    
+        @endif    
 </div>
 
 

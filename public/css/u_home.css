@@ -90,10 +90,29 @@ body {font-family: Arial;}
 
 .closet-items {
     position: absolute;
-    width: 355px;
+    width: 400px;
     height: 650px;
-    margin: 0 auto;
-    margin-top: 60px;
-    margin-left: 150px;
+    margin-right: 1000px;
+    margin-top: 10px    ;
 }
 
+.next{
+    position: absolute;
+    margin-top: 700px;
+    margin-left:300px;
+    
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #fd9535;/*色*/
+    border-radius: 3px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px #d27d00;/*線色*/
+}
+
+.next button.active {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+    
