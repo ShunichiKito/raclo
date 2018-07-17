@@ -1,12 +1,11 @@
 .cp_pricetable1 {
 	text-align: center;
 	color:#000000;
-	
 }
 
 .cp_pricetable1 .header2{
 	text-align: center;
-	color:#ffff33;
+	color:#F6FF00;
 }
 .cp_pricetable1 .block {
 	position: relative;
@@ -45,8 +44,8 @@
 .cp_pricetable1 .block .header2 {
 	width: 100%;
 	padding: 1em;
-	border-top: 1px solid #131874;
-	background: #a9bce2;
+	border-top: 1px solid #131874;　/*上の枠線　ダークブルー*/
+	background: #a9bce2; 
 }
 /* --- 詳細 ---  */
 .cp_pricetable1 .block .style1,

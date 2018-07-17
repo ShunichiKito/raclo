@@ -36,6 +36,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 //ログイン後画面
 Route::group(['middleware' => ['auth']], function () {
+    //ログイン後ホーム
     Route::get('/users/u_home', function () {
         return view('users/u_home');
     });
@@ -46,28 +47,28 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
-
-
+    //ユーザーによる服選択
     Route::post('/myitems/selected', 'UsersController@myregister')->name('myitems.selected');
     Route::post('/newitems/selected', 'UsersController@newregister')->name('newitems.selected');
     
+    //ユーザー、スタイリストプロフィール編集
     Route::get('/u_edit', function () {
         return view('users/u_edit');
     })->name('u_edit');
     Route::get('/s_edit', function () {
         return view('stylists/s_edit');
     })->name('s_edit');
-
-    // Route::get('/u_edit', function () {
-    //     return view('users/u_edit');
-    // })->name('u_edit');
-    // Route::get('/s_edit', function () {
-    //     return view('stylists/s_edit');
-    // })->name('s_edit');
+    
+    //スタイリスト一覧
     Route::get('u_stylist_lists', 'UsersController@s_index')->name('s_index');
     Route::get('u_onlinestylist_lists', 'UsersController@s_online_index')->name('s_online_index');
+    
+    //服選択処理→スタイリスト選択へ
+    Route::post('u_order', 'UsersController@u_order')->name('u_order');
+    //スタイリスト選択済み、注文完了処理
+    Route::get('u_ordercomp/{user_name}', 'UsersController@u_ordercomp')->name('u_ordercomp');
 
-
+    //プライバシー、価格
     Route::get('/u_privacy', function () {
         return view('users/u_privacy');
     })->name('u_privacy');
@@ -85,9 +86,6 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('s_request_lists');
 
     
-    Route::get('/s_icon', function () {
-        return view('items/s_icon');
-    })->name('s_icon');
     
     Route::get('/s_online_icon', function () {
         return view('items/s_online_icon');
@@ -97,6 +95,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
+//以下参考として
 // Route::group(['middleware' => ['auth']], function () {
 //     Route::resource('items', 'ItemsController', ['only' => ['create', 'show']]);
 //     Route::post('want', 'ItemUserController@want')->name('item_user.want');

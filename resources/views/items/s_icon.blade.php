@@ -28,7 +28,10 @@ use App\User
                         </div>
                         
                         <div class='panel panel-footer'>
-                            <a herf='#' class='btn btn-danger'>Send the Request</a>
+                            <a href="{{ route('u_ordercomp', $item->user_name) }}" class='btn byn-danger'>
+                                <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to request this stylist?");'>Send the Request</button>
+                            </a>
+                            
                         </div>
                     </div>
                 <!--</div>-->
