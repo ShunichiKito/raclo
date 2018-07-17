@@ -35,6 +35,11 @@
                         <br>(ex:American Casual....)
                         {!! Form::text('style', old('style'), ['class' => 'form-control']) !!}
                     </div>
+                    
+                    <div class="form-group">
+                       {!! Form::label('clients', 'Clients per Month') !!} <br>
+                       {{Form::select('clients', ['～5', '6～10', '11～20','21～30', '30～'], 'select number of clients' )}}
+                    </div>
 
                     <div class="form-group">
                         {!! Form::hidden('user_type', '2') !!}
