@@ -10,15 +10,15 @@
 <div class="cp_pricetable1">
 	<div class="block">
 	<ul>
-		<li class="header1"><strong>Monthly payment</strong></li>
-		<li class="header2">¥3,000</li>
+		<li class="header1"><strong>1 coordinate</strong></li>
+		<li class="header2">¥500</li>
 		<li class="style1">
-			ここにはStandard会員の<br>
-			priceと説明書きが入る。<br>
-		    example
+			一回きりのコーディネート<br>
+			スタンダードの料金プラン<br>
+		    <br>
 		
 		</li>
-		<li class="footer1"><a href="#" class="cp_btn">ボタン</a></li>
+		<li class="footer1"><a href="#" class="cp_btn">BUY</a></li>
 	</ul>
 	</div>
 </div>
@@ -26,14 +26,14 @@
 <div class="cp_pricetable2">
 	<div class="block">
 	<ul>
-		<li class="header1"><strong>one-time codinate</strong></li>
-		<li class="header2">￥324</li>
+		<li class="header1"><strong>5 coordinates</strong></li>
+		<li class="header2">¥2000</li>
 		<li class="style1">
-			ここにはStandard会員の<br>
-			priceと説明書きが入る。<br>
-		    example
+			５回分のコーディネート<br>
+			１回分お得な料金プラン<br>
+		    <br>
 		</li>
-		<li class="footer1"><a href="#" class="cp_btn">ボタン</a></li>
+		<li class="footer1"><a href="#" class="cp_btn">BUY</a></li>
 	</ul>
 	</div>
 </div>
@@ -41,14 +41,14 @@
 <div class="cp_pricetable3">
 	<div class="block">
 	<ul>
-		<li class="header1"><strong>Trial</strong></li>
-		<li class="header2">¥0</li>
+		<li class="header1"><strong>10 coordinates</strong></li>
+		<li class="header2">¥3500</li>
 		<li class="style1">
-			ここにはTrial会員の<br>
-			priceと説明書きが入る。<br>
-		    example
+			１０回分のコーディネート<br>
+			３回分お得な料金プラン<br>
+		    <br>
 		</li>
-		<li class="footer1"><a href="#" class="cp_btn">ボタン</a></li>
+		<li class="footer1"><a href="#" class="cp_btn">BUY</a></li>
 	</ul>
 	</div>
 </div>
