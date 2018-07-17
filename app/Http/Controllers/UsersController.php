@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\U_item;
+use App\Order;
 // class UsersController extends Controller
 // {
 //     public function show($id)
@@ -72,10 +73,9 @@ class UsersController extends Controller
              }
         }    
         
-        
     }
     
-     public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $user = User::find($id);
         if (\Auth::id() == $user->id){
@@ -109,7 +109,7 @@ class UsersController extends Controller
                   
             return redirect('/');
          }
-                                    }
+        }
     }
     
      public function myregister(Request $request)
@@ -152,7 +152,17 @@ class UsersController extends Controller
         }
         return redirect('/u_stylist_lists');
         
+
     }   
+    public function u_ordercomp($user_name) {
+        
+        $order = new Order;
+        $order->user_id= \Auth::id();
+        $order->stylist_id= User::where('name',$user_name)->first()->id;
+        $order->save();
+        
+        return redirect('/home');
+    }
     
 }
 
@@ -201,4 +211,7 @@ class UsersController extends Controller
 // //     }
     
 // // }
+
+
+      
 
