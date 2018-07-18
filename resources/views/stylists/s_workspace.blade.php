@@ -1,5 +1,10 @@
 @extends('layouts.stylist_app')
 
+<?php
+print_r($all_images);
+return;
+?>
+
 @section('content')
     <div class="row">
         <aside class="col-xs-3">
