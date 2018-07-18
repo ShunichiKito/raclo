@@ -68,11 +68,11 @@
                       </div>
                   {!! Form::close() !!}
             @endif
-            @if (count($microposts) > 0)
+            @if (count($repuests) > 0)
                 @include('microposts.microposts', ['microposts' => $microposts])
             @endif
         </div>
-        <div class="col-xs-3">
+        
         </div>
     </div>
 @endsection
