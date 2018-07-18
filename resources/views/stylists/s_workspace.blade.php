@@ -1,8 +1,13 @@
 @extends('layouts.stylist_app')
 
 <?php
-print_r($all_images);
-return;
+// $all_images=[
+//             'user' => $user,
+//             'my_images' => $my_images,
+//             'new_images' => $new_images
+//         ];
+// print_r($all_images);
+// return;
 ?>
 
 @section('content')
@@ -26,44 +31,40 @@ return;
             </div>
             
             <div id="withmyitems" class="tabcontent">
-                      
                 <div class="closet-items">
                 <!--item変数を追加してから以下を実行する-->
                     @if (Auth::check())
-                        @include('items.u_myitems', ['items' => $items ])
+                        @include('items.u_myitems', ['items' => $my_images ])
                     @endif
-                        </div>
-
-                    </div>
+                </div>
+            </div>
             
-                    <div id="withnewitems" class="tabcontent">
-                        
-                        <div class="closet-items">
-                            <!--item変数を追加してから以下を実行する-->
-                            @if (Auth::check())
-                               @include('items.u_newitems', ['items' => $items ])
-                            @endif
-                        </div>
+            <div id="withnewitems" class="tabcontent">
+                <div class="closet-items">
+                    <!--item変数を追加してから以下を実行する-->
+                    @if (Auth::check())
+                       @include('items.u_newitems', ['items' => $new_images ])
+                    @endif
+                </div>
+            </div>
+                    
+            <script>
+            function openTab(evt, cityName) {
+               var i, tabcontent, tablinks;
+               tabcontent = document.getElementsByClassName("tabcontent");
+               for (i = 0; i < tabcontent.length; i++) {
+                   tabcontent[i].style.display = "none";
+               }
+               tablinks = document.getElementsByClassName("tablinks");
+               for (i = 0; i < tablinks.length; i++) {
+                   tablinks[i].className = tablinks[i].className.replace(" active", "");
+               }
+               document.getElementById(cityName).style.display = "block";
+               evt.currentTarget.className += " active";
+            }
+            document.getElementById("defaultOpen").click();
             
-                    </div>
-                    
-                    <script>
-                    function openTab(evt, cityName) {
-                       var i, tabcontent, tablinks;
-                       tabcontent = document.getElementsByClassName("tabcontent");
-                       for (i = 0; i < tabcontent.length; i++) {
-                           tabcontent[i].style.display = "none";
-                       }
-                       tablinks = document.getElementsByClassName("tablinks");
-                       for (i = 0; i < tablinks.length; i++) {
-                           tablinks[i].className = tablinks[i].className.replace(" active", "");
-                       }
-                       document.getElementById(cityName).style.display = "block";
-                       evt.currentTarget.className += " active";
-                    }
-                    document.getElementById("defaultOpen").click();
-                    
-                    </script>
+            </script>
                     
              @if (Auth::user()->id == $user->id)
                   {!! Form::open(['route' => 'microposts.store']) !!}
