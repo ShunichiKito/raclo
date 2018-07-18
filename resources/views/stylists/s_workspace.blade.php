@@ -57,7 +57,6 @@
                        evt.currentTarget.className += " active";
                     }
                     document.getElementById("defaultOpen").click();
-                    
                     </script>
                     
              @if (Auth::user()->id == $user->id)
@@ -74,5 +73,4 @@
         </div>
         
         </div>
-    </div>
 @endsection

@@ -11,7 +11,6 @@
 |
 */
 
-
 //初期画面
 
 Route::get('/', function () {
@@ -78,6 +77,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/s_price', function () {
         return view('stylists/s_price');
     })->name('s_price');
+    
+    Route::get('/s_workspace', function () {
+        return view('stylists/s_workspace');
+    })->name('s_workspace');
+    
+    Route::get('/s_styling', function () {
+        return view('stylists/s_styling');
+    })->name('s_styling');
+    
+    
     
     
      Route::get('/s_style', function () {
