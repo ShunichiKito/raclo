@@ -5,45 +5,51 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_home.css') }}">
     </head>
     <body>
-    <div class="container col-lg-12">
+        <div class="container col-lg-12">
             <div class="screen">
-                <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_home.css') }}">
                 <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100> </a>
                 <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt="" height=100 width=100></a>
-            </div>
-                <div class="row col-md-4">
+            <!--</div>-->
+                <!--<div class="row col-md-12">-->
                 <div class="tab">
                     <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
                     <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
                 <!--</div>-->
-                
-                <div id="Myitem" class="tabcontent">
-                    <!--myitemのコンテンツ-->
-                    <!--<div class="w3--card-4">-->
-                        <!--item変数を追加してから以下を実行する-->
-                        @if (Auth::check())
-                           @include('items.u_myitems', ['items' => $items ])
-                        @endif
+                    <div id="Myitem" class="tabcontent">
+                        <!--myitemのコンテンツ-->
+                        <!--<div class="w3--card-4">-->
+                            <!--item変数を追加してから以下を実行する-->
+                            @if (Auth::check())
+                               @include('items.u_myitems', ['items' => $items ])
+                            @endif
+                        <!--</div>-->
                     <!--</div>-->
-                </div>
-                    <div class="myitem-next">        
-                        <input type="submit" name="itemSubmit" value="Next" />
-                        {!! Form::close() !!}
+                        <div class="myitem-next">        
+                            <input type="submit" name="itemSubmit" value="Next" />
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                <!--</div>-->
+                <!--</div>-->
+                    <div id="Newitem" class="tabcontent">
+                        <!--Newitemのコンテンツ-->
+                        <!--<div class="closet-items">-->
+                            <!--item変数を追加してから以下を実行する-->
+                            @if (Auth::check())
+                               @include('items.u_newitems', ['items' => $items ])
+                            @endif
+                        <div class="myitem-next">        
+                            <input type="submit" name="itemSubmit" value="Next" />
+                            {!! Form::close() !!}
+                        </div>
                     </div>
                 </div>
-                </div>
-                <div id="Newitem" class="tabcontent">
-                    <!--Newitemのコンテンツ-->
-                    <!--<div class="closet-items">-->
-                        <!--item変数を追加してから以下を実行する-->
-                        @if (Auth::check())
-                           @include('items.u_newitems', ['items' => $items ])
-                        @endif
-                    <!--</div>-->
-                </div>
-                </div>
+            </div>    
+        </div>
+                <!--</div>-->
                 
                 
                 <script>
@@ -62,9 +68,9 @@
                 }
                 document.getElementById("defaultOpen").click();
                 </script>
-            </div>        
+            <!--</div>        -->
         <!--</div>-->
-    </div>
+    <!--</div>-->
     </body>
                 
 </html>

@@ -6,6 +6,7 @@
     height: 750px;
     margin: 0 auto;
     margin-top: 50px;
+    z-index:1;
 }
 .center {
     display: block;
@@ -40,10 +41,10 @@ body {font-family: Arial;}
    overflow: hidden;
    border: none;
    background-color:transparent;
-   /*z-index: 1;*/
-   margin-top: 65px;
-   margin-left: 345px;
-   position: absolute;
+   z-index: 2;
+   margin-top: 15px;
+   margin-left: 110px;
+   position: absolute !important;
    /*position: center;*/
    /*margin:auto;*/
 }
@@ -107,8 +108,8 @@ body {font-family: Arial;}
 
 /*ネクストボタン*/
 .myitem-next{
-    position: absolute;
-    margin-top: 200px;
+    position: absolute !important;
+    /*margin-top: 200px;*/
     margin-left:300px;
     
     display: inline-block;

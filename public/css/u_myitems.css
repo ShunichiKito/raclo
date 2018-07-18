@@ -9,6 +9,7 @@
     display: table-cell;
     
 }
+.item
 .panel-heading {
     height: 110px;
     width: 110px;
@@ -25,15 +26,17 @@
     
 }
 
-.col-lg-4{
-    display: flex;
-}
-
-/*.row{*/
-/*    display:*/
+/*.col-lg-4{*/
+/*    display: inline;*/
 /*}*/
+
+.item
+.row{
+    display:flex;
+}
 
 /*.closetin{*/
 /*    display: flex;*/
 /*    width: 120px;*/
 /*}*/
+
