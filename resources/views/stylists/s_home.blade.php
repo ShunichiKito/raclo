@@ -1,6 +1,6 @@
 @extends('layouts.stylist_app')
 
-
+@section('content')
 
 
 <div>

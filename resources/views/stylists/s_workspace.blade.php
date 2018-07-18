@@ -15,8 +15,8 @@
         </aside>
         <div class="col-xs-6">
             <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">With My Items</button>
-                <button class="tablinks" onclick="openTab(event, 'withnewitems')">With New Items</button>
+                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
+                <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
                 <button class="tablinks" onclick="openTab(event, 'BrandAvenue')">Brand Avenue</button>
             </div>
             
