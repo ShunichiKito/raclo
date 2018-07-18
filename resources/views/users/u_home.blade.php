@@ -16,21 +16,24 @@
                 <div class="tab">
                     <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
                     <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
-                </div>
+                <!--</div>-->
                 <div id="Myitem" class="tabcontent">
-                    <div class="w3--card-4" style="height:150px">
+                    <!--myitemのコンテンツ-->
+                    <!--<div class="w3--card-4">-->
                         <!--item変数を追加してから以下を実行する-->
                         @if (Auth::check())
                            @include('items.u_myitems', ['items' => $items ])
                         @endif
-                    </div>
+                    <!--</div>-->
                 </div>
                     <div class="myitem-next">        
                         <input type="submit" name="itemSubmit" value="Next" />
                         {!! Form::close() !!}
                     </div>
+                    </div>
                 </div>
                 <div id="Newitem" class="tabcontent">
+                    <!--Newitemのコンテンツ-->
                     <div class="closet-items">
                         <!--item変数を追加してから以下を実行する-->
                         @if (Auth::check())

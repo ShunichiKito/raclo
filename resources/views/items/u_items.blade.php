@@ -1,4 +1,6 @@
 
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_items.css') }}">
+
 <div class="row">
     <div class=users-items>
     @if (Auth::check())
@@ -7,7 +9,6 @@
                 <div class="item">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
-                            <div class="u-items-head">
                                 <div class="panel-heading text-center">
                                 <img src="{{ $item->file_path }}" alt="" class="" >
                                 </div>
@@ -32,7 +33,7 @@
                                         }
                                     )});
                                     </script>
-                                    
+                                    <div class="w3-container w3-left">
                                 {{ Form::checkbox('item[]',"$item->file_path", false) }}
                                     <!--<input type="checkbox" name="$key" value="$item" id="item" />-->
                                 </div>
