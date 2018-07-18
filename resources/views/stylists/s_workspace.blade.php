@@ -80,11 +80,10 @@
                        evt.currentTarget.className += " active";
                     }
                     document.getElementById("defaultOpen").click();
-                    
                     </script>
         </div>
         <div class="col-xs-3">
-            しょうちゃんのドロップ
+
+          
         </div>
-    </div>
 @endsection
