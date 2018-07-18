@@ -1,5 +1,5 @@
 
-.raw {
+.screen {
     background-image: url("/cabinet-575361_1280.png");
     background-size: cover;
     width: 700px;
@@ -87,7 +87,7 @@ body {font-family: Arial;}
 /*    margin-top: 32px;*/
 /*}*/
 
-
+/*w3-container*/
 .closet-items {
     position: absolute;
     width: 400px;
@@ -96,7 +96,7 @@ body {font-family: Arial;}
     margin-top: 10px    ;
 }
 
-.next{
+.myitem-next{
     position: absolute;
     margin-top: 700px;
     margin-left:300px;
@@ -112,7 +112,11 @@ body {font-family: Arial;}
     border: solid 2px #d27d00;/*線色*/
 }
 
-.next button.active {
+
+.myitem-next button:hover{
+    background-color: 	#FF4500;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
     
+
+
