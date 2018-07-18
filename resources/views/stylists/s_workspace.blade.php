@@ -3,35 +3,57 @@
 @section('content')
     <div class="row">
         <aside class="col-xs-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ $user->name }}</h3>
-                </div>
-                <div class="panel-body">
-                <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->id, 500) }}" alt="">
-                </div>
-            </div>
-            <a herf='#' class='btn btn-danger'>Send the Request</a>
+                     <div class='row text-center pad-top col-md-4 col-sm-4 col xs-8'>
+                <!--<div class='col-md-4 col-sm-4 col xs-8'>-->
+                    <div class='panel panel-danger'>
+                        <div class='panel-heading'>
+                            <img src="{{ $item->file_path }}" alt="" class="profile_image">
+                            <h2 class="panel-body"><?php print $item->user_name ?></h2>
+                        </div>
+                        
+                        <div class='panel panel-body'>
+                            <div class="table-responsive">
+                               <?php $user = User::where('users.name', $item->user_name)->first(); ?>  
+                               <div class="panel-body"><?php print $user->style ?></div>
+                            </div>
+                        </div>
+                        
+                        <div class='panel panel-footer'>
+                            <a href="{{ route('u_ordercomp', $item->user_name) }}" class='btn byn-danger'>
+                                <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to request this stylist?");'>Send the Request</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+                <!--</div>-->
+             </div>
+            
+            
+            
+            
+            
+            
         </aside>
         <div class="col-xs-6">
-            <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">With My Items</button>
-                <button class="tablinks" onclick="openTab(event, 'withnewitems')">With New Items</button>
-                <button class="tablinks" onclick="openTab(event, 'BrandAvenue')">Brand Avenue</button>
-            </div>
+            //ここに服の画像を入れる
+        　<div class="tab">
+                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">Coordinate</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">Suggestion</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">Brand Avenue</button>
+                    </div>
             
-            <div id="withmyitems" class="tabcontent">
+                    <div id="Myitem" class="tabcontent">
                       
-                <div class="closet-items">
-                <!--item変数を追加してから以下を実行する-->
-                    @if (Auth::check())
-                        @include('items.u_myitems', ['items' => $items ])
-                    @endif
+                        <div class="closet-items">
+                            <!--item変数を追加してから以下を実行する-->
+                            @if (Auth::check())
+                               @include('items.u_myitems', ['items' => $items ])
+                            @endif
                         </div>
 
                     </div>
             
-                    <div id="withnewitems" class="tabcontent">
+                    <div id="Newitem" class="tabcontent">
                         
                         <div class="closet-items">
                             <!--item変数を追加してから以下を実行する-->
@@ -42,8 +64,9 @@
             
                     </div>
                     
+                    
                     <script>
-                    function openTab(evt, cityName) {
+                    function openCloset(evt, cityName) {
                        var i, tabcontent, tablinks;
                        tabcontent = document.getElementsByClassName("tabcontent");
                        for (i = 0; i < tabcontent.length; i++) {
@@ -59,20 +82,9 @@
                     document.getElementById("defaultOpen").click();
                     
                     </script>
-                    
-             @if (Auth::user()->id == $user->id)
-                  {!! Form::open(['route' => 'microposts.store']) !!}
-                      <div class="form-group">
-                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
-                          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
-                      </div>
-                  {!! Form::close() !!}
-            @endif
-            @if (count($microposts) > 0)
-                @include('microposts.microposts', ['microposts' => $microposts])
-            @endif
         </div>
         <div class="col-xs-3">
+            しょうちゃんのドロップ
         </div>
     </div>
 @endsection
