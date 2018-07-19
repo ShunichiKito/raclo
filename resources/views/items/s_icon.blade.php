@@ -20,7 +20,7 @@ use App\User
                             <div class='panel-heading'>
                             <img src="{{ $item->file_path }}" alt="" class="profile_image">
                                 <div class='stylist-picname'>
-                                <h2 class="panel-body"><?php print $item->user_name ?></h2>
+                                <h2 class="panel-body"></h2>
                                 </div>
                             </div>
                         </div>

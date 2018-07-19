@@ -34,7 +34,7 @@
 
 
 
-body {font-family: Arial;}
+/*body {font-family: Arial;}*/
 
 /* Style the tab */
 .tab {
@@ -45,9 +45,7 @@ body {font-family: Arial;}
    margin-top: 15px;
    margin-left: 110px;
    position: absolute !important;
-   /*position: center;*/
-   /*margin:auto;*/
-}
+  }
 
 /* Style the buttons inside the tab */
 .tab button {
@@ -81,53 +79,41 @@ body {font-family: Arial;}
 
 /* Style the tab content */
 .tabcontent {
-   display: none;
+   /*display: none;*/
    width:420px;
    height: 675px;
-   /*padding: 6px 12px;*/
    border: none;
    margin-top:45px;
    margin-left:32px;
    margin-right:0px;
-   /*display: inline-block*/
 }
 
-/*.tab{*/
-/*    margin-top: 32px;*/
-/*}*/
-
-/*w3-container*/
-/*.closet-items {*/
-/*    position: absolute;*/
-/*    width: 400px;*/
-/*    height: 650px;*/
-/*    margin-right: 1000px;*/
-/*    margin-top: 10px    ;*/
-/*}*/
 
 
 /*ネクストボタン*/
 .myitem-next{
     position: absolute !important;
-    /*margin-top: 200px;*/
-    margin-left:300px;
-    
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    text-decoration: none;
-    color: #FFF;
-    background: #fd9535;/*色*/
-    border-radius: 3px;/*角の丸み*/
-    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-    font-weight: bold;
-    border: solid 2px #d27d00;/*線色*/
+    margin-top: 620px;
+    margin-left: 348px;
 }
 
 
-.myitem-next button:hover{
+.myitem-next:hover{
     background-color: 	#FF4500;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+    
 }
     
 
+.submission{
+    padding: 0.5em 1em;
+    /*text-decoration: none;*/
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: #FFC106;
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #c58668;
+}
 
