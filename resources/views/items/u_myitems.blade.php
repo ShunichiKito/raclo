@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_myitems.css') }}">
 
@@ -36,7 +37,7 @@
                     {{ Form::checkbox('item[]',"$item->file_path", false) }}
                 </div>
                     <!--</div>-->
-                </div>
+
         <!--</div>-->
             
             <!--<div class='panel panel-body'>-->
@@ -52,5 +53,4 @@
              
 @endforeach
 @endif    
-
 

@@ -81,15 +81,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/s_price', function () {
         return view('stylists/s_price');
     })->name('s_price');
-    Route::get('/s_request_lists', function () {
-        return view('stylists/s_request_lists');
-    })->name('s_request_lists');
-
-    
+    //スタイリストリクエスト受け取り
+    Route::get('/s_request_lists', 'ItemsController@s_request_receive')->name('s_request_receive');
     
     Route::get('/s_online_icon', function () {
         return view('items/s_online_icon');
     })->name('s_online_icon');
+    
+    //ワークスペース
+    // Route::get('/workspace', 'ItemsController@s_workspace')->name('workspace');
+    Route::get('/s_workspace/{order}', 'ItemsController@s_workspace')->name('s_workspace');
 
     
 });
