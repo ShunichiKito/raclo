@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\U_item;
+use App\U_Item;
 use App\Order;
 // class UsersController extends Controller
 // {
@@ -73,9 +73,10 @@ class UsersController extends Controller
              }
         }    
         
+        
     }
     
-    public function update(Request $request, $id)
+     public function update(Request $request, $id)
     {
         $user = User::find($id);
         if (\Auth::id() == $user->id){
@@ -109,6 +110,7 @@ class UsersController extends Controller
                   
             return redirect('/');
          }
+                  
         }
     }
     
@@ -146,7 +148,7 @@ class UsersController extends Controller
         $newitems = $request->item;
         foreach($newitems as $newitem) {
             // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
-             $createitem = U_item::where('file_path',$newitem)->first();
+             $createitem = U_Item::where('file_path',$newitem)->first();
              $createitem->newitems_check="on";
              $createitem->save();
         }
@@ -209,6 +211,10 @@ class UsersController extends Controller
 
 //              return redirect('/');
 // //         }
+// //     }
+    
+// // }
+
 // //     }
     
 // // }
