@@ -32,10 +32,9 @@
             
             
             
-            
         </aside>
         <div class="col-xs-6">
-            //ここに服の画像を入れる
+            
         　<div class="tab">
                         <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">Coordinate</button>
                         <button class="tablinks" onclick="openCloset(event, 'Newitem')">Suggestion</button>
