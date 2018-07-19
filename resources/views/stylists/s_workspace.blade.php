@@ -34,7 +34,7 @@
                 <div class="closet-items">
                 <!--item変数を追加してから以下を実行する-->
                     @if (Auth::check())
-                        @include('items.u_myitems', ['items' => $my_images ])
+                        @include('items.before_coitems', ['items' => $my_images ])
                     @endif
                 </div>
             </div>
@@ -66,17 +66,7 @@
             
             </script>
                     
-             @if (Auth::user()->id == $user->id)
-                  {!! Form::open(['route' => 'microposts.store']) !!}
-                      <div class="form-group">
-                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
-                          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
-                      </div>
-                  {!! Form::close() !!}
-            @endif
-            @if (count($microposts) > 0)
-                @include('microposts.microposts', ['microposts' => $microposts])
-            @endif
+           
         </div>
         <div class="col-xs-3">
         </div>
