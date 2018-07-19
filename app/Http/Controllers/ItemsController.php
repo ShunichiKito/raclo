@@ -56,6 +56,8 @@ class ItemsController extends Controller
             'my_images' => $my_images,
             'new_images' => $new_images
         ];
+        print $my_images;
+        return ; 
         
         return view('stylists/s_workspace', $all_images);
     }    
