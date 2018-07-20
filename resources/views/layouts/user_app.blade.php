@@ -14,6 +14,8 @@
 
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ secure_asset('css/stylist_list.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/s_icon.css') }}">
+        
         <!--<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">-->
     </head>
     <body>
