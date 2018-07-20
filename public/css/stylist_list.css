@@ -8,11 +8,8 @@
 .panel.panel-danger {
     height: 450px;
     margin: 20px;
-    background-color: #ebccd1;
 }
 .panel-heading {
-    background-color: #ebccd1;
-
     height: 270px;
 }
 
