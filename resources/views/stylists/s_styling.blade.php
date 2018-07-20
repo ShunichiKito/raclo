@@ -104,20 +104,11 @@
     z-index: 100;
     border:1px dotted black;
   }
-  
-  /*.sector1{*/
 
-    
-  /*  position: inline-block;*/
-  /*}*/
-
-  
-  
-  
-  
   
 </style>
 
+<!--ここから下はアイテム-->
 <div id="container">
   <div class="item_area">
     <div class="item">
@@ -172,7 +163,10 @@
         $(ui.selected).draggable().draggable('enable');
       }
     });
+    
     $('.item').draggable({
+      revert: "invalid",
+      containment: "",
       snap: true,
       drag: function(e,ui){
         $('.ui-selected').each(function(){
