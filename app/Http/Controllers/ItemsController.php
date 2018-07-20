@@ -57,6 +57,10 @@ class ItemsController extends Controller
             'new_images' => $new_images
         ];
         
+        return view('stylists/s_workspace', $all_images);
+    }
+        
+        
     //   public function store(Request $request)
     // {
 
@@ -77,5 +81,5 @@ class ItemsController extends Controller
 
     //     return redirect()->back();
     // }
-    }
+    
 }

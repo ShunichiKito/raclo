@@ -114,53 +114,63 @@ class UsersController extends Controller
         }
     }
     
-     public function myregister(Request $request)
+    public function item_register(Request $request)
     {
         $myitems=array();
-        $myitems = $request->item;
+        $myitems = $request->myitem;
         foreach($myitems as $myitem) {
             // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
              $createitem = U_item::where('file_path',$myitem)->first();
              $createitem->myitems_check="on";
              $createitem->save();
+             
         }
-        return redirect('/u_stylist_lists');
-        
-    }  
-    
-    public function newregister(Request $request)
-    {
+       
         $newitems=array();
-        $newitems = $request->item;
+        $newitems = $request->newitem;
         foreach($newitems as $newitem) {
+            print $newitem;
             // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
              $createitem = U_item::where('file_path',$newitem)->first();
              $createitem->newitems_check="on";
              $createitem->save();
         }
-        return redirect('/u_stylist_lists');
+
+        $nocheckmyitems = U_item::whereNotIn('file_path', $myitems)->get();
+        foreach($nocheckmyitems as $nocheckmyitem) {
+            $nocheckmyitem->myitems_check="off";
+            $nocheckmyitem->save();
+        }
+         $nochecknewitems = U_item::whereNotIn('file_path', $newitems)->get();
+        foreach($nochecknewitems as $nochecknewitem) {
+            $nochecknewitem->newitems_check="off";
+            $nochecknewitem->save();
+        }
         
+        if(Order::where("suspend", "on")->first()){
+            $order=Order::where("suspend", "on")->first();
+            $order->myitems_conumber=$request->myitems_conumber;
+            $order->newitems_conumber=$request->newitems_conumber;
+            $order->save();
+        }else{
+            $order = new Order;
+            $order->user_id= \Auth::id();
+            $order->myitems_conumber=$request->myitems_conumber;
+            $order->newitems_conumber=$request->newitems_conumber;
+            $order->suspend="on";
+            $order->save();
+        }    
+        
+        return redirect('/u_stylist_lists');
+
     }
     
-    public function u_order(Request $request)
-    {
-        $newitems=array();
-        $newitems = $request->item;
-        foreach($newitems as $newitem) {
-            // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
-             $createitem = U_Item::where('file_path',$newitem)->first();
-             $createitem->newitems_check="on";
-             $createitem->save();
-        }
-        return redirect('/u_stylist_lists');
+     public function u_ordercomp($user_name) {
         
-
-    }   
-    public function u_ordercomp($user_name) {
-        
-        $order = new Order;
-        $order->user_id= \Auth::id();
-        $order->stylist_id= User::where('name',$user_name)->first()->id;
+        $order = Order::where("suspend", "on")->first();
+        $order->stylist_id= User::where("name",$user_name)->first()->id;
+        $order->suspend="off";
+        $order->state="untouched";
         $order->save();
         
         return redirect('/home');

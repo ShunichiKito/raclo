@@ -15,9 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('stylist_id')->unsigned()->index();
-            $table->enum('state', ['untouched','doing','done']);
+            $table->integer('user_id')->unsigned()->index()->nullable();
+            $table->integer('stylist_id')->unsigned()->index()->nullable();
+            $table->enum('state', ['untouched','doing','done'])->nullable();
             $table->timestamps();
             
             // 外部キー設定
