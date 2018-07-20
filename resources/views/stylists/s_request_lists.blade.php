@@ -9,7 +9,7 @@
       <th>name</th>
       <th>content</th>
       <th>price</th>
-      <th>deadline</th>
+      <th>my items / with new items</th>
     </tr>
  </thead>
  <tbody>
@@ -20,7 +20,7 @@
            <th><?php echo $order->name;?></th>
            <th><?php echo $order->state;?></th>
            <th>300yen</th>
-           <th></th>
+           <th><?php echo $order->myitems_conumber." "."/"." ".$order->newitems_conumber;?></th>
     </tr>
     <?php } ?>
  </tbody>

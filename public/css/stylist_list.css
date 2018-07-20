@@ -1,24 +1,19 @@
 
-
-
 .profile_image {
     width: 210px;
     height: 140px;
 }
-.stylist-images {
+.panel.panel-danger {
     height: 450px;
     margin: 20px;
 }
-
-
-.stylist-frame {
+.panel-heading {
+    height: 270px;
+}
+.panel {
     margin-bottom: 0px;
 }
-
-
-.stylist-picname {
+.panel-body {
     margin: 0px;
     height: 130px;
 }
-
-
