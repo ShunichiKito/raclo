@@ -149,7 +149,7 @@ class UsersController extends Controller
         return redirect('/u_stylist_lists');
         
     }
-    
+
     // public function u_order(Request $request)
     // {
         
@@ -164,7 +164,8 @@ class UsersController extends Controller
     //     return redirect('/u_stylist_lists');
     // }   
     
-    public function u_ordercomp($user_name) {
+   
+     public function u_ordercomp($user_name) {
         
         $order = Order::where("suspend", "on")->first();
         $order->stylist_id= User::where("name",$user_name)->first()->id;
