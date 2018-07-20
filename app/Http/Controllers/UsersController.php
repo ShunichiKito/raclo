@@ -138,12 +138,21 @@ class UsersController extends Controller
              $createitem->newitems_check="on";
              $createitem->save();
         }
+        
+        $order = new Order;
+        $order->user_id= \Auth::id();
+        $order->myitems_conumber=$request->myitems_conumber;
+        $order->newitems_conumber=$request->newitems_conumber;
+        $order->suspend="on";
+        $order->save();
+        
         return redirect('/u_stylist_lists');
         
     }
     
     public function u_order(Request $request)
     {
+        
         $newitems=array();
         $newitems = $request->item;
         foreach($newitems as $newitem) {
@@ -151,16 +160,15 @@ class UsersController extends Controller
              $createitem = U_Item::where('file_path',$newitem)->first();
              $createitem->newitems_check="on";
              $createitem->save();
-        }
+        }    
         return redirect('/u_stylist_lists');
-        
-
     }   
-    public function u_ordercomp($user_name) {
+    
+     public function u_ordercomp($user_name) {
         
-        $order = new Order;
-        $order->user_id= \Auth::id();
-        $order->stylist_id= User::where('name',$user_name)->first()->id;
+        $order = Order::where("suspend", "on")->first();
+        $order->stylist_id= User::where("name",$user_name)->first()->id;
+        $order->suspend="off";
         $order->save();
         
         return redirect('/home');
