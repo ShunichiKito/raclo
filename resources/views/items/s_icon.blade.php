@@ -39,5 +39,3 @@ use App\User
         @endforeach
 @endif    
 </div>
-
-    
