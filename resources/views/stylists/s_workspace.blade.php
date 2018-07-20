@@ -34,7 +34,7 @@
                 <div class="closet-items">
                 <!--item変数を追加してから以下を実行する-->
                     @if (Auth::check())
-                        @include('items.u_myitems', ['items' => $my_images ])
+                        @include('items.before_coitems', ['items' => $my_images ])
                     @endif
                 </div>
             </div>
@@ -48,28 +48,28 @@
                 </div>
             </div>
                     
-                    <script>
-                    function openCloset(evt, cityName) {
-                       var i, tabcontent, tablinks;
-                       tabcontent = document.getElementsByClassName("tabcontent");
-                       for (i = 0; i < tabcontent.length; i++) {
-                           tabcontent[i].style.display = "none";
-                       }
-                       tablinks = document.getElementsByClassName("tablinks");
-                       for (i = 0; i < tablinks.length; i++) {
-                           tablinks[i].className = tablinks[i].className.replace(" active", "");
-                       }
-                       document.getElementById(cityName).style.display = "block";
-                       evt.currentTarget.className += " active";
-                    }
-                    document.getElementById("defaultOpen").click();
-                    </script>
-        </div>
-        
-        <div class="col-xs-3">
+            <script>
+            function openTab(evt, cityName) {
+               var i, tabcontent, tablinks;
+               tabcontent = document.getElementsByClassName("tabcontent");
+               for (i = 0; i < tabcontent.length; i++) {
+                   tabcontent[i].style.display = "none";
+               }
+               tablinks = document.getElementsByClassName("tablinks");
+               for (i = 0; i < tablinks.length; i++) {
+                   tablinks[i].className = tablinks[i].className.replace(" active", "");
+               }
+               document.getElementById(cityName).style.display = "block";
+               evt.currentTarget.className += " active";
+            }
+            document.getElementById("defaultOpen").click();
             
-
-            <style>
+            </script>
+                    
+           
+        </div>
+        <div class="col-xs-3">
+                    <style>
               body {
                 margin: 20px;
               }
@@ -400,6 +400,6 @@
                 
               });
             </script>
-         </div>
+        </div>
     </div>
 @endsection
