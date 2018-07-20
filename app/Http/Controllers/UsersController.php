@@ -124,6 +124,13 @@ class UsersController extends Controller
              $createitem->myitems_check="on";
              $createitem->save();
         }
+        
+        $order = new Order;
+        $order->user_id= \Auth::id();
+        $order->myitems_conumber=$request->myitems_conumber;
+        $order->newitems_conumber=$request->newitems_conumber;
+        $order->suspend="on";
+        $order->save();
         return redirect('/u_stylist_lists');
         
     }  
@@ -170,6 +177,7 @@ class UsersController extends Controller
         $order = Order::where("suspend", "on")->first();
         $order->stylist_id= User::where("name",$user_name)->first()->id;
         $order->suspend="off";
+        $order->state="untouched";
         $order->save();
         
         return redirect('/home');
