@@ -17,7 +17,7 @@ use App\User
                     <div class='panel panel-danger'>
                         <div class='stylist-frame'>
                         <div class='stylist-images'>
-                            <div class='panel-heading'>
+                            <div class='panel-heading panel'>
                             <img src="{{ $item->file_path }}" alt="" class="profile_image">
                                 <div class='stylist-picname'>
                                 <h2 class="panel-body"></h2>
