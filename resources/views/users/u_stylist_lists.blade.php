@@ -1,5 +1,7 @@
 @extends('layouts.user_app')
 
+
+
 @section('content')
     <div class="row">
         <div class="col-lg-12">

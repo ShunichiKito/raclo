@@ -47,10 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
-    //ユーザーによる服選択
-    Route::post('/myitems/selected', 'UsersController@myregister')->name('myitems.selected');
-    Route::post('/newitems/selected', 'UsersController@newregister')->name('newitems.selected');
-    
+   
     //ユーザー、スタイリストプロフィール編集
     Route::get('/u_edit', function () {
         return view('users/u_edit');
@@ -64,7 +61,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('u_onlinestylist_lists', 'UsersController@s_online_index')->name('s_online_index');
     
     //服選択処理→スタイリスト選択へ
-    Route::post('u_order', 'UsersController@u_order')->name('u_order');
+    // Route::post('u_order', 'UsersController@u_order')->name('u_order');
+    
+     //ユーザーによる服選択
+    Route::post('/myitems/selected', 'UsersController@myregister')->name('myitems.selected');
+    Route::post('/newitems/selected', 'UsersController@newregister')->name('newitems.selected');
+    
     //スタイリスト選択済み、注文完了処理
     Route::get('u_ordercomp/{user_name}', 'UsersController@u_ordercomp')->name('u_ordercomp');
 

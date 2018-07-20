@@ -17,6 +17,10 @@
                     </div>
                 </div>
             @endforeach
+        <div class="form-group">
+            {!! Form::label('How Many Coordinates with New Items?') !!} <br>
+            {{Form::select('newitems_conumber', ['1', '5', '10','15','20','25','30','35','40','45','50'], 'how many coordinates?' )}}
+        </div>
         <input type="submit" name="itemSubmit" value="Next" />
         {!! Form::close() !!}
     @endif    
