@@ -12,7 +12,6 @@
 */
 
 
-
 //初期画面
 Route::get('/', function () {
     return view('auth/user_register_or_login');
