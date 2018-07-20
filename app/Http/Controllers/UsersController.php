@@ -142,20 +142,21 @@ class UsersController extends Controller
         
     }
     
-    public function u_order(Request $request)
-    {
-        $newitems=array();
-        $newitems = $request->item;
-        foreach($newitems as $newitem) {
-            // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
-             $createitem = U_Item::where('file_path',$newitem)->first();
-             $createitem->newitems_check="on";
-             $createitem->save();
-        }
-        return redirect('/u_stylist_lists');
+    // public function u_order(Request $request)
+    // {
+    //     $newitems=array();
+    //     $newitems = $request->item;
+    //     foreach($newitems as $newitem) {
+    //         // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
+    //          $createitem = U_Item::where('file_path',$newitem)->first();
+    //          $createitem->newitems_check="on";
+    //          $createitem->save();
+    //     }
+    //     return redirect('/u_stylist_lists');
         
 
-    }   
+    // } 
+    
     public function u_ordercomp($user_name) {
         
         $order = new Order;

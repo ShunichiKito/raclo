@@ -63,7 +63,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('u_onlinestylist_lists', 'UsersController@s_online_index')->name('s_online_index');
     
     //服選択処理→スタイリスト選択へ
-    Route::post('u_order', 'UsersController@u_order')->name('u_order');
+    // Route::post('u_order', 'UsersController@u_order')->name('u_order');
     //スタイリスト選択済み、注文完了処理
     Route::get('u_ordercomp/{user_name}', 'UsersController@u_ordercomp')->name('u_ordercomp');
     
@@ -85,7 +85,6 @@ Route::group(['middleware' => ['auth']], function () {
     //スタイリストリクエスト受け取り
     Route::get('/s_request_lists', 'ItemsController@s_request_receive')->name('s_request_receive');
    
-    
     Route::get('/s_styling', function () {
         return view('stylists/s_styling');
     })->name('s_styling');
