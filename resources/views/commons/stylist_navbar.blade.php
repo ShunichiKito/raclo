@@ -13,9 +13,10 @@
     <!-- menu items -->
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Requests</a></li>
-        <li><a href="/s_workspace">Workspace</a></li>
-        
+        <li><a href="/s_request_lists">Requests</a></li>
+        <!--<li><a href="/s_workspace">Workspace</a></li>-->
+       
+      
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
           <ul class="dropdown-menu">

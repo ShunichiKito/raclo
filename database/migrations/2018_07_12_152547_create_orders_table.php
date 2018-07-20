@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateOrdersTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations
      *
      * @return void
      */
@@ -15,8 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('stylist_id');
+            $table->integer('user_id')->unsigned()->index();
+            $table->integer('stylist_id')->unsigned()->index();
             $table->enum('state', ['untouched','doing','done']);
             $table->timestamps();
             

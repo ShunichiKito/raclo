@@ -11,8 +11,9 @@
 |
 */
 
-//初期画面
 
+
+//初期画面
 Route::get('/', function () {
     return view('auth/user_register_or_login');
 })->name('u_signup_or_login');
@@ -22,13 +23,16 @@ Route::get('/s_signup_or_login', function () {
 })->name('s_signup_or_login');
 
 
-
-// // ユーザ登録, ログイン処理
+// // ユーザ登録
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
-Route::post('login', 'Auth\LoginController@login')->name('login.post');
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+// // ログイン認証
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
+
+
+
 
 //ログイン後画面
 Route::group(['middleware' => ['auth']], function () {
@@ -63,10 +67,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('u_order', 'UsersController@u_order')->name('u_order');
     //スタイリスト選択済み、注文完了処理
     Route::get('u_ordercomp/{user_name}', 'UsersController@u_ordercomp')->name('u_ordercomp');
-    //workspace view
-     Route::get('/s_workspace', function () {
-        return view('stylists/s_workspace');
-    })->name('s_workspace');
+    
+     
+
     //プライバシー、価格
     Route::get('/u_privacy', function () {
         return view('users/u_privacy');
@@ -80,10 +83,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/s_price', function () {
         return view('stylists/s_price');
     })->name('s_price');
-    
-    Route::get('/s_workspace', function () {
-        return view('stylists/s_workspace');
-    })->name('s_workspace');
+    //スタイリストリクエスト受け取り
+    Route::get('/s_request_lists', 'ItemsController@s_request_receive')->name('s_request_receive');
+   
     
     Route::get('/s_styling', function () {
         return view('stylists/s_styling');
@@ -91,10 +93,10 @@ Route::group(['middleware' => ['auth']], function () {
     
     
     
+    Route::get('/s_online_icon', function () {
+        return view('items/s_online_icon');
+    })->name('s_online_icon');
     
-     Route::get('/s_style', function () {
-        return view('stylists/s_style');
-    })->name('s_style');
     
     // Route::get('/s_icon', function () {
     //     return view('items/s_icon');
@@ -103,6 +105,10 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/s_online_icon', function () {
     //     return view('items/s_online_icon');
     // })->name('s_online_icon');
+    //ワークスペース
+    // Route::get('/workspace', 'ItemsController@s_workspace')->name('workspace');
+    Route::get('/s_workspace/{order}', 'ItemsController@s_workspace')->name('s_workspace');
+
     
 });
 
@@ -123,6 +129,10 @@ Route::group(['middleware' => ['auth']], function () {
 // Route::get('ranking/have', 'RankingController@have')->name('ranking.have');
 
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
 //Auth::routes();　これは下記のルートと同じ
 // Authentication Routes...
 // $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -138,3 +148,5 @@ $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+

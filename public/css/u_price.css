@@ -3,8 +3,10 @@
 	color:#000000;
 }
 
+
+
 .cp_pricetable1 .header2{
-	text-align: center;
+	/*text-align: center;*/
 	color:#F6FF00;
 }
 .cp_pricetable1 .block {
@@ -34,39 +36,50 @@
 /* --- メニュー名ブロック ---  */
 .cp_pricetable1 .block .header1 {
 	width: 100%;
-	padding: 3em;
+	padding: 0.6em;
 	color: #ffffff;
 	border-bottom: 1px solid #ffffff;
 	background:#000000;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 32px;
+
+	
 }
 
 /* --- 価格ブロック ---  */
 .cp_pricetable1 .block .header2 {
-	width: 100%;
-	padding: 1em;
-	border-top: 1px solid #131874;　/*上の枠線　ダークブルー*/
+	padding: 0.5em;
+	　/*上の枠線　ダークブルー*/
+	border-top: 1px solid #131874;
 	background: #a9bce2; 
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 26px;
 }
 /* --- 詳細 ---  */
+
 .cp_pricetable1 .block .style1,
 .cp_pricetable1 .block .style2,
 .cp_pricetable1 .block .footer1,
 .cp_pricetable1 .block .footer2 {
 	width: 100%;
 	padding: 2em;
-}
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	font-size-adjust: 0.6 ;}
 .cp_pricetable1 .block .footer1,
 .cp_pricetable1 .block .footer2 {
 	padding: 0.5em;
 }
-.cp_pricetable1 .block .style1,
-.cp_pricetable1 .block .footer1 {
-	background-color: #e8effc;
-}
-.cp_pricetable1 .block .style2,
-.cp_pricetable1 .block .footer2 {
-	background-color: #d7e3fc;
-}
+
 .cp_pricetable1 .block .style1,
 .cp_pricetable1 .block .style2 {
 	border-bottom: 1px dotted #ffffff;
@@ -147,17 +160,31 @@
 /* --- メニュー名ブロック ---  */
 .cp_pricetable2 .block .header1 {
 	width: 100%;
-	padding: 3em;
+	padding: 0.6em;
 	color: #ffffff;
 	border-bottom: 1px solid #ffffff;
-	background: #000000;
+	background:#000000;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 32px;
 }
 /* --- 価格ブロック ---  */
 .cp_pricetable2 .block .header2 {
-	width: 100%;
-	padding: 1em;
+
+	padding: 0.5em;
+	　/*上の枠線　ダークブルー*/
 	border-top: 1px solid #131874;
-	background: #a9bce2;
+	background: #a9bce2; 
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 26px;
+	color:#F6FF00;
+
 }
 /* --- 詳細 ---  */
 .cp_pricetable2 .block .style1,
@@ -166,6 +193,11 @@
 .cp_pricetable2 .block .footer2 {
 	width: 100%;
 	padding: 2em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	font-size-adjust: 0.6 ;
 }
 .cp_pricetable2 .block .footer1,
 .cp_pricetable2 .block .footer2 {
@@ -259,17 +291,33 @@
 /* --- メニュー名ブロック ---  */
 .cp_pricetable3 .block .header1 {
 	width: 100%;
-	padding: 3em;
+	padding: 0.6em;
 	color: #ffffff;
 	border-bottom: 1px solid #ffffff;
-	background: #000000;
+	background:#000000;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 32px;
+	
+
+
 }
 /* --- 価格ブロック ---  */
 .cp_pricetable3 .block .header2 {
-	width: 100%;
-	padding: 1em;
+	padding: 0.5em;
+	　/*上の枠線　ダークブルー*/
 	border-top: 1px solid #131874;
-	background: #a9bce2;
+	background: #a9bce2; 
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 26px;
+		color:#F6FF00;
+
 }
 /* --- 詳細 ---  */
 .cp_pricetable3 .block .style1,
@@ -278,6 +326,11 @@
 .cp_pricetable3 .block .footer2 {
 	width: 100%;
 	padding: 2em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	font-size-adjust: 0.6 ;
 }
 .cp_pricetable3 .block .footer1,
 .cp_pricetable3.block .footer2 {
@@ -341,4 +394,32 @@
 .cp_pricetable3 .cp_btn:active::after {
 	height: 350%;
 	opacity: 1;
+}
+
+/*backgrounds*/
+.cp_pricetable1 .block .header2,
+.cp_pricetable1 .block .style1,
+.cp_pricetable1 .block .footer1, 
+.cp_pricetable1 .block .style2,
+.cp_pricetable1 .block .footer2 {
+background-image: linear-gradient(-90deg, #FF66FF, #FFFF00);
+
+}
+
+.cp_pricetable2 .block .header2,
+.cp_pricetable2 .block .style1,
+.cp_pricetable2 .block .footer1, 
+.cp_pricetable2 .block .style2,
+.cp_pricetable2 .block .footer2 {
+background-image: linear-gradient(-90deg, #0099FF, #FF66FF);
+
+}
+
+.cp_pricetable3 .block .header2,
+.cp_pricetable3 .block .style1,
+.cp_pricetable3 .block .footer1, 
+.cp_pricetable3 .block .style2,
+.cp_pricetable3 .block .footer2 {
+background-image: linear-gradient(-90deg, #66FF66, #3399FF );
+
 }
