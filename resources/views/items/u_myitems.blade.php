@@ -1,7 +1,7 @@
 
 <div class="row">
     @if (Auth::check())
-        {!! Form::open(['route' => ['myitems.selected']]) !!}
+         {!! Form::open(['route' => ['newitems.selected']]) !!}
             @foreach ($items as $key => $item)
                 <div class="item">
                     <div class="col-lg-12">
@@ -11,7 +11,6 @@
                             </div>
                             <div class="panel-body">
                                 {{ Form::checkbox('item[]',"$item->file_path", false) }}
-                                    <!--<input type="checkbox" name="$key" value="$item" id="item" />-->
                             </div>
                         </div>
                     </div>
@@ -21,5 +20,4 @@
         {!! Form::close() !!}
     @endif    
 </div>
-
 

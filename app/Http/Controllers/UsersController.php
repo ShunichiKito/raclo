@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\U_item;
+use App\U_Item;
 use App\Order;
 // class UsersController extends Controller
 // {
 //     public function show($id)
 //     {
 //         $user = User::find($id);
-//         $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')u->distinct()->paginate(10);
+//         $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
 
 //         return view('users.u_home', [
 //             'user' => $user,
@@ -29,12 +29,8 @@ class UsersController extends Controller
     {   
         if (\Auth::user()->user_type == 1){
         $items=array();
-
-
-
         $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
         
-
                return view('users/u_stylist_lists')->with('items',$items);
               
                     
@@ -77,9 +73,10 @@ class UsersController extends Controller
              }
         }    
         
+        
     }
     
-    public function update(Request $request, $id)
+     public function update(Request $request, $id)
     {
         $user = User::find($id);
         if (\Auth::id() == $user->id){
@@ -113,6 +110,7 @@ class UsersController extends Controller
                   
             return redirect('/');
          }
+                  
         }
     }
     
@@ -150,7 +148,7 @@ class UsersController extends Controller
         $newitems = $request->item;
         foreach($newitems as $newitem) {
             // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
-             $createitem = U_item::where('file_path',$newitem)->first();
+             $createitem = U_Item::where('file_path',$newitem)->first();
              $createitem->newitems_check="on";
              $createitem->save();
         }
@@ -169,6 +167,7 @@ class UsersController extends Controller
     }
     
 }
+
 
 
 // public function edit($id)
@@ -212,6 +211,10 @@ class UsersController extends Controller
 
 //              return redirect('/');
 // //         }
+// //     }
+    
+// // }
+
 // //     }
     
 // // }
