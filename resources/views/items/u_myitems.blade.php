@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 
 <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_myitems.css') }}">
 
@@ -32,11 +31,11 @@
             <!--<div class='stylist-frame'>-->
             <!--<div class='stylist-images'>-->
                 <div class='panel-heading text-center'>
-                <img src="{{ $item->file_path }}" alt="" class="cloth_image">
+                <img src="{{ $item->file_path }}" alt="" class="cloths_image">
                 <div class='panel panel-body text-center'>
                     {{ Form::checkbox('item[]',"$item->file_path", false) }}
                 </div>
-                    <!--</div>-->
+                </div>
 
         <!--</div>-->
             

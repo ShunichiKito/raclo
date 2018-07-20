@@ -15,8 +15,8 @@
             <!--</div>-->
                 <!--<div class="row col-md-12">-->
                 <div class="tab">
-                    <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
-                    <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
+                    <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">WithinMyItems</button>
+                    <button class="tablinks" onclick="openCloset(event, 'Newitem')">WithNewItems</button>
                 <!--</div>-->
                     <div id="Myitem" class="tabcontent">
                         <div class=cloths>
@@ -44,8 +44,8 @@
                                @include('items.u_newitems', ['items' => $items ])
                             @endif
                         </div>
-                        <div class="myitem-next"> 
-                            <input type="submit" name="itemSubmit" value="Next" />
+                        <div class="newitem-next"> 
+                            <input type="submit" name="itemSubmit" value="Next" class="submission" />
                             {!! Form::close() !!}
                         </div>
                     </div>

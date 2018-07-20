@@ -93,12 +93,25 @@
 /*ネクストボタン*/
 .myitem-next{
     position: absolute !important;
-    margin-top: 620px;
-    margin-left: 348px;
+    margin-top: 600px;
+    margin-left: 347px;
+}
+.newitem-next{
+    position: absolute !important;
+    margin-top: 600px;
+    margin-left: 347px;
 }
 
 
+
 .myitem-next:hover{
+    background-color: 	#FF4500;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+    
+}
+
+
+.newitem-next:hover{
     background-color: 	#FF4500;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
     
