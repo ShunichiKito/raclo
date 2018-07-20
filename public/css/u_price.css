@@ -402,8 +402,11 @@
 .cp_pricetable1 .block .footer1, 
 .cp_pricetable1 .block .style2,
 .cp_pricetable1 .block .footer2 {
-background-image: linear-gradient(-90deg, #FF66FF, #FFFF00);
-
+    text-decoration: none;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    transition: .4s;
 }
 
 .cp_pricetable2 .block .header2,
@@ -411,8 +414,11 @@ background-image: linear-gradient(-90deg, #FF66FF, #FFFF00);
 .cp_pricetable2 .block .footer1, 
 .cp_pricetable2 .block .style2,
 .cp_pricetable2 .block .footer2 {
-background-image: linear-gradient(-90deg, #0099FF, #FF66FF);
-
+    text-decoration: none;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #6aff07 0%, #48c45f  100%);
+    background-image: linear-gradient(45deg, #6aff07 0%, #48c45f 100%);
+    transition: .4s;
 }
 
 .cp_pricetable3 .block .header2,
@@ -420,6 +426,9 @@ background-image: linear-gradient(-90deg, #0099FF, #FF66FF);
 .cp_pricetable3 .block .footer1, 
 .cp_pricetable3 .block .style2,
 .cp_pricetable3 .block .footer2 {
-background-image: linear-gradient(-90deg, #66FF66, #3399FF );
-
+    text-decoration: none;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #d741f2 0%, #d741f2 100%);
+    background-image: linear-gradient(45deg, #d741f2 0%, #d741f2 100%);
+    transition: .4s;
 }

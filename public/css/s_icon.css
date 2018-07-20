@@ -5,20 +5,20 @@
     width: 210px;
     height: 140px;
 }
-.panel.panel-danger {
+.stylist-images {
     height: 450px;
     margin: 20px;
 }
-.panel-heading {
-    height: 270px;
-}
 
-.panel {
+
+.stylist-frame {
     margin-bottom: 0px;
 }
 
 
-.panel-body {
+.stylist-picname {
     margin: 0px;
     height: 130px;
 }
+
+
