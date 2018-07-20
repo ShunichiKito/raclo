@@ -1,11 +1,12 @@
 
-.raw {
+.screen {
     background-image: url("/cabinet-575361_1280.png");
     background-size: cover;
     width: 700px;
     height: 750px;
     margin: 0 auto;
     margin-top: 50px;
+    z-index:1;
 }
 .center {
     display: block;
@@ -16,8 +17,8 @@
 
 .left {
     float: left;
-    margin-left: 5px;
-    margin-right: 60px;
+    margin-left: 16px;
+    /*margin-right: 60px;*/
     margin-top: 80px;
 }
 
@@ -25,23 +26,26 @@
     float: right;
     /*right: 300;*/
     /*bottom: 400;*/
-    margin-right: 10px;
-    margin-left: 100px;
+    margin-right: 22px;
+    /*margin-left: 100px;*/
     margin-top: 80px;
 }
 
 
 
 
-body {font-family: Arial;}
+/*body {font-family: Arial;}*/
 
 /* Style the tab */
 .tab {
    overflow: hidden;
    border: none;
    background-color:transparent;
-   z-index: 1;
-}
+   z-index: 2;
+   margin-top: 15px;
+   margin-left: 110px;
+   position: absolute !important;
+  }
 
 /* Style the buttons inside the tab */
 .tab button {
@@ -71,27 +75,58 @@ body {font-family: Arial;}
    background-color: #996600;
 }
 
+/*タブの中身*/
+
 /* Style the tab content */
 .tabcontent {
-   display: none;
-   padding: 6px 12px;
+   /*display: none;*/
+   width:420px;
+   height: 675px;
    border: none;
-   border-top: none;
-   margin-left: 230px;
-   margin-right:230px;
-}
-
-.tab{
-    margin-top: 32px;
+   margin-top:45px;
+   margin-left:32px;
+   margin-right:0px;
 }
 
 
-.closet-items {
-    position: absolute;
-    width: 355px;
-    height: 650px;
-    margin: 0 auto;
-    margin-top: 60px;
-    margin-left: 150px;
+
+/*ネクストボタン*/
+.myitem-next{
+    position: absolute !important;
+    margin-top: 600px;
+    margin-left: 347px;
+}
+.newitem-next{
+    position: absolute !important;
+    margin-top: 600px;
+    margin-left: 347px;
+}
+
+
+
+.myitem-next:hover{
+    background-color: 	#FF4500;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+    
+}
+
+
+.newitem-next:hover{
+    background-color: 	#FF4500;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+    
+}
+    
+
+.submission{
+    padding: 0.5em 1em;
+    /*text-decoration: none;*/
+    border-radius: 4px;
+    color: #ffffff;
+    background-color: #FFC106;
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    border-bottom: solid 3px #c58668;
 }
 

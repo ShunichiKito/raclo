@@ -15,9 +15,14 @@ use App\User
             <div class='row text-center pad-top col-md-4 col-sm-4 col xs-8'>
                 <!--<div class='col-md-4 col-sm-4 col xs-8'>-->
                     <div class='panel panel-danger'>
-                        <div class='panel-heading'>
+                        <div class='stylist-frame'>
+                        <div class='stylist-images'>
+                            <div class='panel-heading'>
                             <img src="{{ $item->file_path }}" alt="" class="profile_image">
-                            <h2 class="panel-body"><?php print $item->user_name ?></h2>
+                                <div class='stylist-picname'>
+                                <h2 class="panel-body"></h2>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class='panel panel-body'>
@@ -34,6 +39,7 @@ use App\User
                             
                         </div>
                     </div>
+                </div>
                 <!--</div>-->
              </div>
         @endforeach

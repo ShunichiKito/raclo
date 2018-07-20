@@ -12,7 +12,6 @@
 */
 
 
-
 //初期画面
 Route::get('/', function () {
     return view('auth/user_register_or_login');
@@ -67,6 +66,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('u_order', 'UsersController@u_order')->name('u_order');
     //スタイリスト選択済み、注文完了処理
     Route::get('u_ordercomp/{user_name}', 'UsersController@u_ordercomp')->name('u_ordercomp');
+    
+     
 
     //プライバシー、価格
     Route::get('/u_privacy', function () {
@@ -83,11 +84,26 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('s_price');
     //スタイリストリクエスト受け取り
     Route::get('/s_request_lists', 'ItemsController@s_request_receive')->name('s_request_receive');
+   
+    
+    Route::get('/s_styling', function () {
+        return view('stylists/s_styling');
+    })->name('s_styling');
+    
+    
     
     Route::get('/s_online_icon', function () {
         return view('items/s_online_icon');
     })->name('s_online_icon');
     
+    
+    // Route::get('/s_icon', function () {
+    //     return view('items/s_icon');
+    // })->name('s_icon');
+    
+    // Route::get('/s_online_icon', function () {
+    //     return view('items/s_online_icon');
+    // })->name('s_online_icon');
     //ワークスペース
     // Route::get('/workspace', 'ItemsController@s_workspace')->name('workspace');
     Route::get('/s_workspace/{order}', 'ItemsController@s_workspace')->name('s_workspace');

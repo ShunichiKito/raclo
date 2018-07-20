@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Order;
-use App\U_Item;
+use App\U_item;
 
 class ItemsController extends Controller
 {
@@ -56,6 +56,8 @@ class ItemsController extends Controller
             'my_images' => $my_images,
             'new_images' => $new_images
         ];
+        print $my_images;
+        return ; 
         
         return view('stylists/s_workspace', $all_images);
     }    
