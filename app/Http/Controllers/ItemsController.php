@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\U_item;
+use App\U_Item;
 use App\Order;
 
 class ItemsController extends Controller
@@ -47,9 +47,9 @@ class ItemsController extends Controller
         $user= User::where('id',$order->user_id)->first();
         $stylist= \Auth::user();
         $images=array();
-        $images= U_Item::where('user_name', $user->name)->get();
-        $my_images =  U_Item::where('myitems_check', 'on')->get();
-        $new_images = U_Item::where('newitems_check', 'on')->get();
+        $images= U_item::where('user_name', $user->name)->get();
+        $my_images =  U_item::where('myitems_check', 'on')->get();
+        $new_images = U_item::where('newitems_check', 'on')->get();
         
         $all_images=[
             'user' => $user,

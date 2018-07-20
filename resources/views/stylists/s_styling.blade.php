@@ -157,6 +157,10 @@
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script>
   $(function() {
+    var selected = $("#select01").children("div:selected");
+    var selectedValue = selected.val();
+    var selectedText = selected.text();
+    
     $('.item_area').selectable({
       cancel: "p",
       selected: function(e, ui) {
