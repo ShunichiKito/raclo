@@ -2,4 +2,17 @@
 
 @section('content')
 
+
+<div>
+    
+</div>
+
+
+<section>
+    
+    
+    
+</section>
+
 @endsection
+
