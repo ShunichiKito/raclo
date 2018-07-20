@@ -124,6 +124,13 @@ class UsersController extends Controller
              $createitem->myitems_check="on";
              $createitem->save();
         }
+        
+        $order = new Order;
+        $order->user_id= \Auth::id();
+        $order->myitems_conumber=$request->myitems_conumber;
+        $order->newitems_conumber=$request->newitems_conumber;
+        $order->suspend="on";
+        $order->save();
         return redirect('/u_stylist_lists');
         
     }  
@@ -138,29 +145,36 @@ class UsersController extends Controller
              $createitem->newitems_check="on";
              $createitem->save();
         }
-        return redirect('/u_stylist_lists');
         
     }
     
-    public function u_order(Request $request)
-    {
-        $newitems=array();
-        $newitems = $request->item;
-        foreach($newitems as $newitem) {
-            // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
-             $createitem = U_Item::where('file_path',$newitem)->first();
-             $createitem->newitems_check="on";
-             $createitem->save();
-        }
-        return redirect('/u_stylist_lists');
+    // public function u_order(Request $request)
+    // {
+    //     $newitems=array();
+    //     $newitems = $request->item;
+    //     foreach($newitems as $newitem) {
+    //         // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
+    //          $createitem = U_Item::where('file_path',$newitem)->first();
+    //          $createitem->newitems_check="on";
+    //          $createitem->save();
+    //     
+    //    }
+    //     $order = new Order;
+    //     $order->user_id= \Auth::id();
+    //     $order->myitems_conumber=$request->myitems_conumber;
+    //     $order->newitems_conumber=$request->newitems_conumber;
+    //     $order->suspend="on";
+    //     $order->save();
         
-
-    }   
-    public function u_ordercomp($user_name) {
+    //     return redirect('/u_stylist_lists');
         
-        $order = new Order;
-        $order->user_id= \Auth::id();
-        $order->stylist_id= User::where('name',$user_name)->first()->id;
+    // }
+     public function u_ordercomp($user_name) {
+        
+        $order = Order::where("suspend", "on")->first();
+        $order->stylist_id= User::where("name",$user_name)->first()->id;
+        $order->suspend="off";
+        $order->state="untouched";
         $order->save();
         
         return redirect('/home');

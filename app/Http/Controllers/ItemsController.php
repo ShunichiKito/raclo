@@ -28,6 +28,33 @@ class ItemsController extends Controller
             return view('u_home', $data);
         }
 
+    public function s_request_receive() {
+        $stylist= \Auth::user();
+        $orders=array();
+        $orders= Order::where('stylist_id', $stylist->id)->get();
+        foreach($orders as $order) {
+             $ordered_user= User::where('id', $order->user_id)->first();
+             $order->name=$ordered_user->name;
+        }
+        $orders=['orders'=>$orders];
+        return view('stylists/s_request_lists', $orders);
+        
+    }
+     
+    public function s_workspace($orderid) {
+        $order=Order::where('id', $orderid)->first();
+        $user= User::where('id',$order->user_id)->first();
+        $stylist= \Auth::user();
+        $images=array();
+        $images= U_Item::where('user_name', $user->name)->get();
+        $my_images =  U_Item::where('myitems_check', 'on')->get();
+        $new_images = U_Item::where('newitems_check', 'on')->get();
+        
+        $all_images=[
+            'user' => $user,
+            'my_images' => $my_images,
+            'new_images' => $new_images
+        ];
         
     //   public function store(Request $request)
     // {
@@ -49,4 +76,5 @@ class ItemsController extends Controller
 
     //     return redirect()->back();
     // }
+    }
 }
