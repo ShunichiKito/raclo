@@ -15,12 +15,12 @@
                 <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100> </a>
                 <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt="" height=100 width=100></a>
 
-
+               
                     <div class="tab">
                         <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
                         <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
                     </div>
-            
+                     {!! Form::open(['route' => ['items.selected']]) !!}
                     <div id="Myitem" class="tabcontent">
                       
                         <div class="closet-items">
@@ -42,6 +42,8 @@
                         </div>
             
                     </div>
+                    <input type="submit" name="itemSubmit" value="Next" />
+                {!! Form::close() !!}    
                     
                     
                     <script>

@@ -64,8 +64,8 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::post('u_order', 'UsersController@u_order')->name('u_order');
     
      //ユーザーによる服選択
-    Route::post('/myitems/selected', 'UsersController@myregister')->name('myitems.selected');
-    Route::post('/newitems/selected', 'UsersController@newregister')->name('newitems.selected');
+    // Route::post('/myitems/selected', 'UsersController@myregister')->name('myitems.selected');
+    Route::post('/items/selected', 'UsersController@item_register')->name('items.selected');
     
     //スタイリスト選択済み、注文完了処理
     Route::get('u_ordercomp/{user_name}', 'UsersController@u_ordercomp')->name('u_ordercomp');
