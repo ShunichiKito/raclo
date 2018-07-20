@@ -14,6 +14,7 @@
     padding: 10px;
     width: 80px;
     height: 20px;
+    display:inline-block;
     border: 1px solid #2e6da4;
     background-color: #7da8c3;
     color: #FFFFFF;
@@ -24,60 +25,62 @@
   .item p {
     display: inline-block;
   }
-  .drop_area {
+  /*--------------------------------------------*/
+  
+  .container2 {
     margin-top: 50px;
-    /*width: 200px;*/
-    /*height: 200px;*/
+    width: 400px;
+    height:600px;
+  }
+  
+  .main {
     width:200px;
-    height:200px;
-    
+    height:600px;
+    float: left;
+  }
+  .main .drop_area {
+    width:200px;
+    height:300px;
     border: 1px solid #3a945b;
     background: #f0fff0;
   }
   
-   .drop_area2 {
-    margin-top: 50px;
-    /*width: 200px;*/
-    /*height: 200px;*/
+  .main .drop_area2 {
     width:200px;
-    height:200px;
-    
+    height:300px;
     border: 1px solid #3a945b;
     background: #f0fff0;
   }
   
-  .drop_area3 {
-    margin-top: 50px;
-    /*width: 200px;*/
-    /*height: 200px;*/
+  .side {
+    width:200px;
+    height:600px;
+    float:left;
+  }
+  
+
+  .side .drop_area3 {
     width:200px;
     height:200px;
-    
     border: 1px solid #3a945b;
     background: #f0fff0;
   }
   
-  .drop_area4 {
-    margin-top: 50px;
-    /*width: 200px;*/
-    /*height: 200px;*/
+  .side .drop_area4 {
     width:200px;
     height:200px;
-    
     border: 1px solid #3a945b;
     background: #f0fff0;
   }
   
-  .drop_area5 {
-    margin-top: 50px;
-    /*width: 200px;*/
-    /*height: 200px;*/
+  .side .drop_area5 {
     width:200px;
     height:200px;
-    
     border: 1px solid #3a945b;
     background: #f0fff0;
   }
+  
+  
   .drop_area p {
     margin: 10px;
   }
@@ -101,41 +104,61 @@
     z-index: 100;
     border:1px dotted black;
   }
+
+  
 </style>
 
+<!--ここから下はアイテム-->
 <div id="container">
   <div class="item_area">
     <div class="item">
-      <p>１</p>
+      <p>1</p>
     </div>
     <div class="item">
-      <p>２</p>
+      <p>2</p>
     </div>
     <div class="item">
-      <p>３</p>
+      <p>3</p>
+    </div>
+    <div class="item">
+      <p>4</p>
+    </div>
+    <div class="item">
+      <p>5</p>
     </div>
   </div>
+</div> 
 
-  <div class="drop_area">
-    <p>Tops</p>
-  </div>
-  <div class="drop_area2">
-    <p>Bottoms</p>
-  </div>
-  <div class="drop_area3">
-    <p>Shoes</p>
-  </div>
-  <div class="drop_area3">
-    <p>Accessories</p>
-  </div>
-  <div class="drop_area3">
-    <p>Bags</p>
+<!--ここから下は服を配置するボックス-->
+<div class='container2'>
+   <div class="main">
+        <div class="drop_area">
+          <p>Tops</p>
+        </div>
+        <div class="drop_area2">
+          <p>Bottoms</p>
+        </div>
+   </div>
+  
+   <div class="side">
+        <div class="drop_area3">
+          <p>Accessories</p>
+        </div>
+        <div class="drop_area4">
+          <p>Bags</p>
+        </div>
+        <div class="drop_area5">
+          <p>shoes</p>
+        </div>
   </div>
 </div>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script>
   $(function() {
+    
+    var recycle_icon = "<span class='ui-icon ui-icon-refresh'>元に戻す</span>"
     $('.item_area').selectable({
       cancel: "p",
       selected: function(e, ui) {
@@ -143,6 +166,8 @@
       }
     });
     $('.item').draggable({
+      revert: "invalid",
+      containment: "",
       snap: true,
       drag: function(e,ui){
         $('.ui-selected').each(function(){
@@ -224,36 +249,6 @@
       activate: function(e,ui) {
         $(this)
           .find("p")
-          .html("Shoe Area");
-      },
-      over: function(e,ui) {
-        $(this)
-          .css('background', '#e0ffff')
-          .css('border', '2px solid #00bfff')
-          .find("p")
-          .html("Put Your Shoes Here" );
-      },
-      out: function(e,ui) {
-        $(this)
-          .css('background', '#ffffe0')
-          .css('border', '2px solid #ffff00')
-          .find("p")
-          .html("Out of Shoes Area");
-      },
-      drop: function(e,ui) {
-        $(this)
-          .addClass("ui-state-highlight")
-          .css('background', '#fdf5e6')
-          .css('border', '2px solid #ffa07a')
-          .find( "p" )
-          .html( "Shoes" );
-      }
-    });
-    
-    $('.drop_area4').droppable({
-      activate: function(e,ui) {
-        $(this)
-          .find("p")
           .html("Accessories Area");
       },
       over: function(e,ui) {
@@ -280,7 +275,7 @@
       }
     });
     
-    $('.drop_area5').droppable({
+    $('.drop_area4').droppable({
       activate: function(e,ui) {
         $(this)
           .find("p")
@@ -308,6 +303,59 @@
           .find( "p" )
           .html( "Bags" );
       }
+    });
+    
+    $('.drop_area5').droppable({
+      activate: function(e,ui) {
+        $(this)
+          .find("p")
+          .html("Shoes Area");
+      },
+      over: function(e,ui) {
+        $(this)
+          .css('background', '#e0ffff')
+          .css('border', '2px solid #00bfff')
+          .find("p")
+          .html("Put Your Shoes Here" );
+      },
+      out: function(e,ui) {
+        $(this)
+          .css('background', '#ffffe0')
+          .css('border', '2px solid #ffff00')
+          .find("p")
+          .html("Out of Shoes Area");
+      },
+      drop: function(e,ui) {
+        $(this)
+          .addClass("ui-state-highlight")
+          .css('background', '#fdf5e6')
+          .css('border', '2px solid #ffa07a')
+          .find( "p" )
+          .html( "Shoes" );
+      }
+    });
+
+
+  $("button#save").click(function() {
+      var items = $("div", $("div", $trash));
+      for (var i = 0, len = items.length; i < len; i++) {
+        var item = items[i];
+        var element = {
+          title: $("h5", item).text(),
+          img: $("img", item).attr("src")
+        }
+	      localStorage.setItem(i, JSON.stringify(element));
+      }
+      // 保存されたことを確認する
+      for (var i = 0, len = localStorage.length; i < len; i++) {
+        var element = JSON.parse(localStorage.getItem(i));
+        $("ul#storedItems").append("<li> Title : " + element.title + "　File : " + element.img);
+      }
+    });
+
+    $("button#clear").click(function() {
+      localStorage.clear();
+	    $("ul#storedItems li").remove();
     });
 
     

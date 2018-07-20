@@ -86,6 +86,10 @@ Route::group(['middleware' => ['auth']], function () {
         return view('stylists/s_styling');
     })->name('s_styling');
     
+    Route::get('/a', function () {
+        return view('stylists/a');
+    })->name('a');
+    
     
     
     
