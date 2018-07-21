@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\U_item;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,6 @@ class HomeController extends Controller
         $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
         
             if (\Auth::user()->user_type == 1){ 
-            
                return view('users/u_home')->with('items',$items);
                     
             } elseif(\Auth::user()->user_type == 2)  { 

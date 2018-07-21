@@ -57,9 +57,23 @@ class ItemsController extends Controller
             'new_images' => $new_images
         ];
         
-        
         return view('stylists/s_workspace', $all_images);
     }    
+    
+    public function store(Request $request) {
+        $this->validate($request,[
+            'file'=>'required',
+        ]);
+        $filename = $request->file('file')->store('public/u_items');
+        $u_item= new U_item;
+        $u_item->user_name= \Auth::user()->name;
+        $u_item->file_path = basename($filename);
+        $u_item->save();
+        
+        return redirect('/home');
+    }
+        
+        
     //   public function store(Request $request)
     // {
 

@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\U_Item;
+use App\U_item;
 use App\Order;
+use App\Stylist_profile_image;
+
 // class UsersController extends Controller
 // {
 //     public function show($id)
 //     {
 //         $user = User::find($id);
-//         $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
+//         $items = \DB::table('U_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
 
 //         return view('users.u_home', [
 //             'user' => $user,
@@ -56,7 +58,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         
-         $user = User::find($id);
+        $user = User::find($id);
         if (\Auth::id() == $user->id){
              if (\Auth::user()->user_type == 1){
                 return view('users.u_edit', [
@@ -64,8 +66,10 @@ class UsersController extends Controller
                 ]);
                 
              } elseif(\Auth::user()->user_type == 2)  {
+                  $s_profile_image= Stylist_profile_image::where('user_name',\Auth::user()->name)->first();
                   return view('stylists.s_edit', [
                     'user' => $user,
+                    'item' => $s_profile_image,
                 ]);
             } else{
                   
@@ -97,6 +101,7 @@ class UsersController extends Controller
                 'gender'=> 'required|max:10',
                 'background'=> 'required|max:400',
                 'style'=> 'required|max:191',
+                // 'file'=>'required',
                 ]);
             
                 $user->age = $request->age;
@@ -104,6 +109,20 @@ class UsersController extends Controller
                 $user->background = $request->background;
                 $user->style = $request->style;
                 $user->save();
+                
+                if($request->file('file')){
+                    $filename = $request->file('file')->store('public/s_profile_image');
+                    if(Stylist_profile_image::where('user_name',\Auth::user()->name)->first()) {
+                        $s_profile_image=Stylist_profile_image::where('user_name',\Auth::user()->name)->first();
+                        $s_profile_image->file_path = basename($filename);
+                        $s_profile_image->save();
+                    }else {
+                        $s_profile_image= new Stylist_profile_image;
+                        $s_profile_image->user_name= \Auth::user()->name;
+                        $s_profile_image->file_path = basename($filename);
+                        $s_profile_image->save();
+                    }
+                }    
                 return redirect('/home');
 
          }else{

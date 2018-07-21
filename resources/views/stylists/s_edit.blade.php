@@ -2,10 +2,16 @@
 
 @section('content')
 @if (Auth::check())
-    <h1>Profile Setting</h1>
+<h1>Profile Setting</h1>
 
 <div class="row">
-    <div class="col-xs-offset-7 col-xs-5">
+    <div class="col-xs-7">
+         <img src="{{ '/storage/s_profile_image/'.$item->file_path }}" alt="" class="profile_image profile_page">
+          <style type="text/css">
+            .profile_page {width:100%;}
+          </style>
+    </div>
+    <div class="col-xs-5">
         <div class="panel panel-danger">
             <div class="panel-heading">
             <h1>{{ $user->name }}</h1>
@@ -13,7 +19,7 @@
             </div>
             <div class="panel-body">
                 
-                {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put']) !!}
+                {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'put','files' => true]) !!}
                     
                     <div class="form-group">
                        {!! Form::label('age', 'Age') !!} <br>
@@ -43,7 +49,11 @@
 
                     <div class="form-group">
                         {!! Form::hidden('user_type', '2') !!}
-                    </div>   
+                    </div> 
+                    <div class="form-group">
+                        {!! Form::label('file','Change the profile image',['class'=>'control-label']) !!}
+                        {!! Form::file('file') !!}
+                    </div>  
 
                     <div class="text-right">
                         {!! Form::submit('Update', ['class' => 'btn btn-success']) !!}

@@ -16,7 +16,7 @@ use App\User
                 <!--<div class='col-md-4 col-sm-4 col xs-8'>-->
                     <div class='panel panel-danger'>
                         <div class='panel-heading'>
-                            <img src="{{ $item->file_path }}" alt="" class="profile_image">
+                            <img src="{{ 'storage/s_profile_image/'.$item->file_path }}" alt="" class="profile_image">
                             <h2 class="panel-body"><?php print $item->user_name ?></h2>
                         </div>
                         

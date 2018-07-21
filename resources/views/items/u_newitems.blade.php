@@ -7,7 +7,7 @@
     
         <div class='row col-md-4 col-sm-4 col-xs-8'>
             <div class='panel-heading text-center'>
-                <img src="{{ $item->file_path }}" alt="" class="cloths_image">
+                <img src="{{ 'storage/u_items/'.$item->file_path }}" alt="" class="cloths_image">
                 <div class='panel panel-body text-center'>
                     {{ Form::checkbox('newitem[]',"$item->file_path", false) }}
                 </div>
