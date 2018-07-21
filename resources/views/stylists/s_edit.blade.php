@@ -52,7 +52,7 @@
                     
                     <div class="form-group">
                        {!! Form::label('clients', 'Clients per Month') !!} <br>
-                       {{Form::select('clients', ['～5', '6～10', '11～20','21～30', '30～'], 'select number of clients' )}}
+                       {{Form::select('clients', ['～5'=>'～5', '6～10'=>'6～10', '11～20'=>'11～20','21～30'=>'21～30', '30～'=>'30～'], 'select number of clients' )}}
                     </div>
 
                     <div class="form-group">
@@ -60,7 +60,7 @@
                     </div> 
                     <div class="form-group">
                         {!! Form::label('rank', 'Stylist rank') !!}
-                        {{Form::select('rank', ['legend', 'pro', 'amature'])}}
+                        {{Form::select('rank', ['legend'=>'legend', 'pro'=>'pro', 'amature'=>'amature'])}}
                     </div>
                     <div class="form-group">
                         {!! Form::label('file','Change the profile image',['class'=>'control-label']) !!}
