@@ -6,10 +6,18 @@
 
 <div class="row">
     <div class="col-xs-7">
-         <img src="{{ '/storage/s_profile_image/'.$item->file_path }}" alt="" class="profile_image profile_page">
-          <style type="text/css">
-            .profile_page {width:100%;}
-          </style>
+        @if(isset($item->file_path))
+            <img src="{{ '/storage/s_profile_image/'.$item->file_path }}" alt="" class="profile_image profile_page">
+            <style type="text/css">
+                .profile_page {width:100%;}
+            </style>
+        @else
+            <img src="{{ '/no_image.png' }}" alt="" class="profile_image profile_page">
+            <style type="text/css">
+                .profile_page {width:100%;}
+            </style>
+        @endif
+          
     </div>
     <div class="col-xs-5">
         <div class="panel panel-danger">
@@ -50,6 +58,10 @@
                     <div class="form-group">
                         {!! Form::hidden('user_type', '2') !!}
                     </div> 
+                    <div class="form-group">
+                        {!! Form::label('rank', 'Stylist rank') !!}
+                        {{Form::select('rank', ['legend', 'pro', 'amature'])}}
+                    </div>
                     <div class="form-group">
                         {!! Form::label('file','Change the profile image',['class'=>'control-label']) !!}
                         {!! Form::file('file') !!}

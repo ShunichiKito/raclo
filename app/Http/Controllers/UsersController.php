@@ -30,12 +30,10 @@ class UsersController extends Controller
      public function s_index()
     {   
         if (\Auth::user()->user_type == 1){
-        $items=array();
-        $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
-        
-               return view('users/u_stylist_lists')->with('items',$items);
-              
-                    
+        // $items=array();
+        // $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
+        $stylists= User::where('user_type', '2')->get();
+               return view('users/u_stylist_lists')->with('stylists',$stylists);
             } else{ 
                 return redirect('/');
             }
@@ -101,6 +99,7 @@ class UsersController extends Controller
                 'gender'=> 'required|max:10',
                 'background'=> 'required|max:400',
                 'style'=> 'required|max:191',
+                'rank'=> 'required|max:10',
                 // 'file'=>'required',
                 ]);
             
@@ -108,6 +107,7 @@ class UsersController extends Controller
                 $user->gender = $request->gender;
                 $user->background = $request->background;
                 $user->style = $request->style;
+                $user->rank = $request->rank;
                 $user->save();
                 
                 if($request->file('file')){
