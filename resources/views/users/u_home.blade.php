@@ -9,15 +9,31 @@
     </head>
     <body>
         <div class="container col-lg-12">
+        <!--画像アップロード-->
+        
+        {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
+            <div class="form-group">
+                {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
+                {!! Form::file('file') !!}
+            </div>  
+            <div class="form-group">
+                {!! Form::submit('Upload', ['class' => 'btn btn-success']) !!}
+            </div>
+        {!! Form::close() !!} 
+        
+        <!--アップロードした写真表示-->
+        
+        
             <div class="screen">
                 <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100> </a>
                 <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt="" height=100 width=100></a>
-            <!--</div>-->
-                <!--<div class="row col-md-12">-->
-                <div class="tab">
-                    <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">WithinMyItems</button>
-                    <button class="tablinks" onclick="openCloset(event, 'Newitem')">WithNewItems</button>
-                <!--</div>-->
+               
+                    <div class="tab">
+                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
+                    </div>
+                     {!! Form::open(['route' => ['items.selected']]) !!}
+
                     <div id="Myitem" class="tabcontent">
                         <div class=cloths>
                         <!--myitemのコンテンツ-->
@@ -27,14 +43,8 @@
                                @include('items.u_myitems', ['items' => $items ])
                             @endif
                         </div>
-                    <!--</div>-->
-                        <div class="myitem-next"> 
-                            <input type="submit" name="itemSubmit" value="Next" class="submission" />
-                            {!! Form::close() !!}
-                        </div>
                     </div>
-                <!--</div>-->
-                <!--</div>-->
+                
                     <div id="Newitem" class="tabcontent">
                         <div class=cloths>
                         <!--Newitemのコンテンツ-->
@@ -44,17 +54,13 @@
                                @include('items.u_newitems', ['items' => $items ])
                             @endif
                         </div>
-                        <div class="newitem-next"> 
-                            <input type="submit" name="itemSubmit" value="Next" class="submission" />
-                            {!! Form::close() !!}
-                        </div>
                     </div>
-                </div>
-            </div>    
+                    <input type="submit" name="itemSubmit" value="Next" class="submission myitem-next"/>
+                    {!! Form::close() !!}    
+            </div>      
         </div>
-                <!--</div>-->
-                
-                
+               
+               
                 <script>
                 function openCloset(evt, cityName) {
                    var i, tabcontent, tablinks;
@@ -71,9 +77,7 @@
                 }
                 document.getElementById("defaultOpen").click();
                 </script>
-            <!--</div>        -->
-        <!--</div>-->
-    <!--</div>-->
+
     </body>
                 
 </html>

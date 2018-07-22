@@ -43,11 +43,68 @@
                 <div class="closet-items">
                     <!--item変数を追加してから以下を実行する-->
                     @if (Auth::check())
-                       @include('items.u_newitems', ['items' => $new_images ])
+                       @include('items.before_newitems', ['items' => $new_images ])
                     @endif
                 </div>
             </div>
-                    
+            
+            <div id="BrandAvenue" class="tabcontent">
+                <div class="closet-items">
+                    <!--item変数を追加してから以下を実行する-->
+                    @if (Auth::check())
+                        <div class="search">
+                            <div class="row">
+                                <div class="text-center">
+                                    {{--{!! Form::open(['route' => ['branditems.search',$keyword], 'method' => 'get', 'class' => 'form-inline']) !!}--}}
+                                    <!--    <div class="form-group">-->
+                                    {{--        {!! Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'Input the keywords', 'size' => 40]) !!}--}}
+                                    <!--    </div>-->
+                                    {{--    {!! Form::submit('商品を検索', ['class' => 'btn btn-success btn-lg']) !!} --}}
+                                    {{--{!! Form::close() !!}--}}
+                                    
+                                    <input type="text" id="search_area">
+                                    <button type="button" id="search_button">検索</button>
+                                    <ul class="brand_items"></ul>
+                                    <style>
+                                        li.brand_item {
+                                            display: inline-block;
+                                            margin: 10px;
+                                        }
+                                    </style>
+                                    <script>
+                                        $(function(){
+                                          // buttonがclickされたとき、変数に検索する値を代入
+                                          $('#search_button').on('click', function(){
+                                            var keyword = $('#search_area').val();
+                                        
+                                            // リクエストURLを設定する
+                                            $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
+                                              applicationId: "1028803390707827350",
+                                              keyword: keyword
+                                        
+                                            // 結果が帰ってきたらここでそれを受け取り、空でなければ順番に出力していく
+                                            }, function(data){
+                                              if (data.count > 0){
+                                                // console.log(data);
+                                                $.each(data.Items, function(i, item){
+                                                  var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}"></a></li>`);
+                                                  $(".brand_items").append(temp);
+                                                }) // each
+                                              } // if
+                                            }); // function(data)
+                                          }); // clickイベント
+                                        }); // function
+                                    </script>
+                                
+                                </div>
+                            </div>
+                        </div>
+                       {{--@include('items.brandavenue_items', ['items' => $new_images ])--}}
+                    @endif
+                </div>
+            </div>
+            
+            <!--タブ入れ替え       -->
             <script>
             function openTab(evt, cityName) {
                var i, tabcontent, tablinks;
