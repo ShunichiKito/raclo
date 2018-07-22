@@ -71,6 +71,8 @@
                                             margin: 10px;
                                         }
                                     </style>
+                                    
+                                    <!--楽天API-->
                                     <script>
                                         $(function(){
                                           // buttonがclickされたとき、変数に検索する値を代入
@@ -126,6 +128,7 @@
            
         </div>
         <div class="col-xs-3">
+            
                     <style>
               /*body {*/
               /*  margin: 20px;*/
