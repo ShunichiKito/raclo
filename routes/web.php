@@ -74,7 +74,9 @@ Route::group(['middleware' => ['auth']], function () {
     //服アップロード
     Route::post('u_items/store', 'ItemsController@store');
      
-
+    //ブランドアヴェニュー検索
+    Route::get('/branditems/search/{keyword}','ItemsController@search')->name('branditems.search');
+   
     //プライバシー、価格
     Route::get('/u_privacy', function () {
         return view('users/u_privacy');

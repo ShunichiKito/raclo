@@ -54,10 +54,12 @@ class ItemsController extends Controller
         $all_images=[
             'user' => $user,
             'my_images' => $my_images,
-            'new_images' => $new_images
+            'new_images' => $new_images,
+            //とりあえず空のキーワード送る（ブランドアベニュー検索）
+            'keyword'=>' '
         ];
         
-        return view('stylists/s_workspace', $all_images);
+        return view('stylists/s_workspace',$all_images);
     }    
     
     public function store(Request $request) {
@@ -73,6 +75,19 @@ class ItemsController extends Controller
         return redirect('/home');
     }
         
+    // public function search() {
+    //     $keyword= request()->keyword;
+    //     $items=[];
+    //     if ($keyword) {
+    //         $client = new \RakutenRws_Client();
+    //         $client->setApplicationId(env('RAKUTEN_APPLICATION_ID'));
+
+    //         $rws_response = $client->execute('IchibaItemSearch', [
+    //             'keyword' => $keyword,
+    //             'imageFlag' => 1,
+    //             'hits' => 20,
+    //         ]);
+    // }
         
     //   public function store(Request $request)
     // {
