@@ -40,6 +40,12 @@
 <span id="counter"></span>
 </div>
 
+<button type="button" id="save">Save</button>
+<button type="button" id="clear">Clear</button>
+<p>Stored Items</p>
+<ul id="storedItems">
+</ul>
+
 
 <style scoped>
 #demo { width:550px; display:block; border:#999 1px solid; padding:10px 0; }
@@ -102,6 +108,29 @@ if(n <= 0) str = "";
 _$("#counter").html(str);
 }
 });
+
+ $("button#save").click(function() {
+      var items = $("li", $("ul", $("#cart")));
+      console.log(items);
+      for (var i = 0, len = items.length; i < len; i++) {
+        var item = items[i];
+        var element = {
+          img: $("img", item).attr("src")
+        }
+	      localStorage.setItem(i, JSON.stringify(element));
+      }
+      // 保存されたことを確認する
+      for (var i = 0, len = localStorage.length; i < len; i++) {
+        var element = JSON.parse(localStorage.getItem(i));
+        $("ul#storedItems").append( "　File : " + element.img);
+      }
+  });
+
+  $("button#clear").click(function() {
+      localStorage.clear();
+	    $("ul#storedItems li").remove();
+  });
+
 </script>
 </body>
 </html>
