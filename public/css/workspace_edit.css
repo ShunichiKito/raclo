@@ -1,0 +1,48 @@
+
+  .before_container{
+   width: 150px;
+   height: 180px;
+  　
+    }
+    
+    .before_newitems{
+   width: 150px;
+   height: 180px;
+   
+    }
+    
+ .cloths_image_2 {
+    height: 100px;
+    width: 100px;
+}
+    
+.tab_size_container{
+    font-family: inherit;
+    font-size: 30px;
+    line-height: inherit;
+}
+
+.search_box{
+    font-family: inherit;
+    font-size: 30px;
+    line-height: inherit;
+}
+
+.name_fontsize{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 40px;
+    color: inherit;
+}
+
+.brand_item_size{
+        width: 100px;
+    height: 100px;
+}  
+
+.count_coordinate{
+    margin:0;
+    font-size:25px;
+    vertical-align: baseline;
+}
+                        
