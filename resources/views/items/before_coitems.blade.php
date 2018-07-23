@@ -6,7 +6,7 @@
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center">
-                                <img src="{{ $my_image->file_path }}" alt="" class="">
+                                <img src="{{ '/storage/u_items/'.$my_image->file_path }}" alt="" class="">
                             </div>
                         </div>
                     </div>

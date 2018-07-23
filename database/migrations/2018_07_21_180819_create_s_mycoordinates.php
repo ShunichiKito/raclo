@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUItemsTable extends Migration
+class CreateSMycoordinates extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateUItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('u_items', function (Blueprint $table) {
+        Schema::create('s_mycoordinates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('user_name');
-            $table->string('file_path')->nullable();
+            $table->string('file_path');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             
-             // 外部キー設定
+            // 外部キー設定
             $table->foreign('user_name')->references('name')->on('users')->onDelete('cascade');
         });
     }
@@ -32,6 +32,6 @@ class CreateUItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('u_items');
+         Schema::dropIfExists('s_mycoordinates');
     }
 }

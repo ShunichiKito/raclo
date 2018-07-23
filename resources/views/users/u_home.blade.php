@@ -9,6 +9,21 @@
     </head>
     <body>
         <div class="container col-lg-12">
+        <!--画像アップロード-->
+        
+        {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
+            <div class="form-group">
+                {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
+                {!! Form::file('file') !!}
+            </div>  
+            <div class="form-group">
+                {!! Form::submit('Upload', ['class' => 'btn btn-success']) !!}
+            </div>
+        {!! Form::close() !!} 
+        
+        <!--アップロードした写真表示-->
+        
+        
             <div class="screen">
                 <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100> </a>
                 <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt="" height=100 width=100></a>
@@ -28,11 +43,6 @@
                                @include('items.u_myitems', ['items' => $items ])
                             @endif
                         </div>
-                    
-                        <div class="myitem-next"> 
-                            <input type="submit" name="itemSubmit" value="Next" class="submission" />
-                            {!! Form::close() !!}
-                        </div>
                     </div>
                 
                     <div id="Newitem" class="tabcontent">
@@ -44,12 +54,8 @@
                                @include('items.u_newitems', ['items' => $items ])
                             @endif
                         </div>
-                        <div class="newitem-next"> 
-                            <input type="submit" name="itemSubmit" value="Next" class="submission" />
-                            {!! Form::close() !!}
-                        </div>
                     </div>
-                    <input type="submit" name="itemSubmit" value="Next" />
+                    <input type="submit" name="itemSubmit" value="Next" class="submission myitem-next"/>
                     {!! Form::close() !!}    
             </div>      
         </div>

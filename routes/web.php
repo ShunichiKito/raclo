@@ -71,8 +71,12 @@ Route::group(['middleware' => ['auth']], function () {
     //スタイリスト選択済み、注文完了処理
     Route::get('u_ordercomp/{user_name}', 'UsersController@u_ordercomp')->name('u_ordercomp');
     
+    //服アップロード
+    Route::post('u_items/store', 'ItemsController@store');
      
-
+    //ブランドアヴェニュー検索
+    Route::get('/branditems/search/{keyword}','ItemsController@search')->name('branditems.search');
+   
     //プライバシー、価格
     Route::get('/u_privacy', function () {
         return view('users/u_privacy');
