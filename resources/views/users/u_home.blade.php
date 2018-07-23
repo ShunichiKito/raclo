@@ -11,23 +11,26 @@
         <div class="container col-lg-12">
         <!--画像アップロード-->
         
-        {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
-            <div class="form-group">
-                {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
-                {!! Form::file('file') !!}
-            </div>  
-            <div class="form-group">
-                {!! Form::submit('Upload', ['class' => 'btn btn-success']) !!}
-            </div>
-        {!! Form::close() !!} 
-        
+         {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
+                            <div class="form-group1">
+                                {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
+                                {!! Form::file('file') !!}
+                            <!--</div>  -->
+                            <div class="form-group2" id="classbtn">
+                            <button type="button" class="btn btn-primary btn-danger btn-lg btn-block">Upload my clothes</button>
+
+                                <!--{!! Form::submit('Upload', ['class' => 'btn btn-warning']) !!}-->
+                            </div>
+                            </div>
+                        {!! Form::close() !!} 
         <!--アップロードした写真表示-->
         
         
             <div class="screen">
-                <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt="" height=100 width=100> </a>
-                <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt="" height=100 width=100></a>
-               
+                <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt=""> </a>
+                <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt=""></a>
+                <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
+            
                     <div class="tab">
                         <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
                         <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
@@ -55,9 +58,31 @@
                             @endif
                         </div>
                     </div>
+                    
+                    
+        
                     <input type="submit" name="itemSubmit" value="Next" class="submission myitem-next"/>
+                    
+                    <!--<img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
+                   
+                      
+                      
+                      
+             
+                    <!-- {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}-->
+                    <!--    <div class="form-group">-->
+                    <!--        {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}-->
+                    <!--        {!! Form::file('file') !!}-->
+                    <!--    </div>  -->
+                    <!--    <div class="form-group">-->
+                    <!--        {!! Form::submit('Upload', ['class' => 'btn btn-success']) !!}-->
+                    <!--    </div>-->
+                    <!--{!! Form::close() !!} -->
+                    
+                    
                     {!! Form::close() !!}    
-            </div>      
+            
+            </div>           
         </div>
                
                
