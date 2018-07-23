@@ -76,12 +76,14 @@
                                             margin: 10px;
                                         }
                                     </style>
+                                    
+                                    <!--楽天API-->
                                     <script>
                                         $(function(){
                                           // buttonがclickされたとき、変数に検索する値を代入
                                           $('#search_button').on('click', function(){
                                             var keyword = $('#search_area').val();
-                                        
+                                             $(".brand_items").empty();
                                             // リクエストURLを設定する
                                             $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
                                               applicationId: "1028803390707827350",
@@ -131,6 +133,7 @@
            
         </div>
         <div class="col-xs-3">
+            
                     <style>
               /*body {*/
               /*  margin: 20px;*/
