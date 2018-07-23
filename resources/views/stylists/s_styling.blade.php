@@ -153,6 +153,15 @@
   </div>
 </div>
 
+<!--<div class="container3">-->
+<!--  <button type="button" id="save">Save</button>-->
+<!--  <button type="button" id="clear">Clear</button>-->
+<!--  <p>Stored Items</p>-->
+<!--    <ul id="storedItems"></ul>-->
+<!--</div>-->
+
+
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script>
@@ -216,6 +225,7 @@
           .find( "p" )
           .html( "Tops" );
       }
+      
     });
     
      $('.drop_area2').droppable({
@@ -337,7 +347,7 @@
           .html( "Shoes" );
       }
     });
-
+    
     
   });
 </script>
