@@ -449,6 +449,8 @@
     position: relative;
     padding: 0;
     z-index: 1;
+    /*width:360px;*/
+    /*height: 440px;*/
     margin-left: 15px;
     margin-right: 15px;
     margin-top: -30px;
@@ -457,7 +459,7 @@
 .card .card-header.card-header-image img {
     width: 100%;
     border-radius: 6px;
-    pointer-events: none;
+    pointer-events:none;
     box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
 }
 .card-header.card-header-image a {
@@ -521,3 +523,13 @@
 	text-align:center;
 }
 
+/*.buy {*/
+/* opacity: 0; /* 表記を透明に */
+/* color: #222;*/
+/*}*/
+/*.button:hover.buy { /* aにホバーした表記を表示 */
+/* opacity: 1;*/
+/*}*/
+/*.button:hover.material-icons { /* aにホバーした表記を表示 */
+/* opacity: 0;*/
+/*}*/
