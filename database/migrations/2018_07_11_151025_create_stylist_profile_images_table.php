@@ -19,6 +19,9 @@ class CreateStylistProfileImagesTable extends Migration
             $table->string('file_path');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
+            
+             // 外部キー設定
+            $table->foreign('user_name')->references('name')->on('users')->onDelete('cascade');
         });
     }
 

@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\U_Item;
+use App\U_item;
 use App\Order;
+use App\Stylist_profile_image;
+
 // class UsersController extends Controller
 // {
 //     public function show($id)
 //     {
 //         $user = User::find($id);
-//         $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
+//         $items = \DB::table('U_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
 
 //         return view('users.u_home', [
 //             'user' => $user,
@@ -28,12 +30,10 @@ class UsersController extends Controller
      public function s_index()
     {   
         if (\Auth::user()->user_type == 1){
-        $items=array();
-        $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
-        
-               return view('users/u_stylist_lists')->with('items',$items);
-              
-                    
+        // $items=array();
+        // $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
+        $stylists= User::where('user_type', '2')->get();
+               return view('users/u_stylist_lists')->with('stylists',$stylists);
             } else{ 
                 return redirect('/');
             }
@@ -56,7 +56,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         
-         $user = User::find($id);
+        $user = User::find($id);
         if (\Auth::id() == $user->id){
              if (\Auth::user()->user_type == 1){
                 return view('users.u_edit', [
@@ -64,8 +64,10 @@ class UsersController extends Controller
                 ]);
                 
              } elseif(\Auth::user()->user_type == 2)  {
+                  $s_profile_image= Stylist_profile_image::where('user_name',\Auth::user()->name)->first();
                   return view('stylists.s_edit', [
                     'user' => $user,
+                    'item' => $s_profile_image,
                 ]);
             } else{
                   
@@ -97,13 +99,30 @@ class UsersController extends Controller
                 'gender'=> 'required|max:10',
                 'background'=> 'required|max:400',
                 'style'=> 'required|max:191',
+                'rank'=> 'required|max:10',
+                // 'file'=>'required',
                 ]);
             
                 $user->age = $request->age;
                 $user->gender = $request->gender;
                 $user->background = $request->background;
                 $user->style = $request->style;
+                $user->rank = $request->rank;
                 $user->save();
+                
+                if($request->file('file')){
+                    $filename = $request->file('file')->store('public/s_profile_image');
+                    if(Stylist_profile_image::where('user_name',\Auth::user()->name)->first()) {
+                        $s_profile_image=Stylist_profile_image::where('user_name',\Auth::user()->name)->first();
+                        $s_profile_image->file_path = basename($filename);
+                        $s_profile_image->save();
+                    }else {
+                        $s_profile_image= new Stylist_profile_image;
+                        $s_profile_image->user_name= \Auth::user()->name;
+                        $s_profile_image->file_path = basename($filename);
+                        $s_profile_image->save();
+                    }
+                }    
                 return redirect('/home');
 
          }else{
@@ -114,53 +133,63 @@ class UsersController extends Controller
         }
     }
     
-     public function myregister(Request $request)
+    public function item_register(Request $request)
     {
         $myitems=array();
-        $myitems = $request->item;
+        $myitems = $request->myitem;
         foreach($myitems as $myitem) {
             // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
              $createitem = U_item::where('file_path',$myitem)->first();
              $createitem->myitems_check="on";
              $createitem->save();
+             
         }
-        return redirect('/u_stylist_lists');
-        
-    }  
-    
-    public function newregister(Request $request)
-    {
+       
         $newitems=array();
-        $newitems = $request->item;
+        $newitems = $request->newitem;
         foreach($newitems as $newitem) {
+            print $newitem;
             // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
              $createitem = U_item::where('file_path',$newitem)->first();
              $createitem->newitems_check="on";
              $createitem->save();
         }
-        return redirect('/u_stylist_lists');
+
+        $nocheckmyitems = U_item::whereNotIn('file_path', $myitems)->get();
+        foreach($nocheckmyitems as $nocheckmyitem) {
+            $nocheckmyitem->myitems_check="off";
+            $nocheckmyitem->save();
+        }
+         $nochecknewitems = U_item::whereNotIn('file_path', $newitems)->get();
+        foreach($nochecknewitems as $nochecknewitem) {
+            $nochecknewitem->newitems_check="off";
+            $nochecknewitem->save();
+        }
         
+        if(Order::where("suspend", "on")->first()){
+            $order=Order::where("suspend", "on")->first();
+            $order->myitems_conumber=$request->myitems_conumber;
+            $order->newitems_conumber=$request->newitems_conumber;
+            $order->save();
+        }else{
+            $order = new Order;
+            $order->user_id= \Auth::id();
+            $order->myitems_conumber=$request->myitems_conumber;
+            $order->newitems_conumber=$request->newitems_conumber;
+            $order->suspend="on";
+            $order->save();
+        }    
+        
+        return redirect('/u_stylist_lists');
+
     }
     
-    public function u_order(Request $request)
-    {
-        $newitems=array();
-        $newitems = $request->item;
-        foreach($newitems as $newitem) {
-            // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
-             $createitem = U_Item::where('file_path',$newitem)->first();
-             $createitem->newitems_check="on";
-             $createitem->save();
-        }
-        return redirect('/u_stylist_lists');
+     public function u_ordercomp($user_name) {
         
-
-    }   
-    public function u_ordercomp($user_name) {
-        
-        $order = new Order;
-        $order->user_id= \Auth::id();
-        $order->stylist_id= User::where('name',$user_name)->first()->id;
+        $order = Order::where("suspend", "on")->first();
+        $order->stylist_id= User::where("name",$user_name)->first()->id;
+        $order->suspend="off";
+        $order->state="untouched";
         $order->save();
         
         return redirect('/home');
