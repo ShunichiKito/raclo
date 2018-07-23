@@ -2,7 +2,7 @@
 .screen {
     background-image: url("/cabinet-575361_1280.png");
     background-size: cover;
-    width: 700px;
+    width: 800px;
     height: 750px;
     margin: 0 auto;
     margin-top: 50px;
@@ -20,10 +20,25 @@
     margin-left: 16px;
     /*margin-right: 60px;*/
     margin-top: 80px;
+    height:120px;
+    width: 120px;  
+    
+    
 }
+.lefty {
+    margin-left: 16px;
+    height:100px;
+    width: 118px;   
+    position: relative;
+    top: -30px;
+}
+
+
 
 .right {
     float: right;
+    height:120px;
+    width: 120px;   
     /*right: 300;*/
     /*bottom: 400;*/
     margin-right: 22px;
@@ -42,9 +57,10 @@
    border: none;
    background-color:transparent;
    z-index: 2;
-   margin-top: 15px;
+   margin-top: 24px;
    margin-left: 110px;
    position: absolute !important;
+   width: 572px;
   }
 
 /* Style the buttons inside the tab */
@@ -84,7 +100,7 @@
    height: 675px;
    border: none;
    margin-top:45px;
-   margin-left:32px;
+   margin-left:200px;
    margin-right:0px;
 }
 
@@ -93,8 +109,11 @@
 /*ネクストボタン*/
 .myitem-next{
     position: absolute !important;
-    margin-top: 600px;
-    margin-left: 347px;
+    margin-top: -7px;
+    margin-left: 671px;
+    height: 64px;
+    width: 90px;
+    font-size: 21px;
 }
 .newitem-next{
     position: absolute !important;
@@ -130,3 +149,96 @@
     border-bottom: solid 3px #c58668;
 }
 
+.cloths {
+    text-align: center;
+}
+
+.form-group1 {
+    margin-left:-200px;
+    /*margin-bottom: -25px;*/
+    font-size: 21px;
+    position: absolute;
+    /*margin-px;/*/
+    /*text-align:right; */
+    
+  /*border:solid 5px #0ff;*/
+  /*width:200px;*/
+  /*border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;*/
+  /*padding:10px;*/
+
+    /*background-color: black;*/
+    /*color:white;*/
+    
+    
+}
+
+.form-group2 {
+    width:200px;
+}
+/*#classbtn{*/
+/*    display: inline-block;*/
+/*    padding: 7px 20px;*/
+/*	border-radius: 25px;*/
+/*    text-decoration: none;*/
+/*    color: #FFF;*/
+/*    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);*/
+/*    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);*/
+/*    transition: .4s;*/
+/*}*/
+
+/*#classbtn:hover {*/
+/*    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #f76a35 100%);*/
+/*    background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);*/
+/*}*/
+/*.form-group2 {*/
+/*    font-size: 25px;*/
+/*    margin-left: 20px;*/
+/*    margin-top: -47px;*/
+/*}*/
+
+
+
+
+
+
+   /*.left {*/
+   /*  padding: 0;*/
+   /*  margin: 0;*/
+   /*}*/
+   /*.left{*/
+   /*  width: 200px;*/
+   /*  position: relative;*/
+   /*  margin:80px 50px 50px;*/
+   /*  padding: 20px;*/
+   /*  border: 1px solid #ccc;*/
+   /*}*/
+   /*.left-fukidashi {*/
+   /*  display: none;*/
+   /*  width: 200px;*/
+   /*  position: absolute;*/
+   /*  top: 0;*/
+   /*  left: 250px;*/
+   /*  padding: 16px;*/
+   /*  border-radius: 5px;*/
+   /*  background: #33cc99;*/
+   /*  color: #fff;*/
+   /*  font-weight: bold;*/
+   /*}*/
+   /*.left-fukidashi:after {*/
+   /*  position: absolute;*/
+   /*  width: 0;*/
+   /*  height: 0;*/
+   /*  left: 0;*/
+   /*  bottom: -19px;*/
+   /*  margin-left: 10px;*/
+   /*  border: solid transparent;*/
+   /*  border-color: rgba(51, 204, 153, 0);*/
+   /*  border-top-color: #33cc99;*/
+   /*  border-width: 10px;*/
+   /*  pointer-events: none;*/
+   /*  content: " ";*/
+   /*}*/
+   /*.left:hover + .left-fukidashi {*/
+   /*  display: block;*/
+   /*  z-index:2;*/
+   /*}*/
