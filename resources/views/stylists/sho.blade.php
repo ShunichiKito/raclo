@@ -234,6 +234,23 @@ Template: jquery
   
 }
 
+#trash2 h4 {
+  line-height: 16px;
+  margin: 0 0 0.4em;
+  float:right;
+}
+
+#trash2 h4 .ui-icon {
+  float: left;
+  float:right;
+}
+
+#trash2 .gallery h5 {
+  display: none;
+  float:right;
+  
+}
+
 </style>
 
 
@@ -310,14 +327,15 @@ Template: jquery
       cursor: "move"
     });
 
-    // let the trash be droppable, accepting the gallery items
-    // $trash.droppable({
-    //   accept: "#gallery > li",
-    //   activeClass: "ui-state-highlight",
-    //   drop: function(event, ui) {
-    //     deleteImage(ui.draggable);
-    //   }
-    // });
+
+    
+    $trash.droppable({
+      accept: "#gallery > li",
+      activeClass: "ui-state-highlight",
+      drop: function(event, ui) {
+        deleteImage(ui.draggable);
+      }
+    });
     
     $trash2.droppable({
       accept: "#gallery > li",
@@ -329,13 +347,15 @@ Template: jquery
 
     // let the gallery be droppable as well, accepting items from the trash
     $gallery.droppable({
-      accept: "#trash li",
-       accept: "#trash2 li",
+      accept: "#trash li, #trash2 li",
       activeClass: "custom-state-active",
       drop: function(event, ui) {
         recycleImage(ui.draggable);
       }
     });
+    
+    
+    
 
     // image deletion function
     var recycle_icon = "<a href='link/to/recycle/script/when/we/have/js/off' title='Recycle this image' class='ui-icon ui-icon-refresh'>Recycle image</a>";
@@ -343,10 +363,10 @@ Template: jquery
     function deleteImage($item) {
       var obj = cloneObject($item);
       var $list = $("ul", $trash).length ?
-          $("ul", $trash, $trash2): 
+          $("ul", $trash,): 
           
           
-		      $("<ul class='gallery ui-helper-reset'/>").appendTo($trash, $trash2);
+		      $("<ul class='gallery ui-helper-reset'/>").appendTo($trash);
       obj.find("a.ui-icon-trash", "a.ui-icon-trash2").remove();
       obj.append(recycle_icon).appendTo($list).fadeIn(function() {
         obj
@@ -369,7 +389,7 @@ Template: jquery
       
       $item.fadeOut(function() {
         $item.remove();
-	      $items.text($("li", $("ul", $trash, $trahs2)).length);
+	      $items.text($("li", $("ul", $trash, $trash2)).length);
       });
     }
 

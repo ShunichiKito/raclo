@@ -35,22 +35,35 @@
 	 <img src="http://blog.diimo.net/files/asset/25/item3.jpg" alt="ワッフル" width="30" />
 	</li>
 </ul>
+ <button type="button" id="save">Save</button>
+  <button type="button" id="clear">Clear</button>
+   <button type="button2" id="save">Save</button>
+  <button type="button2" id="clear">Clear</button>
+   <p>Stored Items</p>
+  <ul id="storedItems">
+  </ul>
 <div id="cart" class="ui-widget-content ui-state-default">
 <p class="ui-widget-header"><span class="ui-icon ui-icon-star" style="float:left;"></span>&nbsp;お買い物かご</p>
 <span id="counter"></span>
 </div>
-
+<div id="cart2" class="ui-widget-content ui-state-default">
+<p class="ui-widget-header"><span class="ui-icon ui-icon-star" style="float:left;"></span>&nbsp;お買い物かご</p>
+<span id="counter"></span>
+</div>
 
 <style scoped>
 #demo { width:550px; display:block; border:#999 1px solid; padding:10px 0; }
 #gallery { width:200px; height:400px; float:left; }
 #gallery .custom-state-active { background:#efefef; }
-#gallery li, #cart li { padding:4px; text-align:center; float:left; list-style:none; display:inline-block; }
+#gallery li, #cart li, #cart2 li { padding:4px; text-align:center; float:left; list-style:none; display:inline-block; }
 #gallery li p { margin:0 0 4px; cursor:move; }
 #gallery li span { float:right; }
 #cart { width:330px; height:400px; float:right; }
 #cart p { line-height:1.5; margin:0 0 4px; }
 #cart p span { float:left; }
+#cart2 { width:330px; height:400px; float:right; }
+#cart2 p { line-height:1.5; margin:0 0 4px; }
+#cart2 p span { float:left; }
 </style>
 <script type="text/javascript">
 var _$ = jQuery;
@@ -58,6 +71,7 @@ _$(function()
 {
 var $gallery = _$("#gallery");
 var $cart = _$("#cart");
+var $cart2 = _$("#cart2");
 var recycle_icon = "<span class='ui-icon ui-icon-refresh'>元に戻す</span>";
 var cart_icon = "<span class='ui-icon ui-icon-cart'>購入する</span>";
 _$("li", $gallery).draggable({
@@ -67,13 +81,20 @@ _$("li", $gallery).draggable({
 	helper: "clone",
 	cursor: "move"
 });
+
 $cart.droppable({
 	accept: "#gallery > li",
 	activeClass: "ui-state-highlight",
 	drop: function(ev, ui){ setImage(ui.draggable); }
 });
+
+$cart2.droppable({
+	accept: "#gallery > li",
+	activeClass: "ui-state-highlight",
+	drop: function(ev, ui){ setImage(ui.draggable); }
+});
 $gallery.droppable({
-	accept: "#cart li",
+	accept: "#cart li, #cart2 li",
 	activeClass: "ui-state-highlight",
 	drop: function(ev, ui){ recycleImage( ui.draggable ); }
 });
@@ -86,6 +107,15 @@ $item.fadeIn(function(){
 counter(0);
 });
 }
+// function setImage2($item){
+// $item.fadeIn(function(){
+// 	$item.find(".ui-icon-cart").remove();
+// 	$item.find("img").width("110px");
+// 	$item.find("p").append(recycle_icon);
+// 	$item.appendTo($cart2);
+// counter(0);
+// });
+// }
 function recycleImage($item){
 $item.fadeIn(function(){
 	$item.find(".ui-icon-refresh").remove();
@@ -95,13 +125,67 @@ $item.fadeIn(function(){
 counter(-1);
 });
 }
-function counter(plus){
-var n = $cart.find('li').length + plus;
-var str = "現在の商品数：<b>"+ n +"</b>個です。";
-if(n <= 0) str = "";
-_$("#counter").html(str);
-}
+// function counter(plus){
+// var n = $cart.find('li').length + plus;
+// var str = "現在の商品数：<b>"+ n +"</b>個です。";
+// if(n <= 0) str = "";
+// _$("#counter").html(str);
+// }
+// function counter2(plus){
+// var n = $cart2.find('li').length + plus;
+// var str = "現在の商品数：<b>"+ n +"</b>個です。";
+// if(n <= 0) str = "";
+// _$("#counter").html(str);
+// }
 });
+
+ $("button#save").click(function() {
+      var items = $("li", $("#cart"));
+      
+      console.log(items);
+      
+      for (var i = 0, len = items.length; i < len; i++) {
+        var item = items[i];
+       
+        var element = {
+          img: $("img", item).attr("src")
+        }
+	      localStorage.setItem(i, JSON.stringify(element));
+      }
+      // 保存されたことを確認する
+      for (var i = 0, len = localStorage.length; i < len; i++) {
+        var element = JSON.parse(localStorage.getItem(i));
+        $("ul#storedItems").append('<li><img src= '+element.img+'></li>');
+      }
+    });
+    
+   $("button2#save").click(function() {
+      var items = $("li", $("#cart2"));
+      
+      console.log(items);
+      
+      for (var i = 0, len = items.length; i < len; i++) {
+        var item = items[i];
+       
+        var element = {
+          img: $("img", item).attr("src")
+        }
+	      localStorage.setItem(i, JSON.stringify(element));
+      }
+      // 保存されたことを確認する
+      for (var i = 0, len = localStorage.length; i < len; i++) {
+        var element = JSON.parse(localStorage.getItem(i));
+        $("ul#storedItems").append('<li><img src= '+element.img+'></li>');
+      }
+    });
+
+
+    $("button#clear").click(function() {
+      localStorage.clear();
+	    $("ul#storedItems li").remove();
+    });
+
+
 </script>
 </body>
 </html>
