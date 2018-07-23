@@ -54,13 +54,41 @@ class ItemsController extends Controller
         $all_images=[
             'user' => $user,
             'my_images' => $my_images,
-            'new_images' => $new_images
+            'new_images' => $new_images,
+            //とりあえず空のキーワード送る（ブランドアベニュー検索）
+            'keyword'=>' '
         ];
-        print $my_images;
-        return ; 
         
-        return view('stylists/s_workspace', $all_images);
+        return view('stylists/s_workspace',$all_images);
     }    
+    
+    public function store(Request $request) {
+        $this->validate($request,[
+            'file'=>'required',
+        ]);
+        $filename = $request->file('file')->store('public/u_items');
+        $u_item= new U_item;
+        $u_item->user_name= \Auth::user()->name;
+        $u_item->file_path = basename($filename);
+        $u_item->save();
+        
+        return redirect('/home');
+    }
+        
+    // public function search() {
+    //     $keyword= request()->keyword;
+    //     $items=[];
+    //     if ($keyword) {
+    //         $client = new \RakutenRws_Client();
+    //         $client->setApplicationId(env('RAKUTEN_APPLICATION_ID'));
+
+    //         $rws_response = $client->execute('IchibaItemSearch', [
+    //             'keyword' => $keyword,
+    //             'imageFlag' => 1,
+    //             'hits' => 20,
+    //         ]);
+    // }
+        
     //   public function store(Request $request)
     // {
 

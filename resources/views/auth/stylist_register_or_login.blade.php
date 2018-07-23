@@ -80,6 +80,10 @@
                         <br>(ex:American Casual....)
                         {!! Form::text('style', old('style'), ['class' => 'form-control']) !!}
                     </div>
+                    <div class="form-group">
+                        {!! Form::label('rank', 'Stylist rank') !!}
+                        {{Form::select('rank', ['legend', 'pro', 'amature'])}}
+                    </div>
 
                     <div class="form-group">
                         {!! Form::label('password', 'Password') !!}
