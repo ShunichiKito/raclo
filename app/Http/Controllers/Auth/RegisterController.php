@@ -71,7 +71,7 @@ class RegisterController extends Controller
             'user_type' => $data['user_type'],
             'background' => $data['background'],
             'style' => $data['style'],
-            'rank' => $data['rank'],
+            // 'rank' => $data['rank'],
             'password' => bcrypt($data['password']),
         ]);
     }
