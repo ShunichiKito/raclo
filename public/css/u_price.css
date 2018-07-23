@@ -1,365 +1,484 @@
-.cp_pricetable1 {
-	text-align: center;
-	color:#000000;
-}
+/*.cp_pricetable1 {*/
+/*	text-align: center;*/
+/*	color:#000000;*/
+/*}*/
 
 
 
-.cp_pricetable1 .header2{
+/*.cp_pricetable1 .header2{*/
 	/*text-align: center;*/
-	color:#F6FF00;
-}
-.cp_pricetable1 .block {
-	position: relative;
-	float: left;
-	width: 33%;
-	height: 100%;
-	transition: all 0.2s ease-in-out;
-	-webkit-transform: translate(0px, 0px);
-	transform: translate(0px, 0px);
-}
-.cp_pricetable1 .block ul, li {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
+/*	color:#F6FF00;*/
+/*}*/
+/*.cp_pricetable1 .block {*/
+/*	position: relative;*/
+/*	float: left;*/
+/*	width: 33%;*/
+/*	height: 100%;*/
+/*	transition: all 0.2s ease-in-out;*/
+/*	-webkit-transform: translate(0px, 0px);*/
+/*	transform: translate(0px, 0px);*/
+/*}*/
+/*.cp_pricetable1 .block ul, li {*/
+/*	margin: 0;*/
+/*	padding: 0;*/
+/*	list-style-type: none;*/
+/*}*/
 /**** blockのhover ****/
-.cp_pricetable1 .block:hover {
-	position: relative;
-	z-index: 100;
-	transition-delay: 0s;
-	-webkit-transform: translate(-2px,-2px);
-	transform: translate(-2px,-2px);
-	box-shadow: 0px 0 5px rgba(0,0,0,0.5);
-}
+/*.cp_pricetable1 .block:hover {*/
+/*	position: relative;*/
+/*	z-index: 100;*/
+/*	transition-delay: 0s;*/
+/*	-webkit-transform: translate(-2px,-2px);*/
+/*	transform: translate(-2px,-2px);*/
+/*	box-shadow: 0px 0 5px rgba(0,0,0,0.5);*/
+/*}*/
 
 /* --- メニュー名ブロック ---  */
-.cp_pricetable1 .block .header1 {
-	width: 100%;
-	padding: 0.6em;
-	color: #ffffff;
-	border-bottom: 1px solid #ffffff;
-	background:#000000;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 32px;
+/*.cp_pricetable1 .block .header1 {*/
+/*	width: 100%;*/
+/*	padding: 0.6em;*/
+/*	color: #ffffff;*/
+/*	border-bottom: 1px solid #ffffff;*/
+/*	background:#000000;*/
+/*	height: 100%;*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	font-size: 32px;*/
 
 	
-}
+/*}*/
 
 /* --- 価格ブロック ---  */
-.cp_pricetable1 .block .header2 {
-	padding: 0.5em;
+/*.cp_pricetable1 .block .header2 {*/
+/*	padding: 0.5em;*/
 	　/*上の枠線　ダークブルー*/
-	border-top: 1px solid #131874;
-	background: #a9bce2; 
-	height: 100%;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 26px;
-}
+/*	border-top: 1px solid #131874;*/
+/*	background: #a9bce2; */
+/*	height: 100%;*/
+/*	width: 100%;*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	font-size: 26px;*/
+/*}*/
 /* --- 詳細 ---  */
 
-.cp_pricetable1 .block .style1,
-.cp_pricetable1 .block .style2,
-.cp_pricetable1 .block .footer1,
-.cp_pricetable1 .block .footer2 {
-	width: 100%;
-	padding: 2em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 18px;
-	font-size-adjust: 0.6 ;}
-.cp_pricetable1 .block .footer1,
-.cp_pricetable1 .block .footer2 {
-	padding: 0.5em;
-}
+/*.cp_pricetable1 .block .style1,*/
+/*.cp_pricetable1 .block .style2,*/
+/*.cp_pricetable1 .block .footer1,*/
+/*.cp_pricetable1 .block .footer2 {*/
+/*	width: 100%;*/
+/*	padding: 2em;*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	font-size: 18px;*/
+/*	font-size-adjust: 0.6 ;}*/
+/*.cp_pricetable1 .block .footer1,*/
+/*.cp_pricetable1 .block .footer2 {*/
+/*	padding: 0.5em;*/
+/*}*/
 
-.cp_pricetable1 .block .style1,
-.cp_pricetable1 .block .style2 {
-	border-bottom: 1px dotted #ffffff;
-}
+/*.cp_pricetable1 .block .style1,*/
+/*.cp_pricetable1 .block .style2 {*/
+/*	border-bottom: 1px dotted #ffffff;*/
+/*}*/
 /*ボタンデザイン*/
-.cp_pricetable1 a.cp_btn {
-	position: relative;
-	z-index: 1;
-	display: block;
-	overflow: hidden;
-	width: 100px;
-	margin-right: auto;
-	margin-left: auto;
-	padding: 0.3em 1em;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: 1px solid #da3c41;
-	border-radius: 4px;
-	background: #da3c41;
-}
-.cp_pricetable1 .cp_btn::after {
-	position: absolute;
-	z-index: -1;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	height: 0;
-	content: '';
-	transition: 0.3s;
-	-webkit-transform: translate(-50%,-50%) rotate(45deg);
-	transform: translate(-50%,-50%) rotate(45deg);
-	opacity: 0;
-	background: #ffffff;
-}
-.cp_pricetable1 .cp_btn:hover {
-	color: #da3c41;
-}
-.cp_pricetable1 .cp_btn:hover::after {
-	height: 250%;
-	opacity: 1;
-}
-.cp_pricetable1 .cp_btn:active::after {
-	height: 350%;
-	opacity: 1;
-}
+/*.cp_pricetable1 a.cp_btn {*/
+/*	position: relative;*/
+/*	z-index: 1;*/
+/*	display: block;*/
+/*	overflow: hidden;*/
+/*	width: 100px;*/
+/*	margin-right: auto;*/
+/*	margin-left: auto;*/
+/*	padding: 0.3em 1em;*/
+/*	text-align: center;*/
+/*	text-decoration: none;*/
+/*	color: #ffffff;*/
+/*	border: 1px solid #da3c41;*/
+/*	border-radius: 4px;*/
+/*	background: #da3c41;*/
+/*}*/
+/*.cp_pricetable1 .cp_btn::after {*/
+/*	position: absolute;*/
+/*	z-index: -1;*/
+/*	top: 50%;*/
+/*	left: 50%;*/
+/*	width: 100%;*/
+/*	height: 0;*/
+/*	content: '';*/
+/*	transition: 0.3s;*/
+/*	-webkit-transform: translate(-50%,-50%) rotate(45deg);*/
+/*	transform: translate(-50%,-50%) rotate(45deg);*/
+/*	opacity: 0;*/
+/*	background: #ffffff;*/
+/*}*/
+/*.cp_pricetable1 .cp_btn:hover {*/
+/*	color: #da3c41;*/
+/*}*/
+/*.cp_pricetable1 .cp_btn:hover::after {*/
+/*	height: 250%;*/
+/*	opacity: 1;*/
+/*}*/
+/*.cp_pricetable1 .cp_btn:active::after {*/
+/*	height: 350%;*/
+/*	opacity: 1;*/
+/*}*/
 
 
 /*-------------------------------------------------------*/
-.cp_pricetable2 {
-	text-align: center;
-	color:#000000;
-}
-.cp_pricetable2 .block {
-	position: relative;
-	float: left;
-	width: 33%;
-	height: 100%;
-	transition: all 0.2s ease-in-out;
-	-webkit-transform: translate(0px, 0px);
-	transform: translate(0px, 0px);
-}
-.cp_pricetable2 .block ul, li {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
+/*.cp_pricetable2 {*/
+/*	text-align: center;*/
+/*	color:#000000;*/
+/*}*/
+/*.cp_pricetable2 .block {*/
+/*	position: relative;*/
+/*	float: left;*/
+/*	width: 33%;*/
+/*	height: 100%;*/
+/*	transition: all 0.2s ease-in-out;*/
+/*	-webkit-transform: translate(0px, 0px);*/
+/*	transform: translate(0px, 0px);*/
+/*}*/
+/*.cp_pricetable2 .block ul, li {*/
+/*	margin: 0;*/
+/*	padding: 0;*/
+/*	list-style-type: none;*/
+/*}*/
 /**** blockのhover ****/
-.cp_pricetable2 .block:hover {
-	position: relative;
-	z-index: 100;
-	transition-delay: 0s;
-	-webkit-transform: translate(-2px,-2px);
-	transform: translate(-2px,-2px);
-	box-shadow: 0px 0 5px rgba(0,0,0,0.5);
-}
+/*.cp_pricetable2 .block:hover {*/
+/*	position: relative;*/
+/*	z-index: 100;*/
+/*	transition-delay: 0s;*/
+/*	-webkit-transform: translate(-2px,-2px);*/
+/*	transform: translate(-2px,-2px);*/
+/*	box-shadow: 0px 0 5px rgba(0,0,0,0.5);*/
+/*}*/
 
 /* --- メニュー名ブロック ---  */
-.cp_pricetable2 .block .header1 {
-	width: 100%;
-	padding: 0.6em;
-	color: #ffffff;
-	border-bottom: 1px solid #ffffff;
-	background:#000000;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 32px;
-}
+/*.cp_pricetable2 .block .header1 {*/
+/*	width: 100%;*/
+/*	padding: 0.6em;*/
+/*	color: #ffffff;*/
+/*	border-bottom: 1px solid #ffffff;*/
+/*	background:#000000;*/
+/*	height: 100%;*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	font-size: 32px;*/
+/*}*/
 /* --- 価格ブロック ---  */
-.cp_pricetable2 .block .header2 {
+/*.cp_pricetable2 .block .header2 {*/
 
-	padding: 0.5em;
+/*	padding: 0.5em;*/
 	　/*上の枠線　ダークブルー*/
-	border-top: 1px solid #131874;
-	background: #a9bce2; 
-	height: 100%;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 26px;
-	color:#F6FF00;
+/*	border-top: 1px solid #131874;*/
+/*	background: #a9bce2; */
+/*	height: 100%;*/
+/*	width: 100%;*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	font-size: 26px;*/
+/*	color:#F6FF00;*/
 
-}
+/*}*/
 /* --- 詳細 ---  */
-.cp_pricetable2 .block .style1,
-.cp_pricetable2 .block .style2,
-.cp_pricetable2 .block .footer1,
-.cp_pricetable2 .block .footer2 {
-	width: 100%;
-	padding: 2em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 18px;
-	font-size-adjust: 0.6 ;
-}
-.cp_pricetable2 .block .footer1,
-.cp_pricetable2 .block .footer2 {
-	padding: 0.5em;
-}
-.cp_pricetable2 .block .style1,
-.cp_pricetable2 .block .footer1 {
-	background-color: #e8effc;
-}
-.cp_pricetable2 .block .style2,
-.cp_pricetable2 .block .footer2 {
-	background-color: #d7e3fc;
-}
-.cp_pricetable2 .block .style1,
-.cp_pricetable2 .block .style2 {
-	border-bottom: 1px dotted #ffffff;
-}
+/*.cp_pricetable2 .block .style1,*/
+/*.cp_pricetable2 .block .style2,*/
+/*.cp_pricetable2 .block .footer1,*/
+/*.cp_pricetable2 .block .footer2 {*/
+/*	width: 100%;*/
+/*	padding: 2em;*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	font-size: 18px;*/
+/*	font-size-adjust: 0.6 ;*/
+/*}*/
+/*.cp_pricetable2 .block .footer1,*/
+/*.cp_pricetable2 .block .footer2 {*/
+/*	padding: 0.5em;*/
+/*}*/
+/*.cp_pricetable2 .block .style1,*/
+/*.cp_pricetable2 .block .footer1 {*/
+/*	background-color: #e8effc;*/
+/*}*/
+/*.cp_pricetable2 .block .style2,*/
+/*.cp_pricetable2 .block .footer2 {*/
+/*	background-color: #d7e3fc;*/
+/*}*/
+/*.cp_pricetable2 .block .style1,*/
+/*.cp_pricetable2 .block .style2 {*/
+/*	border-bottom: 1px dotted #ffffff;*/
+/*}*/
 /*ボタンデザイン*/
-.cp_pricetable2 a.cp_btn {
-	position: relative;
-	z-index: 1;
-	display: block;
-	overflow: hidden;
-	width: 100px;
-	margin-right: auto;
-	margin-left: auto;
-	padding: 0.3em 1em;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: 1px solid #da3c41;
-	border-radius: 4px;
-	background: #da3c41;
-}
-.cp_pricetable2 .cp_btn::after {
-	position: absolute;
-	z-index: -1;
-	top: 50%;
-	left: 50%;
-	width: 100%;
-	height: 0;
-	content: '';
-	transition: 0.3s;
-	-webkit-transform: translate(-50%,-50%) rotate(45deg);
-	transform: translate(-50%,-50%) rotate(45deg);
-	opacity: 0;
-	background: #ffffff;
-}
-.cp_pricetable2 .cp_btn:hover {
-	color: #da3c41;
-}
-.cp_pricetable2 .cp_btn:hover::after {
-	height: 250%;
-	opacity: 1;
-}
-.cp_pricetable2 .cp_btn:active::after {
-	height: 350%;
-	opacity: 1;
-}
+/*.cp_pricetable2 a.cp_btn {*/
+/*	position: relative;*/
+/*	z-index: 1;*/
+/*	display: block;*/
+/*	overflow: hidden;*/
+/*	width: 100px;*/
+/*	margin-right: auto;*/
+/*	margin-left: auto;*/
+/*	padding: 0.3em 1em;*/
+/*	text-align: center;*/
+/*	text-decoration: none;*/
+/*	color: #ffffff;*/
+/*	border: 1px solid #da3c41;*/
+/*	border-radius: 4px;*/
+/*	background: #da3c41;*/
+/*}*/
+/*.cp_pricetable2 .cp_btn::after {*/
+/*	position: absolute;*/
+/*	z-index: -1;*/
+/*	top: 50%;*/
+/*	left: 50%;*/
+/*	width: 100%;*/
+/*	height: 0;*/
+/*	content: '';*/
+/*	transition: 0.3s;*/
+/*	-webkit-transform: translate(-50%,-50%) rotate(45deg);*/
+/*	transform: translate(-50%,-50%) rotate(45deg);*/
+/*	opacity: 0;*/
+/*	background: #ffffff;*/
+/*}*/
+/*.cp_pricetable2 .cp_btn:hover {*/
+/*	color: #da3c41;*/
+/*}*/
+/*.cp_pricetable2 .cp_btn:hover::after {*/
+/*	height: 250%;*/
+/*	opacity: 1;*/
+/*}*/
+/*.cp_pricetable2 .cp_btn:active::after {*/
+/*	height: 350%;*/
+/*	opacity: 1;*/
+/*}*/
 
 /*------------------------------------------------*/
 
-.cp_pricetable3 {
-	text-align: center;
-	color: #000000;
-}
-.cp_pricetable3 .block {
-	position: relative;
-	float: left;
-	width: 33%;
-	height: 100%;
-	transition: all 0.2s ease-in-out;
-	-webkit-transform: translate(0px, 0px);
-	transform: translate(0px, 0px);
-}
-.cp_pricetable3 .block ul, li {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
+/*.cp_pricetable3 {*/
+/*	text-align: center;*/
+/*	color: #000000;*/
+/*}*/
+/*.cp_pricetable3 .block {*/
+/*	position: relative;*/
+/*	float: left;*/
+/*	width: 33%;*/
+/*	height: 100%;*/
+/*	transition: all 0.2s ease-in-out;*/
+/*	-webkit-transform: translate(0px, 0px);*/
+/*	transform: translate(0px, 0px);*/
+/*}*/
+/*.cp_pricetable3 .block ul, li {*/
+/*	margin: 0;*/
+/*	padding: 0;*/
+/*	list-style-type: none;*/
+/*}*/
 /**** blockのhover ****/
-.cp_pricetable3 .block:hover {
-	position: relative;
-	z-index: 100;
-	transition-delay: 0s;
-	-webkit-transform: translate(-2px,-2px);
-	transform: translate(-2px,-2px);
-	box-shadow: 0px 0 5px rgba(0,0,0,0.5);
-}
+/*.cp_pricetable3 .block:hover {*/
+/*	position: relative;*/
+/*	z-index: 100;*/
+/*	transition-delay: 0s;*/
+/*	-webkit-transform: translate(-2px,-2px);*/
+/*	transform: translate(-2px,-2px);*/
+/*	box-shadow: 0px 0 5px rgba(0,0,0,0.5);*/
+/*}*/
 
 /* --- メニュー名ブロック ---  */
-.cp_pricetable3 .block .header1 {
-	width: 100%;
-	padding: 0.6em;
-	color: #ffffff;
-	border-bottom: 1px solid #ffffff;
-	background:#000000;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 32px;
+/*.cp_pricetable3 .block .header1 {*/
+/*	width: 100%;*/
+/*	padding: 0.6em;*/
+/*	color: #ffffff;*/
+/*	border-bottom: 1px solid #ffffff;*/
+/*	background:#000000;*/
+/*	height: 100%;*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	font-size: 32px;*/
 	
 
 
-}
+/*}*/
 /* --- 価格ブロック ---  */
-.cp_pricetable3 .block .header2 {
-	padding: 0.5em;
+/*.cp_pricetable3 .block .header2 {*/
+/*	padding: 0.5em;*/
 	　/*上の枠線　ダークブルー*/
-	border-top: 1px solid #131874;
-	background: #a9bce2; 
-	height: 100%;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 26px;
-		color:#F6FF00;
+/*	border-top: 1px solid #131874;*/
+/*	background: #a9bce2; */
+/*	height: 100%;*/
+/*	width: 100%;*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	font-size: 26px;*/
+/*		color:#F6FF00;*/
 
-}
+/*}*/
 /* --- 詳細 ---  */
-.cp_pricetable3 .block .style1,
-.cp_pricetable3 .block .style2,
-.cp_pricetable3 .block .footer1,
-.cp_pricetable3 .block .footer2 {
-	width: 100%;
-	padding: 2em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 18px;
-	font-size-adjust: 0.6 ;
-}
-.cp_pricetable3 .block .footer1,
-.cp_pricetable3.block .footer2 {
-	padding: 0.5em;
-}
-.cp_pricetable3 .block .style1,
-.cp_pricetable3 .block .footer1 {
-	background-color: #e8effc;
-}
-.cp_pricetable3 .block .style2,
-.cp_pricetable3 .block .footer2 {
-	background-color: #d7e3fc;
-}
-.cp_pricetable3 .block .style1,
-.cp_pricetable3 .block .style2 {
-	border-bottom: 1px dotted #ffffff;
-}
+/*.cp_pricetable3 .block .style1,*/
+/*.cp_pricetable3 .block .style2,*/
+/*.cp_pricetable3 .block .footer1,*/
+/*.cp_pricetable3 .block .footer2 {*/
+/*	width: 100%;*/
+/*	padding: 2em;*/
+/*	display: flex;*/
+/*	align-items: center;*/
+/*	justify-content: center;*/
+/*	font-size: 18px;*/
+/*	font-size-adjust: 0.6 ;*/
+/*}*/
+/*.cp_pricetable3 .block .footer1,*/
+/*.cp_pricetable3.block .footer2 {*/
+/*	padding: 0.5em;*/
+/*}*/
+/*.cp_pricetable3 .block .style1,*/
+/*.cp_pricetable3 .block .footer1 {*/
+/*	background-color: #e8effc;*/
+/*}*/
+/*.cp_pricetable3 .block .style2,*/
+/*.cp_pricetable3 .block .footer2 {*/
+/*	background-color: #d7e3fc;*/
+/*}*/
+/*.cp_pricetable3 .block .style1,*/
+/*.cp_pricetable3 .block .style2 {*/
+/*	border-bottom: 1px dotted #ffffff;*/
+/*}*/
 
 
 
 
 
 /*ボタンデザイン*/
-.cp_pricetable3 a.cp_btn {
+/*.cp_pricetable3 a.cp_btn {*/
+/*	position: relative;*/
+/*	z-index: 1;*/
+/*	display: block;*/
+/*	overflow: hidden;*/
+/*	width: 100px;*/
+/*	margin-right: auto;*/
+/*	margin-left: auto;*/
+/*	padding: 0.3em 1em;*/
+/*	text-align: center;*/
+/*	text-decoration: none;*/
+/*	color: #ffffff;*/
+/*	border: 1px solid #da3c41;*/
+/*	border-radius: 4px;*/
+/*	background: #da3c41;*/
+/*}*/
+/*.cp_pricetable3 .cp_btn::after {*/
+/*	position: absolute;*/
+/*	z-index: -1;*/
+/*	top: 50%;*/
+/*	left: 50%;*/
+/*	width: 100%;*/
+/*	height: 0;*/
+/*	content: '';*/
+/*	transition: 0.3s;*/
+/*	-webkit-transform: translate(-50%,-50%) rotate(45deg);*/
+/*	transform: translate(-50%,-50%) rotate(45deg);*/
+/*	opacity: 0;*/
+/*	background: #ffffff;*/
+/*}*/
+/*.cp_pricetable3 .cp_btn:hover {*/
+/*	color: #da3c41;*/
+/*}*/
+/*.cp_pricetable3 .cp_btn:hover::after {*/
+/*	height: 250%;*/
+/*	opacity: 1;*/
+/*}*/
+/*.cp_pricetable3 .cp_btn:active::after {*/
+/*	height: 350%;*/
+/*	opacity: 1;*/
+/*}*/
+
+/*backgrounds*/
+/*.cp_pricetable1 .block .header2,*/
+/*.cp_pricetable1 .block .style1,*/
+/*.cp_pricetable1 .block .footer1, */
+/*.cp_pricetable1 .block .style2,*/
+/*.cp_pricetable1 .block .footer2 {*/
+/*    text-decoration: none;*/
+/*    color: #FFF;*/
+/*    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);*/
+/*    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);*/
+/*    transition: .4s;*/
+/*}*/
+
+/*.cp_pricetable2 .block .header2,*/
+/*.cp_pricetable2 .block .style1,*/
+/*.cp_pricetable2 .block .footer1, */
+/*.cp_pricetable2 .block .style2,*/
+/*.cp_pricetable2 .block .footer2 {*/
+/*    text-decoration: none;*/
+/*    color: #FFF;*/
+/*    background-image: -webkit-linear-gradient(45deg, #6aff07 0%, #48c45f  100%);*/
+/*    background-image: linear-gradient(45deg, #6aff07 0%, #48c45f 100%);*/
+/*    transition: .4s;*/
+/*}*/
+
+/*.cp_pricetable3 .block .header2,*/
+/*.cp_pricetable3 .block .style1,*/
+/*.cp_pricetable3 .block .footer1, */
+/*.cp_pricetable3 .block .style2,*/
+/*.cp_pricetable3 .block .footer2 {*/
+/*    text-decoration: none;*/
+/*    color: #FFF;*/
+/*    background-image: -webkit-linear-gradient(45deg, #d741f2 0%, #d741f2 100%);*/
+/*    background-image: linear-gradient(45deg, #d741f2 0%, #d741f2 100%);*/
+/*    transition: .4s;*/
+/*}*/
+
+
+/*.chaep{*/
+/*	background-image: url("/priceimg/balancing-1868051_1280.jpg/");*/
+/*	 background-size: cover;*/
+/*    width: 200px;*/
+/*    height: 500px;*/
+/*    margin: 0 auto;*/
+    /*z-index:1;*/
+/*}?*/
+
+
+
+.card-header.card-header-image {
+    position: relative;
+    padding: 0;
+    z-index: 1;
+    /*width:360px;*/
+    /*height: 440px;*/
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: -30px;
+    border-radius: 6px;
+}
+.card .card-header.card-header-image img {
+    width: 100%;
+    border-radius: 6px;
+    pointer-events:none;
+    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+.card-header.card-header-image a {
+    display: block;
+}
+
+.course-title{
+	text-align:center;
+}
+
+
+
+.button {
 	position: relative;
 	z-index: 1;
 	display: block;
 	overflow: hidden;
-	width: 100px;
+	width: 130px;
+	height:60px;
 	margin-right: auto;
 	margin-left: auto;
 	padding: 0.3em 1em;
@@ -370,7 +489,7 @@
 	border-radius: 4px;
 	background: #da3c41;
 }
-.cp_pricetable3 .cp_btn::after {
+.button::after {
 	position: absolute;
 	z-index: -1;
 	top: 50%;
@@ -384,51 +503,33 @@
 	opacity: 0;
 	background: #ffffff;
 }
-.cp_pricetable3 .cp_btn:hover {
+.button:hover {
 	color: #da3c41;
 }
-.cp_pricetable3 .cp_btn:hover::after {
+.button:hover::after {
 	height: 250%;
 	opacity: 1;
 }
-.cp_pricetable3 .cp_btn:active::after {
+.button:active::after {
 	height: 350%;
 	opacity: 1;
 }
 
-/*backgrounds*/
-.cp_pricetable1 .block .header2,
-.cp_pricetable1 .block .style1,
-.cp_pricetable1 .block .footer1, 
-.cp_pricetable1 .block .style2,
-.cp_pricetable1 .block .footer2 {
-    text-decoration: none;
-    color: #FFF;
-    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
-    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
-    transition: .4s;
+.material-icons{
+	margin-top:10px;
 }
 
-.cp_pricetable2 .block .header2,
-.cp_pricetable2 .block .style1,
-.cp_pricetable2 .block .footer1, 
-.cp_pricetable2 .block .style2,
-.cp_pricetable2 .block .footer2 {
-    text-decoration: none;
-    color: #FFF;
-    background-image: -webkit-linear-gradient(45deg, #6aff07 0%, #48c45f  100%);
-    background-image: linear-gradient(45deg, #6aff07 0%, #48c45f 100%);
-    transition: .4s;
+.course-description{
+	text-align:center;
 }
 
-.cp_pricetable3 .block .header2,
-.cp_pricetable3 .block .style1,
-.cp_pricetable3 .block .footer1, 
-.cp_pricetable3 .block .style2,
-.cp_pricetable3 .block .footer2 {
-    text-decoration: none;
-    color: #FFF;
-    background-image: -webkit-linear-gradient(45deg, #d741f2 0%, #d741f2 100%);
-    background-image: linear-gradient(45deg, #d741f2 0%, #d741f2 100%);
-    transition: .4s;
-}
+/*.buy {*/
+/* opacity: 0; /* 表記を透明に */
+/* color: #222;*/
+/*}*/
+/*.button:hover.buy { /* aにホバーした表記を表示 */
+/* opacity: 1;*/
+/*}*/
+/*.button:hover.material-icons { /* aにホバーした表記を表示 */
+/* opacity: 0;*/
+/*}*/
