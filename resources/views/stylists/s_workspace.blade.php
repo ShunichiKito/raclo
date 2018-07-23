@@ -9,24 +9,28 @@
 // print_r($all_images);
 // return;
 ?>
-
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('workspace_edit.css') }}">
 @section('content')
     <div class="row">
         <aside class="col-xs-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ $user->name }}</h3>
+                    <h3 class="panel-title name_fontsize">{{ $user->name }}</h3>
                 </div>
                 <div class="panel-body">
                 <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->id, 500) }}" alt="">
                 </div>
             </div>
-            <a herf='#' class='btn btn-danger'>Send the Request</a>
+            <div class="alert alert-info count_coordinate" role="alert">3 Coordinates Left</div>
+　　　　　　<br>
+　　　　　　<br>
+　　　　　　<div class="alert alert-warning count_coordinate" role="alert">5 Suggestions Left</div>
+　　　　　　
         </aside>
         <div class="col-xs-6">
-            <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">With My Items</button>
-                <button class="tablinks" onclick="openTab(event, 'withnewitems')">With New Items</button>
+            <div class="tab tab_size_container">
+                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
+                <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
                 <button class="tablinks" onclick="openTab(event, 'BrandAvenue')">Brand Avenue</button>
             </div>
             
@@ -38,6 +42,7 @@
                     @endif
                 </div>
             </div>
+            
             
             <div id="withnewitems" class="tabcontent">
                 <div class="closet-items">
@@ -54,14 +59,14 @@
                     @if (Auth::check())
                         <div class="search">
                             <div class="row">
-                                <div class="text-center">
+                                <div class="text-center search_box">
                                     {{--{!! Form::open(['route' => ['branditems.search',$keyword], 'method' => 'get', 'class' => 'form-inline']) !!}--}}
                                     <!--    <div class="form-group">-->
                                     {{--        {!! Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'Input the keywords', 'size' => 40]) !!}--}}
                                     <!--    </div>-->
                                     {{--    {!! Form::submit('商品を検索', ['class' => 'btn btn-success btn-lg']) !!} --}}
                                     {{--{!! Form::close() !!}--}}
-                                    
+                                    <br>
                                     <input type="text" id="search_area">
                                     <button type="button" id="search_button">検索</button>
                                     <ul class="brand_items"></ul>
@@ -71,12 +76,14 @@
                                             margin: 10px;
                                         }
                                     </style>
+                                    
+                                    <!--楽天API-->
                                     <script>
                                         $(function(){
                                           // buttonがclickされたとき、変数に検索する値を代入
                                           $('#search_button').on('click', function(){
                                             var keyword = $('#search_area').val();
-                                        
+                                             $(".brand_items").empty();
                                             // リクエストURLを設定する
                                             $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
                                               applicationId: "1028803390707827350",
@@ -87,7 +94,7 @@
                                               if (data.count > 0){
                                                 // console.log(data);
                                                 $.each(data.Items, function(i, item){
-                                                  var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}"></a></li>`);
+                                                  var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
                                                   $(".brand_items").append(temp);
                                                 }) // each
                                               } // if
@@ -126,6 +133,7 @@
            
         </div>
         <div class="col-xs-3">
+            
                     <style>
               /*body {*/
               /*  margin: 20px;*/
