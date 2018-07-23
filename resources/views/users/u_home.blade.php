@@ -30,7 +30,7 @@
                 <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt=""> </a>
                 <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt=""></a>
                 <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
-            
+                <!--<p class="left-fukidashi">ハンガー</p>-->
                     <div class="tab">
                         <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
                         <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
