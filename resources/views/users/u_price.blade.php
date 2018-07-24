@@ -132,16 +132,16 @@
 
 
 
-
-
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_price.css') }}">
+       <div class="background"> </div>
 
 
 <div class="related-products">
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_price.css') }}">
-            <h1 class="title text-center">Choose your plan</h1>
-            <div class="row">
+    <!--<div class="title-call">-->
+            <h1 class="title text-center" style="font-size:60px">Choose your plan</h1>
+            <!--</div>-->
             		<h1 style="text-align:center;">自分の洋服だけでコーディネートしてもらうプラン</h1>
-
+                
                 <div class="col-lg-4 col-md-8">
                     <div class="card card-product">
                         <div class="card-header card-header-image">
@@ -205,19 +205,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-<h1 style="text-align:center;">新しいアイテムを追加してコーディネートしてもらうプラン</h1>
-
-
+                
+                <div class= "col-lg-12 col-ml-6">
+            <h1 style="text-align:center" >新しいアイテムを追加してコーディネートしてもらうプラン</h1>
+    </div>
                 <div class="col-lg-4 col-md-8">
                     <div class="card card-product">
                         <div class="card-header card-header-image">
@@ -233,7 +224,7 @@
                             </div>
                                 <div class="price">
                                     <button type="button"  title="" class="button">
-                                        <h2 class="material-icons">$1.00</h2>
+                                        <h2 class="material-icons">$3.00</h2>
                                     </button>
                                 </div>
                         </div>
@@ -254,7 +245,7 @@
                             </div>
                                 <div class="price">
                                     <button type="button"  title="" class="button">
-                                        <h2 class="material-icons">$4.00</h2>
+                                        <h2 class="material-icons">$12.00</h2>
                                     </button>
                                 </div>
                         </div>
@@ -275,14 +266,36 @@
                             </div>
                                 <div class="price">
                                     <button type="button"  title="" class="button">
-                                        <h2 class="material-icons">$7.00</h2>
-                                        <h2 class="buy">BUY</h2>
+                                        <h2 class="material-icons">$21.00</h2>
+                        
                                     </button>
                                 </div>
                         </div>
                     </div>
                 </div>
-        
-
+            </div>
+        </div>
+    </div>
+       
 
 @endsection
+
+
+
+
+<a class="btn" data-text-default="Click" data-text-clicked="Done" href="#">Click</a>
+
+$(function(){
+    $('.btn').on('click', function(event){
+        event.preventDefault();
+        $(this).toggleClass('active');
+ 
+        if($(this).hasClass('active')){
+            var text = $(this).data('text-clicked');
+        } else {
+            var text = $(this).data('text-default');
+        }
+ 
+        $(this).html(text);
+    });
+});
