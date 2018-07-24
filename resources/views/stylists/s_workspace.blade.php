@@ -1,7 +1,6 @@
 @extends('layouts.stylist_app')
 
 
-
 <?php
 // $all_images=[
 //             'user' => $user,
@@ -29,7 +28,7 @@
 　　　　　　<div class="alert alert-warning count_coordinate" role="alert">5 Suggestions Left</div>
 　　　　　　
         </aside>
-        <div class="col-xs-5">
+        <div class="col-xs-6">
             <div class="tab tab_size_container">
                 <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
                 <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
@@ -62,10 +61,18 @@
                         <div class="search">
                             <div class="row">
                                 <div class="text-center search_box">
+                                    {{--{!! Form::open(['route' => ['branditems.search',$keyword], 'method' => 'get', 'class' => 'form-inline']) !!}--}}
+                                    <!--    <div class="form-group">-->
+                                    {{--        {!! Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'Input the keywords', 'size' => 40]) !!}--}}
+                                    <!--    </div>-->
+                                    {{--    {!! Form::submit('商品を検索', ['class' => 'btn btn-success btn-lg']) !!} --}}
+                                    {{--{!! Form::close() !!}--}}
                                     <br>
                                     <input type="text" id="search_area">
                                     <button type="button" id="search_button">検索</button>
+
                                     <ul  class="brand api_items ui-helper-reset ui-helper-clearfix"></ul>
+
                                     <style>
                                         li.brand_item {
                                             display: inline-block;
@@ -79,7 +86,7 @@
                                           // buttonがclickされたとき、変数に検索する値を代入
                                           $('#search_button').on('click', function(){
                                             var keyword = $('#search_area').val();
-                                             $(".api_items").empty();
+                                             $(".brand_items").empty();
                                             // リクエストURLを設定する
                                             $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
                                               applicationId: "1028803390707827350",
@@ -91,6 +98,7 @@
                                                 // console.log(data);
                                                 $.each(data.Items, function(i, item){
                                                   var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
+
                                                   $(".api_items").append(temp);
                                                 jQuery("li", jQuery(".brand")).draggable({
                                                     revert: "invalid",
@@ -133,13 +141,14 @@
                     
            
         </div>
+
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
         <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
        
 
         
-        <div class="col-xs-4">
+        <div class="col-xs-3">
             <div id="coordinate_set" class=" ui-state-default">
               <p class="ui-widget-header"><span class="ui-icon" style="float:left;"></span>Coordinate set</p>
             </div>
@@ -220,51 +229,50 @@
                    function countUp(){
                         countUpValue++;
                     }
-                  countUp();
+                   countUp();
                    var items = $("li", $("#coordinate_set"));
                 //   var item_pathes = $("li > a", $("#coordinate_set"));
                    
                    
                    for (var i = 0, len = items.length; i < len; i++) {
-                     var item = items[i];
-                    //  var item_path = item_pathes[i];
-                     var element = {
-                       img: $("img", item).attr("src")
-                     }
+                        var item = items[i];
+                        //  var item_path = item_pathes[i];
+                        var element = {
+                           img: $("img", item).attr("src")
+                         }
                     //  var element2 = {
                     //   img: $("img", item_path).attr("src")
                     //  }
-                     localStorage.setItem(i, JSON.stringify(element));
+                        localStorage.setItem(i, JSON.stringify(element));
                     //  localStorage.setItem(i, JSON.stringify(element2));
-                   }
+                     }
                    // 保存されたことを確認する
                    $("ul#storedItems").append('<p>set'+countUpValue+'</p>');
                    
-                   for (var i = 0, len = localStorage.length; i < len; i++) {
-                     var element = JSON.parse(localStorage.getItem(i));
-                    //  var element2 = JSON.parse(localStorage.getItem(i));
-                    $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
-                //     $("form").prepend('<text name="'+countUpValue+'">'+element.img+'</text>');
-                //   　$("form").prepend('<text name="'+countUpValue+'path">'+element.img+'</text>');
-                     $("input[type='submit']").before('<input type="hidden" name="path['+countUpValue+']['+i+']'+ '" value="'+element.img+'">');
-                //   　$("form").prepend('<input type="hidden" name="'+countUpValue+'path">'+element2.img);
-                    // $("input[type='submit']").before('{!! Form::hidden("path'+countUpValue+'['+i+']",'+element.img+') !!}');
-              
-                   }
+                       for (var i = 0, len = localStorage.length; i < len; i++) {
+                         var element = JSON.parse(localStorage.getItem(i));
+                        //  var element2 = JSON.parse(localStorage.getItem(i));
+                        $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
+                    //     $("form").prepend('<text name="'+countUpValue+'">'+element.img+'</text>');
+                    //   　$("form").prepend('<text name="'+countUpValue+'path">'+element.img+'</text>');
+                         $("input[type='submit']").before('<input type="hidden" name="path['+countUpValue+']['+i+']'+ '" value="'+element.img+'">');
+                    //   　$("form").prepend('<input type="hidden" name="'+countUpValue+'path">'+element2.img);
+                        // $("input[type='submit']").before('{!! Form::hidden("path'+countUpValue+'['+i+']",'+element.img+') !!}');
+                  
+                       }
                    $("ul#storedItems").append('<br>');
                
                 });
-               $("button#clear").click(function() {
-                 localStorage.clear();
-                $("ul#storedItems li").remove();
-                // $("input[type='hidden']").remove();
-               });
-            
-              });
+                $("button#clear").click(function() {
+                     localStorage.clear();
+                    $("ul#storedItems li").remove();
+                    // $("input[type='hidden']").remove();
+                });
+            });   
             </script>
-        </div>
-    </div>
-    </div>
+        </div> 
+    </div>    
+ 
     <p>Stored Items</p>
     <div>
         <ul id="storedItems"></ul>
@@ -298,4 +306,5 @@
         </style>
     </div>
              
+
 @endsection

@@ -137,6 +137,16 @@ Route::group(['middleware' => ['auth']], function () {
     //ワークスペース
     // Route::get('/workspace', 'ItemsController@s_workspace')->name('workspace');
     Route::get('/s_workspace/{order}', 'ItemsController@s_workspace')->name('s_workspace');
+    
+    //coordinate 完成
+    Route::get('/u_complete_coord', function () {
+        return view('users/u_complete_coord');
+    })->name('/u_complete_coord');
+    
+    
+    Route::get('/u_coord_show', function () {
+        return view('users/u_coord_show');
+    })->name('/u_coord_show');
 
     
 });
@@ -177,5 +187,8 @@ $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+
 
 
