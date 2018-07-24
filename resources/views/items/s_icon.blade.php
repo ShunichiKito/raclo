@@ -17,7 +17,7 @@ use App\Stylist_profile_image;
             
             <div class='row text-center pad-top col-md-4 col-sm-4 col xs-8'>
                 <!--<div class='col-md-4 col-sm-4 col xs-8'>-->
-                    <div class='panel panel-danger'>
+                    <div class='panel'>
                         <div class='panel-heading'>
                             @if($item)
                             <img src="{{ '/storage/s_profile_image/'.$item->file_path }}" alt="" class="profile_image">
@@ -30,28 +30,95 @@ use App\Stylist_profile_image;
                                 <style>
                                    .index_rank {
                                         font-size: 25px;
-                                        color: orange;
+                                        color: #742253;
                                     }
                                 </style>
                             </h2>
                         </div>
                         
-                        <div class='panel panel-body'>
+                        <div class='panel-body'>
                             <div class="table-responsive">
                                 
-                               <div class="panel-body"><?php print $stylist->style ?></div>
+                               <div class="panel-body2"><?php print $stylist->style ?></div>
+                               <a href="{{ route('u_ordercomp', $stylist->name) }}" class='btn byn-danger'>
+                                <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to request this stylist?");'><strong>Send the Request</strong></button>
+                            </a>
                             </div>
                         </div>
                         
-                        <div class='panel panel-footer'>
-                            <a href="{{ route('u_ordercomp', $stylist->name) }}" class='btn byn-danger'>
-                                <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to request this stylist?");'>Send the Request</button>
-                            </a>
+                        <!--<div class='panel-footer'>-->
+                        <!--    <a href="{{ route('u_ordercomp', $stylist->name) }}" class='btn byn-danger'>-->
+                        <!--        <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to request this stylist?");'>Send the Request</button>-->
+                        <!--    </a>-->
                             
-                        </div>
+                        <!--</div>-->
                     </div>
                 <!--</div>-->
              </div>
         @endforeach
 @endif    
 </div>
+
+
+
+<style>
+
+body {
+    background-image:url('/white-wood.jpg');
+}
+
+h1 {
+    font-size:70px;
+}
+
+.panel-body strong {
+    font-size:20px;
+}
+
+.navbar {
+    font-family: "Abril-Fatface";
+    margin-bottom: 0;
+}
+.container {
+    font-family: "Abril-Fatface";
+    /*background-image: url('/white-wood.jpg');*/
+    /*background-size: auto auto;*/
+    /*background-size: 50% 25% 25%;*/
+    /*background-size: 550px, auto, contain;*/
+    /*width: 100%;*/
+}
+
+
+.panel {
+    /*border:15px;*/
+    border-color: #C0C0C0;
+    
+}
+
+.panel-heading{
+    background-color:#DEB887  ;
+    color: black;
+    border-color:#C0C0C0;
+}
+
+.panel-body2{
+    font-size: 20px;
+}
+
+.btn{
+    background-color: #DEB887  ;
+    position:absolute; 
+    margin-left:-100px;
+    left:50%;
+    width:200px;
+    bottom: 5px;
+    border: none;
+}
+ .btn:hover {
+     background-color:#CD853F ;
+     
+ }
+
+
+</style>
+

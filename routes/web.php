@@ -97,9 +97,22 @@ Route::group(['middleware' => ['auth']], function () {
         return view('stylists/s_styling');
     })->name('s_styling');
     
+
+     Route::get('/sho', function () {
+        return view('stylists/sho');
+    })->name('sho');
+    
+     Route::get('/sho2', function () {
+        return view('stylists/sho2');
+    })->name('sho2');
+    
+    
+    
+
     Route::get('/s_saving', function () {
         return view('stylists/s_saving');
     })->name('s_saving');
+
     
     
     Route::get('/s_online_icon', function () {

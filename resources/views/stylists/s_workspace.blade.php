@@ -1,5 +1,9 @@
 @extends('layouts.stylist_app')
 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+
 <?php
 // $all_images=[
 //             'user' => $user,
@@ -27,7 +31,7 @@
 　　　　　　<div class="alert alert-warning count_coordinate" role="alert">5 Suggestions Left</div>
 　　　　　　
         </aside>
-        <div class="col-xs-6">
+        <div class="col-xs-5">
             <div class="tab tab_size_container">
                 <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
                 <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
@@ -60,16 +64,10 @@
                         <div class="search">
                             <div class="row">
                                 <div class="text-center search_box">
-                                    {{--{!! Form::open(['route' => ['branditems.search',$keyword], 'method' => 'get', 'class' => 'form-inline']) !!}--}}
-                                    <!--    <div class="form-group">-->
-                                    {{--        {!! Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'Input the keywords', 'size' => 40]) !!}--}}
-                                    <!--    </div>-->
-                                    {{--    {!! Form::submit('商品を検索', ['class' => 'btn btn-success btn-lg']) !!} --}}
-                                    {{--{!! Form::close() !!}--}}
                                     <br>
                                     <input type="text" id="search_area">
                                     <button type="button" id="search_button">検索</button>
-                                    <ul class="brand_items"></ul>
+                                    <ul  class="api_items ui-helper-reset ui-helper-clearfix"></ul>
                                     <style>
                                         li.brand_item {
                                             display: inline-block;
@@ -83,7 +81,7 @@
                                           // buttonがclickされたとき、変数に検索する値を代入
                                           $('#search_button').on('click', function(){
                                             var keyword = $('#search_area').val();
-                                             $(".brand_items").empty();
+                                             $(".api_items").empty();
                                             // リクエストURLを設定する
                                             $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
                                               applicationId: "1028803390707827350",
@@ -95,7 +93,7 @@
                                                 // console.log(data);
                                                 $.each(data.Items, function(i, item){
                                                   var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
-                                                  $(".brand_items").append(temp);
+                                                  $(".api_items").append(temp);
                                                 }) // each
                                               } // if
                                             }); // function(data)
@@ -132,339 +130,84 @@
                     
            
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-4">
+            <div id="coordinate_set" class=" ui-state-default">
+              <p class="ui-widget-header"><span class="ui-icon" style="float:left;"></span>Coordinate set</p>
+            </div>
+            <button type="button" id="save">Save</button>
+            <button type="button" id="clear">Clear</button>
+            <style scoped>
+              #brand_items { width:200px; height:400px; float:left; }
+              #brand_items .custom-state-active { background:#efefef; }
+              #brand_items li, #coordinate_set li { padding:4px; text-align:center; float:left; list-style:none; display:inline-block; }
+              #brand_items li p { margin:0 0 4px; cursor:move; }
+              #brand_items li span { float:right; }
+              #coordinate_set { width: 100%; height:600px; float:right; }
+              #coordinate_set p { line-height:1.5; margin:0 0 4px; }
+              #coordinate_set p span { float:left; }
+            </style>       
+             <script type="text/javascript">
+
+              var _$ = jQuery;
+              _$(function()
+              {
+                var $brand_items = _$("#brand_items");
+                var $coordinate_set = _$("#coordinate_set");
+                _$("li", $brand_items).draggable({
+                  revert: "invalid",
+                  helper: "clone",
+                  cursor: "move"
+                });
+                $coordinate_set.droppable({
+                  accept: "#brand_items > li",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ setImage(ui.draggable); }
+                });
+                $brand_items.droppable({
+                  accept: "#coordinate_set li",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ recycleImage( ui.draggable ); }
+                });
+                function setImage($item){
+                  $item.fadeIn(function(){
+                    $item.find("img").width("110px");
+                    $item.appendTo($coordinate_set);
+                   
+                  });
+                }
+                function recycleImage($item){
+                  $item.fadeIn(function(){
+                    $item.find("img").width("30px");
+                    $item.appendTo($brand_items);
+                  });
+                }
+                $("button#save").click(function() {
+                   var items = $("li", $("#coordinate_set"));
+                   for (var i = 0, len = items.length; i < len; i++) {
+                     var item = items[i];
+                     var element = {
+                       img: $("img", item).attr("src")
+                     }
+                     localStorage.setItem(i, JSON.stringify(element));
+                   }
+                   // 保存されたことを確認する
+                   for (var i = 0, len = localStorage.length; i < len; i++) {
+                     var element = JSON.parse(localStorage.getItem(i));
+                     $("ul#storedItems").append('<li><img src= '+element.img+'></li>');
+                   }
+                });
+               $("button#clear").click(function() {
+                 localStorage.clear();
+                 $("ul#storedItems li").remove();
+               });
             
-                    <style>
-              /*body {*/
-              /*  margin: 20px;*/
-              /*}*/
-              /*.item {*/
-              /*  padding: 10px;*/
-              /*  width: 80px;*/
-              /*  height: 20px;*/
-              /*  display:inline-block;*/
-              /*  border: 1px solid #2e6da4;*/
-              /*  background-color: #7da8c3;*/
-              /*  color: #FFFFFF;*/
-              /*}*/
-              /*.item:hover {*/
-              /*  cursor: pointer;*/
-              /*}*/
-              /*.item p {*/
-              /*  display: inline-block;*/
-              /*}*/
-              /*--------------------------------------------*/
-              
-              /*.container2 {*/
-              /*  margin-top: 50px;*/
-              /*  width: 400px;*/
-              /*  height:600px;*/
-              /*}*/
-              
-              /*.main {*/
-              /*  width:200px;*/
-              /*  height:600px;*/
-              /*  float: left;*/
-              /*}*/
-              /*.main .drop_area {*/
-              /*  width:200px;*/
-              /*  height:300px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              /*.main .drop_area2 {*/
-              /*  width:200px;*/
-              /*  height:300px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              /*.side {*/
-              /*  width:200px;*/
-              /*  height:600px;*/
-              /*  float:left;*/
-              /*}*/
-              
-            
-              /*.side .drop_area3 {*/
-              /*  width:200px;*/
-              /*  height:200px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              /*.side .drop_area4 {*/
-              /*  width:200px;*/
-              /*  height:200px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              /*.side .drop_area5 {*/
-              /*  width:200px;*/
-              /*  height:200px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              
-              /*.drop_area p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.drop_area2 p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.drop_area3 p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.drop_area4 p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.drop_area5 p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.ui-selected {*/
-              /* background-color: #1cc7ff;*/
-              /*}*/
-              /*.ui-selectable-helper{*/
-              /*  position: absolute;*/
-              /*  z-index: 100;*/
-              /*  border:1px dotted black;*/
-              /*}*/
-            
-              
-            </style>
-            
-            <!--ここから下はアイテム-->
-            <!--<div id="container">-->
-            <!--  <div class="item_area">-->
-            <!--    <div class="item">-->
-            <!--      <p>1</p>-->
-            <!--    </div>-->
-            <!--    <div class="item">-->
-            <!--      <p>2</p>-->
-            <!--    </div>-->
-            <!--    <div class="item">-->
-            <!--      <p>3</p>-->
-            <!--    </div>-->
-            <!--    <div class="item">-->
-            <!--      <p>4</p>-->
-            <!--    </div>-->
-            <!--    <div class="item">-->
-            <!--      <p>5</p>-->
-            <!--    </div>-->
-            <!--  </div>-->
-            <!--</div> -->
-            
-            <!--ここから下は服を配置するボックス-->
-            <!--<div class='container2'>-->
-            <!--   <div class="main">-->
-            <!--        <div class="drop_area">-->
-            <!--          <p>Tops</p>-->
-            <!--        </div>-->
-            <!--        <div class="drop_area2">-->
-            <!--          <p>Bottoms</p>-->
-            <!--        </div>-->
-            <!--   </div>-->
-              
-            <!--   <div class="side">-->
-            <!--        <div class="drop_area3">-->
-            <!--          <p>Accessories</p>-->
-            <!--        </div>-->
-            <!--        <div class="drop_area4">-->
-            <!--          <p>Bags</p>-->
-            <!--        </div>-->
-            <!--        <div class="drop_area5">-->
-            <!--          <p>shoes</p>-->
-            <!--        </div>-->
-            <!--  </div>-->
-            <!--</div>-->
-            
-            <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
-            <!--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>-->
-            <script>
-            //   $(function() {
-            //     $('.item_area').selectable({
-            //       cancel: "p",
-            //       selected: function(e, ui) {
-            //         $(ui.selected).draggable().draggable('enable');
-            //       }
-            //     });
-                
-            //     $('.item').draggable({
-            //       revert: "invalid",
-            //       containment: "",
-            //       snap: true,
-            //       drag: function(e,ui){
-            //         $('.ui-selected').each(function(){
-            //           $(this).css({
-            //             top: ui.position.top,
-            //             left: ui.position.left
-            //           });
-            //         });
-            //       },
-            //       stop: function(e,ui) {
-            //         $('.ui-selected').each(function(){
-            //           $(this).selectable().selectable('destroy');
-            //           $(this).draggable().draggable('disable');
-            //         });
-            //       }
-            //     }).draggable('disable');
-            
-            //     $('.drop_area').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Tops Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Tops Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Tops Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Tops" );
-            //       }
-            //     });
-                
-            //      $('.drop_area2').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Bottoms Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Bottoms Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Bottoms Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Bottoms" );
-            //       }
-            //     });
-                
-            //     $('.drop_area3').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Accessories Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Accessories Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Accessories Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Accessories" );
-            //       }
-            //     });
-                
-            //     $('.drop_area4').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Bags Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Bags Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Bags Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Bags" );
-            //       }
-            //     });
-                
-            //     $('.drop_area5').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Shoes Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Shoes Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Shoes Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Shoes" );
-            //       }
-            //     });
-            
-                
-            //   });
+              });
             </script>
         </div>
     </div>
+    </div>
+    <p>Stored Items</p>
+              <ul id="storedItems">
+              </ul>
+    </div>          
 @endsection
