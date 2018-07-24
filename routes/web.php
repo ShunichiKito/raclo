@@ -38,10 +38,10 @@ Route::group(['middleware' => ['auth']], function () {
     //ログイン後ホーム
     Route::get('/users/u_home', function () {
         return view('users/u_home');
-    });
+    })->name('u_home');
     Route::get('/stylists/s_home', function () {
         return view('stylists/s_home');
-    });
+    })->name('s_home');
     
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
@@ -171,4 +171,6 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
-
+Route::get("/ordercomp", function(){
+   return View::make("users.ordercomp");
+});
