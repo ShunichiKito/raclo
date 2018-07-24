@@ -281,21 +281,3 @@
 @endsection
 
 
-
-
-<a class="btn" data-text-default="Click" data-text-clicked="Done" href="#">Click</a>
-
-$(function(){
-    $('.btn').on('click', function(event){
-        event.preventDefault();
-        $(this).toggleClass('active');
- 
-        if($(this).hasClass('active')){
-            var text = $(this).data('text-clicked');
-        } else {
-            var text = $(this).data('text-default');
-        }
- 
-        $(this).html(text);
-    });
-});
