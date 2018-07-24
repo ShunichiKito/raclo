@@ -1,5 +1,9 @@
 @extends('layouts.stylist_app')
 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+
 <?php
 // $all_images=[
 //             'user' => $user,
@@ -27,7 +31,7 @@
 　　　　　　<div class="alert alert-warning count_coordinate" role="alert">5 Suggestions Left</div>
 　　　　　　
         </aside>
-        <div class="col-xs-6">
+        <div class="col-xs-5">
             <div class="tab tab_size_container">
                 <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
                 <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
@@ -60,16 +64,10 @@
                         <div class="search">
                             <div class="row">
                                 <div class="text-center search_box">
-                                    {{--{!! Form::open(['route' => ['branditems.search',$keyword], 'method' => 'get', 'class' => 'form-inline']) !!}--}}
-                                    <!--    <div class="form-group">-->
-                                    {{--        {!! Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'Input the keywords', 'size' => 40]) !!}--}}
-                                    <!--    </div>-->
-                                    {{--    {!! Form::submit('商品を検索', ['class' => 'btn btn-success btn-lg']) !!} --}}
-                                    {{--{!! Form::close() !!}--}}
                                     <br>
                                     <input type="text" id="search_area">
                                     <button type="button" id="search_button">検索</button>
-                                    <ul class="brand_items"></ul>
+                                    <ul  class="api_items ui-helper-reset ui-helper-clearfix"></ul>
                                     <style>
                                         li.brand_item {
                                             display: inline-block;
@@ -83,7 +81,7 @@
                                           // buttonがclickされたとき、変数に検索する値を代入
                                           $('#search_button').on('click', function(){
                                             var keyword = $('#search_area').val();
-                                             $(".brand_items").empty();
+                                             $(".api_items").empty();
                                             // リクエストURLを設定する
                                             $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
                                               applicationId: "1028803390707827350",
@@ -95,7 +93,7 @@
                                                 // console.log(data);
                                                 $.each(data.Items, function(i, item){
                                                   var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
-                                                  $(".brand_items").append(temp);
+                                                  $(".api_items").append(temp);
                                                 }) // each
                                               } // if
                                             }); // function(data)
@@ -132,10 +130,84 @@
                     
            
         </div>
-        <div class="col-xs-3">
-            
+        <div class="col-xs-4">
+            <div id="coordinate_set" class=" ui-state-default">
+              <p class="ui-widget-header"><span class="ui-icon" style="float:left;"></span>Coordinate set</p>
+            </div>
+            <button type="button" id="save">Save</button>
+            <button type="button" id="clear">Clear</button>
+            <style scoped>
+              #brand_items { width:200px; height:400px; float:left; }
+              #brand_items .custom-state-active { background:#efefef; }
+              #brand_items li, #coordinate_set li { padding:4px; text-align:center; float:left; list-style:none; display:inline-block; }
+              #brand_items li p { margin:0 0 4px; cursor:move; }
+              #brand_items li span { float:right; }
+              #coordinate_set { width: 100%; height:600px; float:right; }
+              #coordinate_set p { line-height:1.5; margin:0 0 4px; }
+              #coordinate_set p span { float:left; }
+            </style>       
+             <script type="text/javascript">
+
+              var _$ = jQuery;
+              _$(function()
+              {
+                var $brand_items = _$("#brand_items");
+                var $coordinate_set = _$("#coordinate_set");
+                _$("li", $brand_items).draggable({
+                  revert: "invalid",
+                  helper: "clone",
+                  cursor: "move"
+                });
+                $coordinate_set.droppable({
+                  accept: "#brand_items > li",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ setImage(ui.draggable); }
+                });
+                $brand_items.droppable({
+                  accept: "#coordinate_set li",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ recycleImage( ui.draggable ); }
+                });
+                function setImage($item){
+                  $item.fadeIn(function(){
+                    $item.find("img").width("110px");
+                    $item.appendTo($coordinate_set);
                    
-             
+                  });
+                }
+                function recycleImage($item){
+                  $item.fadeIn(function(){
+                    $item.find("img").width("30px");
+                    $item.appendTo($brand_items);
+                  });
+                }
+                $("button#save").click(function() {
+                   var items = $("li", $("#coordinate_set"));
+                   for (var i = 0, len = items.length; i < len; i++) {
+                     var item = items[i];
+                     var element = {
+                       img: $("img", item).attr("src")
+                     }
+                     localStorage.setItem(i, JSON.stringify(element));
+                   }
+                   // 保存されたことを確認する
+                   for (var i = 0, len = localStorage.length; i < len; i++) {
+                     var element = JSON.parse(localStorage.getItem(i));
+                     $("ul#storedItems").append('<li><img src= '+element.img+'></li>');
+                   }
+                });
+               $("button#clear").click(function() {
+                 localStorage.clear();
+                 $("ul#storedItems li").remove();
+               });
+            
+              });
+            </script>
         </div>
     </div>
+    </div>
+    <p>Stored Items</p>
+              <ul id="storedItems">
+              </ul>
+    </div>          
 @endsection
