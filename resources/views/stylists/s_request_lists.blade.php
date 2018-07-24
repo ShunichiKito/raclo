@@ -1,10 +1,11 @@
 @extends('layouts.stylist_app')
 
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('workspace_edit.css') }}">
 @section('content')
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered" style="background-color: #f2dede;">
  <thead>
-    <tr>
+    <tr class="tablistcolor">
       <th>date</th>
       <th>name</th>
       <th>content</th>
