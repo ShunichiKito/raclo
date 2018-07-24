@@ -227,7 +227,7 @@
                    // 保存されたことを確認する
                    for (var i = 0, len = localStorage.length; i < len; i++) {
                      var element = JSON.parse(localStorage.getItem(i));
-                     $("ul#storedItems").append('<li><img src= '+element.img+'></li>');
+                     $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
                    }
                 });
                $("button#clear").click(function() {
