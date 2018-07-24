@@ -1,8 +1,6 @@
 @extends('layouts.stylist_app')
 
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+
 
 <?php
 // $all_images=[
@@ -67,7 +65,7 @@
                                     <br>
                                     <input type="text" id="search_area">
                                     <button type="button" id="search_button">検索</button>
-                                    <ul  class="api_items ui-helper-reset ui-helper-clearfix"></ul>
+                                    <ul  class="brand api_items ui-helper-reset ui-helper-clearfix"></ul>
                                     <style>
                                         li.brand_item {
                                             display: inline-block;
@@ -94,6 +92,12 @@
                                                 $.each(data.Items, function(i, item){
                                                   var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
                                                   $(".api_items").append(temp);
+                                                jQuery("li", jQuery(".brand")).draggable({
+                                                    revert: "invalid",
+                                                    helper: "clone",
+                                                    cursor: "move"
+                                                });
+                                                
                                                 }) // each
                                               } // if
                                             }); // function(data)
@@ -104,7 +108,6 @@
                                 </div>
                             </div>
                         </div>
-                       {{--@include('items.brandavenue_items', ['items' => $new_images ])--}}
                     @endif
                 </div>
             </div>
@@ -137,21 +140,26 @@
             <button type="button" id="save">Save</button>
             <button type="button" id="clear">Clear</button>
             <style scoped>
-              #brand_items { width:200px; height:400px; float:left; }
-              #brand_items .custom-state-active { background:#efefef; }
-              #brand_items li, #coordinate_set li { padding:4px; text-align:center; float:left; list-style:none; display:inline-block; }
-              #brand_items li p { margin:0 0 4px; cursor:move; }
-              #brand_items li span { float:right; }
+              .brand { width:90%; height: 100%; float:left; }
+              .brand .custom-state-active { background:#efefef; }
+              .brand li {z-index:1;}
+              .brand li, #coordinate_set li { padding:4px; text-align:center; float:left; list-style:none; display:inline-block; }
+              .brand li p { margin:0 0 4px; cursor:move; }
+              .brand li span { float:right; }
               #coordinate_set { width: 100%; height:600px; float:right; }
               #coordinate_set p { line-height:1.5; margin:0 0 4px; }
               #coordinate_set p span { float:left; }
-            </style>       
+            </style>     
+            
+            <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+            <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+            <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
              <script type="text/javascript">
 
               var _$ = jQuery;
               _$(function()
               {
-                var $brand_items = _$("#brand_items");
+                var $brand_items = _$(".brand");
                 var $coordinate_set = _$("#coordinate_set");
                 _$("li", $brand_items).draggable({
                   revert: "invalid",
@@ -159,15 +167,36 @@
                   cursor: "move"
                 });
                 $coordinate_set.droppable({
-                  accept: "#brand_items > li",
+                  accept: ".brand > li",
                   activeClass: "ui-state-highlight",
-                  drop: function(ev, ui){ setImage(ui.draggable); }
+                  drop: function(ev, ui){ setImage(ui.draggable);
+                  }
                 });
-                $brand_items.droppable({
-                  accept: "#coordinate_set li",
+               
+                _$(".before_co").droppable({
+                  accept: ".before_co_li",
                   activeClass: "ui-state-highlight",
-                  drop: function(ev, ui){ recycleImage( ui.draggable ); }
+                  drop: function(ev, ui){ recycleImage( ui.draggable, _$(".before_co") ); }
                 });
+               
+                 _$(".before_new").droppable({
+                  accept: ".before_new_li",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ recycleImage( ui.draggable, _$(".before_new" )); }
+                });
+                   _$(".api_items").droppable({
+                  accept: ".brand_item",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ recycleImage( ui.draggable, _$(".api_items")); }
+                }); 
+                
+                // $brand_items.droppable({
+                //   accept: "#coordinate_set li",
+                //   activeClass: "ui-state-highlight",
+                //   drop: function(ev, ui){ recycleImage( ui.draggable ); }
+                // });
+               
+                 
                 function setImage($item){
                   $item.fadeIn(function(){
                     $item.find("img").width("110px");
@@ -175,12 +204,13 @@
                    
                   });
                 }
-                function recycleImage($item){
+                function recycleImage($item,$target){
                   $item.fadeIn(function(){
-                    $item.find("img").width("30px");
-                    $item.appendTo($brand_items);
+                    // $item.find("img").width("30px");
+                    $item.appendTo($target);
                   });
                 }
+                
                 $("button#save").click(function() {
                    var items = $("li", $("#coordinate_set"));
                    for (var i = 0, len = items.length; i < len; i++) {

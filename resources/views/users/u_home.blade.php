@@ -12,17 +12,17 @@
         <!--画像アップロード-->
         
          {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
-                            <div class="form-group1">
-                                {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
-                                {!! Form::file('file') !!}
-                            <!--</div>  -->
-                            <div class="form-group2" id="classbtn">
-                            <button type="button" class="btn btn-primary btn-danger btn-lg btn-block">Upload my clothes</button>
+                <div class="form-group1">
+                        {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
+                        {!! Form::file('file') !!}
+                    <!--</div>  -->
+                    <div class="form-group2" id="classbtn">
+                    <!--<button type="button" class="btn btn-primary btn-danger btn-lg btn-block">Upload my clothes</button>-->
 
-                                <!--{!! Form::submit('Upload', ['class' => 'btn btn-warning']) !!}-->
-                            </div>
-                            </div>
-                        {!! Form::close() !!} 
+                        {!! Form::submit('Upload my clothes', ['class' => 'btn btn-primary btn-danger btn-lg btn-block']) !!}
+                    </div>
+                </div>
+        {!! Form::close() !!} 
         <!--アップロードした写真表示-->
         
         
