@@ -15,6 +15,15 @@
 @section('content')
     <div class="row">
         <aside class="col-xs-3">
+            
+        <style>
+            .tab_size_container {
+    font-family: inherit;
+    font-size: 19px;
+    line-height: inherit;
+    display: inline-block;
+    float: center;}
+        </style>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title name_fontsize">{{ $user->name }}</h3>
@@ -31,8 +40,8 @@
         </aside>
         <div class="col-xs-5">
             <div class="tab tab_size_container">
-                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
-                <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
+                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">With My Items</button>
+                <button class="tablinks" onclick="openTab(event, 'withnewitems')">With New Items</button>
                 <button class="tablinks" onclick="openTab(event, 'BrandAvenue')">Brand Avenue</button>
             </div>
             
@@ -54,6 +63,10 @@
                     @endif
                 </div>
             </div>
+            
+            <style>
+            .tab_size_container {font-family: inherit;font-size: 19px;line-height: inherit;display: inline-block; float:center;}
+            </style>
             
             <div id="BrandAvenue" class="tabcontent">
                 <div class="closet-items">
@@ -146,22 +159,22 @@
             <button type="button" id="save">Save</button>
             <button type="button" id="clear">Clear</button>
             <style scoped>
-              .ui-helper-clearfix { min-height: 0; height: 570px; overflow: auto;}
               .brand { width:90%; height: 100%; float:left; }
               .brand .custom-state-active { background:#efefef; }
               .brand li {z-index:1;}
               .brand li, #coordinate_set li { padding:4px; text-align:center; float:left; list-style:none; display:inline-block; }
               .brand li p { margin:0 0 4px; cursor:move; }
               .brand li span { float:right; }
-              #coordinate_set { width: 100%; height:600px; float:right; }
+              #coordinate_set { width: 100%; height:595px; float:right; }
               #coordinate_set p { line-height:1.5; margin:0 0 4px; }
               #coordinate_set p span { float:left; }
             </style>     
             
+            
             <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
             <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
             <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-
+                
              <script type="text/javascript">
            
               var _$ = jQuery;
@@ -247,5 +260,8 @@
     <p>Stored Items</p>
               <ul id="storedItems">
               </ul>
-    </div>          
+    </div> 
+    <style>
+            .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}    
+            </style>
 @endsection
