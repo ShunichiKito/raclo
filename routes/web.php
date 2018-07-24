@@ -39,9 +39,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users/u_home', function () {
         return view('users/u_home');
     });
-    Route::get('/stylists/s_home', function () {
-        return view('stylists/s_home');
-    });
+    // Route::get('/stylists/s_home', function () {
+    //     return view('stylists/s_home');
+    // });
+    Route::get('/stylists/s_home','ItemsController@s_request_receive');
     
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
@@ -92,6 +93,10 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('s_price');
     //スタイリストリクエスト受け取り
     Route::get('/s_request_lists', 'ItemsController@s_request_receive')->name('s_request_receive');
+   //スタイリストコーディネート完了、送信
+   Route::post('/saveco', 'ItemsController@s_saveco')->name('saveco');
+   
+   
    
     Route::get('/s_styling', function () {
         return view('stylists/s_styling');

@@ -214,25 +214,50 @@
                     $item.appendTo($target);
                   });
                 }
-                
+                var countUpValue = 0;
                 $("button#save").click(function() {
+                   
+                   function countUp(){
+                        countUpValue++;
+                    }
+                  countUp();
                    var items = $("li", $("#coordinate_set"));
+                //   var item_pathes = $("li > a", $("#coordinate_set"));
+                   
+                   
                    for (var i = 0, len = items.length; i < len; i++) {
                      var item = items[i];
+                    //  var item_path = item_pathes[i];
                      var element = {
                        img: $("img", item).attr("src")
                      }
+                    //  var element2 = {
+                    //   img: $("img", item_path).attr("src")
+                    //  }
                      localStorage.setItem(i, JSON.stringify(element));
+                    //  localStorage.setItem(i, JSON.stringify(element2));
                    }
                    // 保存されたことを確認する
+                   $("ul#storedItems").append('<p>set'+countUpValue+'</p>');
+                   
                    for (var i = 0, len = localStorage.length; i < len; i++) {
                      var element = JSON.parse(localStorage.getItem(i));
-                     $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
+                    //  var element2 = JSON.parse(localStorage.getItem(i));
+                    $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
+                //     $("form").prepend('<text name="'+countUpValue+'">'+element.img+'</text>');
+                //   　$("form").prepend('<text name="'+countUpValue+'path">'+element.img+'</text>');
+                     $("input[type='submit']").before('<input type="hidden" name="path['+countUpValue+']['+i+']'+ '" value="'+element.img+'">');
+                //   　$("form").prepend('<input type="hidden" name="'+countUpValue+'path">'+element2.img);
+                    // $("input[type='submit']").before('{!! Form::hidden("path'+countUpValue+'['+i+']",'+element.img+') !!}');
+              
                    }
+                   $("ul#storedItems").append('<br>');
+               
                 });
                $("button#clear").click(function() {
                  localStorage.clear();
-                 $("ul#storedItems li").remove();
+                $("ul#storedItems li").remove();
+                // $("input[type='hidden']").remove();
                });
             
               });
@@ -241,7 +266,36 @@
     </div>
     </div>
     <p>Stored Items</p>
-              <ul id="storedItems">
-              </ul>
-    </div>          
+    <div>
+        <ul id="storedItems"></ul>
+        <!--<form action="/saveco" method="post">-->
+        <!--    <input type="hidden" id="_token" value="{{ csrf_token() }}">-->
+        <!--    <input type="submit" value="Complete the order"/>-->
+            
+        <!--</form>-->
+        {{Form::open(['route' => 'saveco','method' => 'post'])}}
+            <input type="hidden" name="user_id" value="<?php echo $user->id; ?>">
+            <input type="hidden" name="order_id" value="<?php echo $order->id; ?>">
+            {!! Form::submit('Complete the order', ['class' => 'btn btn-success']) !!}
+        {!! Form::close() !!} 
+        <style>
+            img.append_img {
+                width: 100px;
+                height: 100px;
+            }
+            li.append_item {
+                display: inline-block;
+            }
+            input[type="submit"] {
+                padding: 15px 40px;
+                font-size: 1.2em;
+                background-color: #000;
+                color: #fff;
+                border-style: none;
+            }
+            
+
+        </style>
+    </div>
+             
 @endsection
