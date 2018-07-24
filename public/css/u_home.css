@@ -1,4 +1,7 @@
-
+body {
+    background-image: url("/room6.jpg"); 
+    background-size: 120%;
+}
 .screen {
     background-image: url("/cabinet-575361_1280.png");
     background-size: cover;
