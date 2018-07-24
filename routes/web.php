@@ -47,7 +47,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
-   
+   //ユーザー　コーディネート済みセット一覧
+    Route::get('/u_index', 'UsersController@u_index')->name('u_index');
+    
     //ユーザー、スタイリストプロフィール編集
     Route::get('/u_edit', function () {
         return view('users/u_edit');
