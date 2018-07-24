@@ -133,6 +133,12 @@
                     
            
         </div>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+       
+
+        
         <div class="col-xs-4">
             <div id="coordinate_set" class=" ui-state-default">
               <p class="ui-widget-header"><span class="ui-icon" style="float:left;"></span>Coordinate set</p>
@@ -140,6 +146,7 @@
             <button type="button" id="save">Save</button>
             <button type="button" id="clear">Clear</button>
             <style scoped>
+              .ui-helper-clearfix { min-height: 0; height: 570px; overflow: auto;}
               .brand { width:90%; height: 100%; float:left; }
               .brand .custom-state-active { background:#efefef; }
               .brand li {z-index:1;}
@@ -154,8 +161,9 @@
             <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
             <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
             <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-             <script type="text/javascript">
 
+             <script type="text/javascript">
+           
               var _$ = jQuery;
               _$(function()
               {
