@@ -290,11 +290,11 @@
         </div> 
     </div>    
  
-                     localStorage.clear();
-                    $("ul#storedItems li").remove();
-                    // $("input[type='hidden']").remove();
-                });
-            });   
+                    <!-- localStorage.clear();-->
+                    <!--$("ul#storedItems li").remove();-->
+                    <!--// $("input[type='hidden']").remove();-->
+            <!--    });-->
+            <!--});   -->
             </script>
         </div> 
     </div>    
@@ -341,16 +341,16 @@
             }
             
 
-        </style>
-                display: inline-block;
-            }
-            input[type="submit"] {
-                padding: 15px 40px;
-                font-size: 1.2em;
-                background-color: #000;
-                color: #fff;
-                border-style: none;
-            }
+       
+            /*    display: inline-block;*/
+            /*}*/
+            /*input[type="submit"] {*/
+            /*    padding: 15px 40px;*/
+            /*    font-size: 1.2em;*/
+            /*    background-color: #000;*/
+            /*    color: #fff;*/
+            /*    border-style: none;*/
+            /*}*/
             
 
         </style>
