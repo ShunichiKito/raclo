@@ -25,7 +25,7 @@ use App\User
                             <div class="table-responsive">
                                <?php $user = User::where('users.name', $item->user_name)->first(); ?>  
                                <div class="panel-body"><?php print $user->style ?></div>
-                               <a herf='#' class='btn btn-danger'>Send the Request</a>
+                               <a herf='#' class='btn btn-default'><strong>Send the Request</strong></a>
                             </div>
                         </div>
                         
