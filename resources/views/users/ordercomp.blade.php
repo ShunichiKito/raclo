@@ -24,13 +24,15 @@ $new_images = U_item::where('newitems_check','on')->get();
 <html>
     <head>
         <h3 class="panel-title name_fontsize">{{ $user->name }}'s Order Confirmation Page</h3>
+        <br>
+        <br>
     </head>
     
     <body>
     <div class="row">
         <aside class="col-xs-4">
         <div class="panel panel-default">
-            <div class='panel-heading'>
+            <div class='panel-heading1'>
             <div class="container col-lg-12">
                <div class="tab tab_size_container">
                 <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
@@ -84,8 +86,13 @@ $new_images = U_item::where('newitems_check','on')->get();
         </aside>
         <?php 
          $order = Order::where('suspend','on')->first(); 
-         $stylist = User::where('id',$order->stylist_id)->first();
-         $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); 
+            if(isset($order)){
+             $stylist = User::where('id',$order->stylist_id)->first();
+            
+                if(isset($stylist)) {
+                    $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); 
+                }
+            }    
          ?> 
             
             
@@ -143,12 +150,16 @@ $new_images = U_item::where('newitems_check','on')->get();
 
 <style>
     
+    body {
+    background-image: url("/room6.jpg"); 
+    background-size: 120%;
+}
     .selectbutton {
         position: absolute;
         bottom: 0;
         right: 0;
     }
-    .panel-heading {
+    .panel-heading1 {
         overflow: scroll;
         position: relative;
     }
