@@ -13,6 +13,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
        
+        
+        <style>
+            body{
+                font-family: "Abril-Fatface";
+            }
+        </style>
+
     </head>
     <body>
         @include('commons.stylist_navbar')
@@ -24,5 +31,9 @@
         </div>
 
         @include('commons.footer')
+        
+       
     </body>
+    
+    
 </html>
