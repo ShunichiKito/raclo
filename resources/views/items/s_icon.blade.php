@@ -31,6 +31,7 @@ use App\Stylist_profile_image;
                                    .index_rank {
                                         font-size: 25px;
                                         color: #742253;
+                                        margin-top:45px;
                                     }
                                 </style>
                             </h2>
@@ -66,8 +67,13 @@ h1 {
     font-size:70px;
 }
 
+.panel-body {
+    margin:40px;
+    height:130px;
+}
 .panel-body strong {
     font-size:20px;
+   
 }
 
 .navbar {
@@ -94,10 +100,12 @@ h1 {
     background-color:#DEB887  ;
     color: black;
     border-color:#C0C0C0;
+    height :165px;
 }
 
 .panel-body2{
     font-size: 20px;
+    margin-bottom:25px;
 }
 
 .btn{
@@ -113,7 +121,8 @@ h1 {
      background-color:#CD853F ;
      
  }
-
-
+.table-responsive {
+    margin-top:30px;
+}
 </style>
 
