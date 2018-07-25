@@ -1,5 +1,6 @@
 @extends('layouts.stylist_app')
 
+
 <?php
 // $all_images=[
 //             'user' => $user,
@@ -69,7 +70,9 @@
                                     <br>
                                     <input type="text" id="search_area">
                                     <button type="button" id="search_button">検索</button>
-                                    <ul class="brand_items"></ul>
+
+                                    <ul  class="brand api_items ui-helper-reset ui-helper-clearfix"></ul>
+
                                     <style>
                                         li.brand_item {
                                             display: inline-block;
@@ -95,7 +98,14 @@
                                                 // console.log(data);
                                                 $.each(data.Items, function(i, item){
                                                   var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
-                                                  $(".brand_items").append(temp);
+
+                                                  $(".api_items").append(temp);
+                                                jQuery("li", jQuery(".brand")).draggable({
+                                                    revert: "invalid",
+                                                    helper: "clone",
+                                                    cursor: "move"
+                                                });
+                                                
                                                 }) // each
                                               } // if
                                             }); // function(data)
@@ -106,7 +116,6 @@
                                 </div>
                             </div>
                         </div>
-                       {{--@include('items.brandavenue_items', ['items' => $new_images ])--}}
                     @endif
                 </div>
             </div>
@@ -132,339 +141,170 @@
                     
            
         </div>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+       
+
+        
         <div class="col-xs-3">
-            
-                    <style>
-              /*body {*/
-              /*  margin: 20px;*/
-              /*}*/
-              /*.item {*/
-              /*  padding: 10px;*/
-              /*  width: 80px;*/
-              /*  height: 20px;*/
-              /*  display:inline-block;*/
-              /*  border: 1px solid #2e6da4;*/
-              /*  background-color: #7da8c3;*/
-              /*  color: #FFFFFF;*/
-              /*}*/
-              /*.item:hover {*/
-              /*  cursor: pointer;*/
-              /*}*/
-              /*.item p {*/
-              /*  display: inline-block;*/
-              /*}*/
-              /*--------------------------------------------*/
+            <div id="coordinate_set" class=" ui-state-default">
+              <p class="ui-widget-header"><span class="ui-icon" style="float:left;"></span>Coordinate set</p>
+            </div>
+            <button type="button" id="save">Save</button>
+            <button type="button" id="clear">Clear</button>
+            <style scoped>
+              .ui-helper-clearfix { min-height: 0; height: 570px; overflow: auto;}
               
-              /*.container2 {*/
-              /*  margin-top: 50px;*/
-              /*  width: 400px;*/
-              /*  height:600px;*/
-              /*}*/
-              
-              /*.main {*/
-              /*  width:200px;*/
-              /*  height:600px;*/
-              /*  float: left;*/
-              /*}*/
-              /*.main .drop_area {*/
-              /*  width:200px;*/
-              /*  height:300px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              /*.main .drop_area2 {*/
-              /*  width:200px;*/
-              /*  height:300px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              /*.side {*/
-              /*  width:200px;*/
-              /*  height:600px;*/
-              /*  float:left;*/
-              /*}*/
-              
-            
-              /*.side .drop_area3 {*/
-              /*  width:200px;*/
-              /*  height:200px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              /*.side .drop_area4 {*/
-              /*  width:200px;*/
-              /*  height:200px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              /*.side .drop_area5 {*/
-              /*  width:200px;*/
-              /*  height:200px;*/
-              /*  border: 1px solid #3a945b;*/
-              /*  background: #f0fff0;*/
-              /*}*/
-              
-              
-              /*.drop_area p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.drop_area2 p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.drop_area3 p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.drop_area4 p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.drop_area5 p {*/
-              /*  margin: 10px;*/
-              /*}*/
-              /*.ui-selected {*/
-              /* background-color: #1cc7ff;*/
-              /*}*/
-              /*.ui-selectable-helper{*/
-              /*  position: absolute;*/
-              /*  z-index: 100;*/
-              /*  border:1px dotted black;*/
-              /*}*/
-            
-              
-            </style>
-            
-            <!--ここから下はアイテム-->
-            <!--<div id="container">-->
-            <!--  <div class="item_area">-->
-            <!--    <div class="item">-->
-            <!--      <p>1</p>-->
-            <!--    </div>-->
-            <!--    <div class="item">-->
-            <!--      <p>2</p>-->
-            <!--    </div>-->
-            <!--    <div class="item">-->
-            <!--      <p>3</p>-->
-            <!--    </div>-->
-            <!--    <div class="item">-->
-            <!--      <p>4</p>-->
-            <!--    </div>-->
-            <!--    <div class="item">-->
-            <!--      <p>5</p>-->
-            <!--    </div>-->
-            <!--  </div>-->
-            <!--</div> -->
-            
-            <!--ここから下は服を配置するボックス-->
-            <!--<div class='container2'>-->
-            <!--   <div class="main">-->
-            <!--        <div class="drop_area">-->
-            <!--          <p>Tops</p>-->
-            <!--        </div>-->
-            <!--        <div class="drop_area2">-->
-            <!--          <p>Bottoms</p>-->
-            <!--        </div>-->
-            <!--   </div>-->
-              
-            <!--   <div class="side">-->
-            <!--        <div class="drop_area3">-->
-            <!--          <p>Accessories</p>-->
-            <!--        </div>-->
-            <!--        <div class="drop_area4">-->
-            <!--          <p>Bags</p>-->
-            <!--        </div>-->
-            <!--        <div class="drop_area5">-->
-            <!--          <p>shoes</p>-->
-            <!--        </div>-->
-            <!--  </div>-->
-            <!--</div>-->
-            
-            <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
-            <!--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>-->
-            <script>
-            //   $(function() {
-            //     $('.item_area').selectable({
-            //       cancel: "p",
-            //       selected: function(e, ui) {
-            //         $(ui.selected).draggable().draggable('enable');
-            //       }
-            //     });
+              .brand { width:90%; height: 100%; float:left; }
+              .brand .custom-state-active { background:#efefef; }
+              .brand li {z-index:1;}
+              .brand li, #coordinate_set li { padding:4px; text-align:center; float:left; list-style:none; display:inline-block; }
+              .brand li p { margin:0 0 4px; cursor:move; }
+              .brand li span { float:right; }
+              #coordinate_set { width: 100%; height:600px; float:right; }
+              #coordinate_set p { line-height:1.5; margin:0 0 4px; }
+              #coordinate_set p span { float:left; }
+            </style>     
+             <script type="text/javascript">
+           
+              var _$ = jQuery;
+              _$(function()
+              {
+                var $brand_items = _$(".brand");
+                var $coordinate_set = _$("#coordinate_set");
+                _$("li", $brand_items).draggable({
+                  revert: "invalid",
+                  helper: "clone",
+                  cursor: "move"
+                });
+                $coordinate_set.droppable({
+                  accept: ".brand > li",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ setImage(ui.draggable);
+                  }
+                });
+               
+                _$(".before_co").droppable({
+                  accept: ".before_co_li",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ recycleImage( ui.draggable, _$(".before_co") ); }
+                });
+               
+                 _$(".before_new").droppable({
+                  accept: ".before_new_li",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ recycleImage( ui.draggable, _$(".before_new" )); }
+                });
+                   _$(".api_items").droppable({
+                  accept: ".brand_item",
+                  activeClass: "ui-state-highlight",
+                  drop: function(ev, ui){ recycleImage( ui.draggable, _$(".api_items")); }
+                }); 
                 
-            //     $('.item').draggable({
-            //       revert: "invalid",
-            //       containment: "",
-            //       snap: true,
-            //       drag: function(e,ui){
-            //         $('.ui-selected').each(function(){
-            //           $(this).css({
-            //             top: ui.position.top,
-            //             left: ui.position.left
-            //           });
-            //         });
-            //       },
-            //       stop: function(e,ui) {
-            //         $('.ui-selected').each(function(){
-            //           $(this).selectable().selectable('destroy');
-            //           $(this).draggable().draggable('disable');
-            //         });
-            //       }
-            //     }).draggable('disable');
-            
-            //     $('.drop_area').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Tops Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Tops Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Tops Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Tops" );
-            //       }
-            //     });
-                
-            //      $('.drop_area2').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Bottoms Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Bottoms Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Bottoms Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Bottoms" );
-            //       }
-            //     });
-                
-            //     $('.drop_area3').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Accessories Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Accessories Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Accessories Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Accessories" );
-            //       }
-            //     });
-                
-            //     $('.drop_area4').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Bags Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Bags Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Bags Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Bags" );
-            //       }
-            //     });
-                
-            //     $('.drop_area5').droppable({
-            //       activate: function(e,ui) {
-            //         $(this)
-            //           .find("p")
-            //           .html("Shoes Area");
-            //       },
-            //       over: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#e0ffff')
-            //           .css('border', '2px solid #00bfff')
-            //           .find("p")
-            //           .html("Put Your Shoes Here" );
-            //       },
-            //       out: function(e,ui) {
-            //         $(this)
-            //           .css('background', '#ffffe0')
-            //           .css('border', '2px solid #ffff00')
-            //           .find("p")
-            //           .html("Out of Shoes Area");
-            //       },
-            //       drop: function(e,ui) {
-            //         $(this)
-            //           .addClass("ui-state-highlight")
-            //           .css('background', '#fdf5e6')
-            //           .css('border', '2px solid #ffa07a')
-            //           .find( "p" )
-            //           .html( "Shoes" );
-            //       }
-            //     });
-            
-                
-            //   });
+                // $brand_items.droppable({
+                //   accept: "#coordinate_set li",
+                //   activeClass: "ui-state-highlight",
+                //   drop: function(ev, ui){ recycleImage( ui.draggable ); }
+                // });
+               
+                 
+                function setImage($item){
+                  $item.fadeIn(function(){
+                    $item.find("img").width("110px");
+                    $item.appendTo($coordinate_set);
+                   
+                  });
+                }
+                function recycleImage($item,$target){
+                  $item.fadeIn(function(){
+                    // $item.find("img").width("30px");
+                    $item.appendTo($target);
+                  });
+                }
+                var countUpValue = 0;
+                $("button#save").click(function() {
+                   
+                   function countUp(){
+                        countUpValue++;
+                    }
+                   countUp();
+                   var items = $("li", $("#coordinate_set"));
+                //   var item_pathes = $("li > a", $("#coordinate_set"));
+                   
+                   
+                   for (var i = 0, len = items.length; i < len; i++) {
+                        var item = items[i];
+                        //  var item_path = item_pathes[i];
+                        var element = {
+                           img: $("img", item).attr("src")
+                         }
+                    //  var element2 = {
+                    //   img: $("img", item_path).attr("src")
+                    //  }
+                        localStorage.setItem(i, JSON.stringify(element));
+                    //  localStorage.setItem(i, JSON.stringify(element2));
+                     }
+                   // 保存されたことを確認する
+                   $("ul#storedItems").append('<p>set'+countUpValue+'</p>');
+                   
+                       for (var i = 0, len = localStorage.length; i < len; i++) {
+                         var element = JSON.parse(localStorage.getItem(i));
+                        //  var element2 = JSON.parse(localStorage.getItem(i));
+                        $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
+                    //     $("form").prepend('<text name="'+countUpValue+'">'+element.img+'</text>');
+                    //   　$("form").prepend('<text name="'+countUpValue+'path">'+element.img+'</text>');
+                         $("input[type='submit']").before('<input type="hidden" name="path['+countUpValue+']['+i+']'+ '" value="'+element.img+'">');
+                    //   　$("form").prepend('<input type="hidden" name="'+countUpValue+'path">'+element2.img);
+                        // $("input[type='submit']").before('{!! Form::hidden("path'+countUpValue+'['+i+']",'+element.img+') !!}');
+                  
+                       }
+                   $("ul#storedItems").append('<br>');
+               
+                });
+                $("button#clear").click(function() {
+                     localStorage.clear();
+                    $("ul#storedItems li").remove();
+                    // $("input[type='hidden']").remove();
+                });
+            });   
             </script>
-        </div>
+        </div> 
+    </div>    
+ 
+    <p>Stored Items</p>
+    <div>
+        <ul id="storedItems"></ul>
+        <!--<form action="/saveco" method="post">-->
+        <!--    <input type="hidden" id="_token" value="{{ csrf_token() }}">-->
+        <!--    <input type="submit" value="Complete the order"/>-->
+            
+        <!--</form>-->
+        {{Form::open(['route' => 'saveco','method' => 'post'])}}
+            <input type="hidden" name="user_id" value="<?php echo $user->id; ?>">
+            <input type="hidden" name="order_id" value="<?php echo $order->id; ?>">
+            {!! Form::submit('Complete the order', ['class' => 'btn btn-success']) !!}
+        {!! Form::close() !!} 
+        <style>
+            img.append_img {
+                width: 100px;
+                height: 100px;
+            }
+            li.append_item {
+                display: inline-block;
+            }
+            input[type="submit"] {
+                padding: 15px 40px;
+                font-size: 1.2em;
+                background-color: #000;
+                color: #fff;
+                border-style: none;
+            }
+            
+
+        </style>
     </div>
+             
+
 @endsection

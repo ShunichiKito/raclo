@@ -1,10 +1,11 @@
 @extends('layouts.stylist_app')
 
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('workspace_edit.css') }}">
 @section('content')
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered" >
  <thead>
-    <tr>
+    <tr style="background-color: #f2dede;">
       <th>date</th>
       <th>name</th>
       <th>content</th>
@@ -37,12 +38,18 @@ jQuery(document).ready(function($) {
 </script>
 
 <style>
+
     table tbody tr:hover{
+        background-color: skyblue;
+    }
+    table tbody tr:last-child:hover {
         background-color: skyblue;
     }
     table tbody tr:first-child:hover {
         background-color: skyblue;
     }
+    
+   
 
 </style>
 

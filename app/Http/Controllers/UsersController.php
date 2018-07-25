@@ -38,6 +38,18 @@ class UsersController extends Controller
                 return redirect('/');
             }
     }
+    public function u_cooindex()
+    {   
+        $orders=Order::where('user_id', \Auth::user()->id)->where('state','done')->get();
+        return view('users/u_complete_coord')->with('orders',$orders);
+            
+    }
+    public function u_cooshow($orderid) {
+        
+        $order= Order::where('id',$orderid);
+         return view('users/u_coord_show')->with('order',$order);
+    }
+    
     
     public function s_online_index()
     {   

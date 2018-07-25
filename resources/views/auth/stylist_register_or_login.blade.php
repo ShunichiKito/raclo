@@ -7,7 +7,7 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse !important">
 	        <div class="container-fluid">
 		        <div class="navbar-header">
         			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
@@ -41,13 +41,12 @@
 </div>
 
 
- <div class="col-xs-7">
-            {{HTML::image('img/hackem_closet.jpg')}}
-</div>
-    
-<div class="row">
-    <div class="col-xs-5">
-        <div class="panel panel-danger">
+<!-- <div class="col-xs-7">-->
+<!--            {{HTML::image('img/hackem_closet.jpg')}}-->
+<!--</div>-->
+<body style="background-image: url('img/hackem_closet.jpg')">
+    <div class="col-xs-4">
+        <div class="panel">
             <div class="panel-heading">
             <h1>Sign Up</h1>
             <p>Your private information will be protected and can be edit it anytime</p>
@@ -105,7 +104,8 @@
             </div>
         </div>
     </div>
+    </div>
+    </body>
 </div>
-
 
 @endsection

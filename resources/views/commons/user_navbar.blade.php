@@ -24,7 +24,6 @@
               <li>{!! link_to_route('users.edit', 'Change Profile', ['id' => Auth::user()->id]) !!}</li>
               <li>{!! link_to_route('u_price', 'Price') !!}</li>
               <li>{!! link_to_route('u_privacy', 'Privacy and Security') !!}</li>
-              <li><a href="#">Notification</a></li>
               <li><a href="/logout">Logout</a></li>
             </ul>
           </li>

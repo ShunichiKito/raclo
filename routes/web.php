@@ -39,13 +39,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users/u_home', function () {
         return view('users/u_home');
     });
-    Route::get('/stylists/s_home', function () {
-        return view('stylists/s_home');
-    });
+    // Route::get('/stylists/s_home', function () {
+    //     return view('stylists/s_home');
+    // });
+    Route::get('/stylists/s_home','ItemsController@s_request_receive');
     
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
+   //ユーザー　コーディネート済みセット一覧
+    Route::get('/u_index', 'UsersController@u_cooindex')->name('u_index');
+    //ユーザー　コーディネート済み詳細
+     Route::get('/u_coord_show/{orderid}', 'UsersController@u_cooshow')->name('u_coord_show');
    
     //ユーザー、スタイリストプロフィール編集
     Route::get('/u_edit', function () {
@@ -92,14 +97,31 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('s_price');
     //スタイリストリクエスト受け取り
     Route::get('/s_request_lists', 'ItemsController@s_request_receive')->name('s_request_receive');
+   //スタイリストコーディネート完了、送信
+   Route::post('/saveco', 'ItemsController@s_saveco')->name('saveco');
+   
+   
    
     Route::get('/s_styling', function () {
         return view('stylists/s_styling');
     })->name('s_styling');
     
+
+     Route::get('/sho', function () {
+        return view('stylists/sho');
+    })->name('sho');
+    
+     Route::get('/sho2', function () {
+        return view('stylists/sho2');
+    })->name('sho2');
+    
+    
+    
+
     Route::get('/s_saving', function () {
         return view('stylists/s_saving');
     })->name('s_saving');
+
     
     
     Route::get('/s_online_icon', function () {
@@ -117,6 +139,16 @@ Route::group(['middleware' => ['auth']], function () {
     //ワークスペース
     // Route::get('/workspace', 'ItemsController@s_workspace')->name('workspace');
     Route::get('/s_workspace/{order}', 'ItemsController@s_workspace')->name('s_workspace');
+    
+    //coordinate 完成
+    Route::get('/u_complete_coord', function () {
+        return view('users/u_complete_coord');
+    })->name('/u_complete_coord');
+    
+    
+    Route::get('/u_coord_show', function () {
+        return view('users/u_coord_show');
+    })->name('/u_coord_show');
 
     
 });
@@ -157,5 +189,8 @@ $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+
 
 
