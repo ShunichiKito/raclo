@@ -45,4 +45,25 @@
     font-size:25px;
     vertical-align: baseline;
 }
+.col-xs-3 {
+    width: 25%;
+    float:center;
+}
+
+.p {
+    font-size: 28px;
+}
+
+.count_coordinate{
+    color: #333;
+    background-color: #ecd9f7;
+    border-color: #333;
+}
+
+.panel-heading{
+    color: #333;
+    background-color: #ddd;
+    border-color: #333;
+    
+}
 

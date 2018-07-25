@@ -1,4 +1,10 @@
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
+
+
+
 <nav class="navbar navbar-inverse" >
+ <img src="Raclo.jpg" class="logo navbar-left">
+
   <div class="container-fluid">
     <div class="user-navstyle">
       <div class="navbar-header">
@@ -11,15 +17,18 @@
         <!-- link back to the home -->
         <a class="navbar-brand" href="/home">My page</a>
       </div>
-       <img src="new.jpg" class="logo" style='style="float: right;'>
-          <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
       <!-- menu items -->
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="u_stylist_lists">Stylists</a></li>
-          <li><a href="u_onlinestylist_lists">Online Stylists</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class='glyphicon glyphicon-cog'></span></a>
+        </ul>
+      <!--</div>-->
+      <!--<div class="geer navbar-right">-->
+      <div id="navbar" class="collapse navbar-collapse navbar-right">
+        <ul class="nav navbar-nav">
+          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
+
+            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>-->
             <ul class="dropdown-menu">
               <li>{!! link_to_route('users.edit', 'Change Profile', ['id' => Auth::user()->id]) !!}</li>
               <li>{!! link_to_route('u_price', 'Price') !!}</li>
@@ -27,8 +36,9 @@
               <li><a href="/logout">Logout</a></li>
             </ul>
           </li>
-        </ul>
+          </ul>
+        </div>
       </div><!-- /.navbar-collapse -->
     </div>  
-  </div><!-- /.container-fluid -->
+  <!-- /.container-fluid -->
 </nav>

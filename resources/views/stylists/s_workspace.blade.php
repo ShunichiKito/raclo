@@ -151,22 +151,27 @@
         <div class="col-xs-3">
             <div id="coordinate_set" class=" ui-state-default">
               <p class="ui-widget-header"><span class="ui-icon" style="float:left;"></span>Coordinate set</p>
+           
             </div>
             <button type="button" id="save">Save</button>
             <button type="button" id="clear">Clear</button>
             <style scoped>
-              .ui-helper-clearfix { min-height: 0; height: 570px; overflow: auto;}
-              
               .brand { width:90%; height: 100%; float:left; }
               .brand .custom-state-active { background:#efefef; }
               .brand li {z-index:1;}
               .brand li, #coordinate_set li { padding:4px; text-align:center; float:left; list-style:none; display:inline-block; }
               .brand li p { margin:0 0 4px; cursor:move; }
               .brand li span { float:right; }
-              #coordinate_set { width: 100%; height:600px; float:right; }
-              #coordinate_set p { line-height:1.5; margin:0 0 4px; }
+              #coordinate_set { width: 100%; height:595px; float:right; }
+              #coordinate_set p { line-height:1.5; margin:0 0 4px; font-size:28px;}
               #coordinate_set p span { float:left; }
             </style>     
+            
+            
+            <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+            <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+            <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+                
              <script type="text/javascript">
            
               var _$ = jQuery;
@@ -272,8 +277,41 @@
             </script>
         </div> 
     </div>    
+    
+    </div> 
+    <style>
+            .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
+            .tab button.active {background-color: #1285a5;}
+            
+
+ </style>
+                       
+        
+        </div> 
+    </div>    
  
-    <p>Stored Items</p>
+                     localStorage.clear();
+                    $("ul#storedItems li").remove();
+                    // $("input[type='hidden']").remove();
+                });
+            });   
+            </script>
+        </div> 
+    </div>    
+    
+    </div> 
+    <style>
+            .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
+            .tab button.active {background-color: #1285a5;}
+            
+
+ </style>
+                       
+        
+        </div> 
+    </div>    
+ 
+    <p class="ppp">Stored Items</p>
     <div>
         <ul id="storedItems"></ul>
         <!--<form action="/saveco" method="post">-->
@@ -304,7 +342,40 @@
             
 
         </style>
-    </div>
-             
+                display: inline-block;
+            }
+            input[type="submit"] {
+                padding: 15px 40px;
+                font-size: 1.2em;
+                background-color: #000;
+                color: #fff;
+                border-style: none;
+            }
+            
+
+        </style>
+        </div>
+    </div> 
+    <style>
+            .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
+            .tab button.active {background-color: #ecd9f7;}
+            .tab button:hover {
+  color: #fff;
+}
+.tab button::after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+}
+.tab button:hover::after {
+  background: #ecd9f7;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+            .ppp {font-size: 28px;}
+    </style>
 
 @endsection

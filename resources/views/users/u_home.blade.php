@@ -12,23 +12,30 @@
         <!--画像アップロード-->
         
          {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
-                            <div class="form-group1">
-                                {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
-                                {!! Form::file('file') !!}
-                            <!--</div>  -->
-                            <div class="form-group2" id="classbtn">
-                            <!--<button type="button" class="btn btn-primary btn-danger btn-lg btn-block">Upload my clothes</button>-->
 
-                                {!! Form::submit('Upload', ['class' => 'btn btn-warning']) !!}
-                            </div>
-                            </div>
-                        {!! Form::close() !!} 
+                <div class="form-group1">
+                        {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
+                        {!! Form::file('file') !!}
+                    <!--</div>  -->
+                    <div class="form-group2" id="classbtn">
+                    <!--<button type="button" class="btn btn-primary btn-danger btn-lg btn-block">Upload my clothes</button>-->
+
+                        {!! Form::submit('Upload my clothes', ['class' => 'btn btn-primary btn-danger btn-lg btn-block']) !!}
+                    </div>
+                </div>
+        {!! Form::close() !!} 
+
         <!--アップロードした写真表示-->
         
         
             <div class="screen">
-                <a href="u_index"><img src="hanger-29414_1280.png" class="left" alt=""> </a>
-                <a href="u_mycoordinates"><img src="star-158502_640.png" class="right" alt=""></a>
+                <a href="u_index"><img src="hanger-29414_1280.png" class="left hangerhover" alt=""> 
+                <style>.hangerhover:hover{
+                                          position:relative;
+                                          top:10px;
+                                          left:10px;
+                                          }</style></a>
+                <a href="u_index"><img src="hanger-29414_1280.png" class="right hangerhover" alt=""></a>
                 <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
                 <!--<p class="left-fukidashi">ハンガー</p>-->
                     <div class="tab">
