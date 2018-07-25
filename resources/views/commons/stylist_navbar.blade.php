@@ -31,7 +31,7 @@
 <ul class="dropdown-menu">
             <!--<li><a href="#">Change Profile</a></li>-->
             <li>{!! link_to_route('users.edit', 'Change Profile', ['id' => Auth::user()->id]) !!}</li>
-            <li>{!! link_to_route('s_price', 'Price') !!}</li>
+            <!--<li>{!! link_to_route('s_price', 'Price') !!}</li>-->
             <li>{!! link_to_route('s_privacy', 'Privacy and Security') !!}</li>
             <li><a href="/logout">Logout</a></li>
           </ul>
