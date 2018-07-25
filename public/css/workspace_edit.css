@@ -45,4 +45,7 @@
     font-size:25px;
     vertical-align: baseline;
 }
-
+.col-xs-3 {
+    width: 25%;
+    float:center;
+}
