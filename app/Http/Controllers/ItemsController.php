@@ -63,7 +63,7 @@ class ItemsController extends Controller
             //とりあえず空のキーワード送る（ブランドアベニュー検索）
             'keyword'=>' '
         ];
-        
+      
         return view('stylists/s_workspace',$all_images);
     }    
     
@@ -137,5 +137,6 @@ class ItemsController extends Controller
 
     //     return redirect()->back();
     // }
-    
+
 }
+    
