@@ -17,7 +17,8 @@ use App\Coordinated_set;
 	    if(empty($order->item1)) {
 	    	 print $order->item1;
 	    }
-	   ?>
+	   
+
 	  
 	    $coordinates=Coordinated_set::where('user_id', \Auth::user()->id)->where('stylist_id',$order->stylist_id)->where('order_id',$order->id)->get();
 	   
@@ -58,6 +59,7 @@ use App\Coordinated_set;
 		    		<img class="co_image" src="<?php print $coordinate->item7; ?>">
 		    	</div>
 	    	<?php }
+	    }
 	    
 	   ?>
 	   <style>
