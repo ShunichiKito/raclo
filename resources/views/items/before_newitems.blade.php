@@ -9,6 +9,8 @@
                     <img src="{{ '/storage/u_items/'.$new_image->file_path }}" alt="" class="cloths_image_2">
                 </li>           
                 <!--</div>-->
+            @endforeach
+        </ul>
     @endif
     
 
