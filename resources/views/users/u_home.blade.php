@@ -17,9 +17,9 @@
                                 {!! Form::file('file') !!}
                             <!--</div>  -->
                             <div class="form-group2" id="classbtn">
-                            <button type="button" class="btn btn-primary btn-danger btn-lg btn-block">Upload my clothes</button>
+                            <!--<button type="button" class="btn btn-primary btn-danger btn-lg btn-block">Upload my clothes</button>-->
 
-                                <!--{!! Form::submit('Upload', ['class' => 'btn btn-warning']) !!}-->
+                                {!! Form::submit('Upload', ['class' => 'btn btn-warning']) !!}
                             </div>
                             </div>
                         {!! Form::close() !!} 
