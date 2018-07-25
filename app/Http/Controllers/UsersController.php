@@ -191,11 +191,17 @@ class UsersController extends Controller
     }
     
      public function u_ordercomp() {
-        
-        $order = Order::where("suspend", "on")->first();
+          $order = Order::where("suspend", "on")->first();
+        if($order->stylist_id and (U_item::where('myitems-check','on') or U_item::where('newitems-check','on'))) {
+            
         $order->suspend="off";
         $order->state="untouched";
         $order->save();
+        } else {
+             print("Stylist or items are not chosen!!");
+             return redirect('/ordercomp');
+        }
+       
 
         return redirect('/home');
     }

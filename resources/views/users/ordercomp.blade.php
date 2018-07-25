@@ -21,6 +21,16 @@ $user= \Auth::user()->first();
 $my_images = U_item::where('myitems_check','on')->get();
 $new_images = U_item::where('newitems_check','on')->get();
 ?>
+<?php 
+     $order = Order::where('suspend','on')->first(); 
+        if(isset($order)){
+         $stylist = User::where('id',$order->stylist_id)->first();
+        
+            if(isset($stylist)) {
+                $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); 
+            }
+        }    
+?> 
 <html>
     <head>
         <h3 class="panel-title name_fontsize">{{ $user->name }}'s Order Confirmation Page</h3>
@@ -84,16 +94,7 @@ $new_images = U_item::where('newitems_check','on')->get();
             
             </script>
         </aside>
-        <?php 
-         $order = Order::where('suspend','on')->first(); 
-            if(isset($order)){
-             $stylist = User::where('id',$order->stylist_id)->first();
-            
-                if(isset($stylist)) {
-                    $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); 
-                }
-            }    
-         ?> 
+       
             
             
         <div class="col-xs-4">
@@ -123,15 +124,37 @@ $new_images = U_item::where('newitems_check','on')->get();
         <div class="col-xs-4">
             <div class="panel panel-default">
                 <div class='panel-body'>
-                    Stylist :
+                    Stylist :<?php if(isset($stylist)){
+                        print $stylist->name; 
+                        } ?>
                     <br>
-                    Rank :
+                    Rank :<?php if(isset($stylist->rank)){
+                        print $stylist->rank; 
+                    } ?>
                     <br>
-                    My Items Coordinate: 5
+                    My Items Coordinate: <?php if((null !==$order->myitems_conumber) and (null !==$order->newitems_conumber)){
+                        print $order->myitems_conumber;
+                    } ?>
                     <br>
-                    New Items Coordinate: 3
+                    New Items Coordinate: <?php 
+                        if((null !==$order->myitems_conumber) and (null !==$order->newitems_conumber)){
+                            print $order->newitems_conumber;
+                        }  ?>
                     <br>
-                    Price : 
+                    Price : <?php 
+                    if(isset($stylist->rank)){
+                        if((null !== $order->myitems_conumber) and (null !== $order->newitems_conumber)) {
+                            if($stylist->rank="legend") {
+                                $price= 5*$order->myitems_conumber+3*$order->newitems_conumber;
+                            }elseif($stylist->rank="pro") {
+                                $price= 3*$order->myitems_conumber+2*$order->newitems_conumber;
+                            }else {
+                                $price= 1.5*$order->myitems_conumber+1*$order->newitems_conumber;
+                            }
+                            print "$".$price;
+                        } 
+                    } ?>
+                    
                 </div>
             </div>
            <br>
