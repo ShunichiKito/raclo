@@ -110,7 +110,7 @@ class ItemsController extends Controller
     //     return redirect()->back();
     // }
 
-}
+
     
 
     //         $rws_response = $client->execute('IchibaItemSearch', [
@@ -141,7 +141,7 @@ class ItemsController extends Controller
     //     return redirect()->back();
     // }
 
-}
+
     
 
     //         $rws_response = $client->execute('IchibaItemSearch', [
