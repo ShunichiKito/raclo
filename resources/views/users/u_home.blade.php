@@ -32,14 +32,14 @@
                 <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
                 <!--<p class="left-fukidashi">ハンガー</p>-->
                     <div class="tab">
-                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
-                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">WithinMyItems</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">WithNewItems</button>
                     </div>
                      {!! Form::open(['route' => ['items.selected']]) !!}
 
                     <div id="Myitem" class="tabcontent">
                         <div class=cloths>
-                        <!--myitemのコンテンツ-->
+                        <!--myitemのコンテンツ-->     
                         <!--<div class="w3--card-4">-->
                             <!--item変数を追加してから以下を実行する-->
                             @if (Auth::check())
