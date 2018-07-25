@@ -7,6 +7,8 @@
 <div class="row">
     <div class="col-xs-12">
         <nav class="navbar navbar-inverse !important"> 
+                     <img src="Raclo.jpg" class="logo navbar-left">
+
         	<div class="container-fluid">
         		<div class="navbar-header">
         			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
@@ -15,9 +17,7 @@
         				<span class="icon-bar"></span>
         				<span class="icon-bar"></span>
         			</button>
-        			<a class="navbar-brand" href="#">
-        				Raclo
-        			</a>
+        		
         		</div>
         		
         		<div class="collapse navbar-collapse" id="navbarEexample3">

@@ -1,4 +1,11 @@
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
+
+
+
 <nav class="navbar navbar-inverse">
+  
+   <img src="Raclo.jpg" class="logo navbar-left">
+
   <div class="container-fluid">
     <div class="navbar-header">
       <!-- hamburger button which shows narrow width -->
@@ -15,11 +22,13 @@
       <ul class="nav navbar-nav">
         <li><a href="/s_request_lists">Requests</a></li>
         <!--<li><a href="/s_workspace">Workspace</a></li>-->
+      </ul>
        
       
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
-          <ul class="dropdown-menu">
+             <div id="navbar" class="collapse navbar-collapse navbar-right">
+        <ul class="nav navbar-nav">
+          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
+<ul class="dropdown-menu">
             <!--<li><a href="#">Change Profile</a></li>-->
             <li>{!! link_to_route('users.edit', 'Change Profile', ['id' => Auth::user()->id]) !!}</li>
             <li>{!! link_to_route('s_price', 'Price') !!}</li>
@@ -28,6 +37,7 @@
           </ul>
         </li>
       </ul>
+      </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
