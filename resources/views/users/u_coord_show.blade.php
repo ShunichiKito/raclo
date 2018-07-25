@@ -16,7 +16,7 @@
 	    if(empty($order->item1)) {
 	    	 print $order->item1;
 	    }
-	   
+	   ?>
 	</div>
 
 	
