@@ -13,7 +13,7 @@
     <section>
         <h2>Privacy Policy</h2>
         <p>Our Privacy Center provides various information on our effort to protect your privacy. We will keep updating and expanding the contents.</p>
-        <p>Pandanity group aims to provide you with a unique and personalized experience when you interact with the Our Group’s services. In order to achieve this goal, the Pandanity Group provides a unified ID program called “Pandanity ID,” which includes a single log-in function that makes it easy for you to access and use applicable services provided globally by the Pandanity Group companies. You may create your own Pandanity account (your “Account”), and use all related services (together, the “Membership Service”) in accordance with this Policy and the Pandanity Membership Terms & Conditions set forth separately by Rakuten.</p>
+        <p>Pandanity group aims to provide you with a unique and personalized experience when you interact with the Our Group’s services. In order to achieve this goal, the Pandanity Group provides a unified ID program called “Pandanity ID,” which includes a single log-in function that makes it easy for you to access and use applicable services provided globally by the Pandanity Group companies. You may create your own Pandanity account (your “Account”), and use all related services (together, the “Membership Service”) in accordance with this Policy and the Pandanity Membership Terms & Conditions set forth separately by Pandanity.</p>
     
     <br>
     <br>

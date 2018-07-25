@@ -57,7 +57,7 @@ class UsersController extends Controller
         $items=array();
         $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
         
-               return view('users/u_onlinestylist_lists')->with('items',$items);
+              return view('users/u_onlinestylist_lists')->with('items',$items);
                     
             } else{ 
                 return redirect('/');
@@ -147,36 +147,42 @@ class UsersController extends Controller
     
     public function item_register(Request $request)
     {
+
         $myitems=array();
         $myitems = $request->myitem;
+        if (is_array($myitems) || is_object($myitems))
+        {
         foreach($myitems as $myitem) {
             // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
              $createitem = U_item::where('file_path',$myitem)->first();
              $createitem->myitems_check="on";
              $createitem->save();
              
-        }
+        }}
        
         $newitems=array();
         $newitems = $request->newitem;
+        if (is_array($newitems) || is_object($newitems))
+        {
         foreach($newitems as $newitem) {
-            print $newitem;
             // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
              $createitem = U_item::where('file_path',$newitem)->first();
              $createitem->newitems_check="on";
              $createitem->save();
-        }
-
+        }}
+    
         $nocheckmyitems = U_item::whereNotIn('file_path', $myitems)->get();
         foreach($nocheckmyitems as $nocheckmyitem) {
             $nocheckmyitem->myitems_check="off";
             $nocheckmyitem->save();
         }
+        
          $nochecknewitems = U_item::whereNotIn('file_path', $newitems)->get();
         foreach($nochecknewitems as $nochecknewitem) {
             $nochecknewitem->newitems_check="off";
             $nochecknewitem->save();
         }
+        
         
         if(Order::where("suspend", "on")->first()){
             $order=Order::where("suspend", "on")->first();
@@ -192,19 +198,38 @@ class UsersController extends Controller
             $order->save();
         }    
         
-        return redirect('/u_stylist_lists');
+        return redirect('/ordercomp');
 
     }
     
-     public function u_ordercomp($user_name) {
-        
-        $order = Order::where("suspend", "on")->first();
-        $order->stylist_id= User::where("name",$user_name)->first()->id;
+     public function u_ordercomp() {
+          $order = Order::where("suspend", "on")->first();
+        if($order->stylist_id and (U_item::where('myitems-check','on') or U_item::where('newitems-check','on'))) {
+            
         $order->suspend="off";
         $order->state="untouched";
         $order->save();
-        
+        } else {
+             print("Stylist or items are not chosen!!");
+             return redirect('/ordercomp');
+        }
+       
+
         return redirect('/home');
+    }
+    
+     public function u_choosestylist($user_name) {
+        if(Order::where("suspend", "on")->first()){
+            $order=Order::where("suspend", "on")->first();
+            $order->stylist_id= User::where("name",$user_name)->first()->id;
+            $order->save();
+        }else{
+            $order = new Order;
+            $order->stylist_id= User::where("name",$user_name)->first()->id;
+            $order->suspend="on";
+            $order->save();
+        }    
+        return redirect('/ordercomp');
     }
     
 }

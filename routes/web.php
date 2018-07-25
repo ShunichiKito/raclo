@@ -39,17 +39,25 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users/u_home', function () {
         return view('users/u_home');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9e35e7176c0c73ae7e797da013316bd6205bc9b3
     });
     // Route::get('/stylists/s_home', function () {
     //     return view('stylists/s_home');
     // });
     Route::get('/stylists/s_home','ItemsController@s_request_receive');
+<<<<<<< HEAD
 =======
     })->name('u_home');
     Route::get('/stylists/s_home', function () {
         return view('stylists/s_home');
     })->name('s_home');
 >>>>>>> 2df6f9f04e17282808708397627d37ed822ebc7b
+=======
+    
+
+>>>>>>> 9e35e7176c0c73ae7e797da013316bd6205bc9b3
     
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
@@ -73,15 +81,22 @@ Route::group(['middleware' => ['auth']], function () {
     
     //服選択処理→スタイリスト選択へ
     // Route::post('u_order', 'UsersController@u_order')->name('u_order');
-
     
-     //ユーザーによる服選択
+   
+     //ユーザーによる服選択→オーダー確認へ
     // Route::post('/myitems/selected', 'UsersController@myregister')->name('myitems.selected');
     Route::post('/items/selected', 'UsersController@item_register')->name('items.selected');
+   
+    Route::get('/ordercomp', function () {
+        return view('users/ordercomp');
+    })->name('ordercomp');
     
 
-    //スタイリスト選択済み、注文完了処理
-    Route::get('u_ordercomp/{user_name}', 'UsersController@u_ordercomp')->name('u_ordercomp');
+    //スタイリスト選択済み
+    Route::get('u_choosestylist/{user_name}', 'UsersController@u_choosestylist')->name('u_choosestylist');
+     //スタイリスト選択済み
+    Route::get('u_ordercomp', 'UsersController@u_ordercomp')->name('u_ordercomp');
+    
     
     //服アップロード
     Route::post('u_items/store', 'ItemsController@store');
@@ -180,7 +195,6 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
 //Auth::routes();　これは下記のルートと同じ
 // Authentication Routes...
 // $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -196,3 +210,10 @@ $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 9e35e7176c0c73ae7e797da013316bd6205bc9b3

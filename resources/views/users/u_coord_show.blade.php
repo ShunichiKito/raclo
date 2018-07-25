@@ -4,54 +4,60 @@ use App\Coordinated_set;
 ?>
 @section('content')
    
-   
   
     
-    <div class="col-lg-3 panel panel-default">
-	<div class="panel-heading">
-		コーディネートの写真
-	</div>
-	<div class="panel-body">
-	    coordinates or suggestion
+<div class="col-lg-12">
+		<style>
+		.div {
+    width: 5px;
+    display: inline;
+}
+	</style>
+    
 	    <?php 
+	    if(empty($order->item1)) {
+	    	 print $order->item1;
+	    }
+	   
+
 	  
 	    $coordinates=Coordinated_set::where('user_id', \Auth::user()->id)->where('stylist_id',$order->stylist_id)->where('order_id',$order->id)->get();
 	   
 	    foreach($coordinates as $key => $coordinate) { ?>
-	    	<p>coordinate<?php print $key+1;?></p>
+	    	<h3 class="misato">Coordinate<?php print $key+1;?></h3>
 	        <?php if(!empty($coordinate->item1)) { ?>
-		    	<div>
-		    		<img class="co_image" src="<?php print $coordinate->item1; ?>">
+		    	<div class="sho">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item1; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item2)) { ?>
-		    	<div>
-		    		<img class="co_image" src="<?php print $coordinate->item2; ?>">
+		    	<div class="sho">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item2; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item3)) { ?>
-		    	<div>
-		    		<img class="co_image" src="<?php print $coordinate->item3; ?>">
+		    	<div class="sho">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item3; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item4)) { ?>
-		    	<div>
-		    		<img class="co_image" src="<?php print $coordinate->item4; ?>">
+		    	<div class="sho">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item4; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item5)) { ?>
-		    	<div>
-		    		<img class="co_image" src="<?php print $coordinate->item5; ?>">
+		    	<div class="sho">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item5; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item6)) { ?>
-		    	<div>
-		    		<img class="co_image" src="<?php print $coordinate->item6; ?>">
+		    	<div class="sho">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item6; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item7)) { ?>
-		    	<div>
-		    		<img class="co_image" src="<?php print $coordinate->item7; ?>">
+		    	<div class=sho>
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item7; ?>"></a>
 		    	</div>
 	    	<?php }
 	    }
@@ -59,15 +65,28 @@ use App\Coordinated_set;
 	   ?>
 	   <style>
 		   	img.co_image {
-		    width: 100px;
-		    height: 100px;
+		    width: 200px;
+		    height: 200px;
 			}
 	   </style>
-	</div>
-
 	
-    </div>
-    
+		
+		<style>
+		.sho {display: inline;}
+		.misato {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+		</style>
+	
+</div>
     
 	
     
@@ -75,4 +94,4 @@ use App\Coordinated_set;
    
    
    
-@endsection    
+@endsection  
