@@ -40,18 +40,13 @@ use App\Stylist_profile_image;
                             <div class="table-responsive">
                                 
                                <div class="panel-body2"><?php print $stylist->style ?></div>
-                               <a href="{{ route('u_ordercomp', $stylist->name) }}" class='btn byn-danger'>
-                                <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to request this stylist?");'><strong>Send the Request</strong></button>
+                               <a href="{{ route('u_choosestylist', $stylist->name) }}" class='btn byn-danger'>
+                                <button type="submit" class="btn btn-default"><strong>Choose this stylist</strong></strong></button>
                             </a>
                             </div>
                         </div>
                         
-                        <!--<div class='panel-footer'>-->
-                        <!--    <a href="{{ route('u_ordercomp', $stylist->name) }}" class='btn byn-danger'>-->
-                        <!--        <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to request this stylist?");'>Send the Request</button>-->
-                        <!--    </a>-->
-                            
-                        <!--</div>-->
+                       
                     </div>
                 <!--</div>-->
              </div>

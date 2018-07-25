@@ -12,6 +12,7 @@
         <!--画像アップロード-->
         
          {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
+
                 <div class="form-group1">
                         {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
                         {!! Form::file('file') !!}
@@ -23,6 +24,7 @@
                     </div>
                 </div>
         {!! Form::close() !!} 
+
         <!--アップロードした写真表示-->
         
         

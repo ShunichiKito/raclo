@@ -1,7 +1,6 @@
 @extends('layouts.stylist_app')
 
 
-
 <?php
 // $all_images=[
 //             'user' => $user,
@@ -15,14 +14,6 @@
 @section('content')
     <div class="row">
         <aside class="col-xs-3">
-            
-        <style>
-            .tab_size_container {
-    font-family: inherit;
-    font-size: 19px;
-    line-height: inherit;
-    display: inline-block;}
-        </style>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title name_fontsize">{{ $user->name }}</h3>
@@ -37,10 +28,10 @@
 　　　　　　<div class="alert alert-warning count_coordinate" role="alert">5 Suggestions Left</div>
 　　　　　　
         </aside>
-        <div class="col-xs-5">
+        <div class="col-xs-6">
             <div class="tab tab_size_container">
-                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">With My Items</button>
-                <button class="tablinks" onclick="openTab(event, 'withnewitems')">With New Items</button>
+                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
+                <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
                 <button class="tablinks" onclick="openTab(event, 'BrandAvenue')">Brand Avenue</button>
             </div>
             
@@ -63,10 +54,6 @@
                 </div>
             </div>
             
-            <style>
-            .tab_size_container {font-family: inherit;font-size: 19px;line-height: inherit;display: inline-block; float:center;}
-            </style>
-            
             <div id="BrandAvenue" class="tabcontent">
                 <div class="closet-items">
                     <!--item変数を追加してから以下を実行する-->
@@ -74,10 +61,18 @@
                         <div class="search">
                             <div class="row">
                                 <div class="text-center search_box">
+                                    {{--{!! Form::open(['route' => ['branditems.search',$keyword], 'method' => 'get', 'class' => 'form-inline']) !!}--}}
+                                    <!--    <div class="form-group">-->
+                                    {{--        {!! Form::text('keyword', $keyword, ['class' => 'form-control input-lg', 'placeholder' => 'Input the keywords', 'size' => 40]) !!}--}}
+                                    <!--    </div>-->
+                                    {{--    {!! Form::submit('商品を検索', ['class' => 'btn btn-success btn-lg']) !!} --}}
+                                    {{--{!! Form::close() !!}--}}
                                     <br>
                                     <input type="text" id="search_area">
                                     <button type="button" id="search_button">検索</button>
+
                                     <ul  class="brand api_items ui-helper-reset ui-helper-clearfix"></ul>
+
                                     <style>
                                         li.brand_item {
                                             display: inline-block;
@@ -91,7 +86,7 @@
                                           // buttonがclickされたとき、変数に検索する値を代入
                                           $('#search_button').on('click', function(){
                                             var keyword = $('#search_area').val();
-                                             $(".api_items").empty();
+                                             $(".brand_items").empty();
                                             // リクエストURLを設定する
                                             $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
                                               applicationId: "1028803390707827350",
@@ -156,6 +151,7 @@
         <div class="col-xs-3">
             <div id="coordinate_set" class=" ui-state-default">
               <p class="ui-widget-header"><span class="ui-icon" style="float:left;"></span>Coordinate set</p>
+           
             </div>
             <button type="button" id="save">Save</button>
             <button type="button" id="clear">Clear</button>
@@ -294,6 +290,27 @@
         </div> 
     </div>    
  
+                     localStorage.clear();
+                    $("ul#storedItems li").remove();
+                    // $("input[type='hidden']").remove();
+                });
+            });   
+            </script>
+        </div> 
+    </div>    
+    
+    </div> 
+    <style>
+            .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
+            .tab button.active {background-color: #1285a5;}
+            
+
+ </style>
+                       
+        
+        </div> 
+    </div>    
+ 
     <p class="ppp">Stored Items</p>
     <div>
         <ul id="storedItems"></ul>
@@ -313,6 +330,18 @@
                 height: 100px;
             }
             li.append_item {
+                display: inline-block;
+            }
+            input[type="submit"] {
+                padding: 15px 40px;
+                font-size: 1.2em;
+                background-color: #000;
+                color: #fff;
+                border-style: none;
+            }
+            
+
+        </style>
                 display: inline-block;
             }
             input[type="submit"] {
