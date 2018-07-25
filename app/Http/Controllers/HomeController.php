@@ -32,7 +32,7 @@ class HomeController extends Controller
                return view('users/u_home')->with('items',$items);
                     
             } elseif(\Auth::user()->user_type == 2)  { 
-               return view('stylists/s_home')->with('items',$items);
+               return redirect('stylists/s_home')->with('items',$items);
                    
             } else{ 
                 return redirect('/');
