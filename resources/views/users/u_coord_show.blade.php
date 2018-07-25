@@ -27,37 +27,37 @@ use App\Coordinated_set;
 	    	<h3 class="misato">Coordinate<?php print $key+1;?></h3>
 	        <?php if(!empty($coordinate->item1)) { ?>
 		    	<div class="sho">
-		    		<img class="co_image" src="<?php print $coordinate->item1; ?>">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item1; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item2)) { ?>
 		    	<div class="sho">
-		    		<img class="co_image" src="<?php print $coordinate->item2; ?>">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item2; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item3)) { ?>
 		    	<div class="sho">
-		    		<img class="co_image" src="<?php print $coordinate->item3; ?>">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item3; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item4)) { ?>
 		    	<div class="sho">
-		    		<img class="co_image" src="<?php print $coordinate->item4; ?>">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item4; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item5)) { ?>
 		    	<div class="sho">
-		    		<img class="co_image" src="<?php print $coordinate->item5; ?>">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item5; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item6)) { ?>
 		    	<div class="sho">
-		    		<img class="co_image" src="<?php print $coordinate->item6; ?>">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item6; ?>"></a>
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item7)) { ?>
 		    	<div class=sho>
-		    		<img class="co_image" src="<?php print $coordinate->item7; ?>">
+		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item7; ?>"></a>
 		    	</div>
 	    	<?php }
 	    }
