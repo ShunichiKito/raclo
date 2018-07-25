@@ -61,15 +61,22 @@ Route::group(['middleware' => ['auth']], function () {
     
     //服選択処理→スタイリスト選択へ
     // Route::post('u_order', 'UsersController@u_order')->name('u_order');
-
     
-     //ユーザーによる服選択
+   
+     //ユーザーによる服選択→オーダー確認へ
     // Route::post('/myitems/selected', 'UsersController@myregister')->name('myitems.selected');
     Route::post('/items/selected', 'UsersController@item_register')->name('items.selected');
+   
+    Route::get('/ordercomp', function () {
+        return view('users/ordercomp');
+    })->name('ordercomp');
     
 
-    //スタイリスト選択済み、注文完了処理
-    Route::get('u_ordercomp/{user_name}', 'UsersController@u_ordercomp')->name('u_ordercomp');
+    //スタイリスト選択済み
+    Route::get('u_choosestylist/{user_name}', 'UsersController@u_choosestylist')->name('u_choosestylist');
+     //スタイリスト選択済み
+    Route::get('u_ordercomp', 'UsersController@u_ordercomp')->name('u_ordercomp');
+    
     
     //服アップロード
     Route::post('u_items/store', 'ItemsController@store');
@@ -164,7 +171,6 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
 //Auth::routes();　これは下記のルートと同じ
 // Authentication Routes...
 // $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -182,7 +188,5 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
-Route::get("/ordercomp", function(){
-   return View::make("users.ordercomp");
-});
+
 

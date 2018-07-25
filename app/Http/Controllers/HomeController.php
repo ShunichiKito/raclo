@@ -27,7 +27,7 @@ class HomeController extends Controller
         $user = \Auth::user();
         $items=array();
         $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
-        
+       
             if (\Auth::user()->user_type == 1){ 
                return view('users/u_home')->with('items',$items);
                     
