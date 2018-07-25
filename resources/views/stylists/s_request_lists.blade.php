@@ -6,11 +6,11 @@
 <table class="table table-striped table-bordered" >
  <thead>
     <tr style="background-color: #f2dede;">
-      <th>date</th>
-      <th>name</th>
-      <th>content</th>
-      <th>price</th>
-      <th>my items / with new items</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Price</th>
+      <th>My Items / With New Items</th>
     </tr>
  </thead>
  <tbody>
