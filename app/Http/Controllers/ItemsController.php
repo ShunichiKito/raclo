@@ -140,4 +140,3 @@ class ItemsController extends Controller
 
 }
     
-}
