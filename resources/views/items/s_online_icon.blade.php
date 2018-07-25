@@ -12,6 +12,7 @@ use App\User
             
 @if (Auth::check())
         @foreach ($items as $key => $item)
+            
             <div class='row text-center pad-top col-md-4 col-sm-4 col xs-8'>
                 <!--<div class='col-md-4 col-sm-4 col xs-8'>-->
                     <div class='panel'>
