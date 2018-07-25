@@ -48,8 +48,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
    //ユーザー　コーディネート済みセット一覧
-    Route::get('/u_index', 'UsersController@u_index')->name('u_index');
-    
+    Route::get('/u_index', 'UsersController@u_cooindex')->name('u_index');
+    //ユーザー　コーディネート済み詳細
+     Route::get('/u_coord_show/{orderid}', 'UsersController@u_cooshow')->name('u_coord_show');
+   
     //ユーザー、スタイリストプロフィール編集
     Route::get('/u_edit', function () {
         return view('users/u_edit');

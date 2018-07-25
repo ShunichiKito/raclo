@@ -12,6 +12,11 @@
 	</div>
 	<div class="panel-body">
 	    coordinates or suggestion
+	    <?php 
+	    if(empty($order->item1)) {
+	    	 print $order->item1;
+	    }
+	   
 	</div>
 
 	

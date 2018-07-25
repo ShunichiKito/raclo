@@ -1,4 +1,9 @@
-aaaaa<div class='container'>
+<?php
+use App\User;
+use App\Stylist_profile_image;
+?>
+
+<div class='container'>
             <div class='row text-center pad-top'>
                 <div>
                     <h1><strong>Your coordinates from staylists</strong></h1>
@@ -6,7 +11,8 @@ aaaaa<div class='container'>
             </div>
             
 @if (Auth::check())
-        @foreach ($stylists as $stylist)
+        @foreach ($orders as $order)
+            <?php $stylist= User::where('id',$order->user_id)->first(); ?>
             <?php $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); ?> 
             
             <div class='row text-center pad-top col-md-4 col-sm-4 col xs-8'>
@@ -19,7 +25,8 @@ aaaaa<div class='container'>
                              <img src="{{ '/no_image.png' }}" alt="" class="profile_image">
                             @endif
                             <h2 class="panel-body">
-                                <p><?php print $stylist->name; ?></p>
+                                <p><?php print $order->id."th order"; ?></p>
+                                <p><?php print "from".$stylist->name; ?></p>
                                 <p class='index_rank'><?php print $stylist->rank; ?></p>
                                 <style>
                                    .index_rank {
@@ -36,10 +43,12 @@ aaaaa<div class='container'>
                                <div class="panel-body"><?php print $stylist->style ?></div>
                             </div>
                         </div>
-                        
+                        <?php 
+                        // print $order;
+                        ?>
                         <div class='panel panel-footer'>
-                            <a href="{{ route('u_coord_show', $stylist->name) }}" class='btn byn-danger'>
-                                <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to watch the coordinates?");'>See the coordinates</button>
+                            <a href="{{ route('u_coord_show', $order->id) }}" class='btn byn-danger'>
+                                <button type="submit" class="btn btn-default" >See the coordinates</button>
                             </a>
                             
                         </div>
