@@ -33,6 +33,7 @@ $new_images = U_item::where('newitems_check','on')->get();
 ?> 
 <html>
     <head>
+        <br>
         <h3 class="panel-title name_fontsize">{{ $user->name }}'s Order Confirmation Page</h3>
         <br>
         <br>
@@ -48,6 +49,7 @@ $new_images = U_item::where('newitems_check','on')->get();
                 <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
                 <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
             </div>
+            <br>
             
             <div id="withmyitems" class="tabcontent">
                 <div class="closet-items">
@@ -69,11 +71,14 @@ $new_images = U_item::where('newitems_check','on')->get();
             </div>
             </div>
             </div>
-        </div>
-            <br>
-        <div class="selectbutton">
-            <a href="{{ route('home') }}" class="btn btn-info" role="button">Select Items</a>
-        </div>
+        
+            <div class='panel-body'>
+                <div class="button">
+                    <a href="{{ route('home') }}" class="btn btn-info" role="button">Select Items</a>
+                </div>
+            </div>
+        </div>    
+            
             
              <!--タブ入れ替え       -->
             <script>
@@ -98,23 +103,25 @@ $new_images = U_item::where('newitems_check','on')->get();
             
             
         <div class="col-xs-4">
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="panel2">
                 <div class='panel-heading'>
                     @if(isset($item->file_path))
                         <img src="{{ '/storage/s_profile_image/'.$item->file_path }}" alt="" class="profile_image profile_page">
                         <style type="text/css">
-                        .profile_page {width:100%;}
+                        .profile_page {height:100%; width: 100%;}
                         </style>
                     @else
                         <img src="{{ '/no_image.png' }}" alt="" class="profile_image profile_page">
                         <style type="text/css">
-                        .profile_page {width:100%;}
+                        .profile_page {height:100%; width: 100%;}
                         </style>
                     @endif
                 </div>
                 
                 <div class="panel-body">
-                    <div class="button">
+                    <h3>{{ $stylist->name }}</h3>
+                    <h3>{{ $stylist->rank }}</h3>
+                    <div class="button" id="button1">
                     <a href="{{ route('s_index') }}" class="btn btn-info" role="button">Choose Stylist</a>
                     </div>
                 </div>
@@ -122,8 +129,9 @@ $new_images = U_item::where('newitems_check','on')->get();
         </div>
         
         <div class="col-xs-4">
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="panel3">
                 <div class='panel-body'>
+
                     Stylist :<?php if(isset($stylist)){
                         print $stylist->name; 
                         } ?>
@@ -155,12 +163,13 @@ $new_images = U_item::where('newitems_check','on')->get();
                         } 
                     } ?>
                     
+
                 </div>
             </div>
            <br>
            <br>
-           <div class="button">
-            <a href="{{ route('u_ordercomp') }}" class="btn btn-info" role="button" onclick='return confirm("Order Confirmed");'>Order Complete</a>
+           <div class="button" id="button3">
+            <a href="{{ route('u_ordercomp') }}" class="btn btn-danger" role="button" onclick='return confirm("Order Confirmed");'>Order Complete</a>
             </div>
         </div>
        
@@ -175,16 +184,53 @@ $new_images = U_item::where('newitems_check','on')->get();
     
     body {
     background-image: url("/room6.jpg"); 
-    background-size: 120%;
+    background-size: 100%;
 }
-    .selectbutton {
-        position: absolute;
-        bottom: 0;
-        right: 0;
+    
+    #panel2{
+        height: 555px;    
     }
+    
+    #panel3{
+        height: 275px;
+    }
+    
+    #button1 {
+        bottom: 50;
+        text-align: center;
+        left: 45;
+    }
+    
+    #button3 {
+        bottom: 50;
+        text-align: center;
+        left: 45;
+    }
+    
     .panel-heading1 {
         overflow: scroll;
         position: relative;
+        height: 50%;
+        width: 100%;
+        background-color: #f5f5f5;
+        border-color: #ddd;
+    }
+    
+    .panel-body {
+        height: 50%;
+    }
+    
+    .tab button.active {
+        background-color: #5bc0de;
+    }
+        
+    .tabcontent {
+        margin-left: 30;
+        display: inline-block;
+    }
+    
+    h3 {
+        text-align: center;
     }
     
     .button {
@@ -193,12 +239,22 @@ $new_images = U_item::where('newitems_check','on')->get();
         margin-top: 30;
     }
     
+    .button1 {
+        bottom: 0;
+        top: 50;
+    }
+    
     .row {
         font-family: "Abril-Fatface";
     }
     
     .navbar {
         font-family: "Abril-Fatface";
+    }
+    
+    .img {
+        height: 100%;
+        width: 50%;
     }
     
     /*.profile-image {*/
