@@ -167,7 +167,7 @@
               .brand li p { margin:0 0 4px; cursor:move; }
               .brand li span { float:right; }
               #coordinate_set { width: 100%; height:595px; float:right; }
-              #coordinate_set p { line-height:1.5; margin:0 0 4px; }
+              #coordinate_set p { line-height:1.5; margin:0 0 4px; font-size:28px;}
               #coordinate_set p span { float:left; }
             </style>     
             
@@ -282,39 +282,19 @@
         </div> 
     </div>    
     
-              <ul id="storedItems">
-              </ul>
     </div> 
     <style>
             .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
             .tab button.active {background-color: #1285a5;}
+            
 
-            </style>
-                       for (var i = 0, len = localStorage.length; i < len; i++) {
-                         var element = JSON.parse(localStorage.getItem(i));
-                        //  var element2 = JSON.parse(localStorage.getItem(i));
-                        $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
-                    //     $("form").prepend('<text name="'+countUpValue+'">'+element.img+'</text>');
-                    //   　$("form").prepend('<text name="'+countUpValue+'path">'+element.img+'</text>');
-                         $("input[type='submit']").before('<input type="hidden" name="path['+countUpValue+']['+i+']'+ '" value="'+element.img+'">');
-                    //   　$("form").prepend('<input type="hidden" name="'+countUpValue+'path">'+element2.img);
-                        // $("input[type='submit']").before('{!! Form::hidden("path'+countUpValue+'['+i+']",'+element.img+') !!}');
-                  
-                       }
-                   $("ul#storedItems").append('<br>');
-               
-                });
-                $("button#clear").click(function() {
-                     localStorage.clear();
-                    $("ul#storedItems li").remove();
-                    // $("input[type='hidden']").remove();
-                });
-            });   
-            </script>
+ </style>
+                       
+        
         </div> 
     </div>    
  
-    <p>Stored Items</p>
+    <p class="ppp">Stored Items</p>
     <div>
         <ul id="storedItems"></ul>
         <!--<form action="/saveco" method="post">-->
@@ -345,15 +325,28 @@
             
 
         </style>
-    </div>
-             
-              <ul id="storedItems">
-              </ul>
+        </div>
     </div> 
     <style>
             .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
-            .tab button.active {background-color: #1285a5;}
-
-            </style>
+            .tab button.active {background-color: #ecd9f7;}
+            .tab button:hover {
+  color: #fff;
+}
+.tab button::after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+}
+.tab button:hover::after {
+  background: #ecd9f7;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+            .ppp {font-size: 28px;}
+    </style>
 
 @endsection
