@@ -46,7 +46,7 @@ class UsersController extends Controller
     }
     public function u_cooshow($orderid) {
         
-        $order= Order::where('id',$orderid);
+        $order= Order::where('id',$orderid)->first();
          return view('users/u_coord_show')->with('order',$order);
     }
     
