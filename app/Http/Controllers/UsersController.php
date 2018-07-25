@@ -46,7 +46,7 @@ class UsersController extends Controller
     }
     public function u_cooshow($orderid) {
         
-        $order= Order::where('id',$orderid);
+        $order= Order::where('id',$orderid)->first();
          return view('users/u_coord_show')->with('order',$order);
     }
     
@@ -57,7 +57,7 @@ class UsersController extends Controller
         $items=array();
         $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
         
-               return view('users/u_onlinestylist_lists')->with('items',$items);
+              return view('users/u_onlinestylist_lists')->with('items',$items);
                     
             } else{ 
                 return redirect('/');
