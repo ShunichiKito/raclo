@@ -38,11 +38,18 @@ Route::group(['middleware' => ['auth']], function () {
     //ログイン後ホーム
     Route::get('/users/u_home', function () {
         return view('users/u_home');
+<<<<<<< HEAD
     });
     // Route::get('/stylists/s_home', function () {
     //     return view('stylists/s_home');
     // });
     Route::get('/stylists/s_home','ItemsController@s_request_receive');
+=======
+    })->name('u_home');
+    Route::get('/stylists/s_home', function () {
+        return view('stylists/s_home');
+    })->name('s_home');
+>>>>>>> 2df6f9f04e17282808708397627d37ed822ebc7b
     
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
@@ -189,8 +196,3 @@ $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
-
-
-
-
-
