@@ -21,7 +21,6 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="u_stylist_lists">Stylists</a></li>
-          <li><a href="u_onlinestylist_lists">Online Stylists</a></li>
         </ul>
       <!--</div>-->
       <!--<div class="geer navbar-right">-->
