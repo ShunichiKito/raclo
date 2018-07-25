@@ -1,4 +1,4 @@
-@extends('layouts.stylist_app')
+@extends('layouts.stylist2_app')
 
 @section('content')
     <div class="row">
