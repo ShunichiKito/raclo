@@ -15,14 +15,13 @@
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ secure_asset('css/stylist_list.css') }}">
         <link rel="stylesheet" href="{{ secure_asset('css/s_icon.css') }}">
-        
         <style>
             body{
                 font-family: "Abril-Fatface";
             }
         </style>
         
-        <!--<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">-->
+        <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
     <body>
         @include('commons.user_navbar')

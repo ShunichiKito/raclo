@@ -20,7 +20,7 @@
           
     </div>
     <div class="col-xs-5">
-        <div class="panel panel-danger">
+        <div class="panel">
             <div class="panel-heading">
             <h1>{{ $user->name }}</h1>
             <p>Your private information will be protected and can be edit it anytime</p>
@@ -78,3 +78,30 @@
 
 @endif
 @endsection
+
+<style>
+body {
+    background-image: url('/priceimg/4827196796_c511b4be80_o.jpg');
+}
+
+.panel{
+    border-color:black;
+    border-radius: 15px;
+    font-family: "Abril-Fatface";
+    /*margin-left: 663px;*/
+
+}
+
+.panel-heading{
+    color: white;
+    /*border-color: black;*/
+    background-color:black;
+    height: 50%;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    height: 100px;
+    
+}
+
+    
+</style>
