@@ -21,8 +21,7 @@
     font-family: inherit;
     font-size: 19px;
     line-height: inherit;
-    display: inline-block;
-    float: center;}
+    display: inline-block;}
         </style>
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -262,6 +261,8 @@
               </ul>
     </div> 
     <style>
-            .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}    
+            .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
+            .tab button.active {background-color: #1285a5;}
+
             </style>
 @endsection
