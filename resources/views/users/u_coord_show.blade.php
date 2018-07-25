@@ -94,4 +94,4 @@ use App\Coordinated_set;
    
    
    
-@endsection    
+@endsection  
