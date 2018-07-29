@@ -15,7 +15,16 @@ class CreateOrderedItemsTable extends Migration
     {
         Schema::create('ordered_items', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('order_id')->unsigned()->index()->nullable();
+            $table->integer('uitem_id')->unsigned()->index()->nullable();
+            $table->enum('myitems_check', ['on', 'off'])->nullable();
+            $table->enum('newitems_check', ['on', 'off'])->nullable();
             $table->timestamps();
+            
+            // 外部キー設定
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->foreign('uitem_id')->references('id')->on('u_items')->onDelete('cascade');
+
         });
     }
 

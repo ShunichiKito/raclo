@@ -7,6 +7,7 @@ use App\User;
 use App\U_item;
 use App\Order;
 use App\Stylist_profile_image;
+use App\Ordered_item;
 
 // class UsersController extends Controller
 // {
@@ -151,7 +152,7 @@ class UsersController extends Controller
     //ユーザーのコーディネートしてほしい服選択完了
     public function item_register(Request $request)
     {
-
+        //ユーザー側で表示用myitems_checkをon
         $myitems=array();
         $myitems = $request->myitem;
         if ($myitems) {
@@ -162,7 +163,7 @@ class UsersController extends Controller
                  $createitem->save();
              }
         }
-       
+       //ユーザー側で表示用newitems_checkをon
         $newitems=array();
         $newitems = $request->newitem;
         if ($newitems) {
@@ -173,7 +174,6 @@ class UsersController extends Controller
                  $createitem->save();
             }
         }
-        
         if(null==$myitems){
             $all_u_item= U_item::where('user_name',\Auth::user()->name)->get();
             foreach($all_u_item as $u_item) {
@@ -199,9 +199,9 @@ class UsersController extends Controller
                 $nochecknewitem->newitems_check="off";
                 $nochecknewitem->save();
             }
-        }    
+        }   
         
-        
+        //既にオーダーあれば更新、なければ作成
         if(Order::where("suspend", "on")->where("user_id",\Auth::id())->first()){
             $order=Order::where("suspend", "on")->where("user_id",\Auth::id())->first();
             $order->myitems_conumber=$request->myitems_conumber;
@@ -215,31 +215,61 @@ class UsersController extends Controller
             $order->suspend="on";
             $order->save();
         }    
-        
         return redirect('/ordercomp');
-
     }
     
     //スタイリストへのオーダーコンプリート
-     public function u_ordercomp() {
-          $order = Order::where("suspend", "on")->where("user_id",\Auth::id())->first();
-          $myitem_exist=U_item::where("myitems_check",'on')->where("user_name",\Auth::user()->name)->exists();
-          $newitem_exist=U_item::where("newitems_check",'on')->where("user_name",\Auth::user()->name)->exists();
-        if(($order->stylist_id)&&( $myitem_exist || $newitem_exist)) {
+    public function u_ordercomp() {
+        $order = Order::where("suspend", "on")->where("user_id",\Auth::id())->first();
+       
+        //オーダーアイテム登録　登録と同時にユーザー側checkはoffに
+        $checked_myitems=U_item::where("myitems_check",'on')->where("user_name",\Auth::user()->name)->get();
+        if($checked_myitems){
+            foreach($checked_myitems as $checked_myitem) {
+                $ordered_item= new Ordered_item;
+                $order_item->order_id = $order->id;
+                $order_item->uitem_id = $checked_myitem->id;
+                $ordered_item->myitems_check="on";
+                $ordered_item->save();
+                $checked_myitem->myitems_check="off";
+                $checked_myitem->save();
+            }
+        }    
+        $checked_newitems=U_item::where("newitems_check",'on')->where("user_name",\Auth::user()->name)->get();
+        if($checked_newitems){
+            foreach($checked_newitems as $checked_newitem) {
+                if(Ordered_item::where('id',$checked_newitem->id)->where('myitems_check','on')->first()) {
+                    $ordered_item=Ordered_item::where('id',$checked_newitem->id)->where('myitems_check','on')->first();
+                    $ordered_item->newitems_check='on';
+                    $ordered_item->save();
+                    $checked_myitem->newitems_check="off";
+                    $checked_myitem->save();
+                }else {
+                    $ordered_item= new Ordered_item;
+                    $ordered_item->order_id = $order->id;
+                    $ordered_item->uitem_id = $checked_newitem->id;
+                    $ordered_item->newitems_check="on";
+                    $ordered_item->save();
+                    $checked_myitem->newitems_check="off";
+                    $checked_myitem->save();
+                }
+            }
+        }    
+        //   $checked_myitems=U_item::where("myitems_check",'on')->where("user_name",\Auth::user()->name)->exists();
+        //   $newitem_exist=U_item::where("newitems_check",'on')->where("user_name",\Auth::user()->name)->exists();
+        if(($order->stylist_id)&&( $checked_myitems || $checked_newitems)) {
             $order->suspend="off";
             $order->state="untouched";
             $order->save();
+            return redirect('/home');
         } else {
              print("Stylist or items are not chosen!!");
              return redirect('/ordercomp');
         }
-       
-
-        return redirect('/home');
     }
     
     //スタイリスト選択完了
-     public function u_choosestylist($user_name) {
+    public function u_choosestylist($user_name) {
         if(Order::where("suspend", "on")->where("user_id",\Auth::id())->first()){
             $order=Order::where("suspend", "on")->where("user_id",\Auth::id())->first();
             $order->stylist_id= User::where("name",$user_name)->first()->id;
@@ -253,7 +283,6 @@ class UsersController extends Controller
         }    
         return redirect('/ordercomp');
     }
-    
 }
 
 
