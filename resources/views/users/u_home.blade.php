@@ -52,6 +52,7 @@
                             @if (Auth::check())
                                @include('items.u_myitems', ['items' => $items ])
                             @endif
+                            
                         </div>
                     </div>
                 

@@ -18,18 +18,13 @@ use App\Order;
 
 <?php
 $user= \Auth::user()->first();
-$my_images = U_item::where('myitems_check','on')->get();
-$new_images = U_item::where('newitems_check','on')->get();
-?>
-<?php 
-     $order = Order::where('suspend','on')->first(); 
-        if(isset($order)){
-         $stylist = User::where('id',$order->stylist_id)->first();
-        
-            if(isset($stylist)) {
-                $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); 
-            }
-        }    
+$my_images = U_item::where('myitems_check','on')->where('user_name',\Auth::user()->name)->get();
+$new_images = U_item::where('newitems_check','on')->where('user_name',\Auth::user()->name)->get();
+$order = Order::where('suspend','on')->where("user_id",\Auth::id())->first(); 
+$stylist = User::where('id',$order->stylist_id)->first();
+if(isset($stylist)) {
+$item= Stylist_profile_image::where('user_name',$stylist->name)->first(); 
+}    
 ?> 
 <html>
     <head>
@@ -119,8 +114,12 @@ $new_images = U_item::where('newitems_check','on')->get();
                 </div>
                 
                 <div class="panel-body">
-                    <h3>{{ $stylist->name }}</h3>
-                    <h3>{{ $stylist->rank }}</h3>
+                    <h3>
+                        <?php if(isset($stylist)){ print $stylist->name; } ?>
+                    </h3> 
+                    <h3>
+                        <?php if(isset($stylist)){ print $stylist->rank; } ?>
+                    </h3>
                     <div class="button" id="button1">
                     <a href="{{ route('s_index') }}" class="btn btn-info" role="button">Choose Stylist</a>
                     </div>
@@ -132,26 +131,12 @@ $new_images = U_item::where('newitems_check','on')->get();
             <div class="panel panel-default" id="panel3">
                 <div class='panel-body'>
 
-                    <p>Stylist :<?php if(isset($stylist)){
-                        print $stylist->name; 
-                        } ?></p>
-                   
-                    <p>Rank :<?php if(isset($stylist->rank)){
-                        print $stylist->rank; 
-                    } ?></p>
-                   
-                    <p>My Items Coordinate: <?php if((null !==$order->myitems_conumber) and (null !==$order->newitems_conumber)){
-                        print $order->myitems_conumber;
-                    } ?></p>
-                  
-                    <p>New Items Coordinate: <?php 
-                        if((null !==$order->myitems_conumber) and (null !==$order->newitems_conumber)){
-                            print $order->newitems_conumber;
-                        }  ?></p>
-                   
+                    <p>Stylist :<?php if(isset($stylist)){print $stylist->name; } ?></p>
+                    <p>Rank :<?php if(isset($stylist)){print $stylist->rank; } ?></p>
+                    <p>My Items Coordinate: <?php print $order->myitems_conumber; ?></p>
+                    <p>New Items Coordinate: <?php print $order->newitems_conumber; ?></p>
                     <p>Price : <?php 
                     if(isset($stylist->rank)){
-                        if((null !== $order->myitems_conumber) and (null !== $order->newitems_conumber)) {
                             if($stylist->rank="legend") {
                                 $price= 5*$order->myitems_conumber+3*$order->newitems_conumber;
                             }elseif($stylist->rank="pro") {
@@ -159,8 +144,9 @@ $new_images = U_item::where('newitems_check','on')->get();
                             }else {
                                 $price= 1.5*$order->myitems_conumber+1*$order->newitems_conumber;
                             }
+                            $order->price = $price;
+                            $order->save();
                             print "$".$price;
-                        } 
                     } ?></p>
                     
 
@@ -169,7 +155,7 @@ $new_images = U_item::where('newitems_check','on')->get();
            <br>
            <br>
            <div class="button" id="button3">
-            <a href="{{ route('u_ordercomp') }}" class="btn btn-danger" role="button" onclick='return confirm("Order Confirmed");'>Order Complete</a>
+                <a href="{{ route('u_ordercomp') }}" class="btn btn-danger" role="button" onclick='return confirm("Order Confirmed");'>Order Complete</a>
             </div>
         </div>
        
