@@ -15,7 +15,7 @@
         <span class="icon-bar"></span>
       </button>
       <!-- link back to the home -->
-      <a class="navbar-brand" href="/s_home">My page</a>
+      <a class="navbar-brand" href="/s_request_lists">My page</a>
     </div>
     <!-- menu items -->
     <div id="navbar" class="collapse navbar-collapse">
