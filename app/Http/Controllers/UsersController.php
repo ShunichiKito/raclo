@@ -227,8 +227,8 @@ class UsersController extends Controller
         if($checked_myitems){
             foreach($checked_myitems as $checked_myitem) {
                 $ordered_item= new Ordered_item;
-                $order_item->order_id = $order->id;
-                $order_item->uitem_id = $checked_myitem->id;
+                $ordered_item->order_id = $order->id;
+                $ordered_item->uitem_id = $checked_myitem->id;
                 $ordered_item->myitems_check="on";
                 $ordered_item->save();
                 $checked_myitem->myitems_check="off";
@@ -238,7 +238,7 @@ class UsersController extends Controller
         $checked_newitems=U_item::where("newitems_check",'on')->where("user_name",\Auth::user()->name)->get();
         if($checked_newitems){
             foreach($checked_newitems as $checked_newitem) {
-                if(Ordered_item::where('id',$checked_newitem->id)->where('myitems_check','on')->first()) {
+                if(Ordered_item::where('order_id',$order->id)->where('id',$checked_newitem->id)->where('myitems_check','on')->first()) {
                     $ordered_item=Ordered_item::where('id',$checked_newitem->id)->where('myitems_check','on')->first();
                     $ordered_item->newitems_check='on';
                     $ordered_item->save();
@@ -255,9 +255,10 @@ class UsersController extends Controller
                 }
             }
         }    
-        //   $checked_myitems=U_item::where("myitems_check",'on')->where("user_name",\Auth::user()->name)->exists();
-        //   $newitem_exist=U_item::where("newitems_check",'on')->where("user_name",\Auth::user()->name)->exists();
-        if(($order->stylist_id)&&( $checked_myitems || $checked_newitems)) {
+        $ordered_myitems=Ordered_item::where("order_id",$order->id)->where("myitems_check",'on')->exists();
+        $ordered_newitems=Ordered_item::where("order_id",$order->id)->where("newitems_check",'on')->exists();
+        
+        if(($order->stylist_id)and( $ordered_myitems or $ordered_newitems)) {
             $order->suspend="off";
             $order->state="untouched";
             $order->save();

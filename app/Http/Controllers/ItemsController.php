@@ -7,6 +7,7 @@ use App\User;
 use App\U_Item;
 use App\Order;
 use App\Coordinated_set;
+use App\Ordered_item;
 
 class ItemsController extends Controller
 {
@@ -42,10 +43,20 @@ class ItemsController extends Controller
         $order=Order::where('id', $orderid)->first();
         $user= User::where('id',$order->user_id)->first();
         $stylist= \Auth::user();
-        $images=array();
-        $images= U_item::where('user_name', $user->name)->get();
-        $my_images =  U_item::where('myitems_check', 'on')->get();
-        $new_images = U_item::where('newitems_check', 'on')->get();
+        // $images=array();
+        // $images= U_item::where('user_name', $user->name)->get();
+        $my_orderimages= Ordered_item::where('order_id',$order->id)->where('myitems_check', 'on')->get();
+        $new_orderimages= Ordered_item::where('order_id',$order->id)->where('newitems_check', 'on')->get();
+        $my_orderimages_array=array();
+        $new_orderimages_array=array();
+        foreach($my_orderimages as $my_orderimage){
+            $my_orderimages_array[]= $my_orderimage->uitem_id;
+        }
+        foreach($new_orderimages as $new_orderimage){
+            $new_orderimages_array[]= $new_orderimage->uitem_id;
+        }
+       $my_images =  U_item::whereIn('id', $my_orderimages_array)->get();
+        $new_images =  U_item::whereIn('id', $new_orderimages_array)->get();
         
         $all_images=[
             'order'=>$order,
