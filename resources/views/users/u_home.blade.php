@@ -72,7 +72,12 @@
                     <input type="submit" name="itemSubmit" value="Next" class="submission myitem-next"/>
                     
                     <!--<img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
-                   
+                    <style>
+                        .myitem-next {
+                            position:relative;
+                            margin:0;
+                        }
+                    </style>
                       
                       
                       
