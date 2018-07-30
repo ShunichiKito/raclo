@@ -12,7 +12,7 @@ use App\Stylist_profile_image;
             
 @if (Auth::check())
         @foreach ($orders as $order)
-            <?php $stylist= User::where('id',$order->user_id)->first(); ?>
+            <?php $stylist= User::where('id',$order->stylist_id)->first(); ?>
             <?php $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); ?> 
             
             <div class='row text-center pad-top col-md-4 col-sm-4 col xs-8'>
@@ -26,7 +26,7 @@ use App\Stylist_profile_image;
                             @endif
                             <h2 class="panel-body">
                                 <p><?php print $order->id."th order"; ?></p>
-                                <p><?php print "from".$stylist->name; ?></p>
+                                <p><?php print "from ".$stylist->name; ?></p>
                                 <p class='index_rank'><?php print $stylist->rank; ?></p>
                                 <style>
                                    .index_rank {

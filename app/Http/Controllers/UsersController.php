@@ -7,6 +7,7 @@ use App\User;
 use App\U_item;
 use App\Order;
 use App\Stylist_profile_image;
+use App\Ordered_item;
 
 // class UsersController extends Controller
 // {
@@ -25,7 +26,7 @@ use App\Stylist_profile_image;
 
 class UsersController extends Controller
 {
-    //
+    //スタイリスト一覧ページ
     
      public function s_index()
     {   
@@ -37,34 +38,36 @@ class UsersController extends Controller
             } else{ 
                 return redirect('/');
             }
+    //コーディネートされたセット一覧        
     }
     public function u_cooindex()
     {   
         $orders=Order::where('user_id', \Auth::user()->id)->where('state','done')->get();
         return view('users/u_complete_coord')->with('orders',$orders);
-            
     }
+    
+    //コーディネートされた１セット
     public function u_cooshow($orderid) {
         
         $order= Order::where('id',$orderid)->first();
          return view('users/u_coord_show')->with('order',$order);
     }
     
-    
-    public function s_online_index()
-    {   
-        if (\Auth::user()->user_type == 1){
-        $items=array();
-        $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
+    //オンラインスタイリストリスト一覧
+    // public function s_online_index()
+    // {   
+    //     if (\Auth::user()->user_type == 1){
+    //     $items=array();
+    //     $items = \DB::table('stylist_profile_images')->join('users', 'stylist_profile_images.user_name', '=', 'users.name')->select('stylist_profile_images.file_path', 'stylist_profile_images.user_name', 'users.style')->distinct()->paginate(100);
         
-              return view('users/u_onlinestylist_lists')->with('items',$items);
+    //           return view('users/u_onlinestylist_lists')->with('items',$items);
                     
-            } else{ 
-                return redirect('/');
-            }
-    }
+    //         } else{ 
+    //             return redirect('/');
+    //         }
+    // }
     
-  
+   //ユーザー、スタイリストそれぞれのプロフィールエディット画面へ
     public function edit($id)
     {
         
@@ -90,6 +93,7 @@ class UsersController extends Controller
         
     }
     
+    //ユーザー、スタイリストそれぞれのプロフィールアップデート
      public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -145,47 +149,61 @@ class UsersController extends Controller
         }
     }
     
+    //ユーザーのコーディネートしてほしい服選択完了
     public function item_register(Request $request)
     {
-
+        //ユーザー側で表示用myitems_checkをon
         $myitems=array();
         $myitems = $request->myitem;
-        if (is_array($myitems) || is_object($myitems))
-        {
-        foreach($myitems as $myitem) {
-            // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
-             $createitem = U_item::where('file_path',$myitem)->first();
-             $createitem->myitems_check="on";
-             $createitem->save();
-             
-        }}
-       
+        if ($myitems) {
+            foreach($myitems as $myitem) {
+                // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
+                 $createitem = U_item::where('file_path',$myitem)->first();
+                 $createitem->myitems_check="on";
+                 $createitem->save();
+             }
+        }
+       //ユーザー側で表示用newitems_checkをon
         $newitems=array();
         $newitems = $request->newitem;
-        if (is_array($newitems) || is_object($newitems))
-        {
-        foreach($newitems as $newitem) {
-            // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
-             $createitem = U_item::where('file_path',$newitem)->first();
-             $createitem->newitems_check="on";
-             $createitem->save();
-        }}
-    
-        $nocheckmyitems = U_item::whereNotIn('file_path', $myitems)->get();
-        foreach($nocheckmyitems as $nocheckmyitem) {
-            $nocheckmyitem->myitems_check="off";
-            $nocheckmyitem->save();
+        if ($newitems) {
+            foreach($newitems as $newitem) {
+                // $items = \DB::table('u_items')->join('users', 'u_items.user_name', '=', 'users.name')->select('u_items.file_path')->where('u_items.user_name', $user->name)->distinct()->paginate(10);
+                 $createitem = U_item::where('file_path',$newitem)->first();
+                 $createitem->newitems_check="on";
+                 $createitem->save();
+            }
         }
+        if(null==$myitems){
+            $all_u_item= U_item::where('user_name',\Auth::user()->name)->get();
+            foreach($all_u_item as $u_item) {
+                $u_item->myitems_check="off";
+                $u_item->save();
+            }
+        }else{
+            $nocheckmyitems = U_item::whereNotIn('file_path', $myitems)->get();
+            foreach($nocheckmyitems as $nocheckmyitem) {
+                $nocheckmyitem->myitems_check="off";
+                $nocheckmyitem->save();
+            }
+        }    
+        if(null==$newitems){
+            $all_u_item= U_item::where('user_name',\Auth::user()->name)->get();
+            foreach($all_u_item as $u_item) {
+                $u_item->newitems_check="off";
+                $u_item->save();
+            }
+        } else {    
+            $nochecknewitems = U_item::whereNotIn('file_path', $newitems)->get();
+            foreach($nochecknewitems as $nochecknewitem) {
+                $nochecknewitem->newitems_check="off";
+                $nochecknewitem->save();
+            }
+        }   
         
-         $nochecknewitems = U_item::whereNotIn('file_path', $newitems)->get();
-        foreach($nochecknewitems as $nochecknewitem) {
-            $nochecknewitem->newitems_check="off";
-            $nochecknewitem->save();
-        }
-        
-        
-        if(Order::where("suspend", "on")->first()){
-            $order=Order::where("suspend", "on")->first();
+        //既にオーダーあれば更新、なければ作成
+        if(Order::where("suspend", "on")->where("user_id",\Auth::id())->first()){
+            $order=Order::where("suspend", "on")->where("user_id",\Auth::id())->first();
             $order->myitems_conumber=$request->myitems_conumber;
             $order->newitems_conumber=$request->newitems_conumber;
             $order->save();
@@ -197,41 +215,75 @@ class UsersController extends Controller
             $order->suspend="on";
             $order->save();
         }    
-        
         return redirect('/ordercomp');
-
     }
     
-     public function u_ordercomp() {
-          $order = Order::where("suspend", "on")->first();
-        if($order->stylist_id and (U_item::where('myitems-check','on') or U_item::where('newitems-check','on'))) {
-            
-        $order->suspend="off";
-        $order->state="untouched";
-        $order->save();
+    //スタイリストへのオーダーコンプリート
+    public function u_ordercomp() {
+        $order = Order::where("suspend", "on")->where("user_id",\Auth::id())->first();
+       
+        //オーダーアイテム登録　登録と同時にユーザー側checkはoffに
+        $checked_myitems=U_item::where("myitems_check",'on')->where("user_name",\Auth::user()->name)->get();
+        if($checked_myitems){
+            foreach($checked_myitems as $checked_myitem) {
+                $ordered_item= new Ordered_item;
+                $ordered_item->order_id = $order->id;
+                $ordered_item->uitem_id = $checked_myitem->id;
+                $ordered_item->myitems_check="on";
+                $ordered_item->save();
+                $checked_myitem->myitems_check="off";
+                $checked_myitem->save();
+            }
+        }    
+        $checked_newitems=U_item::where("newitems_check",'on')->where("user_name",\Auth::user()->name)->get();
+        if($checked_newitems){
+            foreach($checked_newitems as $checked_newitem) {
+                if(Ordered_item::where('order_id',$order->id)->where('id',$checked_newitem->id)->where('myitems_check','on')->first()) {
+                    $ordered_item=Ordered_item::where('id',$checked_newitem->id)->where('myitems_check','on')->first();
+                    $ordered_item->newitems_check='on';
+                    $ordered_item->save();
+                    $checked_myitem->newitems_check="off";
+                    $checked_myitem->save();
+                }else {
+                    $ordered_item= new Ordered_item;
+                    $ordered_item->order_id = $order->id;
+                    $ordered_item->uitem_id = $checked_newitem->id;
+                    $ordered_item->newitems_check="on";
+                    $ordered_item->save();
+                    $checked_myitem->newitems_check="off";
+                    $checked_myitem->save();
+                }
+            }
+        }    
+        $ordered_myitems=Ordered_item::where("order_id",$order->id)->where("myitems_check",'on')->exists();
+        $ordered_newitems=Ordered_item::where("order_id",$order->id)->where("newitems_check",'on')->exists();
+        
+        if(($order->stylist_id)and( $ordered_myitems or $ordered_newitems)) {
+            $order->suspend="off";
+            $order->state="untouched";
+            $order->save();
+            return redirect('/home');
         } else {
              print("Stylist or items are not chosen!!");
              return redirect('/ordercomp');
         }
-       
-
-        return redirect('/home');
     }
     
-     public function u_choosestylist($user_name) {
-        if(Order::where("suspend", "on")->first()){
-            $order=Order::where("suspend", "on")->first();
+    //スタイリスト選択完了
+    public function u_choosestylist($user_name) {
+        if(Order::where("suspend", "on")->where("user_id",\Auth::id())->first()){
+            $order=Order::where("suspend", "on")->where("user_id",\Auth::id())->first();
             $order->stylist_id= User::where("name",$user_name)->first()->id;
             $order->save();
         }else{
             $order = new Order;
+            $order->user_id= \Auth::id();
             $order->stylist_id= User::where("name",$user_name)->first()->id;
             $order->suspend="on";
             $order->save();
         }    
         return redirect('/ordercomp');
     }
-    
 }
 
 

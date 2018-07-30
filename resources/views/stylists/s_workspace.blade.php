@@ -22,10 +22,10 @@
                 <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->id, 500) }}" alt="">
                 </div>
             </div>
-            <div class="alert alert-info count_coordinate" role="alert">3 Coordinates Left</div>
+            <!--<div class="alert alert-info count_coordinate" role="alert">3 Coordinates Left</div>-->
 　　　　　　<br>
 　　　　　　<br>
-　　　　　　<div class="alert alert-warning count_coordinate" role="alert">5 Suggestions Left</div>
+　　　　　　<!--<div class="alert alert-warning count_coordinate" role="alert">5 Suggestions Left</div>-->
 　　　　　　
         </aside>
         <div class="col-xs-6">
@@ -99,7 +99,7 @@
                                                 $.each(data.Items, function(i, item){
                                                   var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
 
-                                                  $(".api_items").append(temp);
+                                                 $(".api_items").append(temp);
                                                 jQuery("li", jQuery(".brand")).draggable({
                                                     revert: "invalid",
                                                     helper: "clone",
@@ -290,11 +290,11 @@
         </div> 
     </div>    
  
-                     localStorage.clear();
-                    $("ul#storedItems li").remove();
-                    // $("input[type='hidden']").remove();
-                });
-            });   
+                    <!-- localStorage.clear();-->
+                    <!--$("ul#storedItems li").remove();-->
+                    <!--// $("input[type='hidden']").remove();-->
+            <!--    });-->
+            <!--});   -->
             </script>
         </div> 
     </div>    
@@ -341,16 +341,16 @@
             }
             
 
-        </style>
-                display: inline-block;
-            }
-            input[type="submit"] {
-                padding: 15px 40px;
-                font-size: 1.2em;
-                background-color: #000;
-                color: #fff;
-                border-style: none;
-            }
+       
+            /*    display: inline-block;*/
+            /*}*/
+            /*input[type="submit"] {*/
+            /*    padding: 15px 40px;*/
+            /*    font-size: 1.2em;*/
+            /*    background-color: #000;*/
+            /*    color: #fff;*/
+            /*    border-style: none;*/
+            /*}*/
             
 
         </style>

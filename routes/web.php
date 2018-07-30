@@ -43,9 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     //     return view('stylists/s_home');
     // });
     Route::get('/stylists/s_home','ItemsController@s_request_receive');
-    
 
-    
     Route::resource('users', 'UsersController', ['only' => ['index', 'show','edit','update']]);
     Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy', 'edit', 'update', 'create', 'show']]);
     
@@ -197,7 +195,3 @@ $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
-
-
-
-
