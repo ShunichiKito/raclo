@@ -41,8 +41,8 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
             <div class='panel-heading1'>
             <div class="container col-lg-12">
                <div class="tab tab_size_container">
-                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
-                <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
+                <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Within my items</button>
+                <button class="tablinks" onclick="openTab(event, 'withnewitems')">With new items</button>
             </div>
             <br>
             
