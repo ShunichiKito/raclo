@@ -1,6 +1,9 @@
 @extends('layouts.stylist_app')
-
+<?php
+use App\User;
+?>
 <link rel="stylesheet" type="text/css" href="{{ secure_asset('workspace_edit.css') }}">
+
 @section('content')
 
 <table class="table table-striped table-bordered" >
@@ -18,9 +21,10 @@
         
         <tr class='clickable-row' data-href="{{ route('s_workspace', $order->id) }}">
            <th><?php echo $order->created_at;?></th>
-           <th><?php echo $order->name;?></th>
+           <th><?php $user=User::where('id',$order->user_id)->first();
+                     echo $user->name ?></th>
            <th><?php echo $order->state;?></th>
-           <th>300yen</th>
+           <th><?php echo "$".$order->price;?></th>
            <th><?php echo $order->myitems_conumber." "."/"." ".$order->newitems_conumber;?></th>
     </tr>
     <?php } ?>

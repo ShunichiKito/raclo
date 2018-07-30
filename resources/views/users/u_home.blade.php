@@ -12,6 +12,7 @@
         <!--画像アップロード-->
         
          {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
+
                 <div class="form-group1">
                         {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
                         {!! Form::file('file') !!}
@@ -23,6 +24,7 @@
                     </div>
                 </div>
         {!! Form::close() !!} 
+
         <!--アップロードした写真表示-->
         
         
@@ -37,19 +39,20 @@
                 <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
                 <!--<p class="left-fukidashi">ハンガー</p>-->
                     <div class="tab">
-                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">withinmyitems</button>
-                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">withnewitems</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">WithinMyItems</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">WithNewItems</button>
                     </div>
                      {!! Form::open(['route' => ['items.selected']]) !!}
 
                     <div id="Myitem" class="tabcontent">
                         <div class=cloths>
-                        <!--myitemのコンテンツ-->
+                        <!--myitemのコンテンツ-->     
                         <!--<div class="w3--card-4">-->
                             <!--item変数を追加してから以下を実行する-->
                             @if (Auth::check())
                                @include('items.u_myitems', ['items' => $items ])
                             @endif
+                            
                         </div>
                     </div>
                 
@@ -69,7 +72,12 @@
                     <input type="submit" name="itemSubmit" value="Next" class="submission myitem-next"/>
                     
                     <!--<img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
-                   
+                    <style>
+                        .myitem-next {
+                            position:relative;
+                            margin:0;
+                        }
+                    </style>
                       
                       
                       

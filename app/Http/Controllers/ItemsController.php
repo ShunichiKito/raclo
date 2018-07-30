@@ -7,23 +7,22 @@ use App\User;
 use App\U_Item;
 use App\Order;
 use App\Coordinated_set;
+use App\Ordered_item;
 
 class ItemsController extends Controller
 {
     public function index()
     {
-        
         $data = [];
             if (\Auth::check()) {
                 
                 $user = \Auth::user();
-                $items = $user->items()->orderBy('created_at', 'desc')->paginate(10);
+                $items = $user->items()->orderBy('created_at', 'desc')->paginate(20);
                 
                 $data = [
                     'user_name' => $user,
                     'items' => $items,
                 ];
-                
                 return view('u_home', $data);
             }
             
@@ -34,10 +33,7 @@ class ItemsController extends Controller
         $stylist= \Auth::user();
         $orders=array();
         $orders= Order::where('stylist_id', $stylist->id)->get();
-        foreach($orders as $order) {
-             $ordered_user= User::where('id', $order->user_id)->first();
-             $order->name=$ordered_user->name;
-        }
+        
         $orders=['orders'=>$orders];
         return view('stylists/s_request_lists', $orders);
         
@@ -45,25 +41,32 @@ class ItemsController extends Controller
      
     public function s_workspace($orderid) {
         $order=Order::where('id', $orderid)->first();
-        $order->state="doing";
-        $order->save();
-        
         $user= User::where('id',$order->user_id)->first();
         $stylist= \Auth::user();
-        $images=array();
-        $images= U_item::where('user_name', $user->name)->get();
-        $my_images =  U_item::where('myitems_check', 'on')->get();
-        $new_images = U_item::where('newitems_check', 'on')->get();
+        // $images=array();
+        // $images= U_item::where('user_name', $user->name)->get();
+        $my_orderimages= Ordered_item::where('order_id',$order->id)->where('myitems_check', 'on')->get();
+        $new_orderimages= Ordered_item::where('order_id',$order->id)->where('newitems_check', 'on')->get();
+        $my_orderimages_array=array();
+        $new_orderimages_array=array();
+        foreach($my_orderimages as $my_orderimage){
+            $my_orderimages_array[]= $my_orderimage->uitem_id;
+        }
+        foreach($new_orderimages as $new_orderimage){
+            $new_orderimages_array[]= $new_orderimage->uitem_id;
+        }
+       $my_images =  U_item::whereIn('id', $my_orderimages_array)->get();
+        $new_images =  U_item::whereIn('id', $new_orderimages_array)->get();
         
         $all_images=[
-            'order' => $order,
+            'order'=>$order,
             'user' => $user,
             'my_images' => $my_images,
             'new_images' => $new_images,
             //とりあえず空のキーワード送る（ブランドアベニュー検索）
             'keyword'=>' '
         ];
-      
+        
         return view('stylists/s_workspace',$all_images);
     }    
     
@@ -80,7 +83,7 @@ class ItemsController extends Controller
         return redirect('/home');
     }
         
-        public function s_saveco(Request $request) {
+     public function s_saveco(Request $request) {
         
         // print_r(count($request->path));
         // return;
@@ -102,7 +105,6 @@ class ItemsController extends Controller
         
         return redirect('/s_request_lists');
     }
-        
     // public function search() {
     //     $keyword= request()->keyword;
     //     $items=[];
@@ -138,5 +140,67 @@ class ItemsController extends Controller
     //     return redirect()->back();
     // }
 
+
+    
+
+    //         $rws_response = $client->execute('IchibaItemSearch', [
+    //             'keyword' => $keyword,
+    //             'imageFlag' => 1,
+    //             'hits' => 20,
+    //         ]);
+    // }
+        
+    //   public function store(Request $request)
+    // {
+
+    //     $request->user()->items()->create([
+    //         'id' => $request->id,
+    //     ]);
+
+    //     return redirect()->back();
+    // }
+    
+    //  public function destroy($id)
+    // {
+    //     $items = \App\Item::find($id);
+
+    //     if (\Auth::user()->id === $item->user_name) {
+    //         $items->delete();
+    //     }
+
+    //     return redirect()->back();
+    // }
+
+
+    
+
+    //         $rws_response = $client->execute('IchibaItemSearch', [
+    //             'keyword' => $keyword,
+    //             'imageFlag' => 1,
+    //             'hits' => 20,
+    //         ]);
+    // }
+        
+    //   public function store(Request $request)
+    // {
+
+    //     $request->user()->items()->create([
+    //         'id' => $request->id,
+    //     ]);
+
+    //     return redirect()->back();
+    // }
+    
+    //  public function destroy($id)
+    // {
+    //     $items = \App\Item::find($id);
+
+    //     if (\Auth::user()->id === $item->user_name) {
+    //         $items->delete();
+    //     }
+
+    //     return redirect()->back();
+    // }
+    
 }
     

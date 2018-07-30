@@ -31,6 +31,7 @@ use App\Stylist_profile_image;
                                    .index_rank {
                                         font-size: 25px;
                                         color: #742253;
+                                        margin-top:45px;
                                     }
                                 </style>
                             </h2>
@@ -40,18 +41,13 @@ use App\Stylist_profile_image;
                             <div class="table-responsive">
                                 
                                <div class="panel-body2"><?php print $stylist->style ?></div>
-                               <a href="{{ route('u_ordercomp', $stylist->name) }}" class='btn byn-danger'>
-                                <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to request this stylist?");'><strong>Send the Request</strong></button>
+                               <a href="{{ route('u_choosestylist', $stylist->name) }}" class='btn byn-danger'>
+                                <button type="submit" class="btn btn-default"><strong>Choose this stylist</strong></strong></button>
                             </a>
                             </div>
                         </div>
                         
-                        <!--<div class='panel-footer'>-->
-                        <!--    <a href="{{ route('u_ordercomp', $stylist->name) }}" class='btn byn-danger'>-->
-                        <!--        <button type="submit" class="btn btn-default" onclick='return confirm("Are you sure you want to request this stylist?");'>Send the Request</button>-->
-                        <!--    </a>-->
-                            
-                        <!--</div>-->
+                       
                     </div>
                 <!--</div>-->
              </div>
@@ -71,8 +67,13 @@ h1 {
     font-size:70px;
 }
 
+.panel-body {
+    margin:40px;
+    height:130px;
+}
 .panel-body strong {
     font-size:20px;
+   
 }
 
 .navbar {
@@ -99,10 +100,12 @@ h1 {
     background-color:#DEB887  ;
     color: black;
     border-color:#C0C0C0;
+    height :165px;
 }
 
 .panel-body2{
     font-size: 20px;
+    margin-bottom:25px;
 }
 
 .btn{
@@ -118,7 +121,8 @@ h1 {
      background-color:#CD853F ;
      
  }
-
-
+.table-responsive {
+    margin-top:30px;
+}
 </style>
 
