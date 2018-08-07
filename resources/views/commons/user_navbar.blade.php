@@ -3,7 +3,7 @@
 
 
 <nav class="navbar navbar-inverse" >
- <img src="Raclo.jpg" class="logo navbar-left">
+ <img src="{{secure_asset("Raclo.jpg")}}" class="logo navbar-left">
 
   <div class="container-fluid">
     <div class="user-navstyle">

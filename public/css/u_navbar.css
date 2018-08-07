@@ -1,8 +1,8 @@
 .logo{
+    /*z-index:1;*/
     height: 51px;
     margin:0;
     margin-right:30px;
-    /*float:right;*/
     padding:0;
     border-radius: 4px;
 }
@@ -17,3 +17,5 @@
     
     padding-right:10px;
 }
+
+
