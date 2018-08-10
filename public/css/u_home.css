@@ -1,9 +1,9 @@
-body {
-    background-image: url("/room6.jpg"); 
-    background-size: 120%;
-}
+/*body {*/
+/*    background-image: url("/room6.jpg"); */
+    /*background-size: 120%;*/
+/*}*/
 .screen {
-    background-image: url("/cabinet-575361_1280.png");
+    /*background-image: url("/cabinet-575361_1280.png");*/
     background-size: cover;
     width: 800px;
     height: 750px;
@@ -56,15 +56,30 @@ body {
 
 /* Style the tab */
 .tab {
-   overflow: hidden;
-   border: none;
-   background-color:transparent;
-   z-index: 2;
-   margin-top: 24px;
-   margin-left: 110px;
-   position: absolute !important;
-   width: 572px;
-  }
+   /*overflow: hidden;*/
+   /*border: none;*/
+   /*background-color:transparent;*/
+   /*z-index: 2;*/
+   /*margin-top: 24px;*/
+   /*margin-left: 110px;*/
+   /*position: absolute !important;*/
+   /*width: 572px;*/
+   /*background-color:orange;*/
+   /*opacity:0.4;*/
+      overflow: hidden;
+    border: none;
+    /* background-color: transparent; */
+    z-index: 2;
+    margin-top: 24px;
+    margin: 0 auto;
+    position: absolute !important;
+    /* background-color: orange; */
+    /* opacity: 0.4; */
+    width: 1167px;
+    margin-left: 110px;
+
+    
+}
 
 /* Style the buttons inside the tab */
 .tab button {
@@ -99,12 +114,15 @@ body {
 /* Style the tab content */
 .tabcontent {
    /*display: none;*/
-   width:420px;
+   width:800px;
    height: 675px;
    border: none;
    margin-top:45px;
-   margin-left:200px;
-   margin-right:0px;
+   /*margin-left:200px;*/
+   margin:0px;
+   overflow: scroll;
+
+       background-color:white;
 }
 
 
@@ -245,3 +263,7 @@ body {
    /*  display: block;*/
    /*  z-index:2;*/
    /*}*/
+   
+   body{
+         background-image: url('/priceimg/4827196796_c511b4be80_o.jpg');
+}
