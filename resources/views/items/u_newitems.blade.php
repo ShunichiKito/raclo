@@ -13,9 +13,9 @@
     
     
         <div class='row col-md-3 col-sm-3 col-xs-4 panel-danger'>
-            <div class='panel-heading text-center'>
+            <div class='panel-heading text-center panel-newitem-heading'>
                 <img src="{{ 'storage/u_items/'.$item->file_path }}" alt="" class="cloths_image">
-                <div class='panel panel-body text-center panel-danger'>
+                <div class='panel panel-body text-center panel-danger panel-newitem-body'>
                     {{ Form::checkbox('newitem[]',"$item->file_path", false) }}
                 </div>
             </div>

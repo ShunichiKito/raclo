@@ -12,9 +12,9 @@
     @foreach ($items as $key => $item)
 
     <div class='row col-md-3 col-sm-3 col-xs-4 panel-info'>
-        <div class='panel-heading text-center'>
+        <div class='panel-heading text-center panel-myitem-heading'>
             <img src="{{ 'storage/u_items/'.$item->file_path }}" alt="" class="cloths_image">
-            <div class='panel panel-body text-center panel-info'>
+            <div class='panel panel-body panel-info panel-myitem-body'>
                 {{ Form::checkbox('myitem[]',"$item->file_path", false) }}
             </div>
         </div>

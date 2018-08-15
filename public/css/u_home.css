@@ -72,12 +72,11 @@
     z-index: 2;
     margin-top: 24px;
     margin: 0 auto;
-    position: absolute !important;
+    /*position: absolute !important;*/
     /* background-color: orange; */
     /* opacity: 0.4; */
-    width: 1167px;
+    width: 900px;
     margin-left: 110px;
-
     
 }
 
@@ -92,8 +91,7 @@
    cursor: pointer;
    padding: 2px 10px;
    transition: 0.3s;
-   font-size: 17px;
-   margin-top: 12px;
+   font-size: 27px;
    border-radius: 4px;
     font-weight: bold;
     z-index: 1;
@@ -121,53 +119,39 @@
    /*margin-left:200px;*/
    margin:0px;
    overflow: scroll;
-
-       background-color:white;
+    background-image: url("/marble_black.jpg"); 
+    border-radius: 6px;
+    
 }
 
 
 
 /*ネクストボタン*/
-.myitem-next{
-    position: absolute !important;
-    margin-top: -7px;
-    margin-left: 671px;
-    height: 64px;
-    width: 90px;
-    font-size: 21px;
-}
-.newitem-next{
-    position: absolute !important;
-    margin-top: 600px;
-    margin-left: 347px;
-}
 
 
 
-.myitem-next:hover{
-    background-color: 	#FF4500;
+.item-next:hover{
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
     
 }
 
-
-.newitem-next:hover{
-    background-color: 	#FF4500;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
-    
-}
     
 
-.submission{
-    padding: 0.5em 1em;
+.item-next{
+    padding: 0.2em 1em;
     /*text-decoration: none;*/
     border-radius: 4px;
     color: #ffffff;
-    background-color: #FFC106;
-    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
-    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-    border-bottom: solid 3px #c58668;
+    background-color: #3fafcc;
+    border-color:#1091b2;
+    /*background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);*/
+    /*background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);*/
+    /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);*/
+    /*border-bottom: solid 3px #c58668;*/
+    margin-top:50px;
+    margin-left:700px;
+    font-size:25px;
+    position:absolute;
 }
 
 .cloths {
@@ -175,27 +159,29 @@
 }
 
 .form-group1 {
-    margin-left:-200px;
+    margin-left:0px;
+    padding:0;
     /*margin-bottom: -25px;*/
     font-size: 21px;
-    position: absolute;
+    /*position: absolute;*/
     /*margin-px;/*/
     /*text-align:right; */
     
   /*border:solid 5px #0ff;*/
-  /*width:200px;*/
+  width:200px;
   /*border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;*/
   /*padding:10px;*/
-
+display:inline-block;
     /*background-color: black;*/
     /*color:white;*/
     
     
 }
 
-.form-group2 {
-    width:200px;
-}
+/*.form-group2 {*/
+/*    width:200px;*/
+    
+/*}*/
 /*#classbtn{*/
 /*    display: inline-block;*/
 /*    padding: 7px 20px;*/
@@ -267,3 +253,16 @@
    body{
          background-image: url('/priceimg/4827196796_c511b4be80_o.jpg');
 }
+
+.uplo{
+    
+    float:left;
+}
+.reqest{
+    display:inline-block;
+}
+
+/*.content{*/
+    
+/*    margin-top:100px;*/
+/*}*/
