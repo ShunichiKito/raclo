@@ -1,7 +1,7 @@
 .panel-myitem-heading{
 
-    height: 160px;
-    width: 155px;
+    height: 150px;
+    width: 145px;
     margin-top: 15px;
     border-radius: 4px;
 
@@ -10,7 +10,7 @@
     
 .panel-myitem-body{
     height: 20px;
-    width: 155px;
+    width: 145px;
     text-align: center;
     padding:0px;
     border-radius: 4px;
@@ -18,8 +18,8 @@
 
 
 .cloths_image{
-    height: 140px;
-    width: 140px;
+    height: 130px;
+    width: 130px;
     
 }
 
