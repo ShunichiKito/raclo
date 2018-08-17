@@ -29,9 +29,9 @@
         				<div class="form-group">
         				    <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
         				</div>
-        			    <button type="submit" class="btn btn-default">Login</button>
+        			    <button type="submit" class="btn btn-default log-btn">Login</button>
         				<!--//route is missing for stylist signup-->
-        			    <a class="btn btn-danger" href="{{ route('s_signup_or_login') }}">For Stylists</a>
+        			    <a class="btn btn-danger log-btn" href="{{ route('s_signup_or_login') }}">For Stylists</a>
         			</form>
         		</div>
         	</div>
@@ -43,9 +43,35 @@
     <!--</div>-->
     
     <body style="background-image: url('img/hack_your_closet.jpg')">
-    <div class="col-xs-4">
-        <div class="panel">
-                <div class="panel-heading">
+    <div class="col-xs-offset-1 col-xs-6 align-self-center">
+        <div class="panel explanation">
+                <div class="panel-heading exp-heading">
+                    <h1 class="catchcopy"> ~~ Get New Coordinate! ~~ </h1>
+                </div>
+                
+                <div class="panel-body">
+                    <br>
+                    <ul class="struggle">
+                        <li>毎朝のコーディネートがめんどくさい！</li>
+                        <li>購入したものの、クローゼットの奥深くに眠っている服はありませんか?</li>
+                        <li>いつも同じような服の組み合わせをしていませんか？</li>
+                    </ul>
+                 <br> <br>
+                 <h3>そこのあなたこころあたりありませんかｗｗｗｗ</h3>
+                 <br>
+                 <h3>その悩み解決しちゃうわよ！！！！！！</h3>
+                 <br><br>
+                 <h4>Racloは経験豊かなスタイリストに自分の服の新しい組み合わせやそれに合わせた新しい服の提案・コーディネートをしてもらえるサービスです。</h4>
+
+                 
+                 
+                </div>
+            </div> 
+        </div>
+        
+    <div class="col-xs-offset-1 col-xs-3 col-xs-offset-1">
+        <div class="panel registration">
+                <div class="panel-heading registration-heading">
                 <h1>Sign Up</h1>
                 <p>Your private information will be protected and you can edit it anytime</p>
                 </div>
@@ -89,3 +115,6 @@
 </div>
 
 @endsection
+
+
+
