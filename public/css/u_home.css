@@ -266,3 +266,16 @@ display:inline-block;
     
 /*    margin-top:100px;*/
 /*}*/
+
+.hanger{
+    height:100px;
+    width:100px;
+    
+    
+}
+.hanger:hover{
+      position:relative;
+      top:10px;
+      left:10px;
+    
+}

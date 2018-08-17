@@ -34,27 +34,19 @@
                     
                      {!! Form::close() !!}    
             </div>
-
+                 <div>
+                   <a href="u_index"><img src="hanger_icon.png" class="hanger" alt=""> 
+                <a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>
+                <p class="left-fukidashi">ハンガー</p>
+                   </div>
         <!--アップロードした写真表示-->
         <div class="container-clearfix content">
          <div class="tab col-lg-12">
-                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">WithinMyItems</button>
-                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">WithNewItems</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">From My Items</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">Get New Suggestions</button>
                     </div>
 
-                <!--<a href="u_index"><img src="hanger-29414_1280.png" class="left-hangerhover" alt=""> -->
-                <!--<style>.hangerhover:hover{-->
-                <!--                          position:relative;-->
-                <!--                          top:10px;-->
-                <!--                          left:10px;-->
-                <!--                          }</style></a>-->
-                <!--<a href="u_index"><img src="hanger-29414_1280.png" class="right-hangerhover" alt=""></a>-->
-                <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
-                <!--<p class="left-fukidashi">ハンガー</p>-->
-                    <!--<div class="tab">-->
-                    <!--    <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">WithinMyItems</button>-->
-                    <!--    <button class="tablinks" onclick="openCloset(event, 'Newitem')">WithNewItems</button>-->
-                    <!--</div>-->
+               
                                 <div class="screen">
                     <div id="Myitem" class="tabcontent">
                         <div class=cloths>
@@ -79,7 +71,7 @@
                         </div>
                     </div>
                     
-                  </div>  
+                  </div> 
             </div>           
         </div>
                
