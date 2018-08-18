@@ -86,10 +86,12 @@
                                           // buttonがclickされたとき、変数に検索する値を代入
                                           $('#search_button').on('click', function(){
                                             var keyword = $('#search_area').val();
-                                             $(".brand_items").empty();
+                                            $(".api_items").empty();
                                             // リクエストURLを設定する
                                             $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
                                               applicationId: "1028803390707827350",
+                                            //   applicationId: "env('RAKUTEN_APPLICATION_ID')",
+                                            //   applicationId:setApplicationId(env('RAKUTEN_APPLICATION_ID')),
                                               keyword: keyword
                                         
                                             // 結果が帰ってきたらここでそれを受け取り、空でなければ順番に出力していく
@@ -98,13 +100,14 @@
                                                 // console.log(data);
                                                 $.each(data.Items, function(i, item){
                                                   var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
-
-                                                 $(".api_items").append(temp);
-                                                jQuery("li", jQuery(".brand")).draggable({
-                                                    revert: "invalid",
-                                                    helper: "clone",
-                                                    cursor: "move"
-                                                });
+                                                    $(".api_items").append(temp);
+                                                    
+                                                    //ドラッグアンドドロップ機能追加
+                                                    jQuery("li", jQuery(".brand")).draggable({
+                                                        revert: "invalid",
+                                                        helper: "clone",
+                                                        cursor: "move"
+                                                    });
                                                 
                                                 }) // each
                                               } // if
