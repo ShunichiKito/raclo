@@ -258,7 +258,7 @@
                          var element = JSON.parse(localStorage.getItem(i));
                         //  var element2 = JSON.parse(localStorage.getItem(i));
                         if(element.a != undefined){
-                            $("ul#storedItems").append('<li class="append_item"><a href='+element.a+' target="newtab"><img class="append_img" src= '+element.img+'></a></li>');
+                            $("ul#storedItems").append('<li class="append_item"><a href='+element.a+' target="newtab" class="newtag"><img class="append_img" src= '+element.img+'><p>new!!</p></a></li>');
                         }else{
                             $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
                         }                   
@@ -286,7 +286,16 @@
     <style>
             .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
             .tab button.active {background-color: #1285a5;}
-            
+            /*タグ用デザイン*/
+            .newtag {
+                position:relative;
+            }
+            .newtag p{
+                position:absolute;
+                color: red;
+                top: 0;
+                left: 0;
+            }
 
  </style>
                        
