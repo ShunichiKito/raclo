@@ -99,7 +99,7 @@
                                               if (data.count > 0){
                                                 // console.log(data);
                                                 $.each(data.Items, function(i, item){
-                                                  var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
+                                                  var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}" target="newtab"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
                                                     $(".api_items").append(temp);
                                                     
                                                     //ドラッグアンドドロップ機能追加
