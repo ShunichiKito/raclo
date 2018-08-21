@@ -9,7 +9,7 @@
                 <!--            <div class="panel-heading text-center">-->
                              <li class="before_co_li">   
                                 <img src="{{ '/storage/u_items/'.$new_image->file_path }}" alt="" class="cloths_image_2">
-                            </li> 
+                             </li> 
                 <!--            </div>-->
                 <!--        </div>-->
                 <!--    </div>-->
@@ -19,6 +19,5 @@
         </ul>
     @endif
     
-
 </div>
 

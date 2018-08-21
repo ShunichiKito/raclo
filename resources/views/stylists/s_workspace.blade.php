@@ -86,10 +86,12 @@
                                           // buttonがclickされたとき、変数に検索する値を代入
                                           $('#search_button').on('click', function(){
                                             var keyword = $('#search_area').val();
-                                             $(".brand_items").empty();
+                                            $(".api_items").empty();
                                             // リクエストURLを設定する
                                             $.get('https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?', {
                                               applicationId: "1028803390707827350",
+                                            //   applicationId: "env('RAKUTEN_APPLICATION_ID')",
+                                            //   applicationId:setApplicationId(env('RAKUTEN_APPLICATION_ID')),
                                               keyword: keyword
                                         
                                             // 結果が帰ってきたらここでそれを受け取り、空でなければ順番に出力していく
@@ -97,14 +99,15 @@
                                               if (data.count > 0){
                                                 // console.log(data);
                                                 $.each(data.Items, function(i, item){
-                                                  var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
-
-                                                 $(".api_items").append(temp);
-                                                jQuery("li", jQuery(".brand")).draggable({
-                                                    revert: "invalid",
-                                                    helper: "clone",
-                                                    cursor: "move"
-                                                });
+                                                  var temp = $(`<li class="brand_item col-3-xs"><a href="${item.Item.itemUrl}" target="newtab"><img src="${item.Item.mediumImageUrls[0].imageUrl}" class="brand_item_size"></a></li>`);
+                                                    $(".api_items").append(temp);
+                                                    
+                                                    //ドラッグアンドドロップ機能追加
+                                                    jQuery("li", jQuery(".brand")).draggable({
+                                                        revert: "invalid",
+                                                        helper: "clone",
+                                                        cursor: "move"
+                                                    });
                                                 
                                                 }) // each
                                               } // if
@@ -236,20 +239,17 @@
                     }
                    countUp();
                    var items = $("li", $("#coordinate_set"));
-                //   var item_pathes = $("li > a", $("#coordinate_set"));
+                　　//   var item_pathes = $("li > a", $("#coordinate_set"));
                    
                    
                    for (var i = 0, len = items.length; i < len; i++) {
                         var item = items[i];
-                        //  var item_path = item_pathes[i];
                         var element = {
-                           img: $("img", item).attr("src")
+                           img: $("img", item).attr("src"),
+                           a: $("a", item).attr("href"),
                          }
-                    //  var element2 = {
-                    //   img: $("img", item_path).attr("src")
-                    //  }
+                   
                         localStorage.setItem(i, JSON.stringify(element));
-                    //  localStorage.setItem(i, JSON.stringify(element2));
                      }
                    // 保存されたことを確認する
                    $("ul#storedItems").append('<p>set'+countUpValue+'</p>');
@@ -257,7 +257,11 @@
                        for (var i = 0, len = localStorage.length; i < len; i++) {
                          var element = JSON.parse(localStorage.getItem(i));
                         //  var element2 = JSON.parse(localStorage.getItem(i));
-                        $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
+                        if(element.a != undefined){
+                            $("ul#storedItems").append('<li class="append_item"><a href='+element.a+' target="newtab" class="newtag"><img class="append_img" src= '+element.img+'><p>new!!</p></a></li>');
+                        }else{
+                            $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
+                        }                   
                     //     $("form").prepend('<text name="'+countUpValue+'">'+element.img+'</text>');
                     //   　$("form").prepend('<text name="'+countUpValue+'path">'+element.img+'</text>');
                          $("input[type='submit']").before('<input type="hidden" name="path['+countUpValue+']['+i+']'+ '" value="'+element.img+'">');
@@ -282,7 +286,16 @@
     <style>
             .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
             .tab button.active {background-color: #1285a5;}
-            
+            /*タグ用デザイン*/
+            .newtag {
+                position:relative;
+            }
+            .newtag p{
+                position:absolute;
+                color: red;
+                top: 0;
+                left: 0;
+            }
 
  </style>
                        

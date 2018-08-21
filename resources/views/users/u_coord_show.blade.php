@@ -56,7 +56,7 @@ use App\Coordinated_set;
 		    	</div>
 	    	<?php }
 	    	if(!empty($coordinate->item7)) { ?>
-		    	<div class=sho>
+		    	<div class="sho">
 		    		<a href="https://www.google.co.jp/imghp?hl=ja"><img class="co_image" src="<?php print $coordinate->item7; ?>"></a>
 		    	</div>
 	    	<?php }
@@ -74,16 +74,16 @@ use App\Coordinated_set;
 		<style>
 		.sho {display: inline;}
 		.misato {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    font-weight: bold;
-    color: #6091d3;/*文字色*/
-    background: #FFF;
-    border: solid 3px #6091d3;/*線*/
-    border-radius: 10px;/*角の丸み*/
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
+		    padding: 0.5em 1em;
+		    margin: 2em 0;
+		    font-weight: bold;
+		    color: #6091d3;/*文字色*/
+		    background: #FFF;
+		    border: solid 3px #6091d3;/*線*/
+		    border-radius: 10px;/*角の丸み*/
+		    padding-top: 5px;
+		    padding-bottom: 5px;
+		}
 		</style>
 	
 </div>

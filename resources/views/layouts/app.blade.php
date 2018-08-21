@@ -28,9 +28,7 @@
 
             @include('commons.error_messages')
             @yield('content')
-
-        @include('commons.footer')
-        
-        
+            @include('commons.footer')
     </body>
+
 </html>

@@ -3,46 +3,60 @@
 /*    min-height: 50px;*/
 /*    border: 1px solid transparent;*/
 /*}*/
+/*@import url(https://fonts.googleapis.com/css?family=Lato:400,700);*/
+/*@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);*/
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
 
 body {
+    /*background-image: url('/img/hack_your_closet.jpg');*/
+/*font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;*/
+
     background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('img/hack_your_closet.jpg');
      /*height: 100%;*/
     opacity: 0.95;
     padding: 0;
 
-    background-size: auto, auto; /* Not to be confused with `auto auto` */
+    background-size: auto, auto;
     background-size: 50%, 25%, 25%;
     background-size: 550px, auto, contain;
     background-position: 20% 80%;
+
     
 }
 
-body.style {
-    opacity: 0.2;
+.form-control{
+    height: 40px;
 }
 
-.col-xs-4 {
-    float: right;
-    margin-right:50px;
+
+.log-btn{
+    height: 40px;
+}
+/*.col-xs-4 {*/
+/*    float: right;*/
+/*    margin-right:50px;*/
  /*margin-left: 700px;*/
  /*margin-top:50px;*/
-}
+/*}*/
 
 .navbar {
     font-family: "Abril-Fatface";
     background-color: black;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
-.panel{
+.registration{
     border-color:black;
     border-radius: 15px;
     font-family: "Abril-Fatface";
     /*margin-left: 663px;*/
+    margin-top: 60px;
 
 }
 
-.panel-heading{
+.registration-heading{
     color: white;
     /*border-color: black;*/
     background-color:black;
@@ -66,4 +80,44 @@ footer {
     /*float:right;*/
     padding:0;
     border-radius: 4px;
+}
+
+.explanation{
+ border-color:#3c763d;
+    border-radius: 15px;
+    font-family: "Noto Sans JP";
+    /*font-family: "Abril-Fatface";*/
+    /*margin-left: 663px;*/
+    /*margin-top: 50px;*/
+    height: 550px;
+    margin-top:60px;
+    
+}
+
+.exp-heading{
+    color: white;
+    /*border-color: black;*/
+    background-color:black;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    text-align: center;
+}
+
+
+.catchcopy{
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Scada', sans-serif;
+}
+
+
+
+.struggle{
+    font-size: 20px;
+    background: #dadada;
+    border-radius: 5px;
+    border: 2px ;
+    /*width:%;*/
+    /*font-family: 'M PLUS Rounded 1c', sans-serif;*/
+
 }
