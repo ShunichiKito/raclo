@@ -32,8 +32,13 @@
 
 
 
-.myitem-next {
-    position:relative;
-    margin:0;
-}
+/*.myitem-next {*/
+/*    position:relative;*/
+/*    margin:0;*/
+/*}*/
             
+.form-group{
+    font-size: 20px;
+    /*color:white;*/
+    background-color:white;
+}
