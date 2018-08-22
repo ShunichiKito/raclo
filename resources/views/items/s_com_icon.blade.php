@@ -25,7 +25,7 @@ use App\Stylist_profile_image;
                              <img src="{{ '/no_image.png' }}" alt="" class="profile_image">
                             @endif
                             <h2 class="panel-body">
-                                <p><?php print $order->id."th order"; ?></p>
+                                <p><?php print $order->id."th New Coordinate"; ?></p>
                                 <p><?php print "from ".$stylist->name; ?></p>
                                 <p class='index_rank'><?php print $stylist->rank; ?></p>
                                 <style>

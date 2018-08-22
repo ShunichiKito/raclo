@@ -1,10 +1,11 @@
 <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
-
-
-
 <nav class="navbar navbar-inverse" >
+<<<<<<< HEAD
  <img src="{{secure_asset("Raclo.jpg")}}" class="logo navbar-left">
 
+=======
+ <img src="Raclo.jpg" class="logo navbar-left">
+>>>>>>> feee06aec32bf76d15fb158e7c34af14e78daeec
   <div class="container-fluid">
     <div class="user-navstyle">
       <div class="navbar-header">
@@ -28,7 +29,6 @@
       <div id="navbar" class="collapse navbar-collapse navbar-right">
         <ul class="nav navbar-nav">
           <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
-
             <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>-->
             <ul class="dropdown-menu">
               <li>{!! link_to_route('users.edit', 'Change Profile', ['id' => Auth::user()->id]) !!}</li>

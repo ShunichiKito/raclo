@@ -239,20 +239,17 @@
                     }
                    countUp();
                    var items = $("li", $("#coordinate_set"));
-                //   var item_pathes = $("li > a", $("#coordinate_set"));
+                　　//   var item_pathes = $("li > a", $("#coordinate_set"));
                    
                    
                    for (var i = 0, len = items.length; i < len; i++) {
                         var item = items[i];
-                        //  var item_path = item_pathes[i];
                         var element = {
-                           img: $("img", item).attr("src")
+                           img: $("img", item).attr("src"),
+                           a: $("a", item).attr("href"),
                          }
-                    //  var element2 = {
-                    //   img: $("img", item_path).attr("src")
-                    //  }
+                   
                         localStorage.setItem(i, JSON.stringify(element));
-                    //  localStorage.setItem(i, JSON.stringify(element2));
                      }
                    // 保存されたことを確認する
                    $("ul#storedItems").append('<p>set'+countUpValue+'</p>');
@@ -260,7 +257,11 @@
                        for (var i = 0, len = localStorage.length; i < len; i++) {
                          var element = JSON.parse(localStorage.getItem(i));
                         //  var element2 = JSON.parse(localStorage.getItem(i));
-                        $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
+                        if(element.a != undefined){
+                            $("ul#storedItems").append('<li class="append_item"><a href='+element.a+' target="newtab" class="newtag"><img class="append_img" src= '+element.img+'><p>new!!</p></a></li>');
+                        }else{
+                            $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
+                        }                   
                     //     $("form").prepend('<text name="'+countUpValue+'">'+element.img+'</text>');
                     //   　$("form").prepend('<text name="'+countUpValue+'path">'+element.img+'</text>');
                          $("input[type='submit']").before('<input type="hidden" name="path['+countUpValue+']['+i+']'+ '" value="'+element.img+'">');
@@ -285,7 +286,16 @@
     <style>
             .ui-helper-clearfix { min-height: 0; height: 450px; overflow: auto;}   
             .tab button.active {background-color: #1285a5;}
-            
+            /*タグ用デザイン*/
+            .newtag {
+                position:relative;
+            }
+            .newtag p{
+                position:absolute;
+                color: red;
+                top: 0;
+                left: 0;
+            }
 
  </style>
                        

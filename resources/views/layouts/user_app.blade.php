@@ -15,6 +15,10 @@
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ secure_asset('css/stylist_list.css') }}">
         <link rel="stylesheet" href="{{ secure_asset('css/s_icon.css') }}">
+
+        <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
+        <!--<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">-->
+
         <style>
             body{
                 font-family: "Abril-Fatface";

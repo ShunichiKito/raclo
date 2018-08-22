@@ -11,6 +11,8 @@ use App\Order;
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
+<script type="text/javascript" src="gallery.js"></script> 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 @if (Auth::check())
@@ -26,6 +28,7 @@ if(isset($stylist)) {
 $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); 
 }    
 ?> 
+
 <html>
     <head>
         <br>
@@ -36,7 +39,7 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
     
     <body>
     <div class="row">
-        <aside class="col-xs-4">
+        <aside class="col-xs-5">
         <div class="panel panel-default">
             <div class='panel-heading1'>
             <div class="container col-lg-12">
@@ -68,7 +71,8 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
             </div>
         
             <div class='panel-body'>
-                <div class="button">
+                <h4>1. 注文に応じてFrom My ItemsとGet New Suggestionsのタブから注文したいアイテムを選択してください</h4>
+                <div class="button" id="buttonitem">
                     <a href="{{ route('home') }}" class="btn btn-info" role="button">Select Items</a>
                 </div>
             </div>
@@ -99,7 +103,7 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
             
         <div class="col-xs-4">
             <div class="panel panel-default" id="panel2">
-                <div class='panel-heading'>
+                <div class='panel-heading' id="sprofile">
                     @if(isset($item->file_path))
                         <img src="{{ '/storage/s_profile_image/'.$item->file_path }}" alt="" class="profile_image profile_page">
                         <style type="text/css">
@@ -120,6 +124,8 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
                     <h3>
                         <?php if(isset($stylist)){ print $stylist->rank; } ?>
                     </h3>
+                    <br>
+                    <h4>2. 好みのスタイルや料金に応じた<br>スタイリストを選択してください</h4>
                     <div class="button" id="button1">
                     <a href="{{ route('s_index') }}" class="btn btn-info" role="button">Choose Stylist</a>
                     </div>
@@ -127,12 +133,12 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
             </div>
         </div>
         
-        <div class="col-xs-4">
+        <div class="col-xs-3">
             <div class="panel panel-default" id="panel3">
                 <div class='panel-body'>
 
-                    <p>Stylist :<?php if(isset($stylist)){print $stylist->name; } ?></p>
-                    <p>Rank :<?php if(isset($stylist)){print $stylist->rank; } ?></p>
+                    <p>Stylist : <?php if(isset($stylist)){print $stylist->name; } ?></p>
+                    <p>Rank : <?php if(isset($stylist)){print $stylist->rank; } ?></p>
                     <p>My Items Coordinate: <?php print $order->myitems_conumber; ?></p>
                     <p>New Items Coordinate: <?php print $order->newitems_conumber; ?></p>
                     <p>Price : <?php 
@@ -148,14 +154,16 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
                             $order->save();
                             print "$".$price;
                     } ?></p>
-                    
-
                 </div>
-            </div>
-           <br>
-           <br>
-           <div class="button" id="button3">
-                <a href="{{ route('u_ordercomp') }}" class="btn btn-danger" role="button" onclick='return confirm("Order Confirmed");'>Order Complete</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+               <h4>3. 注文内容を確認の上、<br>注文を完了してください</h4>
+               <div class="button" id="button3">
+                    <a href="{{ route('u_ordercomp') }}" class="btn btn-danger" role="button" onclick='return confirm("Order Confirmed");'>Order Complete</a>
+                </div>
             </div>
         </div>
        
@@ -178,17 +186,23 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
     }
     
     #panel3{
-        height: 275px;
+        height: 350px;
     }
     
     #button1 {
-        bottom: 50;
+        bottom: 20;
         text-align: center;
         left: 45;
     }
     
+    #buttonitem {
+        bottom: 20;
+        text-align: center;
+        left: 90;
+    }
+    
     #button3 {
-        bottom: 50;
+        bottom: 20;
         text-align: center;
         left: 45;
     }
@@ -202,6 +216,13 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
         border-color: #ddd;
     }
     
+    h4 {
+        text-align: center;
+    }
+    
+    #sprofile {
+        height: 50%;
+    }
     p {
         margin: 0;
         font-size: 22;
@@ -226,6 +247,9 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
         text-align: center;
     }
     
+    .tablinks {
+        font-size: 23px;
+    }
     .button {
         position: absolute;
         margin-left: 100;
