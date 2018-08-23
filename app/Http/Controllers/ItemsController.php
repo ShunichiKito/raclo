@@ -95,7 +95,7 @@ class ItemsController extends Controller
             
             $co_set=new Coordinated_set;
             for($cloth=1;$cloth<=count(array_filter($request->path[$set], function ($key) use ($allowed) {return in_array($key, $allowed);
-    }, ARRAY_FILTER_USE_KEY))-1;$cloth++) {
+    }, ARRAY_FILTER_USE_KEY));$cloth++) {
                 $item_temp="item".$cloth;
                 $co_set->$item_temp= $request->path[$set][$cloth-1];
                 if(isset($request->path[$set][10+$cloth-1])){

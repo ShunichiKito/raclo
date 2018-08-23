@@ -8,13 +8,13 @@
         <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_home.css') }}">
     </head>
     <body>
-        <div class="container col-lg-12 container-home">
+        <div class="container col-lg-12">
         <!--画像アップロード-->
-        <div class=uplo>
+        
          {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
 
                 <div class="form-group1">
-                        {!! Form::label('file','Uploading picture',['class'=>'control-label']) !!}
+                        {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
                         {!! Form::file('file') !!}
                     <!--</div>  -->
                     <div class="form-group2" id="classbtn">
@@ -24,38 +24,27 @@
                     </div>
                 </div>
         {!! Form::close() !!} 
-        </div>
-       
-        <!--<div class=reqest>-->
-        
-        {!! Form::open(['route' => ['items.selected']]) !!}
 
-        
-                    <input type="submit" name="itemSubmit" value="Request!" class="submission item-next"/>
-                    
-                     {!! Form::close() !!}    
-            <!--</div>-->
-            <!--     <div>-->
-            <!--       <a href="u_index"><img src="hanger-29414_1280.png" class="hanger" alt=""> -->
-            <!--    <a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
-            <!--    <p class="left-fukidashi">ハンガー</p>-->
-            <!--       </div>-->
         <!--アップロードした写真表示-->
         
-        <div class="container-clearfix content">
-            
-         <div class="tab col-lg-12">
-                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">From My Items</button>
-                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">Get New Suggestions</button>
-                    </div>
- 
-               
-                                <div class="screen">
-                                    <div class="hanger-icon">
-                   <a href="u_index"><img src="hanger-29414_1280.png" class="hanger" alt=""></a> 
+        
+            <div class="screen">
+                <a href="u_index"><img src="hanger-29414_1280.png" class="left hangerhover" alt=""></a> 
+                <style>.hangerhover:hover{
+                                          position:relative;
+                                          top:10px;
+                                          left:10px;
+                                          }
+                </style>
+                <a href="u_index"><img src="hanger-29414_1280.png" class="right hangerhover" alt=""></a>
                 <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
                 <!--<p class="left-fukidashi">ハンガー</p>-->
-                   </div>
+                    <div class="tab">
+                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">WithinMyItems</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">WithNewItems</button>
+                    </div>
+                     {!! Form::open(['route' => ['items.selected']]) !!}
+
                     <div id="Myitem" class="tabcontent">
                         <div class=cloths>
                         <!--myitemのコンテンツ-->     
@@ -78,35 +67,33 @@
                             @endif
                         </div>
                     </div>
+                   
+                    <input type="submit" name="itemSubmit" value="Next" class="submission myitem-next"/>
                     
-                  </div> 
-            </div>  
-            <!--hanger-->
-            
+                    <!--<img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
+                    
+                
+                    <!-- {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}-->
+                    <!--    <div class="form-group">-->
+                    <!--        {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}-->
+                    <!--        {!! Form::file('file') !!}-->
+                    <!--    </div>  -->
+                    <!--    <div class="form-group">-->
+                    <!--        {!! Form::submit('Upload', ['class' => 'btn btn-success']) !!}-->
+                    <!--    </div>-->
+                    <!--{!! Form::close() !!} -->
+                    
+                    
+                    {!! Form::close() !!}    
+                    <style>
+                        .myitem-next {
+                            position:relative;
+                            margin:0;
+                        }
+                    </style>
+            </div>           
         </div>
-             
-              <!--<div class="panel-footer panel-info">-->
-              <!--  <div class="row">-->
-              <!--    <div class="col col-xs-4">Page 1 of 5-->
-              <!--    </div>-->
-              <!--    <div class="col col-xs-8">-->
-              <!--      <ul class="pagination hidden-xs pull-right">-->
-              <!--        <li><a href="#">1</a></li>-->
-              <!--        <li><a href="#">2</a></li>-->
-              <!--        <li><a href="#">3</a></li>-->
-              <!--        <li><a href="#">4</a></li>-->
-              <!--        <li><a href="#">5</a></li>-->
-              <!--      </ul>-->
-              <!--      <ul class="pagination visible-xs pull-right">-->
-              <!--          <li><a href="#">«</a></li>-->
-              <!--          <li><a href="#">»</a></li>-->
-              <!--      </ul>-->
-              <!--    </div>-->
-              <!--  </div>-->
-              <!--</div>-->
-            </div>
-        </div>
-
+               
                
                 <script>
                 function openCloset(evt, cityName) {

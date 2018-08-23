@@ -23,7 +23,7 @@ use App\Coordinated_set;
         <?php if(!empty($coordinate->item1)) { ?>
         	<div class="sho">
         		<?php if(!empty($coordinate->item1_path)){ ?>
-                         <a href="<?php print $coordinate->item1_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item1; ?>"><p>new!!</p></a>
+                         <a href="<?php print $coordinate->item1_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item1; ?>"><span>new!!</span></a>
                 <?php }else{ ?>
                     	<img class="co_image" src="<?php print $coordinate->item1; ?>">
                 <?php } ?>    	
@@ -32,7 +32,7 @@ use App\Coordinated_set;
     	if(!empty($coordinate->item2)) { ?>
         	<div class="sho">
         		<?php if(!empty($coordinate->item2_path)){ ?>
-                         <a href="<?php print $coordinate->item2_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item2; ?>"><p>new!!</p></a>
+                         <a href="<?php print $coordinate->item2_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item2; ?>"><span>new!!</span></a>
                 <?php }else{ ?>
                     	<img class="co_image" src="<?php print $coordinate->item2; ?>">
                 <?php } ?>    	
@@ -41,7 +41,7 @@ use App\Coordinated_set;
     	if(!empty($coordinate->item3)) { ?>
         	<div class="sho">
         		<?php if(!empty($coordinate->item3_path)){ ?>
-        				  <a href="<?php print $coordinate->item3_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item3; ?>"><p>new!!</p></a>
+        				  <a href="<?php print $coordinate->item3_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item3; ?>"><span>new!!</span></a>
                 <?php }else{ ?>
                     	<img class="co_image" src="<?php print $coordinate->item3; ?>">
                 <?php } ?>    	
@@ -50,7 +50,7 @@ use App\Coordinated_set;
     	if(!empty($coordinate->item4)) { ?>
         	<div class="sho">
         		<?php if(!empty($coordinate->item4_path)){ ?>
-                         <a href="<?php print $coordinate->item4_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item4; ?>"><p>new!!</p></a>
+                         <a href="<?php print $coordinate->item4_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item4; ?>"><span>new!!</span></a>
                 <?php }else{ ?>
                     	<img class="co_image" src="<?php print $coordinate->item4; ?>">
                 <?php } ?>    	
@@ -59,7 +59,7 @@ use App\Coordinated_set;
     	if(!empty($coordinate->item5)) { ?>
         	<div class="sho">
         		<?php if(!empty($coordinate->item5_path)){ ?>
-                         <a href="<?php print $coordinate->item5_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item5; ?>"><p>new!!</p></a>
+                         <a href="<?php print $coordinate->item5_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item5; ?>"><span>new!!</span></a>
                 <?php }else{ ?>
                     	<img class="co_image" src="<?php print $coordinate->item5; ?>">
                 <?php } ?>    	
@@ -68,7 +68,7 @@ use App\Coordinated_set;
     	if(!empty($coordinate->item6)) { ?>
         	<div class="sho">
         		<?php if(!empty($coordinate->item6_path)){ ?>
-                         <a href="<?php print $coordinate->item6_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item6; ?>"><p>new!!</p></a>
+                         <a href="<?php print $coordinate->item6_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item6; ?>"><span>new!!</span></a>
                 <?php }else{ ?>
                     	<img class="co_image" src="<?php print $coordinate->item6; ?>">
                 <?php } ?>    	
@@ -77,7 +77,7 @@ use App\Coordinated_set;
     	if(!empty($coordinate->item7)) { ?>
         	<div class="sho">
         		<?php if(!empty($coordinate->item7_path)){ ?>
-                         <a href="<?php print $coordinate->item7_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item7; ?>"><p>new!!</p></a>
+                         <a href="<?php print $coordinate->item7_path ?>" target="newtab" class="newtag"><img class="co_image" src="<?php print $coordinate->item7; ?>"><span>new!!</span></a>
                 <?php }else{ ?>
                     	<img class="co_image" src="<?php print $coordinate->item7; ?>">
                 <?php } ?>    	
@@ -107,23 +107,15 @@ use App\Coordinated_set;
 		}
 		
 		/*タグ用デザイン*/
-   /*         .newtag {*/
-   /*             position:relative;*/
-   /*         }*/
-   /*         newtag p {*/
-			/*    position: absolute;*/
-			/*    color: red;*/
-			/*    top: -130px;*/
-			/*    right: 55px;*/
-			/*    font-size: 30px;*/
-			/*}*/
-			p {
-			        font-size: 30px;
-				    position: relative;
-				    left: 265px;
-				    top: -240px;
-				    text-decoration: none;
-				    width: 80px;
+			a.newtag {
+			    position: relative;
+			}
+			span {
+			    font-size: 30px;
+			    position: absolute;
+			    right: 60px;
+			    top: -130px;
+			    text-decoration: none;
 			}
 	</style>
 </div>
