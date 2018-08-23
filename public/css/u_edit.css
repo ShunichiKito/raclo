@@ -1,0 +1,31 @@
+
+body {
+    background-image: url('/priceimg/4827196796_c511b4be80_o.jpg');
+}
+
+body.style {
+    opacity: 0.2;
+}
+
+.panel{
+    border-color:black;
+    border-radius: 15px;
+    font-family: "Abril-Fatface";
+    /*margin-left: 663px;*/
+}
+
+.panel-heading{
+    color: white;
+    /*border-color: black;*/
+    background-color:black;
+    height: 50%;
+    border-top-right-radius:15px;
+    border-top-left-radius:15px;
+    }
+
+
+.title{
+    font-size: 45px;
+    font-style:bold;
+    float: left;
+}

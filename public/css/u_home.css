@@ -1,6 +1,6 @@
 body {
     background-image: url("/room6.jpg"); 
-    background-size: 120%;
+    background-size: 150%;
 }
 .screen {
     background-image: url("/cabinet-575361_1280.png");
@@ -8,8 +8,9 @@ body {
     width: 800px;
     height: 750px;
     margin: 0 auto;
-    margin-top: 50px;
+    /*margin-top: 100px;*/
     z-index:1;
+    padding-top:10px;
 }
 .center {
     display: block;
@@ -56,19 +57,34 @@ body {
 
 /* Style the tab */
 .tab {
-   overflow: hidden;
-   border: none;
-   background-color:transparent;
-   z-index: 2;
-   margin-top: 24px;
-   margin-left: 110px;
-   position: absolute !important;
-   width: 572px;
-  }
+   /*overflow: hidden;*/
+   /*border: none;*/
+   /*background-color:transparent;*/
+   /*z-index: 2;*/
+   /*margin-top: 24px;*/
+   /*margin-left: 110px;*/
+   /*position: absolute !important;*/
+   /*width: 572px;*/
+   /*background-color:orange;*/
+   /*opacity:0.4;*/
+      overflow: hidden;
+    border: none;
+    /* background-color: transparent; */
+    z-index: 2;
+    margin-top: 24px;
+    margin: 0 auto;
+    position: absolute !important;
+    /* background-color: orange; */
+    /* opacity: 0.4; */
+    width: 650px;
+    /*margin-left: 110px;*/
+    /*height:1500px;*/
+    
+}
 
 /* Style the buttons inside the tab */
 .tab button {
-   background-color: inherit;
+   /*background-color: inherit;*/
    position: relative;
    left: 26%;
    float: left;
@@ -77,21 +93,22 @@ body {
    cursor: pointer;
    padding: 2px 10px;
    transition: 0.3s;
-   font-size: 17px;
-   margin-top: 12px;
+   font-size: 27px;
    border-radius: 4px;
     font-weight: bold;
     z-index: 1;
+    background:#A9A9A9;
+    border:black;
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
-   background-color: #CC9900;
-}
+/*.tab button:hover {*/
+/*   background-color: #CC9900;*/
+/*}*/
 
 /* Create an active/current tablink class */
 .tab button.active {
-   background-color: #996600;
+   background-color: white;
 }
 
 /*タブの中身*/
@@ -99,57 +116,48 @@ body {
 /* Style the tab content */
 .tabcontent {
    /*display: none;*/
-   width:420px;
-   height: 675px;
+   width:493px;
+   height: 680px;
    border: none;
-   margin-top:45px;
-   margin-left:200px;
-   margin-right:0px;
+   margin-top:54px;
+   margin-left:147px;
+   /*margin:0px;*/
+   overflow: scroll;
+    /*background-image: url("/marble_black.jpg"); */
+    border-radius: 6px;
+    /*padding-top:50px;*/
+    
+    
 }
 
 
 
 /*ネクストボタン*/
-.myitem-next{
-    position: absolute !important;
-    margin-top: -7px;
-    margin-left: 671px;
-    height: 64px;
-    width: 90px;
-    font-size: 21px;
-}
-.newitem-next{
-    position: absolute !important;
-    margin-top: 600px;
-    margin-left: 347px;
-}
 
 
 
-.myitem-next:hover{
-    background-color: 	#FF4500;
+.item-next:hover{
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
     
 }
 
-
-.newitem-next:hover{
-    background-color: 	#FF4500;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
-    
-}
     
 
-.submission{
-    padding: 0.5em 1em;
+.item-next{
+    padding: 0.2em 1em;
     /*text-decoration: none;*/
     border-radius: 4px;
     color: #ffffff;
-    background-color: #FFC106;
-    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
-    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-    border-bottom: solid 3px #c58668;
+    background-color: #3fafcc;
+    border-color:#1091b2;
+    /*background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);*/
+    /*background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);*/
+    /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);*/
+    /*border-bottom: solid 3px #c58668;*/
+    margin-top:-111px;
+    margin-left:600px;
+    font-size:25px;
+    position:absolute;
 }
 
 .cloths {
@@ -157,27 +165,29 @@ body {
 }
 
 .form-group1 {
-    margin-left:-200px;
+    margin-left:0px;
+    padding:0;
     /*margin-bottom: -25px;*/
     font-size: 21px;
-    position: absolute;
+    /*position: absolute;*/
     /*margin-px;/*/
     /*text-align:right; */
     
   /*border:solid 5px #0ff;*/
-  /*width:200px;*/
+  width:200px;
   /*border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;*/
   /*padding:10px;*/
-
+display:inline-block;
     /*background-color: black;*/
     /*color:white;*/
     
     
 }
 
-.form-group2 {
-    width:200px;
-}
+/*.form-group2 {*/
+/*    width:200px;*/
+    
+/*}*/
 /*#classbtn{*/
 /*    display: inline-block;*/
 /*    padding: 7px 20px;*/
@@ -245,3 +255,48 @@ body {
    /*  display: block;*/
    /*  z-index:2;*/
    /*}*/
+   
+.uplo{
+    
+    float:left;
+}
+/*.reqest{*/
+/*    display:inline-block;*/
+/*}*/
+
+/*.content{*/
+    
+/*    margin-top:100px;*/
+/*}*/
+
+.hanger{
+    height:100px;
+    width:100px;
+    
+    
+}
+.hanger:hover{
+      position:relative;
+      top:10px;
+      left:10px;
+    
+}
+
+
+
+
+
+
+
+/*一応残しておくもの以下*/
+
+/*   body{*/
+/*         background-image: url('/priceimg/4827196796_c511b4be80_o.jpg');*/
+/*}*/
+
+
+.hanger-icon{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 20px;
+}

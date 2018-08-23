@@ -1,35 +1,46 @@
-.panel-heading{
-    position: relative;
-    background-color: white;
-    height: 115px;
-    width: 115px;
+.panel-newitem-heading{
+
+    height: 150px;
+    width: 145px;
     margin-top: 15px;
-    /*margin-bottom: 37px;*/
+    border-radius: 4px;
+
     padding: 0;
-    z-index:10 !important;
 }
     
-.panel-body{
-    position:relative;
+.panel-newitem-body{
     height: 20px;
-    width: 115px;
-    padding: 0;
-    margin-right: 10px;
-    
+    width: 145px;
+    text-align: center;
+    padding:0px;
+    border-radius: 4px;
 }
 
 
-.cloths_image{
-    height: 100px;
-    width: 100px;
-    
+.cloths_image {
+    height: 130px;
+    width: 130px;
+    position: absolute;
+    /* margin: auto; */
+    right: -53px;
+}
+.btn {
+    position: relative;
 }
 
 
 .row{
     margin:0px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    padding:4px;
     
 }
+
+  
+.form-group{
+    font-size: 20px;
+    /*color:white;*/
+    background-color:white;
+
+       border-radius: 4px;
+padding-top:3px;
+}
+
