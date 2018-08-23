@@ -1,4 +1,6 @@
-
+<?php
+use App\U_item;
+?>
 
 <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_myitems.css') }}">
 
@@ -19,7 +21,14 @@
         <!--</div>-->
         <label class="btn">
             <img src="{{ 'storage/u_items/'.$item->file_path }}" alt="..." class="cloths_image img-check">
-            {{ Form::checkbox('myitem[]',"$item->file_path", false, ['class' => 'hidden']) }}
+            <?php 
+            // $createitem = U_item::where('file_path',$item->file_path)->first();
+            // if($createitem->myitems_check=="on"){
+            ?>
+                {{-- Form::checkbox('myitem[]',"$item->file_path", true, ['class' => 'hidden']) --}}
+            <?php //}else{ ?>
+                {{ Form::checkbox('myitem[]',"$item->file_path", false, ['class' => 'hidden']) }}
+            <?php //} ?>
             <!--<input type="checkbox" name="myitem[]" value="$item->file_path" class="hidden" autocomplete="off">-->
         </label>
         <style>
