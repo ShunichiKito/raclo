@@ -259,6 +259,7 @@
                         //  var element2 = JSON.parse(localStorage.getItem(i));
                         if(element.a != undefined){
                             $("ul#storedItems").append('<li class="append_item"><a href='+element.a+' target="newtab" class="newtag"><img class="append_img" src= '+element.img+'><p>new!!</p></a></li>');
+                            $("input[type='submit']").before('<input type="hidden" name="path['+countUpValue+'][1'+i+']'+ '" value="'+element.a+'">');
                         }else{
                             $("ul#storedItems").append('<li class="append_item"><img class="append_img" src= '+element.img+'></li>');
                         }                   

@@ -82,16 +82,27 @@ class ItemsController extends Controller
         
         return redirect('/home');
     }
-        
-     public function s_saveco(Request $request) {
-        
-        // print_r(count($request->path));
-        // return;
+    
+    public function onlyphotourl($var){return($var < 10);}   
+    public function s_saveco(Request $request) {
+ 
+        $allowed  = ['0','1','2','3','4','5','6','7'];
         for($set=1;$set<=count($request->path);$set++) {
+    
+    //         print_r($request->path[$set]);
+    //         print(count(array_filter($request->path[$set], function ($key) use ($allowed) {return in_array($key, $allowed);
+    // }, ARRAY_FILTER_USE_KEY)));
+    //         return;
+            
             $co_set=new Coordinated_set;
-            for($cloth=1;$cloth<=count($request->path[$set]);$cloth++) {
+            for($cloth=1;$cloth<=count(array_filter($request->path[$set], function ($key) use ($allowed) {return in_array($key, $allowed);
+    }, ARRAY_FILTER_USE_KEY))-1;$cloth++) {
                 $item_temp="item".$cloth;
                 $co_set->$item_temp= $request->path[$set][$cloth-1];
+                // if(isset($request->path[$set][10+$cloth-1])){
+                //     $itempath_temp="item".$cloth."_path";
+                //     $co_set->$itempath_temp= $request->path[$set][10+$cloth-1];
+                // }
             }
             $co_set->stylist_id = \Auth::user()->id;
             $co_set->user_id = $request->user_id;
