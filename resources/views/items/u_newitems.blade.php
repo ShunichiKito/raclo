@@ -12,15 +12,24 @@
     @foreach ($items as $key => $item)
     <div class='row col-md-4 col-sm-4 col-xs-4 panel-danger'>
         <div class='panel-heading text-center panel-newitem-heading'>
-            <img src="{{ 'storage/u_items/'.$item->file_path }}" alt="" class="cloths_image">
-            <div class='panel panel-body text-center panel-danger panel-newitem-body'>
-                {{ Form::checkbox('newitem[]',"$item->file_path", false) }}
-            </div>
+            <!--<img src="{{ 'storage/u_items/'.$item->file_path }}" alt="" class="cloths_image">-->
+            <!--<div class='panel panel-body text-center panel-danger panel-newitem-body'>-->
+            <!--    {{ Form::checkbox('newitem[]',"$item->file_path", false) }}-->
+            <!--</div>-->
+            <label class="btn">
+                <img src="{{ 'storage/u_items/'.$item->file_path }}" alt="..." class="cloths_image img-check">
+                {{ Form::checkbox('newitem[]',"$item->file_path", false, ['class' => 'hidden']) }}
+                <!--<input type="checkbox" name="newitem[]" value="$item->file_path" class="hidden" autocomplete="off">-->
+            </label>
+            <style>
+                .check{
+                    opacity:0.3;
+                	color: red;
+                }
+            </style>
         </div>
     </div>    
     @endforeach
-     
-        
 @endif
 
 

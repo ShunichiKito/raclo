@@ -17,10 +17,15 @@
 }
 
 
-.cloths_image{
+.cloths_image {
     height: 130px;
     width: 130px;
-    
+    position: absolute;
+    /* margin: auto; */
+    right: -53px;
+}
+.btn {
+    position: relative;
 }
 
 

@@ -6,6 +6,14 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_home.css') }}">
+        <!--写真チェックしたら発動-->
+        <script type="text/javascript">
+                $(document).ready(function(e){
+            		$(".img-check").click(function(){
+        				$(this).toggleClass("check");
+        			});
+            	}); 
+        </script>
     </head>
     <body>
         <div class="container col-lg-12">
