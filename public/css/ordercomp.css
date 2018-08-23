@@ -1,0 +1,115 @@
+ 
+    body {
+    background-image: url("/room6.jpg"); 
+    background-size: 100%;
+}
+    
+    /*#panel2{*/
+    /*    height: 505px;*/
+    /*}*/
+    
+    #panel3{
+        border-color:red;
+        
+    }
+    
+    .centerbutton{
+        /*bottom: 20;*/
+        text-align: center;
+        /*left: 45;*/
+        padding:5px;
+    }
+    
+    .buttonitem {
+        /*bottom: 20;*/
+        text-align: center;
+        /*left: 90;*/
+        /*padding:5px;*/
+    }
+    
+    .button3 {
+        /*bottom: 20;*/
+        /*text-align: center;*/
+        /*left: 45;*/
+    padding:5px;
+        
+    }
+    
+    .panel-heading1 {
+        overflow: scroll;
+        position: relative;
+        height: 50%;
+        width: 100%;
+        background-color: #f5f5f5;
+        border-color: #ddd;
+    }
+    
+    h4 {
+        text-align: center;
+    }
+    
+    .sprofile {
+        height: 320px;
+    }
+    p {
+        margin: 0;
+        font-size: 22;
+    }
+   
+    
+    .tab button.active {
+        background-color: #5bc0de;
+    }
+        
+    .tabcontents {
+        margin-left: 30;
+        display: inline-block;
+    }
+    li.before_co_li {
+        display: inline-block;
+    }
+    
+    h3 {
+        text-align: center;
+    }
+    
+    .tablinks {
+        font-size: 23px;
+    }
+    /*.button {*/
+        /*position: absolute;*/
+        /*margin-left: 100;*/
+        /*margin-top: 30;*/
+    /*}*/
+    
+    .button1 {
+        bottom: 0;
+        top: 50;
+    }
+    
+    .row {
+        font-family: "Abril-Fatface";
+    }
+    
+    .navbar {
+        font-family: "Abril-Fatface";
+    }
+    
+    
+.leftpanel{
+    padding:0;
+    text-align:center;
+    /*height:100px;*/
+}
+    
+.paybtn{
+        padding:0;
+    text-align:center;
+
+}
+
+.stylistbtn{
+    padding:0;
+    text-align:center;
+
+}
