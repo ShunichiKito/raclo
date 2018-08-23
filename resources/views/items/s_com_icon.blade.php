@@ -15,9 +15,9 @@ use App\Stylist_profile_image;
             <?php $stylist= User::where('id',$order->stylist_id)->first(); ?>
             <?php $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); ?> 
             
-            <div class='row text-center pad-top col-md-4 col-sm-4 col xs-8'>
+            <div class='row text-center pad-top col-md-4 col-sm-4 col xs-8 response'>
                 <!--<div class='col-md-4 col-sm-4 col xs-8'>-->
-                    <div class='panel panel-danger'>
+                    <div class='panel panel-danger response'>
                         <div class='panel-heading'>
                             @if($item)
                             <img src="{{ '/storage/s_profile_image/'.$item->file_path }}" alt="" class="profile_image">
@@ -32,6 +32,10 @@ use App\Stylist_profile_image;
                                    .index_rank {
                                         font-size: 25px;
                                         color: orange;
+                                    }
+                                    
+                                    .response{
+                                        margin:5px;
                                     }
                                 </style>
                             </h2>

@@ -292,3 +292,10 @@ display:inline-block;
 /*   body{*/
 /*         background-image: url('/priceimg/4827196796_c511b4be80_o.jpg');*/
 /*}*/
+
+
+.hanger-icon{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 20px;
+}

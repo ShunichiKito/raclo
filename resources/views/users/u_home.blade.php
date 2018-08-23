@@ -25,6 +25,7 @@
                 </div>
         {!! Form::close() !!} 
         </div>
+       
         <!--<div class=reqest>-->
         
         {!! Form::open(['route' => ['items.selected']]) !!}
@@ -35,19 +36,26 @@
                      {!! Form::close() !!}    
             <!--</div>-->
             <!--     <div>-->
-            <!--       <a href="u_index"><img src="hanger_icon.png" class="hanger" alt=""> -->
+            <!--       <a href="u_index"><img src="hanger-29414_1280.png" class="hanger" alt=""> -->
             <!--    <a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
             <!--    <p class="left-fukidashi">ハンガー</p>-->
             <!--       </div>-->
         <!--アップロードした写真表示-->
+        
         <div class="container-clearfix content">
+            
          <div class="tab col-lg-12">
                         <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">From My Items</button>
                         <button class="tablinks" onclick="openCloset(event, 'Newitem')">Get New Suggestions</button>
                     </div>
-
+ 
                
                                 <div class="screen">
+                                    <div class="hanger-icon">
+                   <a href="u_index"><img src="hanger-29414_1280.png" class="hanger" alt=""></a> 
+                <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
+                <!--<p class="left-fukidashi">ハンガー</p>-->
+                   </div>
                     <div id="Myitem" class="tabcontent">
                         <div class=cloths>
                         <!--myitemのコンテンツ-->     
@@ -72,7 +80,9 @@
                     </div>
                     
                   </div> 
-            </div>           
+            </div>  
+            <!--hanger-->
+            
         </div>
              
               <!--<div class="panel-footer panel-info">-->
