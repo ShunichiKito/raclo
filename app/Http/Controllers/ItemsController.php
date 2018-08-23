@@ -83,7 +83,6 @@ class ItemsController extends Controller
         return redirect('/home');
     }
     
-    public function onlyphotourl($var){return($var < 10);}   
     public function s_saveco(Request $request) {
  
         $allowed  = ['0','1','2','3','4','5','6','7'];
@@ -99,10 +98,10 @@ class ItemsController extends Controller
     }, ARRAY_FILTER_USE_KEY))-1;$cloth++) {
                 $item_temp="item".$cloth;
                 $co_set->$item_temp= $request->path[$set][$cloth-1];
-                // if(isset($request->path[$set][10+$cloth-1])){
-                //     $itempath_temp="item".$cloth."_path";
-                //     $co_set->$itempath_temp= $request->path[$set][10+$cloth-1];
-                // }
+                if(isset($request->path[$set][10+$cloth-1])){
+                    $itempath_temp="item".$cloth."_path";
+                    $co_set->$itempath_temp= $request->path[$set][10+$cloth-1];
+                }
             }
             $co_set->stylist_id = \Auth::user()->id;
             $co_set->user_id = $request->user_id;

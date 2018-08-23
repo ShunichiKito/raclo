@@ -19,7 +19,7 @@
                     <h3 class="panel-title name_fontsize">{{ $user->name }}</h3>
                 </div>
                 <div class="panel-body">
-                <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->id, 500) }}" alt="">
+                    <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->id, 500) }}" alt="">
                 </div>
             </div>
             <!--<div class="alert alert-info count_coordinate" role="alert">3 Coordinates Left</div>-->
