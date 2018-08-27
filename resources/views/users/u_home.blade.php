@@ -13,6 +13,7 @@
         				$(this).toggleClass("check");
         			});
             	}); 
+            	
         </script>
     </head>
     <body>
