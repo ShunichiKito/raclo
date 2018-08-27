@@ -23,14 +23,15 @@
          {!! Form::open(['url' => '/u_items/store', 'method' => 'post', 'files' => true]) !!}
 
                 <div class="form-group1">
-                        {!! Form::label('file','画像アップロード',['class'=>'control-label']) !!}
+                        {!! Form::label('file','Upload my clothes',['class'=>'control-label']) !!}
                         {!! Form::file('file') !!}
                     <!--</div>  -->
                     <div class="form-group2" id="classbtn">
                     <!--<button type="button" class="btn btn-primary btn-danger btn-lg btn-block">Upload my clothes</button>-->
 
-                        {!! Form::submit('Upload my clothes', ['class' => 'btn btn-primary btn-danger btn-lg btn-block']) !!}
+                        {!! Form::submit('Upload', ['class' => 'btn btn-primary btn-danger btn-lg btn-block']) !!}
                     </div>
+
                 </div>
         {!! Form::close() !!} 
 
@@ -49,10 +50,11 @@
                 <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
                 <!--<p class="left-fukidashi">ハンガー</p>-->
                     <div class="tab">
-                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">WithinMyItems</button>
-                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">WithNewItems</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">From My Items</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">Get New Suggestions</button>
                     </div>
                      {!! Form::open(['route' => ['items.selected']]) !!}
+                    <input type="submit" name="itemSubmit" value="Next" class="submission item-next"/>
 
                     <div id="Myitem" class="tabcontent">
                         <div class=cloths>
@@ -77,7 +79,7 @@
                         </div>
                     </div>
                    
-                    <input type="submit" name="itemSubmit" value="Next" class="submission myitem-next"/>
+                    <!--<input type="submit" name="itemSubmit" value="Next" class="submission item-next"/>-->
                     
                     <!--<img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
                     
@@ -94,12 +96,7 @@
                     
                     
                     {!! Form::close() !!}    
-                    <style>
-                        .myitem-next {
-                            position:relative;
-                            margin:0;
-                        }
-                    </style>
+                    
             </div>           
         </div>
                

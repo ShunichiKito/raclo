@@ -16,7 +16,7 @@ use App\Stylist_profile_image;
         @foreach ($stylists as $stylist)
             <?php $item= Stylist_profile_image::where('user_name',$stylist->name)->first(); ?> 
             
-            <div class='row text-center pad-top col-md-4 col-sm-4 col xs-8'>
+            <div class='row text-center pad-top col-md-3 col-sm-3 col xs-8'>
                 <!--<div class='col-md-4 col-sm-4 col xs-8'>-->
                     <div class='panel panel-icon'>
                         <div class='panel-heading panel-heading-icon'>

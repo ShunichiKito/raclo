@@ -1,6 +1,6 @@
 body {
     background-image: url("/room6.jpg"); 
-    background-size: 120%;
+    background-size: 150%;
 }
 .screen {
     background-image: url("/cabinet-575361_1280.png");
@@ -8,7 +8,7 @@ body {
     width: 800px;
     height: 750px;
     margin: 0 auto;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     z-index:1;
     padding-top:10px;
 }
@@ -73,11 +73,12 @@ body {
     z-index: 2;
     margin-top: 24px;
     margin: 0 auto;
-    /*position: absolute !important;*/
+    position: absolute !important;
     /* background-color: orange; */
     /* opacity: 0.4; */
-    width: 900px;
-    margin-left: 110px;
+    width: 650px;
+    /*margin-left: 110px;*/
+    /*height:1500px;*/
     
 }
 
@@ -116,7 +117,7 @@ body {
 .tabcontent {
    /*display: none;*/
    width:493px;
-   height: 700px;
+   height: 680px;
    border: none;
    margin-top:54px;
    margin-left:147px;
@@ -153,8 +154,8 @@ body {
     /*background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);*/
     /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);*/
     /*border-bottom: solid 3px #c58668;*/
-    margin-top:50px;
-    margin-left:700px;
+    margin-top:-111px;
+    margin-left:600px;
     font-size:25px;
     position:absolute;
 }

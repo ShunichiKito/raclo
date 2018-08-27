@@ -39,5 +39,8 @@
     font-size: 20px;
     /*color:white;*/
     background-color:white;
+
+       border-radius: 4px;
+padding-top:3px;
 }
 

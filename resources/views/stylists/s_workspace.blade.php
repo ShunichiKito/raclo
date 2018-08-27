@@ -32,7 +32,7 @@
             <div class="tab tab_size_container">
                 <button class="tablinks" onclick="openTab(event, 'withmyitems')" id="defaultOpen">Coordinate</button>
                 <button class="tablinks" onclick="openTab(event, 'withnewitems')">Suggestion</button>
-                <button class="tablinks" onclick="openTab(event, 'BrandAvenue')">Brand Avenue</button>
+                <button class="tablinks" onclick="openTab(event, 'BrandAvenue')">Rakuten Ichiba</button>
             </div>
             
             <div id="withmyitems" class="tabcontent">

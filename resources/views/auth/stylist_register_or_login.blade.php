@@ -8,7 +8,8 @@
 <div class="row">
     <div class="col-xs-12">
         <nav class="navbar navbar-inverse !important">
-             <img src="Raclo.jpg" class="logo navbar-left">
+             <img src="{{secure_asset("logo_Raclo.PNG")}}" class="logo navbar-left">
+
 
 	        <div class="container-fluid">
 		        <div class="navbar-header">

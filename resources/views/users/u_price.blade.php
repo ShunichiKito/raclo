@@ -15,7 +15,7 @@
     
             <h1 class="title text-center" style="font-size:60px">Choose your plan</h1>
             <!--</div>-->
-            		<h1 style="text-align:center;">Plan for coordinating within My Items</h1>
+            		<h1 style="text-align:center;">Plans for "From My Items"</h1>
                 <br><br><br>
                 <div class="col-lg-4 col-md-8">
                     <div class="card card-product">
@@ -80,9 +80,10 @@
                         </div>
                     </div>
                 </div>
-                
+                <!--<div class="making-space">-->
+                <!--</div>-->
                 <div class= "col-lg-12 col-ml-6">
-            <h1 style="text-align:center" >Plan for coordinating with New Items</h1>
+            <h1 style="text-align:center" >Plans for "Get New Suggestions"</h1>
                 </div>
                 <div class="col-lg-4 col-md-8">
                     <br><br>

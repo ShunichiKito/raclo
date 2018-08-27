@@ -7,6 +7,7 @@ use App\Order;
 
 @extends('layouts.user_app')
 
+<link rel="stylesheet" type="text/css" href="{{ secure_asset('css/ordercomp.css') }}">
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
@@ -49,7 +50,7 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
             </div>
             <br>
             
-            <div id="withmyitems" class="tabcontent">
+            <div id="withmyitems" class="tabcontents">
                 <div class="closet-items">
                 <!--item変数を追加してから以下を実行する-->
                     @if (Auth::check())
@@ -59,7 +60,7 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
             </div>
             
             
-            <div id="withnewitems" class="tabcontent">
+            <div id="withnewitems" class="tabcontents">
                 <div class="closet-items">
                     <!--item変数を追加してから以下を実行する-->
                     @if (Auth::check())
@@ -72,8 +73,10 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
         
             <div class='panel-body'>
                 <h4>1. 注文に応じてFrom My ItemsとGet New Suggestionsのタブから注文したいアイテムを選択してください</h4>
-                <div class="button" id="buttonitem">
-                    <a href="{{ route('home') }}" class="btn btn-info" role="button">Select Items</a>
+            </div>
+            <div class='panel-footer leftpanel'>    
+                <div class="stylist-button">
+                    <a href="{{ route('home') }}" class="btn btn-info centerbottun" role="button">Select Items</a>
                 </div>
             </div>
         </div>    
@@ -83,7 +86,7 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
             <script>
             function openTab(evt, cityName) {
                var i, tabcontent, tablinks;
-               tabcontent = document.getElementsByClassName("tabcontent");
+               tabcontent = document.getElementsByClassName("tabcontents");
                for (i = 0; i < tabcontent.length; i++) {
                    tabcontent[i].style.display = "none";
                }
@@ -103,7 +106,7 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
             
         <div class="col-xs-4">
             <div class="panel panel-default" id="panel2">
-                <div class='panel-heading' id="sprofile">
+                <div class='panel-heading sprofile' id="sprofile">
                     @if(isset($item->file_path))
                         <img src="{{ '/storage/s_profile_image/'.$item->file_path }}" alt="" class="profile_image profile_page">
                         <style type="text/css">
@@ -117,53 +120,57 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
                     @endif
                 </div>
                 
-                <div class="panel-body">
+                <div class="panelcenter-body">
                     <h3>
+                        Stylist name:  
                         <?php if(isset($stylist)){ print $stylist->name; } ?>
                     </h3> 
                     <h3>
+                        Class: 
                         <?php if(isset($stylist)){ print $stylist->rank; } ?>
                     </h3>
-                    <br>
+                    <!--<br>-->
                     <h4>2. 好みのスタイルや料金に応じた<br>スタイリストを選択してください</h4>
-                    <div class="button" id="button1">
-                    <a href="{{ route('s_index') }}" class="btn btn-info" role="button">Choose Stylist</a>
+                </div>
+                <div class="panel-footer stylistbtn">
+                    <div class="stylistbutton">
+                    <a href="{{ route('s_index') }}" class="btn btn-info button3" role="button">Choose Stylist</a>
                     </div>
                 </div>
             </div>
         </div>
         
         <div class="col-xs-3">
-            <div class="panel panel-default" id="panel3">
-                <div class='panel-body'>
+            <div class="panel panel-danger" id="panel3">
+                <div class='panel-heading'>
 
                     <p>Stylist : <?php if(isset($stylist)){print $stylist->name; } ?></p>
-                    <p>Rank : <?php if(isset($stylist)){print $stylist->rank; } ?></p>
+                    <p>Class : <?php if(isset($stylist)){print $stylist->rank; } ?></p>
                     <p>My Items Coordinate: <?php print $order->myitems_conumber; ?></p>
                     <p>New Items Coordinate: <?php print $order->newitems_conumber; ?></p>
                     <p>Price : <?php 
                     if(isset($stylist->rank)){
                             if($stylist->rank="legend") {
-                                $price= 5*$order->myitems_conumber+3*$order->newitems_conumber;
+                                $price= 500*$order->myitems_conumber+300*$order->newitems_conumber;
                             }elseif($stylist->rank="pro") {
-                                $price= 3*$order->myitems_conumber+2*$order->newitems_conumber;
+                                $price= 300*$order->myitems_conumber+200*$order->newitems_conumber;
                             }else {
-                                $price= 1.5*$order->myitems_conumber+1*$order->newitems_conumber;
+                                $price= 150*$order->myitems_conumber+100*$order->newitems_conumber;
                             }
                             $order->price = $price;
                             $order->save();
-                            print "$".$price;
+                            print "¥".$price;
                     } ?></p>
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-               <h4>3. 注文内容を確認の上、<br>注文を完了してください</h4>
+                <div class="panel-body">
+                   <h4>3. 注文内容を確認の上、<br>注文を完了してください</h4>
+               </div>
+               <div class="panel-footer paybtn">
                <div class="button" id="button3">
                     <a href="{{ route('u_ordercomp') }}" class="btn btn-danger" role="button" onclick='return confirm("Order Confirmed");'>Order Complete</a>
                 </div>
+                </div>
+                
             </div>
         </div>
        
@@ -174,109 +181,105 @@ $item= Stylist_profile_image::where('user_name',$stylist->name)->first();
 @endif
 @endsection
 
-<style>
+
+<!--    body {-->
+<!--    background-image: url("/room6.jpg"); -->
+<!--    background-size: 100%;-->
+<!--}-->
     
-    body {
-    background-image: url("/room6.jpg"); 
-    background-size: 100%;
-}
+<!--    #panel2{-->
+<!--        height: 505px;-->
+<!--    }-->
     
-    #panel2{
-        height: 505px;
-    }
+<!--    #panel3{-->
+<!--        height: 350px;-->
+<!--    }-->
     
-    #panel3{
-        height: 350px;
-    }
+<!--    #button1 {-->
+<!--        bottom: 20;-->
+<!--        text-align: center;-->
+<!--        left: 45;-->
+<!--    }-->
     
-    #button1 {
-        bottom: 20;
-        text-align: center;
-        left: 45;
-    }
+<!--    #buttonitem {-->
+<!--        bottom: 20;-->
+<!--        text-align: center;-->
+<!--        left: 90;-->
+<!--    }-->
     
-    #buttonitem {
-        bottom: 20;
-        text-align: center;
-        left: 90;
-    }
+<!--    #button3 {-->
+<!--        bottom: 20;-->
+<!--        text-align: center;-->
+<!--        left: 45;-->
+<!--    }-->
     
-    #button3 {
-        bottom: 20;
-        text-align: center;
-        left: 45;
-    }
+<!--    .panel-heading1 {-->
+<!--        overflow: scroll;-->
+<!--        position: relative;-->
+<!--        height: 50%;-->
+<!--        width: 100%;-->
+<!--        background-color: #f5f5f5;-->
+<!--        border-color: #ddd;-->
+<!--    }-->
     
-    .panel-heading1 {
-        overflow: scroll;
-        position: relative;
-        height: 50%;
-        width: 100%;
-        background-color: #f5f5f5;
-        border-color: #ddd;
-    }
+<!--    h4 {-->
+<!--        text-align: center;-->
+<!--    }-->
     
-    h4 {
-        text-align: center;
-    }
+<!--    #sprofile {-->
+<!--        height: 50%;-->
+<!--    }-->
+<!--    p {-->
+<!--        margin: 0;-->
+<!--        font-size: 22;-->
+<!--    }-->
+<!--    
     
-    #sprofile {
-        height: 50%;
-    }
-    p {
-        margin: 0;
-        font-size: 22;
-    }
-    .panel-body {
-        height: 50%;
-    }
-    
-    .tab button.active {
-        background-color: #5bc0de;
-    }
+<!--    .tab button.active {-->
+<!--        background-color: #5bc0de;-->
+<!--    }-->
         
-    .tabcontent {
-        margin-left: 30;
-        display: inline-block;
-    }
-    li.before_co_li {
-        display: inline-block;
-    }
+<!--    .tabcontent {-->
+<!--        margin-left: 30;-->
+<!--        display: inline-block;-->
+<!--    }-->
+<!--    li.before_co_li {-->
+<!--        display: inline-block;-->
+<!--    }-->
     
-    h3 {
-        text-align: center;
-    }
+<!--    h3 {-->
+<!--        text-align: center;-->
+<!--    }-->
     
-    .tablinks {
-        font-size: 23px;
-    }
-    .button {
-        position: absolute;
-        margin-left: 100;
-        margin-top: 30;
-    }
+<!--    .tablinks {-->
+<!--        font-size: 23px;-->
+<!--    }-->
+<!--    .button {-->
+<!--        position: absolute;-->
+<!--        margin-left: 100;-->
+<!--        margin-top: 30;-->
+<!--    }-->
     
-    .button1 {
-        bottom: 0;
-        top: 50;
-    }
+<!--    .button1 {-->
+<!--        bottom: 0;-->
+<!--        top: 50;-->
+<!--    }-->
     
-    .row {
-        font-family: "Abril-Fatface";
-    }
+<!--    .row {-->
+<!--        font-family: "Abril-Fatface";-->
+<!--    }-->
     
-    .navbar {
-        font-family: "Abril-Fatface";
-    }
+<!--    .navbar {-->
+<!--        font-family: "Abril-Fatface";-->
+<!--    }-->
     
-    .img {
-        height: 100%;
-        width: 50%;
-    }
+<!--    /*.img {*/-->
+<!--    /*    height: 200%;*/-->
+<!--    /*    width: 50%;*/-->
+<!--    /*}*/-->
     
-    /*.profile-image {*/
-    /*    position: absolute;*/
-    /*    margin-left: 50;*/
-    /*}*/
+<!--    /*.profile-image {*/-->
+<!--    /*    position: absolute;*/-->
+<!--    /*    margin-left: 50;*/-->
+<!--    /*}*/-->
     
-</style>
