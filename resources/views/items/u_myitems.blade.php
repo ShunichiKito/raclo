@@ -7,7 +7,7 @@
 
 <div class="form-group">
         {!! Form::label('How Many Coordinates from My Items?') !!} 
-        {{Form::select('myitems_conumber', ['1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10','11'=>'11','12'=>'12','13'=>'13','14'=>'14','15'=>'15'], 'how many coordinates?' )}}
+        {{Form::select('myitems_conumber', ['0'=>'0','1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10','11'=>'11','12'=>'12','13'=>'13','14'=>'14','15'=>'15'], 'how many coordinates?' )}}
 </div>    
 @foreach ($items as $key => $item)
 

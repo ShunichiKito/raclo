@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="{{ secure_asset('css/u_navbar.css') }}">
 <nav class="navbar navbar-inverse" >
- <img src="{{secure_asset("Raclo.jpg")}}" class="logo navbar-left">
+<img src="{{secure_asset("logo_Raclo.PNG")}}" class="logo navbar-left">
+
 
   <div class="container-fluid">
     <div class="user-navstyle">
