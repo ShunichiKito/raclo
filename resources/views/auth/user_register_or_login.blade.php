@@ -50,25 +50,25 @@
     <!--                <h1 class="catchcopy"> ~~ Get New Coordinate! ~~ </h1>-->
     <!--            </div>-->
                 
-    <!--            <div class="panel-body">-->
-    <!--                <br>-->
-    <!--                <ul class="struggle">-->
-    <!--                    <li>毎朝のコーディネートがめんどくさい！</li>-->
-    <!--                    <li>購入したものの、クローゼットの奥深くに眠っている服はありませんか?</li>-->
-    <!--                    <li>いつも同じような服の組み合わせをしていませんか？</li>-->
-    <!--                </ul>-->
-    <!--             <br> <br>-->
-                 <!--<h3>そこのあなたこころあたりありませんかｗｗｗｗ</h3>-->
-    <!--             <br>-->
-                 <!--<h3>その悩み解決しちゃうわよ！！！！！！</h3>-->
-    <!--             <br><br>-->
-    <!--             <h2>Racloは経験豊かなスタイリストに自分の服の新しい組み合わせやそれに合わせた新しい服の提案・コーディネートをしてもらえるサービスです。</h2>-->
-
+                
+        <div class="panel-body">
+                <br>
+                 <ul class="struggle">
+                        <li>Have you ever had any problems coming up with your own outfit?</li>
+                        <li>Are there any clothes that you've bought but ended up not wearing at all?</li>
+                        <li>Have you ever imagined yourself wearing the same kind of clothes over and over again?</li>
+                 </ul>
+                <br> 
+                <h3>If so,</h3>
+                <h2>Raclo will be the right solution for you.</h2>
+                <br>
+                <h3>Raclo is a service that provides you with full outfit using your own clothes and/or with new items that suits your original items, supervised by experienced stylists.</h3>
+                <br><br>
                  
                  
-    <!--            </div>-->
-    <!--        </div> -->
-    <!--    </div>-->
+        </div>
+      </div> 
+    </div>
         
     <div class="col-xs-offset-1 col-xs-3 col-xs-offset-1">
         <div class="panel registration">
