@@ -233,11 +233,12 @@
                 }
                 var countUpValue = 0;
                 $("button#save").click(function() {
-                   
+                   localStorage.clear();
                    function countUp(){
                         countUpValue++;
                     }
                    countUp();
+                   var items = [];
                    var items = $("li", $("#coordinate_set"));
                 　　//   var item_pathes = $("li > a", $("#coordinate_set"));
                    
