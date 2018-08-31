@@ -276,7 +276,7 @@
                 });
                 $("button#clear").click(function() {
                      localStorage.clear();
-                    $("ul#storedItems li").remove();
+                    $("div#coordinate_set li").remove();
                     // $("input[type='hidden']").remove();
                 });
             });   
