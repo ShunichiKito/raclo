@@ -1,4 +1,3 @@
-
 @extends('layouts.user_app')
 
 @section('content')
@@ -13,7 +12,6 @@
         				$(this).toggleClass("check");
         			});
             	}); 
-            	
         </script>
     </head>
     <body>
@@ -50,9 +48,19 @@
                 <!--<a href="u_mycoordinates"><img src="laundry-basket-2414021_1280.png" class="lefty" alt=""></a>-->
                 <!--<p class="left-fukidashi">ハンガー</p>-->
                     <div class="tab">
-                        <button class="tablinks" onclick="openCloset(event, 'Myitem')" id="defaultOpen">From My Items</button>
-                        <button class="tablinks" onclick="openCloset(event, 'Newitem')">Get New Suggestions</button>
+                        <button class="tablinks" onclick="openCloset(event, 'Myitem');fukidashi" id="defaultOpen">From My Items</button>
+                        <!--<p class="fukidashi">吹き出しが表示されます</p>-->
+                        <button class="tablinks" onclick="openCloset(event, 'Newitem');fukidashi2">Get New Suggestions</button>
+                        <!--<p class="fukidashi2">吹き出しが表示されます</p>-->
+                        
+                        
+ 
+                    
                     </div>
+                    
+                    
+                    
+                    
                      {!! Form::open(['route' => ['items.selected']]) !!}
                     <input type="submit" name="itemSubmit" value="Next" class="submission item-next"/>
 
@@ -63,6 +71,7 @@
                             <!--item変数を追加してから以下を実行する-->
                             @if (Auth::check())
                                @include('items.u_myitems', ['items' => $items ])
+                               @include('users.popup')
                             @endif
                             
                         </div>
@@ -75,6 +84,7 @@
                             <!--item変数を追加してから以下を実行する-->
                             @if (Auth::check())
                                @include('items.u_newitems', ['items' => $items ])
+                                @include('users.popup2')
                             @endif
                         </div>
                     </div>
